@@ -1,78 +1,165 @@
 # Design — Reference
 
-See [SKILL.md](SKILL.md) for routing table, setup, commands, and absolute bans.
+See [SKILL.md](SKILL.md) for routing, gates, persona, protocols.
 
 ## Setup Details
 
 ### Context gathering
 Two files, case-insensitive:
-- **PRODUCT.md**: required. Users, brand, tone, anti-references, strategic principles.
-- **DESIGN.md**: optional, strongly recommended. Colors, typography, elevation, components.
+- **PRODUCT.md**: required. Users, brand, tone, principles, persona profiles.
+- **DESIGN.md**: optional. Colors, typography, elevation, tokens.
 
 Load both: `node {{scripts_path}}/load-context.mjs`
 
 ### Register
-Every design task is **brand** (marketing, landing, portfolio) or **product** (app UI, dashboard, tool).
-Identify before designing. Load matching reference: `reference/brand.md` or `reference/product.md`.
+Every task is **brand** (marketing, landing) or **product** (app UI, dashboard). Load matching register reference before work.
 
-## Shared Design Laws (Detailed)
+### Persona Profile
+If multiple personas, `build --shape` documents them in PRODUCT.md. All commands read and enforce.
+
+## Shared Design Laws
 
 ### Color
-- Use OKLCH. Reduce chroma as lightness approaches 0 or 100.
-- Never use `#000` or `#fff`. Tint every neutral toward the brand hue.
-- Pick a color strategy: **Restrained** (one accent ≤10%), **Committed** (one color 30-60%), **Full palette** (3-4 roles), **Drenched** (surface IS the color).
-
-### Theme
-Write one sentence of physical scene before choosing dark/light. If the sentence doesn't force the answer, add detail until it does.
+- **OKLCH only.** Never #000/#fff. Tint neutrals toward brand hue (chroma < 0.02).
+- **4 commitment levels:** Restrained (1 accent ≤10%) / Committed (1 color 30-60%) / Full palette (3-4 roles) / Drenched (surface IS color).
+- **60-30-10 rule:** 60% primary, 30% secondary, 10% accent. If accent >10%, it's not an accent.
+- **Theme:** Write one sentence of physical scene before dark/light. If sentence doesn't force answer, add detail til it does.
+- **Colorblind simulation:** Check deuteranopia, protanopia, tritanopia. If primary/secondary merge, swap lightness.
+- **Refuse generic tech hue:** Blue-violet CTAs and blue-purple gradients signal nothing. Pick hue with reason.
 
 ### Typography
-- Cap body line length at 65-75ch.
-- Hierarchy through scale + weight contrast (≥1.25 ratio between steps).
+- **Body measure:** 60-76ch. Wider loses line; narrower feels breathless.
+- **Scale:** 1.25× ratio minimum. Flat scales read as uncommitted.
+- **3-level hierarchy:** Hook (heading) → Bridge (subtitle) → Detail (body). Not 2, not 4.
+- **Reading distance:** `optimal = (distance_inches × 0.035) × 16`. Phone 16-20px, laptop 24-32px, monitor 28-36px.
+- **Light-on-dark compensation:** More line-height, trace of letter-spacing, heavier weight.
+- **System fonts are legitimate.** Don't reach for Inter/Plus Jakarta/Geist by reflex.
 
 ### Layout
-- Vary spacing for rhythm. Same padding everywhere is monotony.
-- Cards are the lazy answer.
-- Don't wrap everything in a container.
+- **1-4-9 rhythm:** Spacing in multiples of 1 (4px), 4 (16px), or 9 (36px). No in-betweens.
+- **3-plane depth:** Background (z -1/0) / Content (z default) / Attention (z highest).
+- **Composition mass:** `Mass = size × contrast × distance-from-center`. Score 80+ = equilibrium.
+- **Cliffhanger:** Leave 40-80px of next section visible. Brain can't resist scrolling.
+- **Cards are lazy.** Use only when content is genuinely discrete. No nested cards.
+- **Z-index scale:** Semantic (dropdown → sticky → modal-backdrop → modal → toast → tooltip). Never 999.
+- **Surface patterns:** 7 surfaces: Monitor / Operate / Compare / Configure / Learn / Decide / Explore.
 
 ### Motion
-- Don't animate CSS layout properties.
-- Ease out with exponential curves. No bounce, no elastic.
+- **Animation decision framework:** 4 questions before writing code:
+  1. Should this animate? Frequency: 100+/day = never. Tens/day = reduce. Occasional = standard. Rare = delight.
+  2. What purpose? Spatial consistency / State indication / Explanation / Feedback / Prevent jarring.
+  3. What easing? Enter = ease-out. Move on-screen = ease-in-out. Hover = ease. Constant = linear.
+  4. How fast? Button press 100-160ms. Tooltips 125-200ms. Dropdowns 150-250ms. Modals 200-500ms. UI under 300ms.
+- **Custom easing curves:** `ease-out: cubic-bezier(0.23, 1, 0.32, 1)`. Built-in CSS easings too weak.
+- **Spring physics:** `{ type: "spring", duration: 0.5, bounce: 0.2 }`. Use for drag, gestures, decorative mouse-tracking.
+- **Never animate from scale(0):** Start at 0.9-0.95 + opacity 0. Nothing appears from nothing.
+- **@starting-style** for entry animations without JS.
+- **Blur-crossfade:** `filter: blur(2px)` during state transitions masks imperfect overlap.
+- **3-beat entrance:** Appear (scale 0.95, opacity 0) → Overshoot (scale 1.02, opacity 0.8) → Settle (scale 1, opacity 1). Heartbeat rhythm.
+- **Stagger cascade:** `delay = index × 20ms + jitter(±5ms)`. Never uniform delays.
+- **Animate only transform + opacity.** Never layout. Exits at 70% of entrance duration.
+- **Reduced motion:** 4-level UI slider: None (instant) / Reduced (100ms fades) / Standard (full) / Enhanced (expressive).
 
-### The AI Slop Test
-Two altitudes:
-1. **First-order:** if someone could guess the theme+palette from category alone, rework the scene sentence and color strategy.
-2. **Second-order:** if someone could guess the aesthetic family from category-plus-anti-references, rework until both answers are not obvious.
+### Interaction
+- **9 states of being:** Every component in all 9: Idle / Hover / Active / Focused / Loading / Empty / Error / Disabled / Overflow.
+- **Focus rings:** 2-3px width, offset, 3:1 contrast. Never `outline: none` without replacement.
+- **Touch targets:** Minimum 44×44px (48×48px comfortable). Elderly: 56×56px.
+- **Undo beats confirm:** Prefer undo for delete/move/edit/toggle. Confirm only for irreversible actions.
+- **Labels always visible:** Placeholders show format, disappear on focus. Never placeholder as label.
+- **Origin-aware popovers:** Scale from trigger, not center. Exception: modals stay centered.
+- **Tooltip skip-delay:** First tooltip delays. Subsequent tooltips open instantly.
+- **Button press:** `transform: scale(0.97)` on :active. 160ms ease-out.
+- **CSS transitions > keyframes** for interruptible UI. Keyframes restart from zero.
 
-## Commands Reference
+### Responsive
+- **Viewport gauntlet:** 320px (iPhone SE) / 375px (iPhone) / 768px (iPad) / 1024px (laptop) / 1440px (desktop) / 2560px (ultrawide).
+- **Thumb zone:** Bottom 25% reachable one-hand. Primary actions there. Destructive in top 25%.
+- **Input mode detection:** `pointer: coarse` for touch sizing. `hover: hover` for hover affordances.
+- **Container queries:** Components respond to container, not page. Same `<Card>` adapts sidebar vs main.
+- **Notch handling:** `env(safe-area-inset-*)` + `viewport-fit=cover`.
+- **Never amputate feature for mobile.** "Not available on mobile" is a bug.
 
-| Command | Category | Description |
-|---------|----------|-------------|
-| `craft` | Build | Shape, then build a feature end-to-end |
-| `shape` | Build | Plan UX/UI before writing code |
-| `teach` | Build | Set up PRODUCT.md and DESIGN.md context |
-| `document` | Build | Generate DESIGN.md from existing project code |
-| `extract` | Build | Pull reusable tokens into design system |
-| `critique` | Evaluate | UX design review with heuristic scoring |
-| `audit` | Evaluate | Technical quality checks (a11y, perf, responsive) |
-| `polish` | Refine | Final quality pass before shipping |
-| `bolder` | Refine | Amplify safe or bland designs |
-| `quieter` | Refine | Tone down aggressive designs |
-| `distill` | Refine | Strip to essence |
-| `harden` | Refine | Production-ready: errors, i18n, edge cases |
-| `onboard` | Refine | Design first-run flows, empty states |
-| `animate` | Enhance | Add purposeful animations |
-| `colorize` | Enhance | Add strategic color |
-| `typeset` | Enhance | Improve typography |
-| `delight` | Enhance | Add personality and memorable touches |
-| `overdrive` | Enhance | Push past conventional limits |
-| `clarify` | Fix | Improve UX copy and error messages |
-| `adapt` | Fix | Adapt for different devices/screen sizes |
-| `optimize` | Fix | Diagnose and fix UI performance |
-| `surface` | Knowledge | List and describe surface patterns for planning |
-| `live` | Iterate | Visual variant mode: pick elements, generate alternatives |
+### Copy
+- **One verb per button.** Name the action. Not OK/Confirm/Yes.
+- **Errors are recovery paths.** Tell what broke, why if it matters, what next. Specific beats polite.
+- **Empty states teach.** Say what belongs here, why it matters, what action fills it.
+- **Loading names the work.** "Uploading", "Syncing", "Importing". Not "Loading...".
+- **No em dashes.** Use comma, colon, or new sentence.
+- **No exclamation points.** Reads as desperate.
+- **Sentence case everywhere.** "Save changes" not "Save Changes".
+- **Strip filler.** Restated headings, marketing preamble, transition sentences.
+
+## Commands
+
+### audit
+| Mode | What | Load |
+|------|------|------|
+| critique | UX judgment call with heuristic scoring | reference/critique.md |
+| audit | Technical quality (a11y, perf, responsive) | reference/audit.md |
+| polish | Final pre-ship pass | reference/polish.md |
+| checkup | Health scan with traffic-light scores, writes report | reference/checkup.md |
+| smell | AI-tells catalog, writes report | reference/smell.md |
+| review | Design review with scoring, writes report | reference/review.md |
+| overdrive | Push past conventional limits | reference/overdrive.md |
+
+### refine
+| Mode | What | Load |
+|------|------|------|
+| bolder | Amplify safe or bland designs | reference/bolder.md |
+| quieter | Tone down aggressive designs | reference/quieter.md |
+| distill | Strip to essence | reference/distill.md |
+| harden | Edge cases, i18n, error states | reference/harden.md |
+| deslop | Remove AI slop (consumes smell report) | reference/deslop.md |
+| refine | Change design character | reference/refine.md |
+
+### systems
+| Mode | What | Load |
+|------|------|------|
+| colorize | Color palette + roles | reference/colorize.md |
+| typeset | Typography system | reference/typeset.md |
+| layout | Spacing, rhythm, hierarchy | reference/layout.md |
+| animate | Motion system + animation | reference/animate.md |
+| interaction | States, behavior, affordances | reference/interaction.md |
+| responsive | Multi-screen orchestration | reference/responsive.md |
+
+### build
+| Mode | What | Load |
+|------|------|------|
+| craft | Feature end-to-end | reference/craft.md |
+| shape | UX plan before code | reference/shape.md |
+| init | Project context setup | reference/init.md |
+| document | Generate DESIGN.md | reference/document.md |
+| extract | Pull tokens/components | reference/extract.md |
+| redesign | Complete visual transformation | reference/redesign.md |
+| setup | Project brief context | reference/setup.md |
+
+### fix
+| Mode | What | Load |
+|------|------|------|
+| clarify | UX copy, labels, errors | reference/clarify.md |
+| adapt | Responsive adaptation | reference/adapt.md |
+| optimize | UI performance | reference/optimize.md |
+| onboard | First-run flows, empty states | reference/onboard.md |
+| voice | Brand identity, art direction | reference/voice.md |
+| access | Accessibility: screen reader, WCAG, high contrast, font scaling, voice nav | reference/access.md |
+
+### iterate + manage
+| Mode | What | Load |
+|------|------|------|
+| live | Browser iteration / HMR | reference/live.md |
+| delight | Micro-interactions, personality | reference/delight.md |
+| pin/unpin/hooks | Shortcuts + auto-detection | n/a (scripts) |
 
 ## Pin/Unpin
 
 ```bash
 node {{scripts_path}}/pin.mjs <pin|unpin> <command>
 ```
+
+## Report Templates
+
+- `reference/checkup-report-html.md` — template for checkup HTML report
+- `reference/smell-report-html.md` — template for smell HTML report
+- `reference/review-report-html.md` — template for review HTML report
+
+Reports are `.design-skill/<mode>-report.md` + `.html`. No browser dep. Template-based.
