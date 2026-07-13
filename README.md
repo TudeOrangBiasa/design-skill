@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="design-skill" width="100%">
+</p>
+
 # Design Skill
 
 Design partner for frontend interfaces. One skill covers every visual discipline: color, typography, layout, motion, interaction, responsive behavior, accessibility, copy, and review.
