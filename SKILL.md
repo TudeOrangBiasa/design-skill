@@ -4,15 +4,16 @@ description: >-
   Design partner for frontend work. Two skill types, two invocation modes.
   PROCEDURE skills (step sequences: audit, checkup, smell, polish, deslop, fix)
   and ABILITY skills (capabilities: colorize, typeset, layout, animate,
-  interaction, responsive, access). MODEL-INVOKED: auto-load when AI-slop or
-  design smells are detected in existing UI (generic card grids, purple-blue
-  gradients, template heroes, repetitive sections) or when the task is
-  procedure+ability work on an existing surface — detect, report, propose fixes,
-  wait for confirm. USER-INVOKED: planning skills (build, shape, craft, setup,
-  init, redesign) load when the user asks for new or redesigned work — interview
-  first, every question carries a recommendation, never code before the brief is
-  confirmed. PRODUCT.md / DESIGN.md / brief.md are optional accelerators; their
-  absence never blocks work, ask the user instead.
+  interaction, responsive, access). MODEL-INVOKED: auto-load when AI-slop,
+  layout smells (functional or artistic), or design smells are detected in
+  existing UI (generic card grids, purple-blue gradients, template heroes,
+  repetitive sections, broken hierarchy, voiceless composition) or when the
+  task is procedure+ability work on an existing surface — detect, report,
+  propose fixes, wait for confirm. USER-INVOKED: planning skills (build, shape,
+  craft, setup, init, redesign) load when the user asks for new or redesigned
+  work — interview first, every question carries a recommendation, never code
+  before the brief is confirmed. PRODUCT.md / DESIGN.md / brief.md are optional
+  accelerators; their absence never blocks work, ask the user instead.
 argument-hint: "[{{command_hint}}] [target]"
 license: Apache 2.0. Based on Anthropic's frontend-design skill + CommandCode design + Emil Kowalski's design engineering. See NOTICE.md for attribution.
 ---
@@ -31,7 +32,7 @@ Two skill types, two ways in.
 | Ability | Capability applied on demand | colorize, typeset, layout, animate, interaction, responsive, access, live | Model or user |
 | Planning | Design before code: interview → brief → confirm | build, shape, craft, setup, init, redesign | User only |
 
-**Model-invoked (auto).** Load without being asked when the model detects design smells in existing UI — AI-slop tells (identical card grids, purple-blue gradients, template heroes, repetitive sections), broken states, a11y gaps — or when the work is procedure+ability: audit, checkup, polish, deslop, access, optimize. Detect → report → propose fixes. The user confirms before files change.
+**Model-invoked (auto).** Load without being asked when the model detects design smells in existing UI — AI-slop tells (identical card grids, purple-blue gradients, template heroes, repetitive sections), broken states, a11y gaps — or layout smells, functional or artistic: broken hierarchy, buried primary actions, voiceless composition, generic structure. Or when the work is procedure+ability: audit, checkup, polish, deslop, access, optimize. Detect → report → propose fixes. The user confirms before files change.
 
 **User-invoked (planning).** Load when the user asks for new or redesigned work: build, shape, craft, setup, init, redesign. These interview first — 2-3 questions per round, each carrying a recommendation. No code before the brief is confirmed.
 
