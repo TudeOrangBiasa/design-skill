@@ -13,7 +13,7 @@ If someone left after one viewport, what would they describe an hour later? If t
 These are the category defaults. Recognizing one means rewriting the hero, not softening it.
 
 - **The hero-metric template:** big number, small label, supporting stats, accent. Decorative numbers are never proof. Real, live user data can carry a metric, but the template itself is a tell.
-- **The centered-stack hero:** centered logo, centered headline, centered subhead, centered CTA, maybe a product screenshot below. The composition default of every generated page. Choose an arrangement with a reason.
+- **The centered-stack hero:** centered logo, centered headline, centered subhead, centered CTA, maybe a product screenshot below. The composition default of every generated page. Choose an arrangement with a reason. A short centered stack with a real demonstration below (before and after, the interface at work) can earn itself; the fatal version is a long sentence with nothing demonstrated.
 - **The eyebrow pill:** a tiny uppercase letter-spaced label or pill chip above the headline. Hard ban. The heading carries its own weight. A real stat line ("92 prompts, 15 categories") is still best worked into the headline or placed below it; plain text is less bad than a pill, but the reflex is the tell.
 - **Full-sentence display headline:** a long headline blown up to display size dominates the viewport and leaves nothing else above the fold. Punchy short headlines at that size are fine; long ones get smaller or tighter copy.
 - **The italic serif cliché:** Fraunces or Playfair italic at 96px as the default "tasteful" AI hero. Editorial registers may legitimately want it; judge by context, not by reflex.
@@ -21,6 +21,8 @@ These are the category defaults. Recognizing one means rewriting the hero, not s
 - **The fake prompt:** a blinking cursor or typed text where no input exists.
 - **The spotlight glow:** a soft accent radial gradient behind the headline, added because the composition felt empty. Fix the composition instead.
 - **A hero that restates the nav:** "Welcome to [Product]" plus a screenshot of the homepage. The hero must add information the nav does not.
+- **The library hero:** centered stack, version eyebrow pill ("v3.2.3", "101 components", "patch release"), CTA pair, social-proof row, floating glass demo cards, tab bar below. The component-library template; every generator ships this shape. A library site that wants to stand out breaks at least the stack and the eyebrow.
+- **The gradient CTA:** a CTA with a multi-color gradient and a blur bloom. Gradient text is banned; a gradient button is the same tell wearing a button.
 
 ## The doctrine
 
@@ -40,6 +42,9 @@ Text on one side, the artifact on the other, balanced off-center. Headline carri
 
 ### The product demonstration
 The hero IS the interface at work, full bleed or near it: a real session, real data, the cursor moving, the state changing. Best for tools where watching the work sells the work. The copy shrinks to a line and an action.
+
+### The utility register (dev tools)
+Mono accents, framed workspace lines, functional filter pills (these are filters, not eyebrows), a CLI command as the hero CTA, a before-and-after card pair. Legitimate for developer tools; the demonstration is the product, and the register reads as honest only when the mono and the framing are earned by the tool's nature.
 
 ### The editorial statement
 Display type as the dominant object, image secondary or absent. Best for brands where the voice is the product: publications, studios, portfolios. Requires type with real character; system faces do not qualify.
