@@ -65,6 +65,10 @@ A real, current datum doing something: a counter tied to live data, a before-and
 - Responsive: the hero composes at 320px without amputating the demonstration. The artifact scales, reflows, or reorders; it does not vanish.
 - States: the hero's primary action needs hover, focus-visible, active, and loading states like any other control.
 
+## Prompting a hero
+
+Structure first, components second, style anchor last (see [prompt-patterns.md](prompt-patterns.md)). Working examples from the vibeui library: "Create a hero section as a split layout, heading, subheading, and CTAs on one side, and a visual or product demo on the other", "Create a hero section with a looping video or animated background behind the heading text". The style-match suffix applies: "Match the visual style, colors, typography, and overall aesthetic of the UI shown in my screenshot."
+
 ## Verify the hero
 
 - Memory test: name the mechanism after one viewport.
