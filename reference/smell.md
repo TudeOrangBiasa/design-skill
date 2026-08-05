@@ -58,6 +58,27 @@ I look for the moment where the design stopped making project-specific decisions
 
 ---
 
+## Two Smell Lenses
+
+Smell applies two lenses to a layout, and judges both.
+
+**Functional smell (Operate, Read):** does the layout serve the task?
+- Hierarchy: can the eye find the primary action in two seconds?
+- Scanability: are groupings and separations legible at a glance?
+- Density: does spacing match the content type, or is everything one size?
+- States: are empty, error, loading, and disabled states present and honest?
+- Alignment: optical alignment, consistent rhythm, no stray gaps.
+- Structure: does the layout reflect the task's real order (see the surface patterns in REFERENCE.md)?
+
+**Artistic smell (Persuade, Experience):** does the layout have voice?
+- The odors list below: tech gradient, feature tile grid, center stack, and the rest.
+- Composition: did the arrangement come from the work or from habit?
+- Calibration: could the aesthetic be guessed from the category alone?
+
+A layout can pass one lens and fail the other. A functional Operate surface with perfect hierarchy can still smell from generic type and voiceless details. A striking Persuade hero can fail functionally with a buried CTA and no reading order. Judge both, and name which lens each finding belongs to.
+
+---
+
 ## The Odors I Track
 
 **Tech gradient**: blue-violet, indigo-cyan, and purple-to-teal glossy energy plastered on heroes, CTAs, cards, or text. The visual shorthand for "AI startup."

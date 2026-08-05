@@ -139,7 +139,7 @@ If multiple personas, `build --shape` documents them in PRODUCT.md. All commands
 | redesign | Complete visual transformation | reference/redesign.md |
 | setup | Project brief context | reference/setup.md |
 
-Specialized playbooks: [modes.md](modes.md) (surface lens), [new-work.md](new-work.md) (new surfaces and replacement worlds), [craft-floor.md](craft-floor.md) (quality floor before editing UI), [hero.md](hero.md) (hero-led Persuade surfaces).
+Specialized playbooks: [modes.md](modes.md) (surface lens), [new-work.md](new-work.md) (new surfaces and replacement worlds), [craft-floor.md](craft-floor.md) (quality floor before editing UI), [hero.md](hero.md) (hero-led Persuade surfaces), [landing-pages.md](landing-pages.md) (the five-beat narrative for landing pages).
 
 ### fix
 | Mode | What | Load |
