@@ -14,7 +14,7 @@ These are the category defaults. Recognizing one means rewriting the hero, not s
 
 - **The hero-metric template:** big number, small label, supporting stats, accent. Decorative numbers are never proof. Real, live user data can carry a metric, but the template itself is a tell.
 - **The centered-stack hero:** centered logo, centered headline, centered subhead, centered CTA, maybe a product screenshot below. The composition default of every generated page. Choose an arrangement with a reason.
-- **The eyebrow pill:** a tiny uppercase letter-spaced label or pill chip above the headline. Hard ban. The heading carries its own weight.
+- **The eyebrow pill:** a tiny uppercase letter-spaced label or pill chip above the headline. Hard ban. The heading carries its own weight. A real stat line ("92 prompts, 15 categories") is still best worked into the headline or placed below it; plain text is less bad than a pill, but the reflex is the tell.
 - **Full-sentence display headline:** a long headline blown up to display size dominates the viewport and leaves nothing else above the fold. Punchy short headlines at that size are fine; long ones get smaller or tighter copy.
 - **The italic serif cliché:** Fraunces or Playfair italic at 96px as the default "tasteful" AI hero. Editorial registers may legitimately want it; judge by context, not by reflex.
 - **Glass and gradient surfaces:** frosted panels and gradient text as the way to make the hero feel premium.
