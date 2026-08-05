@@ -1,0 +1,152 @@
+{
+  "source": "https://www.lapa.ninja/post/",
+  "scrapedAt": "2026-08-05T22:00:22.954Z",
+  "count": 24,
+  "notes": "Recent landing page archive entries; live URLs carry the ?ref=lapaninja suffix.",
+  "references": [
+    {
+      "slug": "clay-build-systems-to-grow-revenue",
+      "title": "Clay | Build systems to grow revenue",
+      "url": "https://www.clay.com/?ref=lapaninja",
+      "tagline": "Infrastructure to get any data, run agentic workflows, and launch GTM plays."
+    },
+    {
+      "slug": "goodside-studio",
+      "title": "Goodside Studio",
+      "url": "https://www.goodside.studio/?ref=lapaninja",
+      "tagline": "Goodside is an independent brand design studio transforming meaningful ideas into brands people feel, remember, and fall in love with."
+    },
+    {
+      "slug": "okaydev-co",
+      "title": "OKAY DEV",
+      "url": "https://okaydev.co/?ref=lapaninja",
+      "tagline": "A friendly space where creative web developers, designers and studios post work, connect with peers and collaborate."
+    },
+    {
+      "slug": "deadwater",
+      "title": "Deadwater",
+      "url": "https://www.deadwater.fr/?ref=lapaninja",
+      "tagline": "DEADWATER is a creative digital studio specializing in immersive websites, interactive experiences, and innovative digital storytelling."
+    },
+    {
+      "slug": "reducations",
+      "title": "Reducations",
+      "url": "https://www.reducations.com/?ref=lapaninja",
+      "tagline": "Learn from industry professionals. Explore part-time programs and Shorty's courses designed to grow your creative skills."
+    },
+    {
+      "slug": "united-carriers",
+      "title": "United Carriers",
+      "url": "https://unitedcarriers.com/?ref=lapaninja",
+      "tagline": "Freight forwarding, land transport, and customs brokerage, unified across APAC under one accountable team."
+    },
+    {
+      "slug": "taste-labs",
+      "title": "Taste Labs",
+      "url": "https://tastelabs.com/?ref=lapaninja",
+      "tagline": "We're giving AI models and agents taste. Join our mission to end AI slop."
+    },
+    {
+      "slug": "maxima-therapy",
+      "title": "Maxima Therapy",
+      "url": "https://maximatherapy.com/?ref=lapaninja",
+      "tagline": "Maxima Therapy provides compassionate, individualized programs for neurodivergent children, adults, and families."
+    },
+    {
+      "slug": "fairground-studio",
+      "title": "Fairground Studio",
+      "url": "https://fairground.studio/?ref=lapaninja",
+      "tagline": "Fairground Studio is a digital design agency in Greater London and Surrey crafting and elevating brands."
+    },
+    {
+      "slug": "teamwork-graph",
+      "title": "Teamwork Graph",
+      "url": "https://teamworkgraph.com/?ref=lapaninja",
+      "tagline": "Visualize your connected work context, query the graph, surface personal insights, and build AI experiences."
+    },
+    {
+      "slug": "seth-lukin",
+      "title": "Seth Lukin",
+      "url": "https://sethlukin.com/?ref=lapaninja",
+      "tagline": "A colorful corner of the internet where Seth shares design work across product, visual, and motion."
+    },
+    {
+      "slug": "tokens",
+      "title": "Tokens",
+      "url": "https://tokens.studio/?ref=lapaninja",
+      "tagline": "Tokens Studio is the design system platform for modern teams. Automate token workflows, bridge design and code."
+    },
+    {
+      "slug": "huehaus",
+      "title": "Huehaus Agency",
+      "url": "https://huehaus.design/?ref=lapaninja",
+      "tagline": "A Creative Design Studio that combines visual storytelling with unique ideas to help companies establish and grow their brands."
+    },
+    {
+      "slug": "greptile",
+      "title": "Greptile",
+      "url": "https://www.greptile.com/?ref=lapaninja",
+      "tagline": "AI Code Reviews that understand your entire codebase. Automate PR reviews, catch bugs faster."
+    },
+    {
+      "slug": "floema",
+      "title": "Floema",
+      "url": "https://www.floema.com/en?ref=lapaninja",
+      "tagline": "Signage, furniture, and equipment for building functional and sustainable spaces."
+    },
+    {
+      "slug": "monolog",
+      "title": "Monolog",
+      "url": "https://bymonolog.com/?ref=lapaninja",
+      "tagline": "Change-making branding and websites for established creative brands who refuse to be underestimated."
+    },
+    {
+      "slug": "farm-minerals",
+      "title": "Farm Minerals",
+      "url": "https://www.farmminerals.com/?ref=lapaninja",
+      "tagline": "Low-carbon, carbon-encapsulated fertilizers and feed additives."
+    },
+    {
+      "slug": "selvin-cortez",
+      "title": "Selvin Cortez",
+      "url": "https://selvincortez.com/?ref=lapaninja",
+      "tagline": "Photography that captures the feeling of exploring a new place for the very first time."
+    },
+    {
+      "slug": "quoti",
+      "title": "Quoti",
+      "url": "https://www.getquoti.ai/?ref=lapaninja",
+      "tagline": "The booking system home service businesses need to convert faster."
+    },
+    {
+      "slug": "nuraform",
+      "title": "Nuraform",
+      "url": "https://www.nuraform.com/?ref=lapaninja",
+      "tagline": "Create beautiful, intelligent forms powered by AI."
+    },
+    {
+      "slug": "flexion",
+      "title": "Flexion",
+      "url": "https://flexion.ai/?ref=lapaninja",
+      "tagline": "For those who refuse to settle for the status quo and dare to venture where others won't."
+    },
+    {
+      "slug": "hero-studios",
+      "title": "Hero Studios",
+      "url": "https://www.herostudios.tv/?ref=lapaninja",
+      "tagline": "A motion design and animation studio creating systems, stories, and solutions for global brands."
+    },
+    {
+      "slug": "gianluca-patti",
+      "title": "Gianluca Patti",
+      "url": "https://glcpatti.com/?ref=lapaninja",
+      "tagline": "Illustration, character design and frame-by-frame animation by Gianluca Patti."
+    },
+    {
+      "slug": "structured",
+      "title": "Structured",
+      "url": "https://www.structured.money/?ref=lapaninja",
+      "tagline": "maxBTC is liquid, yield-bearing Bitcoin with BTC price exposure."
+    }
+  ]
+}
