@@ -65,9 +65,12 @@ And the agent stays terse: briefs are compact, reports are scannable, questions 
 |-----------|-------|------|
 | Unknown codebase | `audit` → report → fix | reference/brand.md |
 | "slop" / "kacau" / "numpuk" | `audit --smell` → `refine --deslop` → `systems --layout` | reference/smell.md |
-| "bikin X dari 0" | `build --init` → `build --shape` → `build --craft` | reference/craft.md |
-| "tambahin accessibility" | `fix --access` | reference/access.md |
-| "bikin lebih X" / "kurangin X" | `refine` — auto-detect mode | per mode |
+| "looks like AI made it" | `audit --smell` → `refine --deslop` → `refine --distill` | reference/smell.md |
+| "bikin X dari 0" / "build me X" | `build --init` → `build --shape` → `build --craft` | reference/craft.md |
+| "tambahin accessibility" / "fix accessibility" | `fix --access` | reference/access.md |
+| "make it pop" / "bikin hidup" | `refine --bolder` | reference/bolder.md |
+| "bikin lebih X" / "kurangin X" | `refine`, auto-detect mode | per mode |
+| "add dark mode" | `systems --colorize` (theme scene) → `fix --access` (contrast) | reference/colorize.md |
 | "pre-ship" / "final" | `audit --polish` | reference/polish.md |
 | Existing report in `.design-skill/` | Load report before work | report continuity |
 

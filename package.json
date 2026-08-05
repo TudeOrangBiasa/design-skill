@@ -1,6 +1,6 @@
 {
   "name": "omp-design-skill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Design partner skill for frontend agents. Procedure and ability commands for audit, refine, build, fix and design systems, with user-invoked planning and model-invoked slop detection.",
   "license": "Apache-2.0",
   "keywords": [

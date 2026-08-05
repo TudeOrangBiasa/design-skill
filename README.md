@@ -28,18 +28,28 @@ This split is the skill's invocation model.
 | Ability | colorize, typeset, layout, animate, interaction, responsive, access, live | Model or user |
 | Planning | build, shape, craft, setup, init, redesign | User only |
 
-## Quick start
+## Just say what you want
 
-```
-/design audit --checkup      → health scan of an unknown codebase
-/design build --craft        → build a feature end to end
-/design refine --bolder      → amplify a bland design
-/design fix --access         → add accessibility
-/design systems --colorize   → build a color system
-/design audit --smell        → find the AI tells
-```
+You do not need to memorize flags. Say what is wrong or what you want in plain words. The skill reads the situation and picks the right tool.
 
-## Commands
+| You say | What happens |
+|---------|-------------|
+| "This looks like AI made it" | It catalogs the AI tells, then strips them |
+| "Make this bolder" | It amplifies the design's character |
+| "The layout is a mess, everything overlaps" | It finds the smells, removes the bloat, rebuilds the rhythm |
+| "Fix the accessibility" | It checks WCAG and adds keyboard, screen reader and contrast support |
+| "Build me a landing page" | It asks a few questions, confirms the direction, then builds |
+| "Add dark mode" | It builds the color system first, then applies it |
+| "Pre-ship check" | It runs the final polish pass |
+| "I don't know this codebase" | It runs a health scan and reports what needs fixing |
+
+## How it routes
+
+Each sentence maps to a `/design` command behind the scenes. "This looks like AI made it" becomes `audit --smell`, then `refine --deslop`. You never have to know that mapping. When you want to name the command yourself, type `/design` plus the mode, like `/design audit --checkup`. Both paths do the same work.
+
+## Command reference
+
+For the curious, the full command set. Each command has modes, and the mode is the flag after the command name.
 
 ### /design audit: evaluate
 
@@ -110,36 +120,30 @@ This split is the skill's invocation model.
 
 **"This layout is a mess, everything overlaps"**
 
-```
-/design audit --smell     → detect slop patterns
-/design refine --deslop   → remove the AI-generated bloat
-/design systems --layout  → establish a rhythm system
-```
+The skill works through three steps.
+
+1. Find the smells. (the `audit --smell` mode)
+2. Remove the AI-generated bloat. (`refine --deslop`)
+3. Rebuild the spacing and rhythm. (`systems --layout`)
 
 **"Build a SaaS dashboard from scratch for elderly users"**
 
-```
-/design build --init       → set up project context
-/design build --shape      → document the elderly persona
-/design build --craft      → build the dashboard
-/design systems --colorize → high-contrast palette
-/design fix --access       → WCAG compliance
-```
+1. Set up project context. (`build --init`)
+2. Document the elderly persona: bigger type, larger touch targets. (`build --shape`)
+3. Build the dashboard. (`build --craft`)
+4. Create a high-contrast palette. (`systems --colorize`)
+5. Check WCAG compliance. (`fix --access`)
 
 **"Add disability features to an existing app"**
 
-```
-/design fix --access      → screen reader, high contrast, font scaling, voice nav
-/design refine --harden   → edge cases for accessibility
-```
+1. Add screen reader, high contrast, font scaling and voice nav support. (`fix --access`)
+2. Harden the edge cases. (`refine --harden`)
 
 **"This looks like AI designed it"**
 
-```
-/design audit --smell     → catalog the AI tells
-/design refine --deslop   → remove them one by one
-/design refine --distill  → strip the generic patterns
-```
+1. Catalog the AI tells. (`audit --smell`)
+2. Remove them one by one. (`refine --deslop`)
+3. Strip the generic patterns. (`refine --distill`)
 
 ## Design laws in brief
 
