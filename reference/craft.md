@@ -75,6 +75,7 @@ Then add references based on the brief's needs:
 - Responsive requirements? Consult [responsive.md](responsive.md)
 - Heavy on copy, labels, or errors? Consult [clarify.md](clarify.md)
 - New surface or replacement world? Consult [new-work.md](new-work.md) and [modes.md](modes.md)
+- Hero-led Persuade surface? Consult [hero.md](hero.md)
 
 Load [craft-floor.md](craft-floor.md) immediately before editing UI. It carries the quality floor, the absolute bans, and the reflexes no detector catches. Do not load it for planning-only work.
 
