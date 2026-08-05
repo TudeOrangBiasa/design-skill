@@ -204,15 +204,15 @@ npm install omp-design-skill
 
 Point your agent at `node_modules/omp-design-skill/SKILL.md`, or symlink it into your agent's skills directory. Restart your agent afterwards.
 
-### On this machine (opencode)
+### On this machine (omp)
 
-The runtime scans `~/.config/opencode/skills`, configured by `skills.paths` in `~/.config/opencode/opencode.json`. One symlink puts the skill in range:
+omp discovers authored skills one level under a `skills/` root: `<skills-root>/<skill-name>/SKILL.md`. The canonical user-level root is `~/.agents/skills/` (the `agents` provider, enabled by default). One symlink installs it:
 
 ```bash
-ln -sfn ~/Workspace/personal/agents/design-skill ~/.config/opencode/skills/engineering/design-skill
+ln -sfn ~/Workspace/personal/agents/design-skill ~/.agents/skills/design-skill
 ```
 
-Restart the agent. A new session picks the skill up.
+Restart the agent. A new session picks the skill up. Nested paths like `skills/engineering/design-skill` are not discovered; keep the skill one level under the root.
 
 ## Sources
 
