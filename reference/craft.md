@@ -2,7 +2,9 @@
 
 Build a feature with design UX and UI quality: shape the design, land the visual direction, build real production code, inspect and improve in-browser until it meets a high-end studio bar.
 
-Before writing code, you need: project context (PRODUCT.md / brief.md if present — otherwise gathered by asking the user a few questions), register identified and the matching reference loaded, and a confirmed design direction for this task (either from `shape` or supplied by the user). Context files are accelerators, never blockers: if they're missing, ask.
+Before writing code, you need: project context (PRODUCT.md / brief.md if present — otherwise gathered by asking the user a few questions), register and mode identified, and a confirmed design direction for this task (from `shape`, from [new-work.md](new-work.md), or supplied by the user). Context files are accelerators, never blockers: if they're missing, ask.
+
+A new surface or a replacement visual world routes its direction decision through [new-work.md](new-work.md): decide what is already true, ask, choose the amount of invention, commit the world, and record the contract before any code. A narrow extension of an existing surface proceeds from the brief directly.
 
 Treat any approved visual direction (generated mock or stated reference) as a concrete contract for composition, hierarchy, density, atmosphere, signature motifs, and distinctive visual moves. Don't let mocks replace structure, copy, accessibility, or state design. But if the live result lacks the approved direction's major ingredients, the implementation is wrong.
 
@@ -72,10 +74,15 @@ Then add references based on the brief's needs:
 - Color-heavy or themed? Consult [colorize.md](colorize.md)
 - Responsive requirements? Consult [responsive.md](responsive.md)
 - Heavy on copy, labels, or errors? Consult [clarify.md](clarify.md)
+- New surface or replacement world? Consult [new-work.md](new-work.md) and [modes.md](modes.md)
+
+Load [craft-floor.md](craft-floor.md) immediately before editing UI. It carries the quality floor, the absolute bans, and the reflexes no detector catches. Do not load it for planning-only work.
 
 ## Step 3: Visual Direction (Harness-Gated)
 
-If the harness has **native image generation**, the visual direction probe already ran inside shape (Phase 1.5): 2-4 direction probes were generated, the user picked a lane, and the brief was updated. Treat the winning probe as the contract for composition, hierarchy, density, atmosphere, and signature motifs.
+**New surface or replacement world:** follow [new-work.md](new-work.md) sections 1-5. Decide what is already true, ask the mode-shaped questions, choose the amount of invention, commit the world (color strategy, faces, calibration), and record the direction contract. Present the committed direction and stop for confirmation.
+
+**Narrow extension:** the brief is the direction. If the harness has native image generation, shape's visual direction probe (Phase 1.5) already ran: 2-4 direction probes were generated, the user picked a lane, and the brief was updated. Treat the winning probe as the contract for composition, hierarchy, density, atmosphere, and signature motifs.
 
 If the harness lacks native image generation, **state in one line that the visual-direction-by-generation step is being skipped because the harness lacks native image generation, then proceed**. The one-line announcement is required; it forces a conscious decision instead of letting the step quietly evaporate. The brief is your only visual reference. Implement directly from it, treating any named anchor references and the brief's "Design Direction" as the contract.
 
@@ -105,19 +112,17 @@ Implement the feature following the design brief. Build in passes so structure, 
 - **Technically clean.** Production build passes, no console errors, no avoidable layout shift, no needless dependencies, no broken asset paths.
 - **Ask when uncertain.** If a discovery materially changes the brief or approved direction, stop and ask. Don't guess.
 
-## Step 5: Iterate Visually
+## Step 5: Inspect and Finish
 
-Look at what you built like a designer would. Your eyes are whatever the harness gives you: a connected browser, a screenshotting tool, Playwright, or asking the user. Use them for responsive testing (mobile, tablet, desktop minimum) and general visual validation.
+**Bounded passes, not a loop.** Build fully, then inspect in batched rounds. Open-ended self-QA burns time doing worse what a fresh review does better.
 
-If your tool returns a file path, read the PNG back into the conversation. A screenshot you didn't read doesn't count.
+1. **Round one (batched):** capture desktop and mobile in one screenshot round. Read the PNGs back into the conversation; a screenshot you didn't read doesn't count. For long-form surfaces, inspect major sections individually; thumbnails hide spacing, clipping, and cascade defects. Critique the render against the brief, the approved mock's major ingredients (hero silhouette, motifs, imagery, nav/CTA, density), and the craft-floor. Patch every material defect it shows in one batch.
+2. **Round two (confirm):** recapture the same viewports and confirm. Two rounds is the ceiling. After it, stop polishing; whatever remains ships as reported, not as a silent gap.
+3. **Mechanical sweep:** run `/design audit --smell` and `/design audit --checkup` on the changed targets once, fix what is mechanical, and pass remaining findings into the review.
+4. **Fresh-context review:** step out of the build conversation and review the render against the contract, the request, and the craft-floor. A reviewer that inherits your transcript inherits your framing and your optimism. Score each material fix resolved, partial, or unresolved; fixes scored partial or unresolved get one more batch, recapture, and verdict. Stop the moment a round resolves nothing.
+5. **Record:** for a new surface or replacement world, write DESIGN.md and the sidecar from the built world (see new-work). A clean pass is not finished; finished is the contract kept, the review closed, and the system recorded.
 
-For long-form brand surfaces, inspect major sections individually. Thumbnails hide spacing, clipping, and cascade defects.
-
-After the first pass, write an honest critique against the brief, the approved mock's major ingredients (hero silhouette, motifs, imagery, nav/CTA, density), and design's DON'Ts. Patch material defects and re-inspect. **Don't invent defects to demonstrate iteration.** A confident "first pass clean, shipping" beats a fake fix.
-
-Actively check: responsive behavior (composes, not shrinks), every state (empty / error / loading / edge), craft details (spacing, alignment, hierarchy, contrast, motion timing, focus), performance basics. The exit bar: defensible in a high-end studio review.
-
-Detector or QA output is defect evidence only; never proof the work is finished.
+Don't invent defects to demonstrate iteration. A confident "first pass clean, shipping" beats a fake fix. Detector or QA output is defect evidence only; never proof the work is finished.
 
 ## Step 6: Present
 

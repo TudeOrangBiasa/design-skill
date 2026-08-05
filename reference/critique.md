@@ -106,6 +106,8 @@ Synthesize both assessments into a single report. Do NOT simply concatenate. Wea
 
 Structure your feedback as a design director would:
 
+For implementation-level findings (motion, interaction, CSS details), use the Before/After/Why markdown table format from [animate.md](animate.md)'s Review Format section: one row per issue, exact code in the Before and After columns, reasoning in Why. Do not use separate Before and After lines or blocks.
+
 #### Design Health Score
 > *Consult [heuristics-scoring](heuristics-scoring.md)*
 
