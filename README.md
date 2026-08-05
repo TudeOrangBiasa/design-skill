@@ -202,17 +202,17 @@ If a glance says "AI made that", the design failed. Two checks:
 npm install omp-design-skill
 ```
 
-Point your agent at `node_modules/omp-design-skill/SKILL.md`, or symlink it into your agent's skills directory.
+Point your agent at `node_modules/omp-design-skill/SKILL.md`, or symlink it into your agent's skills directory. Restart your agent afterwards.
 
-### From source (local development)
+### On this machine (opencode)
+
+The runtime scans `~/.config/opencode/skills`, configured by `skills.paths` in `~/.config/opencode/opencode.json`. One symlink puts the skill in range:
 
 ```bash
-cd ~/Workspace/personal/agents/opencode-workflow
-ln -sfn ~/Workspace/personal/agents/design-skill skills/engineering/design-skill
-bash scripts/link-skills.sh
+ln -sfn ~/Workspace/personal/agents/design-skill ~/.config/opencode/skills/engineering/design-skill
 ```
 
-Add the path to your agent config, then restart.
+Restart the agent. A new session picks the skill up.
 
 ## Sources
 
