@@ -18,7 +18,7 @@ Responsive drives the recomposition pass — consult these when each dimension c
 
 ## Pre-execution checklist
 
-Before proceeding, check for existing reports in the `.commandcode/design/` directory. Look for these files:
+Before proceeding, check for existing reports in the `.design-skill/` directory. Look for these files:
 
 - `checkup-report.md`
 - `review-report.md`

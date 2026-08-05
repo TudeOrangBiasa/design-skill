@@ -8,7 +8,7 @@ Refinement is a designer's hand on the volume, density, clarity, resilience, and
 
 ## Pre-execution checklist
 
-Before proceeding, check for existing reports in the `.commandcode/design/` directory. Look for these files:
+Before proceeding, check for existing reports in the `.design-skill/` directory. Look for these files:
 
 - `checkup-report.md`
 - `review-report.md`

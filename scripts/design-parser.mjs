@@ -2,7 +2,7 @@
 // the live-mode design-system panel can render. Deterministic, dependency-free.
 //
 // Two-layer: YAML frontmatter (machine-readable tokens) + markdown body
-// (prose with six canonical H2 sections). When frontmatter is present, it's
+// (prose with eight canonical H2 sections). When frontmatter is present, it's
 // exposed on `model.frontmatter` alongside the prose-scraped sections;
 // consumers can prefer frontmatter values and fall back to prose.
 
@@ -10,7 +10,9 @@ const CANONICAL_SECTIONS = [
   'Overview',
   'Colors',
   'Typography',
+  'Layout',
   'Elevation',
+  'Shapes',
   'Components',
   "Do's and Don'ts",
 ];
@@ -37,14 +39,17 @@ function parseFrontmatter(md) {
 }
 
 // Minimal YAML reader for the Stitch frontmatter subset: scalar maps with
-// one level of nested objects (typography roles, components). Indent-based,
-// 2-space convention. No arrays, no anchors, no multi-line scalars — Stitch's
-// schema doesn't need them and accepting them would require a real YAML
-// dependency we don't want to vendor.
+// one level of nested objects (typography roles, components), plus flat
+// scalar/object lists for the spec's `omitted` field. Indent-based, 2-space
+// convention. No anchors, no multi-line scalars — Stitch's schema doesn't
+// need them and accepting them would require a real YAML dependency we
+// don't want to vendor.
 function parseYamlSubset(yaml) {
   const lines = yaml.split(/\r?\n/);
   const root = {};
   const stack = [{ indent: -1, obj: root }];
+  // Where a `key:` with empty rest points, so `- item` lines can attach.
+  let lastList = null;
 
   for (const raw of lines) {
     // Skip blanks and line-only comments. Don't strip inline comments:
@@ -54,6 +59,28 @@ function parseYamlSubset(yaml) {
 
     const indent = raw.match(/^\s*/)[0].length;
     const content = raw.slice(indent);
+
+    // List item: `- value` or `- key: value` (optionally with deeper props).
+    const itemMatch = content.match(/^-\s+(.*)$/);
+    if (itemMatch) {
+      if (!lastList) continue;
+      const [listParent, listKey] = lastList;
+      if (!Array.isArray(listParent[listKey])) listParent[listKey] = [];
+
+      const rest = itemMatch[1].trim();
+      const colonIdx = findTopLevelColon(rest);
+      if (colonIdx === -1) {
+        listParent[listKey].push(parseScalar(rest));
+        continue;
+      }
+      const key = rest.slice(0, colonIdx).trim();
+      const value = rest.slice(colonIdx + 1).trim();
+      const obj = {};
+      obj[key] = value === '' ? {} : parseScalar(value);
+      listParent[listKey].push(obj);
+      stack.push({ indent, obj });
+      continue;
+    }
 
     const colonIdx = findTopLevelColon(content);
     if (colonIdx === -1) continue;
@@ -70,8 +97,10 @@ function parseYamlSubset(yaml) {
       const obj = {};
       parent[key] = obj;
       stack.push({ indent, obj });
+      lastList = [parent, key];
     } else {
       parent[key] = parseScalar(rest);
+      lastList = null;
     }
   }
 
@@ -95,6 +124,11 @@ function findTopLevelColon(s) {
 
 function parseScalar(raw) {
   const s = raw.trim();
+  if (s.startsWith('[') && s.endsWith(']')) {
+    const inner = s.slice(1, -1).trim();
+    if (!inner) return [];
+    return inner.split(',').map((part) => parseScalar(part.trim()));
+  }
   if ((s.startsWith('"') && s.endsWith('"')) || (s.startsWith("'") && s.endsWith("'"))) {
     return s.slice(1, -1);
   }
@@ -670,6 +704,35 @@ function parseShadowBullet(bullet) {
   };
 }
 
+function extractLayout(section) {
+  if (!section) return null;
+  const paragraphs = collectParagraphs(section.lines);
+  return {
+    subtitle: section.subtitle,
+    description: paragraphs.join(' ') || null,
+    rules: extractNamedRules(section.lines),
+  };
+}
+
+function extractShapes(section) {
+  if (!section) return null;
+  const paragraphs = collectParagraphs(section.lines);
+  const shapes = [];
+  for (const b of collectBullets(section.lines)) {
+    const m = b.match(/^\*\*(.+?)\*\*:?\s*(.*)$/);
+    if (m) {
+      shapes.push({ name: stripBold(m[1]).trim(), value: stripBold(m[2]).trim() || null });
+    } else {
+      shapes.push({ name: null, value: stripBold(b).trim() });
+    }
+  }
+  return {
+    subtitle: section.subtitle,
+    description: paragraphs.join(' ') || null,
+    shapes,
+  };
+}
+
 function extractComponents(section) {
   if (!section) return null;
   const subs = splitSubsections(section.lines);
@@ -774,11 +837,25 @@ function assessCoverage(model) {
       }
     : 'missing';
 
+  report.layout = model.layout
+    ? {
+        description: Boolean(model.layout.description),
+        rules: model.layout.rules.length,
+      }
+    : 'missing';
+
   report.elevation = model.elevation
     ? {
         shadows: model.elevation.shadows.length,
         rules: model.elevation.rules.length,
         description: Boolean(model.elevation.description),
+      }
+    : 'missing';
+
+  report.shapes = model.shapes
+    ? {
+        count: model.shapes.shapes.length,
+        description: Boolean(model.shapes.description),
       }
     : 'missing';
 
@@ -811,7 +888,9 @@ export function parseDesignMd(md) {
     overview: extractOverview(sections['Overview']),
     colors: extractColors(sections['Colors']),
     typography: extractTypography(sections['Typography']),
+    layout: extractLayout(sections['Layout']),
     elevation: extractElevation(sections['Elevation']),
+    shapes: extractShapes(sections['Shapes']),
     components: extractComponents(sections['Components']),
     dosDonts: extractDosDonts(sections["Do's and Don'ts"]),
   };

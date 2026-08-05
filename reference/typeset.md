@@ -43,7 +43,7 @@ Analyze what's weak or generic about the current type:
 
 ## Plan Typography Improvements
 
-Consult the [typography reference](typography.md) for detailed guidance on scales, pairing, and loading strategies.
+Consult the shared typography laws in REFERENCE.md (60-76ch measure, 1.25× scale minimum, 3-level hierarchy) for detailed guidance on scales, pairing, and loading strategies.
 
 Create a systematic plan:
 

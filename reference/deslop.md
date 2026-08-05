@@ -8,7 +8,7 @@ This mode is the treatment that follows the full diagnostic pass. Reports find t
 
 ## Prerequisites: All Three Reports
 
-Before I touch anything, I check `.commandcode/design/` for all three reports:
+Before I touch anything, I check `.design-skill/` for all three reports:
 
 - `smell-report.md`
 - `checkup-report.md`
@@ -203,7 +203,7 @@ If any check fails, I go back to the reports — not to polish, but to find what
 - The product still works and still does its job
 
 STRICT RULE — NEVER BREAK THIS
-Deslop checks `.commandcode/design/` for all three reports before touching any file.
+Deslop checks `.design-skill/` for all three reports before touching any file.
 Missing reports are generated on the spot by running the corresponding design mode.
 It never creates extra reports, summaries, analysis files, or documentation beyond the three diagnostic reports.
 After fixes, it always runs the designer verification pass and ships or iterates based on the result.

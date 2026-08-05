@@ -5,11 +5,13 @@ See [SKILL.md](SKILL.md) for routing, gates, persona, protocols.
 ## Setup Details
 
 ### Context gathering
-Two files, case-insensitive:
-- **PRODUCT.md**: required. Users, brand, tone, principles, persona profiles.
-- **DESIGN.md**: optional. Colors, typography, elevation, tokens.
+Optional accelerators, never blockers:
+- **PRODUCT.md** (or `brief.md`, or a Design Context section inside README/PRD/`docs/`): users, brand, tone, principles, persona profiles. Never create a new PRODUCT.md — merge into what the user already has.
+- **DESIGN.md**: colors, typography, elevation, tokens. The one file this skill creates, via `/design build --document` (Google Stitch format).
 
-Load both: `node {{scripts_path}}/load-context.mjs`
+Load what exists: `node {{scripts_path}}/load-context.mjs`
+
+When these are missing, gather the same answers by asking the user (2-3 questions per round) or offer `/design setup`. Planning commands (shape, craft, build) interview the user regardless: docs reduce repeated questions, they never replace asking.
 
 ### Register
 Every task is **brand** (marketing, landing) or **product** (app UI, dashboard). Load matching register reference before work.

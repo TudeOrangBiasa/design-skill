@@ -27,6 +27,8 @@ Discovery includes at least one user-answer round unless PRODUCT.md, DESIGN.md, 
 
 **Assert-then-confirm, not menu-with-escape.** When PRODUCT.md and the user's prompt make one option obvious, name it and ask the user to confirm or override. Don't enumerate "Restrained / Committed / Or something else?" as a real choice; "This reads as Restrained, confirm?" beats a four-option menu when the answer is already clear.
 
+**Recommend with every question.** Even open discovery questions carry your best hypothesis: "I'd guess this is for X — confirm or correct?" A question with no suggested answer is homework, and homework wastes the user's time.
+
 ### Purpose & Context
 - What is this feature for? What problem does it solve?
 - Who specifically will use it? (Not "users"; be specific: role, context, frequency)
@@ -142,7 +144,7 @@ If you ran the Visual Direction Probe step, name which probe direction won and w
 Fidelity, breadth, interactivity, and time intent from the Scope section of the interview. Task-scoped; these don't persist beyond the brief.
 
 **5. Layout Strategy**
-Name the surface (Monitor/Operate/Compare/Configure/Learn/Decide/Explore) first. Layout topology, register cues, and motion hints from [surface-patterns.md](surface-patterns.md) apply.
+Name the surface (Monitor/Operate/Compare/Configure/Learn/Decide/Explore) first. Layout topology, register cues, and motion hints from [layout.md](layout.md) and the shared layout laws in REFERENCE.md apply.
 High-level spatial approach: what gets emphasis, what's secondary, how information flows. Describe the visual hierarchy and rhythm, not specific CSS.
 
 **6. Key States**
@@ -155,7 +157,7 @@ How users interact with this feature. What happens on click, hover, scroll? What
 What copy, labels, empty state messages, error messages, and microcopy are needed. Note any dynamic content and its realistic ranges. For image-led surfaces, also list the required image/media roles and their likely source (project asset, generated raster, semantic SVG/CSS, canvas/WebGL, icon library, or accepted omission).
 
 **9. Recommended References**
-Based on the brief, list which design reference files would be most valuable during implementation (e.g., spatial-design.md for complex layouts, animate.md for animated features, interaction-design.md for form-heavy features).
+Based on the brief, list which design reference files would be most valuable during implementation (e.g., layout.md for complex layouts, animate.md for animated features, interaction.md for form-heavy features).
 
 **10. Open Questions**
 Anything genuinely unresolved. Don't list "open questions" you've already recommended a default for; assert the default and move on. If you'd write `Recommend: X` next to a question, just decide X.

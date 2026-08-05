@@ -2,22 +2,21 @@
 
 Build a feature with design UX and UI quality: shape the design, land the visual direction, build real production code, inspect and improve in-browser until it meets a high-end studio bar.
 
-Before writing code, you need: PRODUCT.md loaded, register identified and the matching reference loaded, and a confirmed design direction for this task (either from `shape` or supplied by the user). PRODUCT.md is project context, not a task-specific brief.
+Before writing code, you need: project context (PRODUCT.md / brief.md if present — otherwise gathered by asking the user a few questions), register identified and the matching reference loaded, and a confirmed design direction for this task (either from `shape` or supplied by the user). Context files are accelerators, never blockers: if they're missing, ask.
 
 Treat any approved visual direction (generated mock or stated reference) as a concrete contract for composition, hierarchy, density, atmosphere, signature motifs, and distinctive visual moves. Don't let mocks replace structure, copy, accessibility, or state design. But if the live result lacks the approved direction's major ingredients, the implementation is wrong.
 
 ### Gates: do not compress
 
-Craft has **multiple user gates**, not one. When the harness has native image generation (Codex via `image_gen`), the gate sequence before code is:
+Craft has **multiple user gates**, not one:
 
-1. **Shape brief confirmed** (Step 1)
-2. **Direction questions answered** (codex.md Step A)
-3. **Palette confirmed** (codex.md Step B)
-4. **One mock direction approved or delegated** (codex.md Step D)
+1. **Discovery interview** (Step 1, inside shape — 2-3 questions per round, wait for answers)
+2. **Visual direction probes answered** (shape Phase 1.5, only when the harness has native image generation)
+3. **Brief confirmed** (Step 1)
 
-You must stop at every gate. **Shape confirmation alone is NOT a green light to start coding.** It is the green light to begin codex.md Step A. Compressing gates 2 through 4 because the shape brief felt complete is the dominant failure mode of this flow.
+You must stop at every gate. **Shape confirmation alone is NOT a green light to start coding.** Compressing the gates because the shape brief felt complete is the dominant failure mode of this flow.
 
-When the harness lacks native image generation, gates 2-4 collapse into the brief itself, and shape confirmation does advance straight to code.
+When the harness lacks native image generation, the probe gate collapses into the brief itself, and shape confirmation advances straight to code.
 
 ## Step 0: Project Foundation
 
@@ -42,7 +41,7 @@ Default: Astro for brand briefs, the project's existing framework for product br
 
 ## Step 0.5: Identify Surface Pattern
 
-Before shaping, before layout: identify the dominant surface pattern from [surface-patterns.md](surface-patterns.md).
+Before shaping, before layout: identify the dominant surface pattern (Monitor / Operate / Compare / Configure / Learn / Decide / Explore), described in [layout.md](layout.md) and REFERENCE.md.
 
 - Read the user's brief. Which surface fits? (Monitor / Operate / Compare / Configure / Learn / Decide / Explore)
 - Surface determines layout topology, register, and motion approach. Layout follows from the work, not from habit.
@@ -58,25 +57,25 @@ If the user already supplied a confirmed brief or ran shape separately, use it a
 
 When the original prompt + PRODUCT.md already answer scope, content, and visual direction with no real ambiguity, the shape output can be **compact** (3-5 bullets stating what you're building and the visual lane, ending with one or two specific questions or "confirm or override"). The full 10-section structured brief is reserved for genuinely ambiguous, multi-screen, or stakeholder-heavy tasks. Don't pad a clear brief into a long one to look thorough; equally, don't skip the pause to look efficient.
 
-If the harness has native image generation (Codex), a compact shape's "confirm or override" advances to **Step 3 and the codex.md flow**, not to Step 4. Phrase the closing line accordingly: "Confirm or override; once we lock direction, I'll run a couple of palette and reference questions before generating any mocks." This stops the model from reading shape confirmation as code-green.
+If the harness has native image generation, a compact shape's "confirm or override" advances to shape's visual direction probe (Phase 1.5), not to code. Phrase the closing line accordingly: "Confirm or override; once we lock direction, I'll run a couple of palette and reference questions before generating any mocks." This stops the model from reading shape confirmation as code-green.
 
 ## Step 2: Load References
 
 Based on the design brief's "Recommended References" section, consult the relevant design reference files. At minimum, always consult:
 
-- [spatial-design.md](spatial-design.md) for layout and spacing
-- [typography.md](typography.md) for type hierarchy
+- [layout.md](layout.md) for layout and spacing
+- [typeset.md](typeset.md) for type hierarchy
 
 Then add references based on the brief's needs:
-- Complex interactions or forms? Consult [interaction-design.md](interaction-design.md)
+- Complex interactions or forms? Consult [interaction.md](interaction.md)
 - Animation or transitions? Consult [animate.md](animate.md)
-- Color-heavy or themed? Consult [color-and-contrast.md](color-and-contrast.md)
-- Responsive requirements? Consult [responsive-design.md](responsive-design.md)
-- Heavy on copy, labels, or errors? Consult [ux-writing.md](ux-writing.md)
+- Color-heavy or themed? Consult [colorize.md](colorize.md)
+- Responsive requirements? Consult [responsive.md](responsive.md)
+- Heavy on copy, labels, or errors? Consult [clarify.md](clarify.md)
 
-## Step 3: Visual Direction & Assets (Harness-Gated)
+## Step 3: Visual Direction (Harness-Gated)
 
-If the harness has **native image generation** (currently Codex via `image_gen`), this step is mandatory. **Stop and load [codex.md](codex.md)**. It covers palette generation, mock exploration, the approval loop, mock-fidelity inventory, and asset slicing via the `design_asset_producer` subagent. Follow Steps A-F in that file, then return here for Step 4.
+If the harness has **native image generation**, the visual direction probe already ran inside shape (Phase 1.5): 2-4 direction probes were generated, the user picked a lane, and the brief was updated. Treat the winning probe as the contract for composition, hierarchy, density, atmosphere, and signature motifs.
 
 If the harness lacks native image generation, **state in one line that the visual-direction-by-generation step is being skipped because the harness lacks native image generation, then proceed**. The one-line announcement is required; it forces a conscious decision instead of letting the step quietly evaporate. The brief is your only visual reference. Implement directly from it, treating any named anchor references and the brief's "Design Direction" as the contract.
 
@@ -84,7 +83,7 @@ Whether you generated mocks or not: don't replace required imagery with generic 
 
 ## Step 4: Build to Production Quality
 
-**Precondition.** If Step 3 routed you to codex.md (native image generation available), Steps A through D in that file must be complete before any code: questions answered, palette confirmed, mocks generated, one direction approved or delegated. **Do not mention implementation, file paths, or patch plans until that's done.** A confirmed shape brief is not enough; the model that compressed those gates is the model that already failed this flow.
+**Precondition.** The discovery interview, probe gate, and brief confirmation must be complete before any code. **Do not mention implementation, file paths, or patch plans until the brief is confirmed.** A confirmed shape brief is not enough; the model that compressed those gates is the model that already failed this flow.
 
 Implement the feature following the design brief. Build in passes so structure, visual system, states, motion/media, and responsive behavior each get deliberate attention. The list below is the definition of done, not inspiration.
 

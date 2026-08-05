@@ -43,7 +43,7 @@ Analyze what's weak about the current spatial design:
 
 ## Plan Layout Improvements
 
-Consult the [spatial design reference](spatial-design.md) for detailed guidance on grids, rhythm, and container queries.
+Consult the shared layout laws in REFERENCE.md (1-4-9 rhythm, 3-plane depth, viewport gauntlet) for detailed guidance on grids, rhythm, and container queries.
 
 Create a systematic plan:
 

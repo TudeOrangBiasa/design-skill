@@ -117,4 +117,4 @@ Brand can afford things product can't. Take them.
 - Unexpected color strategies. Palette IS voice; a calm brand and a restless brand should not share palette mechanics.
 - Art direction per section. Different sections can have different visual worlds if the narrative demands it. Consistency of voice beats consistency of treatment.
 
-**Surface note**: For layout topology guidance, consult [surface-patterns.md](surface-patterns.md). Surface determines layout approach before register-specific decisions.
+**Surface note**: For layout topology guidance, consult [layout.md](layout.md) and the shared layout laws in REFERENCE.md. Surface determines layout approach before register-specific decisions.
