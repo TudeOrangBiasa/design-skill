@@ -6,6 +6,8 @@
 
 Every AI-generated interface has a tell. The identical card grid. The purple-blue gradient. The hero that reads like a template. Two seconds of looking and you know a model made it. This skill exists to make that reaction impossible.
 
+New here? Start with [Using the Design Skill](GUIDE.md), a walkthrough of the skill in practice.
+
 ## The story
 
 The skill is a merger of three projects, each of which solved one piece of the problem.
