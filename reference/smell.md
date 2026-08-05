@@ -82,6 +82,53 @@ I look for the moment where the design stopped making project-specific decisions
 
 ---
 
+## The Tells Registry
+
+The deterministic catalog, aligned with impeccable's antipattern detector. Every tell is a named pattern you can point to on the actual surface. Grouped by what it pollutes.
+
+### Layout
+- **Side-tab accent border:** a thick colored border on one side of a card. The most recognizable AI tell. Use a subtler accent or none.
+- **Border accent on rounded element:** a thick accent border on a rounded card clashes with the corners. Remove the border or the radius.
+- **Nested cards:** cards inside cards create noise and false depth. Flatten with spacing, type, and dividers.
+- **Monotonous spacing:** one spacing value everywhere, no rhythm. Tight groups, generous separations.
+- **Icon tile stack:** a small rounded-square icon container above every heading, the universal feature-card template. Side-by-side or in-flow instead.
+- **Numbered section labels:** tiny index numbers riding beside headings, repeated section after section. Editorial scaffolding, not structure.
+- **Edge-flush cards:** cards touching viewport edges with no margin.
+- **Content invisible at rest:** page text at opacity 0 after all reveals ran. The failed-reveal signature; content must be visible by default.
+
+### Typography
+- **Overused font:** Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, Space Grotesk appear on so many sites they no longer feel distinctive. Choose a face with personality.
+- **Flat type hierarchy:** sizes too close together. Fewer sizes, more contrast, at least a 1.25 ratio between steps.
+- **Italic serif display:** an oversized italic serif (Fraunces, Playfair, Newsreader) as the hero headline, the universal AI-startup landing. Set roman or change the face.
+- **Hero eyebrow chip:** a tiny uppercase letter-spaced label above the oversized hero headline, or the same shape as a pill. The heading carries its own weight.
+- **Oversized hero headline:** a full sentence set at display size dominates the viewport. Punchy short headlines at that size are fine.
+- **Crushed letter spacing:** tracking pulled past legibility. Tighten optically, not destructively.
+
+### Color
+- **AI palette:** purple-violet gradients and cyan-on-dark.
+- **Cream or beige palette:** the warm off-white default reached for by reflex.
+- **Gradient text:** decorative gradient on headings and metrics.
+- **Glowing shadow accents:** zero-offset chromatic halos, or colored blurred shadows on dark backgrounds.
+- **Radial halo:** a saturated radial-gradient wash used as a background glow.
+- **Spotlight glow:** a low-opacity accent radial gradient behind a hero, the translucent cousin of the halo.
+
+### Motion
+- **Bounce or elastic easing:** dated. Exponential ease-out instead.
+- **Pulsing status dot:** decoratively simulates liveness. Reserve pulse for genuinely live data.
+- **Blinking cursor:** a fake typing prompt in a hero where no input exists.
+- **Auto-scrolling marquee:** demands attention it has not earned and hides half its content.
+
+### Imagery
+- **Shape-assembled illustration:** a hero-sized SVG built from primitive shapes reads as placeholder clip art. Real artwork, a deliberate graphic, or none.
+- **Broken or placeholder image:** an empty src ships as a broken box.
+
+### Copy
+- **Marketing buzzword:** streamline, empower, supercharge, world-class, cutting-edge. Say what the product literally does.
+- **Aphoristic cadence:** three or more sections landing on a short manufactured-contrast line ("Not a feature. A platform."). Once is voice; repetition is the tell.
+- **Em-dash overuse:** saturation in body copy, near one em dash per 500 characters. Prefer commas, colons, periods, parentheses.
+
+---
+
 ## The Domain Default Trap
 
 I ask whether the visual direction could be guessed from the industry.

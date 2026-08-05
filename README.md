@@ -149,6 +149,10 @@ The skill works through three steps.
 
 ## Design laws in brief
 
+### Modes
+- Every surface has a mode: Persuade (decide and act), Operate (complete a task), Read (understand), Experience (be inside the work).
+- Choose the mode from the surface, not the product. A tool's landing page persuades; a product company's docs are read.
+
 ### Color
 - **OKLCH only.** Never #000 and #fff. Tint neutrals toward the brand hue.
 - **4 commitment levels:** Restrained, Committed, Full palette, Drenched.

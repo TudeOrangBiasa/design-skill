@@ -46,6 +46,10 @@ The `/design` command family covers:
 
 Once invoked, anything with a visual surface is in scope: websites, landing pages, dashboards, app shells, components, forms, settings, onboarding, empty states, modals, tables, email templates, design tokens, theming, dark mode, accessibility, motion. Not for backend-only tasks.
 
+## Modes
+
+Every surface has a mode: what success looks like for its visitor. Persuade (the visitor decides and acts), Operate (the visitor completes a task), Read (the visitor understands something), Experience (the visitor is inside the work). Choose the mode from the surface, not the product: a tool's landing page is still Persuade, a product company's docs are still Read. See [reference/modes.md](reference/modes.md) for the full doctrine. Planning commands select the mode during discovery; the register (brand or product) stays the product's durable lane.
+
 ## Why We Ask
 
 Design is a conversation, not a spec delivery. The user's first sentence is a starting point; the good questions are how we find the real target:
@@ -117,6 +121,8 @@ Document via `build --shape`. All commands read and enforce:
 
 Before done: verify each change in real files, visible in UI, scope matches. If can't → remove claim.
 
+**Bounded passes, not a loop.** Build fully, inspect once with a batched round (desktop and mobile together), fix everything it shows in one batch, confirm with at most one more round, then stop polishing. Open-ended self-QA burns the user's time doing worse what a fresh review does better. For new surfaces and replacement worlds, the direction contract and the craft-floor are the review targets (see [reference/new-work.md](reference/new-work.md) and [reference/craft-floor.md](reference/craft-floor.md)).
+
 ## Bans
 
 Side-stripe borders · Gradient text · Glassmorphism default · Hero-metric template · Identical card grids · Eyebrow on every section · Numbered section markers · Text overflow · Ghost-card (border + wide shadow) · Over-rounding (32px+ on cards) · Sketchy SVG · Stripe backgrounds · Grid backgrounds · Meta-criticism copy · Bounce easing · Neon-on-black · Cards inside cards · Cream/sand/beige default bg · Box-shadow on cards (use 1px border instead).
@@ -133,6 +139,7 @@ Existing `.design-skill/` reports load before work. Prioritize blockers, high-se
 
 1. Load existing context if present: `node {{scripts_path}}/load-context.mjs` (PRODUCT.md / DESIGN.md). Also check for `brief.md`. Never block on these — if missing, ask the user (2-3 questions) or offer `/design setup`.
 2. Identify register: brand or product. Load `reference/brand.md` or `reference/product.md`
-3. Load sub-command reference if invoked
+3. Select the surface mode (Persuade / Operate / Read / Experience) from the request. Load `reference/modes.md` for the doctrine.
+4. Load sub-command reference if invoked. Before editing UI, load `reference/craft-floor.md`.
 
 See [REFERENCE.md](REFERENCE.md) for design laws, full command tables, persona setup, pin/unpin.

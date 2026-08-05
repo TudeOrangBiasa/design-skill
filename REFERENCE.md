@@ -16,6 +16,9 @@ When these are missing, gather the same answers by asking the user (2-3 question
 ### Register
 Every task is **brand** (marketing, landing) or **product** (app UI, dashboard). Load matching register reference before work.
 
+### Mode
+Every surface also has a **mode**: what success looks like for its visitor. Persuade (decide and act), Operate (complete a task), Read (understand), Experience (be inside the work). Choose it from the surface, not the product; see [modes.md](modes.md). Register is the product's durable lane, mode is the per-surface lens.
+
 ### Persona Profile
 If multiple personas, `build --shape` documents them in PRODUCT.md. All commands read and enforce.
 
@@ -52,7 +55,8 @@ If multiple personas, `build --shape` documents them in PRODUCT.md. All commands
   2. What purpose? Spatial consistency / State indication / Explanation / Feedback / Prevent jarring.
   3. What easing? Enter = ease-out. Move on-screen = ease-in-out. Hover = ease. Constant = linear.
   4. How fast? Button press 100-160ms. Tooltips 125-200ms. Dropdowns 150-250ms. Modals 200-500ms. UI under 300ms.
-- **Custom easing curves:** `ease-out: cubic-bezier(0.23, 1, 0.32, 1)`. Built-in CSS easings too weak.
+- **Custom easing curves:** `ease-out: cubic-bezier(0.23, 1, 0.32, 1)`, `ease-in-out: cubic-bezier(0.77, 0, 0.175, 1)`, drawer: `cubic-bezier(0.32, 0.72, 0, 1)`. Built-in CSS easings too weak. Never `ease-in` for UI: it starts slow and feels sluggish.
+- **Exit faster than entrance:** exits at 70% of entrance duration.
 - **Spring physics:** `{ type: "spring", duration: 0.5, bounce: 0.2 }`. Use for drag, gestures, decorative mouse-tracking.
 - **Never animate from scale(0):** Start at 0.9-0.95 + opacity 0. Nothing appears from nothing.
 - **@starting-style** for entry animations without JS.

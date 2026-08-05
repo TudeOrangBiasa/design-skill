@@ -1,6 +1,6 @@
 {
   "craft": {
-    "description": "Full confirmed-brief-then-build flow. Runs multi-round shape discovery first, resolves visual probe and north-star mock gates when available, then builds and visually iterates. Use when building a new feature end-to-end.",
+    "description": "Full confirmed-brief-then-build flow. Runs multi-round shape discovery first, routes new surfaces and replacement worlds through the new-work direction flow (modes, world commit, contract), then builds and inspects in bounded passes. Use when building a new feature end-to-end.",
     "argumentHint": "[feature description]"
   },
   "teach": {
