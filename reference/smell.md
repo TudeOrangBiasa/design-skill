@@ -131,7 +131,7 @@ I name the dominant smell. I identify the root reflex. Then I pick the right des
 
 If the design smells in several systems at once, I suggest redesign is usually cleaner than incremental repair.
 
-**Important:** Smell never executes any mode. It only produces `.commandcode/design/smell-report.md` and `.commandcode/design/smell-report.html`.
+**Important:** Smell never executes any mode. It only produces `.design-skill/smell-report.md` and `.design-skill/smell-report.html`.
 
 ---
 
@@ -157,8 +157,8 @@ The heuristics table in the report uses 10 rows (one per odor tracked). Each row
 
 Smell always produces two report artifacts:
 
-- `.commandcode/design/smell-report.md`
-- `.commandcode/design/smell-report.html`
+- `.design-skill/smell-report.md`
+- `.design-skill/smell-report.html`
 
 **Important Rule for Generating HTML Report:**
 
@@ -194,6 +194,6 @@ These are the only report artifacts smell creates.
 - `smell-report.md` and `smell-report.html` both exist
 
 STRICT RULE — NEVER BREAK THIS
-Always create .commandcode/design/smell-report.md and
-.commandcode/design/smell-report.html. Do not create any other report,
+Always create .design-skill/smell-report.md and
+.design-skill/smell-report.html. Do not create any other report,
 summary, analysis file, or extra documentation.

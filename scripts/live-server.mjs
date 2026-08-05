@@ -421,7 +421,7 @@ function createRequestHandler({ detectScript, sessionPath, livePath }) {
     //                            { present, parsed, sidecar, hasMd, hasSidecar,
     //                              mdNewerThanJson, parseError?, sidecarError? }
     //                          - parsed: output of parseDesignMd (frontmatter
-    //                            + six canonical sections) when DESIGN.md exists.
+    //                            + eight canonical sections) when DESIGN.md exists.
     //                          - sidecar: .design/design.json contents when present.
     //                            Expected shape: schemaVersion 2, carrying
     //                            extensions + components + narrative.

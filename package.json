@@ -1,0 +1,37 @@
+{
+  "name": "omp-design-skill",
+  "version": "1.0.0",
+  "description": "Design partner skill for frontend agents. Procedure and ability commands for audit, refine, build, fix and design systems, with user-invoked planning and model-invoked slop detection.",
+  "license": "Apache-2.0",
+  "keywords": [
+    "design",
+    "skill",
+    "frontend",
+    "ui",
+    "ux",
+    "agent",
+    "ai",
+    "accessibility",
+    "design-system",
+    "animation",
+    "claude",
+    "opencode"
+  ],
+  "files": [
+    "SKILL.md",
+    "REFERENCE.md",
+    "reference/",
+    "agents/",
+    "scripts/",
+    "NOTICE.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TudeOrangBiasa/design-skill.git"
+  },
+  "homepage": "https://github.com/TudeOrangBiasa/design-skill#readme",
+  "engines": {
+    "node": ">=18"
+  }
+}

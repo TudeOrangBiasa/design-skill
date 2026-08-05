@@ -120,8 +120,8 @@ I do not bury the next move in a report. The user should know the practical fix 
 
 Checkup always produces two report artifacts:
 
-- `.commandcode/design/checkup-report.md`
-- `.commandcode/design/checkup-report.html`
+- `.design-skill/checkup-report.md`
+- `.design-skill/checkup-report.html`
 
 **Important Rule for Generating HTML Report:**
 
@@ -155,6 +155,6 @@ These are the only report artifacts checkup creates.
 - `checkup-report.md` and `checkup-report.html` both exist
 
 STRICT RULE — NEVER BREAK THIS
-Always create .commandcode/design/checkup-report.md and
-.commandcode/design/checkup-report.html. Do not create any other report,
+Always create .design-skill/checkup-report.md and
+.design-skill/checkup-report.html. Do not create any other report,
 summary, analysis file, or extra documentation.

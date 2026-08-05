@@ -32,7 +32,7 @@ If I only ask questions or describe what `brief.md` should contain, setup failed
 
 ## What I Create
 
-I create or update one file at the project root: `brief.md`.
+I update one file: the document that already carries the project's story — README, PRD, style guide, brand doc, or an existing `brief.md`. I create `brief.md` only when no existing file fits.
 
 That file carries the durable answers:
 
@@ -46,7 +46,7 @@ That file carries the durable answers:
 - Visual foundation
 - Component rules
 
-I do not create separate product and design documents. One file, one source of truth.
+I do not create separate product and design documents, and I do not mint new context files when the user already has a home for them. One file, one source of truth.
 
 ---
 
@@ -77,25 +77,29 @@ I do not ask for fonts, colors, radii, or minor styling preferences before I und
 
 ---
 
-## How I Write `brief.md`
+## How I Write It
 
 I make it concise enough to stay useful.
 
 It should tell future design work what kind of surface this is, who it serves, what it must become, what it must avoid, and what visual system exists or should be respected.
 
-If an old `brief.md` exists, I show the intended change before overwriting. I never silently replace the project's design memory.
+Target, in order of preference:
+1. **Existing `brief.md`** — update in place; show the intended change before overwriting. I never silently replace the project's design memory.
+2. **A fitting existing doc** (README, PRD, style guide, brand doc) — add a compact **Design** section with the answers above. It's the user's file: show the section, confirm, write.
+3. **No fitting doc** — create `brief.md` at the project root.
 
-If older context files exist at the project root (any `.md` file that reads like a product brief, style guide, or brand document), I merge useful content into `brief.md` and ask before deleting anything.
+If older context files exist (any `.md` file that reads like a product brief, style guide, or brand document), I merge useful content into the chosen target and ask before deleting anything.
 
 ---
 
 ## What I Refuse
 
 - Creating surface.md as a separate file
-- Talking about setup without creating or updating `brief.md`
+- Creating `brief.md` when an existing doc already fits
+- Talking about setup without updating the chosen target file
 - Writing generic principles not grounded in the repo
-- Splitting context into multiple files instead of one `brief.md`
-- Overwriting brief.md without confirmation
+- Splitting context into multiple files instead of one source of truth
+- Overwriting an existing file without confirmation
 - Asking questions the repo already answers
 - Writing a long strategy document nobody will read
 - Treating setup as a design review
@@ -105,8 +109,8 @@ If older context files exist at the project root (any `.md` file that reads like
 
 ## How I Know Setup Is Done
 
-- `brief.md` exists at the project root
-- `brief.md` includes facts found in the repo, not just generic design advice
+- One file carries the design constitution (existing doc updated, or `brief.md` when nothing fit)
+- The file includes facts found in the repo, not just generic design advice
 - Register is explicit
 - Users, purpose, voice, and anti-references are clear
 - Principles guide decisions rather than restating taste
