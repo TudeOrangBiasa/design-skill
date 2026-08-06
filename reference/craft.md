@@ -77,6 +77,8 @@ Then add references based on the brief's needs:
 - New surface or replacement world? Consult [new-work.md](new-work.md) and [modes.md](modes.md)
 - Hero-led Persuade surface? Consult [hero.md](hero.md)
 - Landing page or Persuade surface? Consult [landing-pages.md](landing-pages.md)
+- Native platform target (Android, iOS, adaptive)? Consult [native-platforms.md](native-platforms.md)
+- Image generation available? Consult [visualize.md](visualize.md) before building
 - Structuring a build request? Consult [prompt-patterns.md](prompt-patterns.md)
 
 Load [craft-floor.md](craft-floor.md) immediately before editing UI. It carries the quality floor, the absolute bans, and the reflexes no detector catches. Do not load it for planning-only work.
