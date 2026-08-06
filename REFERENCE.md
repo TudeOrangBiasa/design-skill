@@ -1,4 +1,4 @@
-# Design — Reference
+# Design Reference
 
 See [SKILL.md](SKILL.md) for routing, gates, persona, protocols.
 
@@ -6,7 +6,7 @@ See [SKILL.md](SKILL.md) for routing, gates, persona, protocols.
 
 ### Context gathering
 Optional accelerators, never blockers:
-- **PRODUCT.md** (or `brief.md`, or a Design Context section inside README/PRD/`docs/`): users, brand, tone, principles, persona profiles. Never create a new PRODUCT.md — merge into what the user already has.
+- **PRODUCT.md** (or `brief.md`, or a Design Context section inside README/PRD/`docs/`): users, brand, tone, principles, persona profiles. Never create a new PRODUCT.md; merge into what the user already has.
 - **DESIGN.md**: colors, typography, elevation, tokens. The one file this skill creates, via `/design build --document` (Google Stitch format).
 
 Load what exists: `node {{scripts_path}}/load-context.mjs`
@@ -202,8 +202,8 @@ node {{scripts_path}}/pin.mjs <pin|unpin> <command>
 
 ## Report Templates
 
-- `reference/checkup-report-html.md` — template for checkup HTML report
-- `reference/smell-report-html.md` — template for smell HTML report
-- `reference/review-report-html.md` — template for review HTML report
+- `reference/checkup-report-html.md` template for the checkup HTML report
+- `reference/smell-report-html.md` template for the smell HTML report
+- `reference/review-report-html.md` template for the review HTML report
 
 Reports are `.design-skill/<mode>-report.md` + `.html`. No browser dep. Template-based.
