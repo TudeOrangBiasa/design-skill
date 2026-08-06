@@ -2,6 +2,8 @@
 
 Replace timid grayscale or single-accent designs with a strategic palette: pick a color strategy, choose a hue family that fits the brand, then apply color with intent. More color ≠ better. Strategic color beats rainbow vomit.
 
+**Workflow:** build the palette in OKLCH as the source of truth, then convert to hex, rgba, or hsl at the export edge only when legacy support or a tool constraint requires it. Never design the palette in HSL.
+
 ---
 
 ## Register
