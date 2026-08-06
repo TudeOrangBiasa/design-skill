@@ -144,7 +144,7 @@ The deterministic catalog, aligned with impeccable's antipattern detector. Every
 - **Broken or placeholder image:** an empty src ships as a broken box.
 
 ### Copy
-- **Marketing buzzword:** streamline, empower, supercharge, world-class, cutting-edge. Say what the product literally does.
+- **Marketing buzzword:** streamline, empower, supercharge, world-class, enterprise-grade. Say what the product literally does.
 - **Aphoristic cadence:** three or more sections landing on a short manufactured-contrast line ("Not a feature. A platform."). Once is voice; repetition is the tell.
 - **Em-dash overuse:** saturation in body copy, near one em dash per 500 characters. Prefer commas, colons, periods, parentheses.
 
@@ -205,15 +205,15 @@ If the design smells in several systems at once, I suggest redesign is usually c
 
 ## Scoring
 
-Smell uses a `/10` score. The score is **inverted** — finding nothing is perfect.
+Smell uses a `/10` score. The score is **inverted**: finding nothing is perfect.
 
 | Tells found | Score |
 |---|---|
-| 0 | 10/10 — CLEAN |
-| 1–2 | 7–8/10 — FAINT |
-| 3–4 | 5–6/10 — PRESENT |
-| 5–6 | 3–4/10 — STRONG |
-| 7+ | 0–2/10 — IDENTITY FAILURE |
+| 0 | 10/10: CLEAN |
+| 1–2 | 7–8/10: FAINT |
+| 3–4 | 5–6/10: PRESENT |
+| 5–6 | 3–4/10: STRONG |
+| 7+ | 0–2/10: IDENTITY FAILURE |
 
 **MAX_SCORE = 10.** Use `/10` as the denominator in the report template. When zero tells are found, the score is `10/10` and the verdict is CLEAN. Never output `0/10` to mean "no smells detected."
 
@@ -230,7 +230,7 @@ Smell always produces two report artifacts:
 
 **Important Rule for Generating HTML Report:**
 
-- **Use the following template structure** [report-html.md](report-html.md) to generate `smell-report.html`:
+- **Use the following template structure** [smell-report-html.md](smell-report-html.md) to generate `smell-report.html`:
 - Do not change the visual design. Only fill in the content.
 
 These are the only report artifacts smell creates.
@@ -261,7 +261,7 @@ These are the only report artifacts smell creates.
 - A stranger would not immediately say the page was generated
 - `smell-report.md` and `smell-report.html` both exist
 
-STRICT RULE — NEVER BREAK THIS
+STRICT RULE: NEVER BREAK THIS
 Always create .design-skill/smell-report.md and
 .design-skill/smell-report.html. Do not create any other report,
 summary, analysis file, or extra documentation.

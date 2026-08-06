@@ -22,17 +22,17 @@ I document the allowed composition lanes so future design work does not collapse
 
 ## Applied Setup Bar
 
-`/design setup` creates or updates the actual `brief.md`. It is not a conversational setup checklist.
+`/design setup` creates or updates the actual design constitution. It is not a conversational setup checklist.
 
-At minimum, I read the available project files, extract durable design facts, write the root `brief.md`, and make future design commands more specific than they were before.
+At minimum, I read the available project files, extract durable design facts, write the constitution into the canonical file, and make future design commands more specific than they were before.
 
-If I only ask questions or describe what `brief.md` should contain, setup failed.
+If I only ask questions or describe what the design section should contain, setup failed.
 
 ---
 
 ## What I Create
 
-I update one file: the document that already carries the project's story — README, PRD, style guide, brand doc, or an existing `brief.md`. I create `brief.md` only when no existing file fits.
+I update one file: `PRODUCT.md` when it exists, otherwise the document that already carries the project's story (README, PRD, style guide, brand doc). I create `PRODUCT.md` only when no existing file fits, so the shared loader and every other command can find the constitution.
 
 That file carries the durable answers:
 
@@ -84,9 +84,9 @@ I make it concise enough to stay useful.
 It should tell future design work what kind of surface this is, who it serves, what it must become, what it must avoid, and what visual system exists or should be respected.
 
 Target, in order of preference:
-1. **Existing `brief.md`** — update in place; show the intended change before overwriting. I never silently replace the project's design memory.
-2. **A fitting existing doc** (README, PRD, style guide, brand doc) — add a compact **Design** section with the answers above. It's the user's file: show the section, confirm, write.
-3. **No fitting doc** — create `brief.md` at the project root.
+1. **Existing `PRODUCT.md`**: update in place; show the intended change before overwriting. I never silently replace the project's design memory.
+2. **A fitting existing doc** (README, PRD, style guide, brand doc): add a compact **Design** section with the answers above. It's the user's file: show the section, confirm, write.
+3. **No fitting doc**: create `PRODUCT.md` at the project root with the design constitution, so the shared loader reads it in later sessions.
 
 If older context files exist (any `.md` file that reads like a product brief, style guide, or brand document), I merge useful content into the chosen target and ask before deleting anything.
 
@@ -95,7 +95,7 @@ If older context files exist (any `.md` file that reads like a product brief, st
 ## What I Refuse
 
 - Creating surface.md as a separate file
-- Creating `brief.md` when an existing doc already fits
+- Creating a new PRODUCT.md when an existing doc already fits
 - Talking about setup without updating the chosen target file
 - Writing generic principles not grounded in the repo
 - Splitting context into multiple files instead of one source of truth
@@ -109,7 +109,7 @@ If older context files exist (any `.md` file that reads like a product brief, st
 
 ## How I Know Setup Is Done
 
-- One file carries the design constitution (existing doc updated, or `brief.md` when nothing fit)
+- One file carries the design constitution (existing doc updated, or PRODUCT.md when nothing fit)
 - The file includes facts found in the repo, not just generic design advice
 - Register is explicit
 - Users, purpose, voice, and anti-references are clear
@@ -117,7 +117,7 @@ If older context files exist (any `.md` file that reads like a product brief, st
 - Visual foundation reflects the actual repo when possible
 - Future design commands can proceed without re-asking basics
 
-STRICT RULE — NEVER BREAK THIS
+STRICT RULE: NEVER BREAK THIS
 Do not create report.md, any kind of report, summary, analysis file,
 or extra documentation. This applies every time this file is used.
 Generate no reports unless explicitly asked.

@@ -1,6 +1,6 @@
 # Teach Flow
 
-Gathers design context for a project. **DESIGN.md is the only file this flow creates** — the visual system spec in [Google Stitch DESIGN.md format](https://stitch.withgoogle.com/docs/design-md/format/) (colors, typography, components; answers "how it looks"). The strategic context (register, users, purpose, brand, anti-references, principles; answers "who/what/why") goes **into a file the user already has** — never into a freshly minted PRODUCT.md.
+Gathers design context for a project. **DESIGN.md is the only file this flow creates**: the visual system spec in [Google Stitch DESIGN.md format](https://stitch.withgoogle.com/docs/design-md/format/) (colors, typography, components; answers "how it looks"). The strategic context (register, users, purpose, brand, anti-references, principles; answers "who/what/why") goes **into a file the user already has**, never into a freshly minted PRODUCT.md.
 
 Every other design command reads these files when present; when they're missing, commands ask the user directly instead of blocking.
 
@@ -16,8 +16,8 @@ The output tells you whether PRODUCT.md and/or DESIGN.md already exist. If `migr
 
 Decision tree:
 - **PRODUCT.md (or an existing product doc) exists**: merge the design context into it. Show the proposed section, confirm, write. Refresh DESIGN.md if the user wants.
-- **No PRODUCT.md, but a fitting existing doc** (README.md, PRD, `docs/`, style guide, brand doc): extend that file with a short **Design Context** section instead of creating a new PRODUCT.md. Ask first — it's the user's file.
-- **No fitting doc at all**: keep the confirmed answers in conversation, then offer to write them into README.md — or a new PRODUCT.md — only if the user asks. Do not create PRODUCT.md by default.
+- **No PRODUCT.md, but a fitting existing doc** (README.md, PRD, `docs/`, style guide, brand doc): extend that file with a short **Design Context** section instead of creating a new PRODUCT.md. Ask first. It's the user's file.
+- **No fitting doc at all**: keep the confirmed answers in conversation, then offer to write them into README.md, or a new PRODUCT.md, only if the user asks. Do not create PRODUCT.md by default.
 - **DESIGN.md missing**: offer `/design document` (see Step 5) once there's context to base it on.
 
 Never silently overwrite or edit an existing file. Always confirm first.
@@ -55,7 +55,7 @@ If the repo is empty or the user's brief is sparse, run a short interview before
 - Use the harness's structured question tool when one exists. Otherwise, ask directly in chat and stop.
 - Ask **2-3 questions per round**, then wait for answers.
 - Use inferred answers as hypotheses or options, not as finished facts.
-- **Every question carries your best hypothesis as the default** — the user confirms or corrects, they don't do homework.
+- **Every question carries your best hypothesis as the default**: the user confirms or corrects, they don't do homework.
 - Complete at least one real user-answer round before drafting the design context, unless every required answer is directly discoverable from repo docs.
 - Round 1 should establish register, users/purpose, and desired outcome.
 - Round 2 should establish brand personality or references, anti-references, and accessibility needs.
@@ -96,9 +96,9 @@ Skip questions where the answer is already clear. **Do NOT ask about colors, fon
 Write only after the user has confirmed the strategic answers from Step 3. If an inferred answer is uncertain or unconfirmed, ask before writing.
 
 **Target file, in order of preference:**
-1. **Existing PRODUCT.md** — merge the sections in below, matching its existing structure and voice. Update in place; don't append a duplicate.
-2. **A fitting existing doc** (README.md, PRD, `docs/`, style guide, brand doc) — add a short **Design Context** section with the fields below. Keep it proportional: README gets a compact section, a PRD gets full treatment.
-3. **Nothing fits** — stay conversational. Offer to write the section into README.md or a new PRODUCT.md only if the user asks.
+1. **Existing PRODUCT.md**: merge the sections in below, matching its existing structure and voice. Update in place; don't append a duplicate.
+2. **A fitting existing doc** (README.md, PRD, `docs/`, style guide, brand doc): add a short **Design Context** section with the fields below. Keep it proportional: README gets a compact section, a PRD gets full treatment.
+3. **Nothing fits**: stay conversational. Offer to write the section into README.md or a new PRODUCT.md only if the user asks.
 
 Show the proposed content before writing. The user's file is their file; edit with permission, never silently.
 

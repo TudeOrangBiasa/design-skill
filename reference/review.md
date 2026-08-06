@@ -88,7 +88,7 @@ I also run the smell lens. If the design looks generated, I say so directly and 
 
 ## Scoring
 
-Review uses a `/50` score across the five design lenses. **MAX_SCORE = 50.** Use `/50` as the denominator in the report template — never `/40` or `/25`.
+Review uses a `/50` score across the five design lenses. **MAX_SCORE = 50.** Use `/50` as the denominator in the report template: never `/40` or `/25`.
 
 | Lens | Max |
 |---|---|
@@ -126,7 +126,7 @@ Review always produces two report artifacts:
 
 **Important Rule for Generating HTML Report:**
 
-- **Use the following template structure: [report-html.md](report-html.md)** to generate `review-report.html`:
+- **Use the following template structure: [review-report-html.md](review-report-html.md)** to generate `review-report.html`:
 - Do not change the visual design. Only fill in the content.
 
 These are the only report artifacts review creates.
@@ -156,7 +156,7 @@ These are the only report artifacts review creates.
 - Each recommendation points to a concrete next move
 - `review-report.md` and `review-report.html` both exist
 
-STRICT RULE — NEVER BREAK THIS
+STRICT RULE: NEVER BREAK THIS
 Always create .design-skill/review-report.md and
 .design-skill/review-report.html. Do not create any other report,
 summary, analysis file, or extra documentation.

@@ -77,7 +77,7 @@ Build the assigned direction, not a safer interpretation of it. The form supplie
 - **Prove the hero before building past it.** When an approved comp exists, render the first viewport and set it beside the comp's first viewport before any later section. Judge scale and density as quantities, not feelings.
 - **Prove, don't claim.** Show the subject doing its job: the interface at work, the mechanism dramatized, specifics a competitor could not copy-paste.
 - **Author the assets; never substitute chrome.** Names, entries, copy, covers, thumbnails, textures are design material. In greenwork, author every blank the ask round left open at production fidelity; label synthetic content; mark unanswered commercial claims as placeholders on the replacement list.
-- **Build the form's web leverage.** When the chosen world names a technique (canvas, WebGL, view transitions, generative motion), build the technique itself, not a static imitation.
+- **Build the named technique.** When the chosen world names a technique (canvas, WebGL, view transitions, generative motion), build the technique itself, not a static imitation.
 - **Pace the scroll like a studio.** Vary density, scale, image, motion, and quiet inside one grammar; the page ends anchored by a real close.
 - **Use real, verified imagery when the brief implies it.** Search for the subject's physical object rather than the category; one decisive photo beats five mediocre ones. Verify URLs resolve.
 - **Author motion as material.** Give the page the form's native motion once, orchestrated, rather than scattered hover effects.

@@ -8,10 +8,10 @@ Motion shows behavior. This file decides what the behavior is.
 
 ## Discipline files
 
-Interaction drives the behavior pass — consult these when each dimension comes up during interaction work, not as separate passes to layer on:
+Interaction drives the behavior pass. Consult these when each dimension comes up during interaction work, not as separate passes to layer on:
 
-- [button.md](button.md) — for correct button states and the full control system when auditing interactive elements
-- [motion.md](motion.md) — for correct transition timing and easing when specifying state-change animation
+- Button states: correct button states and the full control system when auditing interactive elements
+- [animate.md](animate.md): for correct transition timing and easing when specifying state-change animation
 
 ---
 
@@ -162,7 +162,7 @@ Failure keeps the user's work. Recovery is visible. Retry is available when retr
 - Form errors help without punishing
 - The interface feels responsive even during waits
 
-STRICT RULE — NEVER BREAK THIS
+STRICT RULE: NEVER BREAK THIS
 Do not create report.md, any kind of report, summary, analysis file,
 or extra documentation. This applies every time this file is used.
 Generate no reports unless explicitly asked.

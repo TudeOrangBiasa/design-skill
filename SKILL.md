@@ -8,10 +8,10 @@ description: >-
   layout smells (functional or artistic), or design smells are detected in
   existing UI (generic card grids, purple-blue gradients, template heroes,
   repetitive sections, broken hierarchy, voiceless composition) or when the
-  task is procedure+ability work on an existing surface — detect, report,
+  task is procedure+ability work on an existing surface: detect, report,
   propose fixes, wait for confirm. USER-INVOKED: planning skills (build, shape,
   craft, setup, init, redesign) load when the user asks for new or redesigned
-  work — interview first, every question carries a recommendation, never code
+  work: interview first, every question carries a recommendation, never code
   before the brief is confirmed. PRODUCT.md / DESIGN.md / brief.md are optional
   accelerators; their absence never blocks work, ask the user instead.
 argument-hint: "[{{command_hint}}] [target]"
@@ -32,18 +32,18 @@ Two skill types, two ways in.
 | Ability | Capability applied on demand | colorize, typeset, layout, animate, interaction, responsive, access, live | Model or user |
 | Planning | Design before code: interview → brief → confirm | build, shape, craft, setup, init, redesign | User only |
 
-**Model-invoked (auto).** Load without being asked when the model detects design smells in existing UI — AI-slop tells (identical card grids, purple-blue gradients, template heroes, repetitive sections), broken states, a11y gaps — or layout smells, functional or artistic: broken hierarchy, buried primary actions, voiceless composition, generic structure. Or when the work is procedure+ability: audit, checkup, polish, deslop, access, optimize. Detect → report → propose fixes. The user confirms before files change.
+**Model-invoked (auto).** Load without being asked when the model detects design smells in existing UI: AI-slop tells (identical card grids, purple-blue gradients, template heroes, repetitive sections), broken states, a11y gaps, or layout smells, functional or artistic: broken hierarchy, buried primary actions, voiceless composition, generic structure. Or when the work is procedure+ability: audit, checkup, polish, deslop, access, optimize. Detect → report → propose fixes. The user confirms before files change.
 
-**User-invoked (planning).** Load when the user asks for new or redesigned work: build, shape, craft, setup, init, redesign. These interview first — 2-3 questions per round, each carrying a recommendation. No code before the brief is confirmed.
+**User-invoked (planning).** Load when the user asks for new or redesigned work: build, shape, craft, setup, init, redesign. These interview first: 2-3 questions per round, each carrying a recommendation. No code before the brief is confirmed.
 
 The `/design` command family covers:
 
-- `/design audit` — evaluate existing UI
-- `/design refine` — change design character
-- `/design systems` — build design systems
-- `/design build` — create new surfaces
-- `/design fix` — repair specific problems
-- `/design iterate` + `manage` — live iteration and admin
+- `/design audit`: evaluate existing UI
+- `/design refine`: change design character
+- `/design systems`: build design systems
+- `/design build`: create new surfaces
+- `/design fix`: repair specific problems
+- `/design iterate` + `manage`: live iteration and admin
 
 Once invoked, anything with a visual surface is in scope: websites, landing pages, dashboards, app shells, components, forms, settings, onboarding, empty states, modals, tables, email templates, design tokens, theming, dark mode, accessibility, motion. Not for backend-only tasks.
 
@@ -55,10 +55,10 @@ Every surface has a mode: what success looks like for its visitor. Persuade (the
 
 Design is a conversation, not a spec delivery. The user's first sentence is a starting point; the good questions are how we find the real target:
 
-- *"No-one knows exactly what they want"* — David Thomas & Andrew Hunt, The Pragmatic Programmer. Planning commands interview before planning.
-- *"Invest in the design of the system every day."* — Kent Beck, Extreme Programming Explained. Every `/design` run improves the system, not just the task.
-- *"The best modules are deep. They allow a lot of functionality to be accessed through a simple interface."* — John Ousterhout, A Philosophy of Software Design. The `/design` interface stays small; each command does real work behind it.
-- *"With a ubiquitous language, conversations among developers and expressions of the code are all derived from the same domain model."* — Eric Evans, Domain-Driven-Design. Use the user's words. Pull their vocabulary into the brief and reuse it everywhere.
+- *"No-one knows exactly what they want"*, David Thomas & Andrew Hunt, The Pragmatic Programmer. Planning commands interview before planning.
+- *"Invest in the design of the system every day."*, Kent Beck, Extreme Programming Explained. Every `/design` run improves the system, not just the task.
+- *"The best modules are deep. They allow a lot of functionality to be accessed through a simple interface."*, John Ousterhout, A Philosophy of Software Design. The `/design` interface stays small; each command does real work behind it.
+- *"With a ubiquitous language, conversations among developers and expressions of the code are all derived from the same domain model."*, Eric Evans, Domain-Driven-Design. Use the user's words. Pull their vocabulary into the brief and reuse it everywhere.
 
 Every question carries a recommendation. The user confirms or corrects; they never do homework. A question without a suggested answer is a question that didn't respect their time.
 
@@ -92,16 +92,16 @@ If unclear, ask one question. Then route.
 
 ### Procedure vs planning
 - **Procedure + ability commands** (audit, checkup, smell, polish, deslop, fix, refine, systems on existing UI): detect from the code. Ask only when genuinely blocked: missing target, destructive ambiguity, contradictory constraints. Before asking, check if the answer is already in the prompt.
-- **Planning commands** (build, shape, craft, setup, init, redesign): interview first, always. No one knows exactly what they want. Ask 2-3 questions per round and wait; **every question carries a recommendation** — your best hypothesis as the default, confirmed or overridden, never an open menu. Never write code before the user confirms the brief. Docs reduce repeated questions but never replace asking.
+- **Planning commands** (build, shape, craft, setup, init, redesign): interview first, always. No one knows exactly what they want. Ask 2-3 questions per round and wait; **every question carries a recommendation**: your best hypothesis as the default, confirmed or overridden, never an open menu. Never write code before the user confirms the brief. Docs reduce repeated questions but never replace asking.
 
 ## Scope Gate
 
 | Gate | Check | Action |
 |------|-------|--------|
-| Boundary | Matches named surface? | BLOCK — list in vs out |
-| Complexity | >1 feature? | BLOCK — sequence |
-| Dependency | Unbuilt dep? | BLOCK — redirect |
-| Persona | Violates persona rules? | WARN — override |
+| Boundary | Matches named surface? | BLOCK: list in vs out |
+| Complexity | >1 feature? | BLOCK: sequence |
+| Dependency | Unbuilt dep? | BLOCK: redirect |
+| Persona | Violates persona rules? | WARN: override |
 | Tool | Right tool? | AUTO-ROUTE |
 
 BLOCK stops. Enforced before any file touch.
@@ -138,7 +138,7 @@ Existing `.design-skill/` reports load before work. Prioritize blockers, high-se
 
 ## Setup
 
-1. Load existing context if present: `node {{scripts_path}}/load-context.mjs` (PRODUCT.md / DESIGN.md). Also check for `brief.md`. Never block on these — if missing, ask the user (2-3 questions) or offer `/design setup`.
+1. Load existing context if present: `node {{scripts_path}}/load-context.mjs` (PRODUCT.md / DESIGN.md; legacy `brief.md` counts as context). Never block on these, if missing ask the user (2-3 questions) or offer `/design setup`.
 2. Identify register: brand or product. Load `reference/brand.md` or `reference/product.md`
 3. Select the surface mode (Persuade / Operate / Read / Experience) from the request. Load `reference/modes.md` for the doctrine.
 4. Load sub-command reference if invoked. Before editing UI, load `reference/craft-floor.md`.

@@ -18,6 +18,14 @@ Two ways.
 
 **The skill notices.** When it sees AI tells in an existing interface, like identical card grids, purple-blue gradients, or a hero that reads like a template, it loads itself and reports what it found. Nothing changes until you confirm.
 
+## How the skill judges a surface
+
+**Modes.** Every surface has a mode, picked from the surface not the product: Persuade (the visitor decides and acts), Operate (the visitor completes a task), Read (the visitor understands something), Experience (the visitor is inside the work). A tool's landing page is still Persuade; a product company's docs are still Read.
+
+**Scanning.** Users do not read pages, they scan them: headline hunting, link spotting, visual anchoring. So headings must carry the message alone, buttons must look clickable, and the primary action sits where the scan ends.
+
+**Playbooks.** The skill carries specialized playbooks for the heavy surfaces: the hero (first viewport as thesis), the landing page narrative (Hook, Catalyst, Mentor, Journey, Proof, Resolution), the craft floor (the quality bar before any edit), and prompt patterns for structuring build requests.
+
 ## Your first session
 
 Pick the situation closest to yours.

@@ -10,10 +10,10 @@ Good taste is not personal preference. It is a trained instinct. Surround yourse
 ### Unseen details compound
 Most details users never consciously notice. That is the point. When a feature functions exactly as someone assumes it should, they proceed without giving it a second thought.
 
-> "All those unseen details combine to produce something that's just stunning, like a thousand barely audible voices all singing in tune." — Paul Graham
+> "All those unseen details combine to produce something that's just stunning, like a thousand barely audible voices all singing in tune.", Paul Graham
 
-### Beauty is leverage
-People select tools based on experience, not just functionality. Good defaults and good animations are real differentiators. Use beauty as leverage.
+### Beauty is an advantage
+People select tools based on experience, not just functionality. Good defaults and good animations are real differentiators. Use beauty as an advantage.
 
 ---
 
@@ -108,7 +108,7 @@ Orchestrated page-load sequences, staggered reveals, scroll-driven animation. On
 
 ## Spring Animations
 
-Springs simulate real physics. No fixed duration — settle based on physical parameters.
+Springs simulate real physics. No fixed duration: settle based on physical parameters.
 
 ### When to use springs
 - Drag interactions with momentum
@@ -150,7 +150,7 @@ Nothing disappears and reappears completely. Start from `scale(0.95)` with opaci
 ```css
 .popover { transform-origin: var(--radix-popover-content-transform-origin); }
 ```
-**Exception: modals** — keep `transform-origin: center`.
+**Exception: modals**: keep `transform-origin: center`.
 
 ### Tooltips: skip delay on subsequent hovers
 ```css
@@ -191,7 +191,7 @@ Modern CSS way without JavaScript:
 One of the most powerful CSS animation tools. Not just for shapes.
 
 ### The inset shape
-`clip-path: inset(top right bottom left)` — each value "eats" into the element.
+`clip-path: inset(top right bottom left)`: each value "eats" into the element.
 
 ```css
 .hidden  { clip-path: inset(0 100% 0 0); }
@@ -232,11 +232,11 @@ Allow upward drag with increasing friction instead of preventing it entirely.
 
 ## Performance Rules
 
-- **Only animate transform and opacity**: Skip layout and paint, run on GPU. But use blur, filter, mask, shadow when they materially improve the effect — keep bounded, verify smooth.
+- **Only animate transform and opacity**: Skip layout and paint, run on GPU. But use blur, filter, mask, shadow when they materially improve the effect. Keep bounded, verify smooth.
 - **CSS variables are inheritable**: Changing a CSS var on parent recalculates ALL children. Update `transform` directly on element instead.
 - **Framer Motion shorthand (`x`, `y`, `scale`) is NOT hardware-accelerated**: Use `transform: "translateX(100px)"` for hardware acceleration.
 - **CSS animations beat JS under load**: CSS runs off main thread. Use CSS for predetermined animations; JS for dynamic/interruptible.
-- **WAAPI**: JavaScript control with CSS performance — hardware accelerated, interruptible, no library.
+- **WAAPI**: JavaScript control with CSS performance: hardware accelerated, interruptible, no library.
 
 ```js
 element.animate([
@@ -273,7 +273,7 @@ Hard rule: avoid animating layout-driving properties (`width`, `height`, `top`, 
 
 Or with CSS custom properties: `animation-delay: calc(var(--i, 0) * 50ms)` + `style="--i: 0"`.
 
-Keep stagger delays **30-80ms** between items. **Cap total stagger**: 10 items at 50ms = 500ms max. Stagger is decorative — never block interaction.
+Keep stagger delays **30-80ms** between items. **Cap total stagger**: 10 items at 50ms = 500ms max. Stagger is decorative. Never block interaction.
 
 ---
 
@@ -364,11 +364,11 @@ When reviewing motion code, use a markdown table with Before/After/Why columns:
 
 ## NEVER
 
-- Use bounce or elastic easing curves — feel dated
+- Use bounce or elastic easing curves: feel dated
 - Animate layout properties casually (width, height, top, left)
-- Use durations over 500ms for UI feedback — feels laggy
-- Animate without purpose — every animation needs a reason
-- Ignore `prefers-reduced-motion` — accessibility violation
-- Animate everything — animation fatigue is real
+- Use durations over 500ms for UI feedback: feels laggy
+- Animate without purpose. Every animation needs a reason.
+- Ignore `prefers-reduced-motion`: accessibility violation
+- Animate everything. Animation fatigue is real.
 - Block interaction during animations unless intentional
-- Animate keyboard-initiated actions — user repeated it 100x today
+- Animate keyboard-initiated actions. User repeated it 100x today.

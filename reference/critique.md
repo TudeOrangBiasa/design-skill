@@ -40,7 +40,7 @@ Think like a design director. Evaluate:
 
 **Holistic Design Review**: visual hierarchy (eye flow, primary action clarity), information architecture (structure, grouping, cognitive load), emotional resonance (does it match brand and audience?), discoverability (are interactive elements obvious?), composition (balance, whitespace, rhythm), typography (hierarchy, readability, font choices), color (purposeful use, cohesion, accessibility), states & edge cases (empty, loading, error, success), microcopy (clarity, tone, helpfulness).
 
-**Cognitive Load** (consult [cognitive-load](cognitive-load.md)):
+**Cognitive Load** (consult cognitive load):
 - Run the 8-item cognitive load checklist. Report failure count: 0-1 = low (good), 2-3 = moderate, 4+ = critical.
 - Count visible options at each decision point. If >4, flag it.
 - Check for progressive disclosure: is complexity revealed only when needed?
@@ -50,7 +50,7 @@ Think like a design director. Evaluate:
 - **Peak-end rule**: Is the most intense moment positive? Does the experience end well?
 - **Emotional valleys**: Check for anxiety spikes at high-stakes moments (payment, delete, commit). Are there design interventions (progress indicators, reassurance copy, undo options)?
 
-**Nielsen's Heuristics** (consult [heuristics-scoring](heuristics-scoring.md)):
+**Nielsen's Heuristics** (consult heuristics scoring):
 Score each of the 10 heuristics 0-4. This scoring will be presented in the report.
 
 Return structured findings covering: AI slop verdict, heuristic scores, cognitive load assessment, what's working (2-3 items), priority issues (3-5 with what/why/fix), minor observations, and provocative questions.
@@ -109,7 +109,7 @@ Structure your feedback as a design director would:
 For implementation-level findings (motion, interaction, CSS details), use the Before/After/Why markdown table format from [animate.md](animate.md)'s Review Format section: one row per issue, exact code in the Before and After columns, reasoning in Why. Do not use separate Before and After lines or blocks.
 
 #### Design Health Score
-> *Consult [heuristics-scoring](heuristics-scoring.md)*
+> *Consult heuristics scoring*
 
 Present the Nielsen's 10 heuristics scores as a table:
 
@@ -148,14 +148,14 @@ Highlight 2-3 things done well. Be specific about why they work.
 #### Priority Issues
 The 3-5 most impactful design problems, ordered by importance.
 
-For each issue, tag with **P0-P3 severity** (consult [heuristics-scoring](heuristics-scoring.md) for severity definitions):
+For each issue, tag with **P0-P3 severity** (consult heuristics scoring for severity definitions):
 - **[P?] What**: Name the problem clearly
 - **Why it matters**: How this hurts users or undermines goals
 - **Fix**: What to do about it (be concrete)
 - **Suggested command**: Which command could address this (from: {{available_commands}})
 
 #### Persona Red Flags
-> *Consult [personas](personas.md)*
+> *Consult personas*
 
 Auto-select 2-3 personas most relevant to this interface type (use the selection table in the reference). If `{{config_file}}` contains a `## Design Context` section from `design teach`, also generate 1-2 project-specific personas from the audience/brand info.
 

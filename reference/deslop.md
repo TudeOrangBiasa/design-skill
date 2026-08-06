@@ -28,16 +28,16 @@ I never skip a missing report. Each one surfaces a different class of problem an
 
 I read all three reports front to back, then extract and rank every finding by severity:
 
-1. **Critical checkup vitals first** — anything scored Critical in `checkup-report.md` blocks shipping and gets fixed before anything else
-2. **Review failures second** — low-scoring lenses in `review-report.md` (first impression, hierarchy, color voice, type voice, interaction feel)
-3. **Strong smells last** — clustered or strong tells from `smell-report.md`; faint isolates get cleaned after everything above is resolved
+1. **Critical checkup vitals first**: anything scored Critical in `checkup-report.md` blocks shipping and gets fixed before anything else
+2. **Review failures second**: low-scoring lenses in `review-report.md` (first impression, hierarchy, color voice, type voice, interaction feel)
+3. **Strong smells last**: clustered or strong tells from `smell-report.md`; faint isolates get cleaned after everything above is resolved
 
 For each finding I address:
 
-1. **I name the reflex it came from** — what lazy default produced this pattern
-2. **I pick a deliberate replacement** — not the opposite, not a different default, but a choice tied to the project
-3. **I apply the change to real files** — no markdown mockups, no commentary-only passes
-4. **I verify the result** — the old pattern is gone and the new choice reads as intentional
+1. **I name the reflex it came from**: what lazy default produced this pattern
+2. **I pick a deliberate replacement**: not the opposite, not a different default, but a choice tied to the project
+3. **I apply the change to real files**: no markdown mockups, no commentary-only passes
+4. **I verify the result**: the old pattern is gone and the new choice reads as intentional
 
 I fix every finding the reports name. I do not skip faint smells. A few faint smells clustered in one section is a strong smell in waiting.
 
@@ -61,7 +61,7 @@ Blue-purple as the primary identity for anything vaguely technical.
 
 Icon, heading, one sentence, repeated in a uniform grid until the section stops meaning anything.
 
-**Fix**: I break the grid. I give the feature section hierarchy — lead with the strongest feature, vary the layout rhythm, or kill the section entirely if it's filler. Cards are not automatically wrong. Equal cards with no priority are always wrong.
+**Fix**: I break the grid. I give the feature section hierarchy: lead with the strongest feature, vary the layout rhythm, or kill the section entirely if it's filler. Cards are not automatically wrong. Equal cards with no priority are always wrong.
 
 ### Accent Rail
 
@@ -79,7 +79,7 @@ Frosted glass panels applied because the surface never committed to a depth syst
 
 An oversized number cluster filling space where a real product story belongs.
 
-**Fix**: I replace stats with proof. A number alone proves nothing. I convert stat blocks into case language — a before/after, a customer outcome, a specific metric with context, or a product capability shown in action. If the stat is real and meaningful, I give it a sentence, not a monument.
+**Fix**: I replace stats with proof. A number alone proves nothing. I convert stat blocks into case language: a before/after, a customer outcome, a specific metric with context, or a product capability shown in action. If the stat is real and meaningful, I give it a sentence, not a monument.
 
 ### Icon Topper
 
@@ -91,7 +91,7 @@ A rounded-square icon placed above every section heading with no function beyond
 
 Motion that turns every interaction into a toy. Elastic easing applied because it was available.
 
-**Fix**: I audit every animated element. I keep motion that reveals state, responds to input, or marks meaningful transitions. I strip motion that is purely decorative. What remains uses sharp deceleration curves — quart, quint, or expo out. No bounce. No elastic.
+**Fix**: I audit every animated element. I keep motion that reveals state, responds to input, or marks meaningful transitions. I strip motion that is purely decorative. What remains uses sharp deceleration curves: quart, quint, or expo out. No bounce. No elastic.
 
 ### Default Type
 
@@ -103,7 +103,7 @@ A common family used with no voice, no scale, no reason. The font that appeared 
 
 Everything aligned to the safe middle because no composition decision was made.
 
-**Fix**: I choose a composition based on the dominant work pattern — monitor, operate, compare, configure, learn, decide, or explore. Centered is valid when symmetry is the right answer. Centered as the default is not.
+**Fix**: I choose a composition based on the dominant work pattern: monitor, operate, compare, configure, learn, decide, or explore. Centered is valid when symmetry is the right answer. Centered as the default is not.
 
 ---
 
@@ -113,7 +113,7 @@ If the visual direction can be guessed from the industry alone, the design hasn'
 
 A note-taking app as cream and rounded sans. A developer tool as dark with terminal mono. A health product as white and calm blue. A legal platform as navy and serif.
 
-**Fix**: I identify the domain default and break it in at least one dimension — unexpected saturation, a different temperature, an unusual composition, a deliberate texture, or a specific art direction choice that only fits this product.
+**Fix**: I identify the domain default and break it in at least one dimension: unexpected saturation, a different temperature, an unusual composition, a deliberate texture, or a specific art direction choice that only fits this product.
 
 ---
 
@@ -121,12 +121,12 @@ A note-taking app as cream and rounded sans. A developer tool as dark with termi
 
 I work in this order because each fix ripples into the next:
 
-1. **Composition** — center stack, feature tile grid, accent rail. These are structural.
-2. **Color** — tech gradient, generic tech hue, domain default trap. These set the mood.
-3. **Type** — default type. This gives the surface its voice.
-4. **Depth** — unearned blur, stat monument. These are spatial decisions.
-5. **Motion** — bounce everywhere. Motion comes last because it reacts to the settled composition.
-6. **Decoration** — icon topper. These are the last things to address.
+1. **Composition**: center stack, feature tile grid, accent rail. These are structural.
+2. **Color**: tech gradient, generic tech hue, domain default trap. These set the mood.
+3. **Type**: default type. This gives the surface its voice.
+4. **Depth**: unearned blur, stat monument. These are spatial decisions.
+5. **Motion**: bounce everywhere. Motion comes last because it reacts to the settled composition.
+6. **Decoration**: icon topper. These are the last things to address.
 
 I don't jump to color before fixing composition. A new palette on a broken layout is still broken.
 
@@ -137,8 +137,8 @@ I don't jump to color before fixing composition. A new palette on a broken layou
 A smell is fixed when:
 
 - The old pattern is not visible anywhere on the surface
-- The replacement is not another template reflex — it's a specific choice
-- The choice would survive the prompt changing — it belongs to the product, not the request
+- The replacement is not another template reflex. It's a specific choice.
+- The choice would survive the prompt changing. It belongs to the product, not the request.
 - The section or element still does its job, now with intention
 - The fix does not create a new smell in another category
 
@@ -162,7 +162,7 @@ After applying all fixes, I run a designer verification pass before calling it d
 
 **Reality check**: Are the changes real and visible in actual files? No commentary-only passes count.
 
-**Judgment check**: Would a working designer approve each decision? Not just accept — actively approve it as the right call for this product.
+**Judgment check**: Would a working designer approve each decision? Not just accept: actively approve it as the right call for this product.
 
 If any check fails, I return to the reports and fix what was missed.
 
@@ -172,7 +172,7 @@ If any check fails, I return to the reports and fix what was missed.
 
 If all four verification checks pass, deslop is done.
 
-If any check fails, I go back to the reports — not to polish, but to find what the reports named that I didn't fully address. I do not invent new work. I finish the work the reports already defined.
+If any check fails, I go back to the reports: not to polish, but to find what the reports named that I didn't fully address. I do not invent new work. I finish the work the reports already defined.
 
 ---
 
@@ -202,7 +202,7 @@ If any check fails, I go back to the reports — not to polish, but to find what
 - No new smells were introduced
 - The product still works and still does its job
 
-STRICT RULE — NEVER BREAK THIS
+STRICT RULE: NEVER BREAK THIS
 Deslop checks `.design-skill/` for all three reports before touching any file.
 Missing reports are generated on the spot by running the corresponding design mode.
 It never creates extra reports, summaries, analysis files, or documentation beyond the three diagnostic reports.

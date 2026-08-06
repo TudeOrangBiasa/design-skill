@@ -56,7 +56,7 @@ Systematically increase impact across these dimensions:
 - **Unexpected choices**: Variable fonts, display fonts for headlines, condensed/extended widths, monospace as intentional accent (not as lazy "dev tool" default)
 
 ### Color Intensification
-- **Increase saturation**: Shift to more vibrant, energetic colors (but not neon)
+- **Increase saturation**: Shift to more saturated, energetic colors (but not neon)
 - **Bold palette**: Introduce unexpected color combinations. Avoid the purple-blue gradient AI slop
 - **Dominant color strategy**: Let one bold color own 60% of the design
 - **Sharp accents**: High-contrast accent colors that pop
