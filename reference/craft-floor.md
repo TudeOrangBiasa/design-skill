@@ -37,7 +37,7 @@ Surface habits:
 - Sparklines, progress rings, and soft-shadowed rounded rectangles standing in for content.
 - Monospace as a costume for "technical" rather than for code, data, or measurement.
 - A system display face (Impact, Arial Black, the platform sans) as the display voice of an own-world page. Source and self-host a face whose character matches the approved lettering.
-- **Emoji or unicode glyphs standing in for an icon system.** Hard ban. Use a real icon product from [resources.md](resources.md) (Iconoir, Humbleicons, Flowbite) or an authored SVG set in one consistent stroke and weight; never mix sets.
+- **Emoji or unicode glyphs standing in for an icon system.** Hard ban. Use a real icon product from [resources.md](resources.md) (Lucide, Phosphor, Tabler, Iconoir, Humbleicons, Flowbite) or an authored SVG set in one consistent stroke and weight; never mix sets.
 - Light or dark picked by category. Pick it from the use scene: who, where, under what ambient light.
 
 Mechanics:
