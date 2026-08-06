@@ -58,6 +58,20 @@ I look for the moment where the design stopped making project-specific decisions
 
 ---
 
+## Detector Pass
+
+Before the LLM judgment, run the deterministic detector once. It catches the mechanical tells with no model and no API key:
+
+```bash
+node {{scripts_path}}/detector.mjs <file|dir|url> [--json]
+```
+
+It covers emoji icons, gradient text, the AI palette, cream backgrounds, overused fonts, italic serif displays, crushed tracking, oversized headlines, icon tile stacks, nested cards, side-tab borders, ghost cards, over-rounding, bounce easing, pulsing dots, marquees, broken images, missing alt, content hidden at rest, eyebrow labels, marketing buzzwords, aphoristic cadence, and em-dash saturation.
+
+The detector output is defect evidence, never the verdict. Merge its findings with the LLM pass, mark false positives honestly, and judge severity yourself. Error-severity findings block shipping until fixed or explicitly accepted.
+
+---
+
 ## Two Smell Lenses
 
 Smell applies two lenses to a layout, and judges both.
