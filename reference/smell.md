@@ -140,6 +140,7 @@ The deterministic catalog, aligned with impeccable's antipattern detector. Every
 - **Auto-scrolling marquee:** demands attention it has not earned and hides half its content.
 
 ### Imagery
+- **Emoji icon:** an emoji standing in for an icon system. Icons come from one real product in a consistent stroke and weight; the moment two emoji styles mix, the system is broken.
 - **Shape-assembled illustration:** a hero-sized SVG built from primitive shapes reads as placeholder clip art. Real artwork, a deliberate graphic, or none.
 - **Broken or placeholder image:** an empty src ships as a broken box.
 

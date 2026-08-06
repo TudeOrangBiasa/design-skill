@@ -7,7 +7,7 @@ How to write a UI-build prompt that produces a specific layout. Mined from the 9
 A build prompt has three beats, in order.
 
 1. **Name the layout and its structure.** "Create a pricing section as a three-tier card layout" or "Build a hero as a split layout with the copy on the left and a product screenshot on the right."
-2. **Name the components.** Enumerate what the layout must contain: heading, subheading, CTA, form fields, nav, empty state, hover state. Components you do not name default to whatever the model guesses.
+2. **Name the components.** Enumerate what the layout must contain: heading, subheading, CTA, form fields, nav, empty state, hover state. Components you do not name default to whatever the model guesses. Name the asset sources when they matter: "use Iconoir icons", "backgrounds from Backgrounds Supply". Unnamed assets default to whatever the model invents.
 3. **Anchor the style to existing truth.** End with the style-match constraint: "Match the visual style, colors, typography, and overall aesthetic of the UI shown in my screenshot." Without the anchor, the model picks its own palette and type, and the result drifts off the design system.
 
 ## Examples from the library
