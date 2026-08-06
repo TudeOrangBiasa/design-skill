@@ -76,7 +76,7 @@ Breakpoints come from content pressure. When the content breaks, the layout chan
 
 ## Viewports I Respect
 
-I test narrow phones, ordinary phones, tablets, small laptops, standard desktop, and ultrawide screens.
+Viewports are locked, never fluid. Before executing, set one of the universal breakpoints from [browser-layout.md](browser-layout.md) §3: 375 (mobile base), 640 (sm), 768 (md), 1024 (lg), 1280 (xl), 1536 (2xl). Test each relevant width explicitly; do not let the browser auto-resize.
 
 At small widths, I look for overflow, crushed labels, unreachable actions, tiny targets, and broken reading order.
 

@@ -2,9 +2,13 @@ Run systematic **technical** quality checks and generate a comprehensive report.
 
 This is a code-level audit, not a design critique. Check what's measurable and verifiable in the implementation.
 
+## Browser Requirement
+
+This audit opens the page in a real browser (harness browser tool or browser-use MCP server, see SKILL.md Tooling for install commands). The coordinate pipeline and screenshots run through a JS/screenshot-capable surface (the harness browser tool); the browser-use MCP action server (harness `browser-use==0.1.40`) covers navigation, inspection, and interaction only. When no JS-capable surface exists, mark coordinate findings `[UNVERIFIED_COORDS]`. If no browser surface at all is available, stop and point the user to the install commands; never audit layout from raw HTML alone. For each viewport in the universal set (375/640/768/1024/1280/1536, locked), apply the reconciliation pipeline from [browser-layout.md](browser-layout.md) §5.
+
 ## Diagnostic Scan
 
-Run comprehensive checks across 5 dimensions. Score each dimension 0-4 using the criteria below.
+Run comprehensive checks across 6 dimensions. Score each dimension 0-4 using the criteria below.
 
 ### 1. Accessibility (A11y)
 
@@ -56,6 +60,16 @@ Check against ALL the **DON'T** guidelines from the parent design skill (already
 
 **Score 0-4**: 0=AI slop gallery (5+ tells), 1=Heavy AI aesthetic (3-4 tells), 2=Some tells (1-2 noticeable), 3=Mostly clean (subtle issues only), 4=No AI tells (distinctive, intentional design)
 
+### 6. Layout Integrity (Browser-Verified)
+
+Verified in the browser at every locked viewport (375/640/768/1024/1280/1536). Check for:
+- **Hidden collapse**: containers with text whose computed height or width is 0px, or `display: none`, `visibility: hidden`, `opacity: 0`, `max-height: 0` ([LAYOUT_BUG: HIDDEN_COLLAPSE])
+- **Overlapping text**: distinct non-parent/child elements with visible text sharing overlapping X/Y space ([LAYOUT_BUG: OVERLAPPING_TEXT])
+- **Coordinate drift**: element X/Y/W/H changing unexpectedly after interactions or viewport changes
+- **Breakpoint compliance**: elements break, text overflows, or columns fail to stack at any of the six widths
+
+Score 0-4: 0=Collapsed or overlapping content across multiple breakpoints, 1=Major collapse/overlap bugs at common viewports, 2=Isolated layout bugs (one overlap or collapse), 3=Solid, minor coordinate drift only, 4=Verified at all six breakpoints, zero collapse or overlap
+
 ## Generate Report
 
 ### Audit Health Score
@@ -67,9 +81,10 @@ Check against ALL the **DON'T** guidelines from the parent design skill (already
 | 3 | Responsive Design | ? | |
 | 4 | Theming | ? | |
 | 5 | Anti-Patterns | ? | |
-| **Total** | | **??/20** | **[Rating band]** |
+| 6 | Layout Integrity | ? | |
+| **Total** | | **??/24** | **[Rating band]** |
 
-**Rating bands**: 18-20 Excellent (minor polish), 14-17 Good (address weak dimensions), 10-13 Acceptable (significant work needed), 6-9 Poor (major overhaul), 0-5 Critical (fundamental issues)
+**Rating bands**: 22-24 Excellent (minor polish), 17-21 Good (address weak dimensions), 13-16 Acceptable (significant work needed), 8-12 Poor (major overhaul), 0-7 Critical (fundamental issues)
 
 ### Anti-Patterns Verdict
 **Start here.** Pass/fail: Does this look AI-generated? List specific tells. Be brutally honest.
@@ -91,7 +106,7 @@ Tag every issue with **P0-P3 severity**:
 For each issue, document:
 - **[P?] Issue name**
 - **Location**: Component, file, line
-- **Category**: Accessibility / Performance / Theming / Responsive / Anti-Pattern
+- **Category**: Accessibility / Performance / Theming / Responsive / Layout / Anti-Pattern
 - **Impact**: How it affects users
 - **WCAG/Standard**: Which standard it violates (if applicable)
 - **Recommendation**: How to fix it
@@ -106,6 +121,10 @@ Identify recurring problems that indicate systemic gaps rather than one-off mist
 ### Positive Findings
 
 Note what's working well: good practices to maintain and replicate.
+
+### Complex Single-Page Audits
+
+For a complex single-page design (dense dashboard, landing page, app shell), run the full reconciliation pipeline from [browser-layout.md](browser-layout.md) §5 before and after each fix round: snapshot the coordinate map, apply the change, re-run, report the delta. The report must end with an ambition statement: what the layout should become, so follow-up commands (`refine`, `deslop`, `systems --layout`) target the direction, not the checklist.
 
 ## Recommended Actions
 

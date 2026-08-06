@@ -4,11 +4,15 @@ A guide for the person at the keyboard. It covers how the skill starts, what to 
 
 ## Install
 
-```
-npm install omp-design-skill
+The skill installs with the [skills.sh CLI](https://github.com/vercel-labs/skills):
+
+```bash
+npx skills@1.5.22 add TudeOrangBiasa/design-skill
 ```
 
-Point your agent at `node_modules/omp-design-skill/SKILL.md`, or symlink it into your agent's skills directory. Restart your agent after installing.
+Add `-a <agent> -g` to target one agent globally, e.g. `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a pi -g` for Pi. From a local checkout, `bash plugins/install.sh <agent>` covers pi, omp, opencode, claude-code, codex, cursor, gemini-cli, universal, and project scope. omp reads `~/.agents/skills/`, which the plugin script installs to by symlink.
+
+npm also works: `npm install agent-design-skill`. Point your agent at `node_modules/agent-design-skill/SKILL.md`. Restart your agent after installing.
 
 ## How the skill starts
 
@@ -61,6 +65,8 @@ Say "the layout overlaps on mobile", "the contrast is too low", or "add keyboard
 **What is DESIGN.md?** A single file that captures your visual system: colors, typography, spacing, components. The skill can generate it from your code in the Google Stitch format, so future screens stay on brand.
 
 **Where do reports go?** The skill writes them under `.design-skill/` at your project root. Future sessions read them, so a fixed issue stays fixed.
+
+**Does the skill need a browser?** Audits of existing UI do. The skill uses the harness browser tool when present, otherwise the browser-use MCP server. If neither is available, the skill tells you how to install the browser-use MCP server before it audits.
 
 **How do I get it to consider specific users?** Say who they are. "For elderly users" switches the skill to bigger type, larger touch targets, and higher contrast. The persona rules are built in.
 

@@ -76,6 +76,10 @@ Create a systematic plan:
 - Use `repeat(auto-fit, minmax(280px, 1fr))` for responsive grids without breakpoints.
 - Use named grid areas (`grid-template-areas`) for complex page layouts; redefine at breakpoints.
 
+### Defensive CSS
+
+When writing or fixing layout CSS, apply the defensive generation rules in [browser-layout.md](browser-layout.md) §4: mobile-first `min-width` media queries, wrapper `max-width` containment, flex/grid with `gap` only, no `position: absolute`/`fixed` for primary content, and overflow prevention on dynamic-text wrappers. These are mandatory for code this skill ships or fixes.
+
 ### Break Card Grid Monotony
 
 - Don't default to card grids for everything; spacing and alignment create visual grouping naturally

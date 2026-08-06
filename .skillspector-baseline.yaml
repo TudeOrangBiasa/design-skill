@@ -1,0 +1,150 @@
+# SkillSpector baseline — findings listed here are suppressed on future scans.
+# Edit 'reason' fields and add glob 'rules' as needed. See docs/SUPPRESSION.md.
+version: 2
+scanner_version: 2.5.3
+rules: []
+fingerprints:
+- hash: sha256:9fbb3a7eaac25e53b0e1b63391303438469057e9833cc8f402b7801b6719ab8c
+  rule_id: RP1
+  file: reference/critique.md
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:72996559c6fc3f7d478840705cc268100c48216ec707c862979c61759f988ca4
+  rule_id: RP1
+  file: reference/critique.md
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:8eb14eff90cc19a8fd24effc47b4495a5b4bde2ea029b11a7af1af64215579dc
+  rule_id: RP1
+  file: reference/critique.md
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:65404abda9c0d5f0b0a65a336809ab0e2e678de7a7d8b54287a72bacf9dba9de
+  rule_id: RP1
+  file: scripts/live-poll.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:3093b47a763e469a1d153a1b965cb4d233b00c9013e860c34d67e942ee93e658
+  rule_id: RP1
+  file: scripts/live-poll.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:a5b5a13ec49f6d58331d62e971b3d920f3af261b9fbe9eaa2892818e07540c45
+  rule_id: RP1
+  file: scripts/live-poll.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:d59f4c96e7bad040ad4176e97f610e130bf8dcfea8376c8c5866f643523bb471
+  rule_id: RP1
+  file: scripts/live-poll.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:fccb7df3cda75c34642717f1428679b77c20a508b7c715cf5f94aab464788e03
+  rule_id: RP1
+  file: scripts/live-poll.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:d097bb5c5f1ad55887523cca22a85a040e119b70b7489f9de5ac1c65998eb09f
+  rule_id: RP1
+  file: scripts/live-poll.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:3de6a142e4518749386507aa4160eb2d53d1d0b9841a8785a6184e03780f612c
+  rule_id: RP1
+  file: scripts/live-poll.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:13bee0eb4a406c3e6802e7f3ff75532f8e3ccc001f8348ac1c03a74da13d7ef8
+  rule_id: RP1
+  file: scripts/live-poll.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:bcf2cf203adf93721e8d94d08bec48e63f884a144b47a5a436350de41e7a50f7
+  rule_id: RP1
+  file: scripts/live-poll.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:bb98bd637b700429fc95fd3e208e72b31520a54d70994cb77872484a570209b0
+  rule_id: RP1
+  file: scripts/live-poll.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:3f63f1b1bd66c2f30c8e6615c579dda754ead513d950442dd5caf7af517ce820
+  rule_id: RP1
+  file: scripts/live-wrap.mjs
+  reason: "Help-string and usage-text mentions of npx commands, never executed as installs"
+- hash: sha256:b0b1de06886e25882b57301a2a0cea30188dccc964879958a3c7b95c48d9010d
+  rule_id: E1
+  file: scripts/live-browser.js
+  reason: "fetch to the local dev server, the live-mode design (localhost by design)"
+- hash: sha256:f267110500eacaaa59d5280b9e97ba806112ccc652f731490b6b85172460b9bf
+  rule_id: EA3
+  file: LICENSE
+  reason: "Apache-2.0 LICENSE text, not a scope claim"
+- hash: sha256:43bd402753656f8a6bfea3cfd2d3e9dfe8d14a5ac74ea45d0bb087d53af147d5
+  rule_id: EA3
+  file: LICENSE
+  reason: "Apache-2.0 LICENSE text, not a scope claim"
+- hash: sha256:48e6297cae03b86b77393ace3f947c8a230c205ae2fa1eafe3ff4f535e84434a
+  rule_id: EA2
+  file: reference/audit.md
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:6dbfe8a2a9d10bede7598b37b460cb00a23f017b16fd013c7d94b40b7367d218
+  rule_id: EA2
+  file: reference/craft.md
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:45a5035fd37a857e4545ab53f23aa1cbb900c3f3f4b9092cae5ffb27dcd443ec
+  rule_id: EA2
+  file: reference/document.md
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:f5f9a0372deeeba492d0462d6258c275b95a9ab8f0e8b8c6eb03bafb0fff57a4
+  rule_id: EA2
+  file: reference/live.md
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:db2d9d19754610e6b08f626520242c5476513661aeadc14efd31544ccd55078a
+  rule_id: EA2
+  file: reference/setup.md
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:34e697be6b3398a970f164fa4063e4903605e656864b0880d6a375b52b698936
+  rule_id: EA2
+  file: reference/shape.md
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:2dd54cd302b090bb0d4f4f1c75c79ca6d8bd6e8548f1bc186fbc35cee6ae4cc7
+  rule_id: EA2
+  file: reference/shape.md
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:5d7ead68d0f493238f20569893dbb42289d8d0fadcc0321e303d0faa2e7a08db
+  rule_id: EA2
+  file: reference/shape.md
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:d5865a088221fdcb7c35e04dbad064499fbddb9aa3043ab5946df54d106a82af
+  rule_id: EA2
+  file: scripts/live-accept.mjs
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:469cda0fad099be526f9530b004acd47ea3d9b6b3c75b695aba8f6f2e45279c6
+  rule_id: EA2
+  file: scripts/live-inject.mjs
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:a1169e429fe2ca59228be10dbfa98ff07ac05c73bd07e5e2beaa7d245c5f1b2d
+  rule_id: EA2
+  file: scripts/live-poll.mjs
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:5a2a916c4930aa1cd98b51f2ed627eaab20ed8f52dea5ecf0ec7e9ec25b17104
+  rule_id: EA2
+  file: scripts/live-wrap.mjs
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:f307f764c4204f8fd84403b7e972d16a1aac9ced45988e72f008bd795737b861
+  rule_id: EA2
+  file: scripts/live.mjs
+  reason: "Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation"
+- hash: sha256:a748ab4c9fa6f2a2e9b03348f8fedf3b05ec176808642290dfe4bc5e56553389
+  rule_id: PE3
+  file: scripts/design-paths.mjs
+  reason: "Env config var lookup (IMPECCABLE_LIVE_CONFIG, process.env), not credential access"
+- hash: sha256:519acb55f18d4aac6d0968ae105f9122a217929a1075b107188e54d42f48cce1
+  rule_id: P2
+  file: reference/document.md
+  reason: "HTML comment markers in markdown (SEED marker, design-variants wrapper), not hidden instructions"
+- hash: sha256:c87f0a6e015589dc362ea1acb24a2b47d6aa0cc9e85803e1b710cad40ed5d81e
+  rule_id: P2
+  file: reference/live.md
+  reason: "HTML comment markers in markdown (SEED marker, design-variants wrapper), not hidden instructions"
+- hash: sha256:16cf78779ce3e987448fbae58f1d06bbf63ceb14daad9abe14df4a4ad9f176c5
+  rule_id: SSRF2
+  file: scripts/live-browser.js
+  reason: "Loopback requests to the skill's own live HMR server, localhost by design"
+- hash: sha256:39432bbe58cb090bf27d54d1a3602e40461ba0f5ff711a4c3ba99f42f33f49d1
+  rule_id: SSRF2
+  file: scripts/live-browser.js
+  reason: "Loopback requests to the skill's own live HMR server, localhost by design"
+- hash: sha256:f7a1d50a5ec32ac8aec3ff042e3ed6f2a7b378b6970ebf2802c943f4bd200c26
+  rule_id: P6
+  file: scripts/design-parser.mjs
+  reason: "False positive: parser reads user DESIGN.md, never prints system prompts"
