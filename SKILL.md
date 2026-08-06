@@ -64,6 +64,8 @@ Design is a conversation, not a spec delivery. The user's first sentence is a st
 
 Every question carries a recommendation. The user confirms or corrects; they never do homework. A question without a suggested answer is a question that didn't respect their time.
 
+The positive stance, what the work reaches for beyond the guardrails, lives in [reference/doctrine.md](reference/doctrine.md).
+
 And the agent stays terse: briefs are compact, reports are scannable, questions are few. Verbosity is a design failure.
 
 ## Routing

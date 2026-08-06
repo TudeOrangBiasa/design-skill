@@ -71,6 +71,8 @@ On a new or replacement world, DESIGN.md is written at finish, from the built wo
 
 ## 6. Build with full commitment
 
+When the harness has native image generation, the locked direction is visualized before it is built: load [visualize.md](visualize.md), put three compositional options before the user, and get one approved. The approved comp is king: phase one is reproduction.
+
 When an approved comp exists, the comp is king. Phase one is reproduction: rebuild the comp at its own breakpoint until a screenshot at the comp's width and height overlaps it near pixel-perfectly. Exactly three concessions exist: fonts (the closest obtainable face), icons (exact match unless the user already chose an icon library), and genuine defects in the generated comp. Everything else must match. When a region keeps losing the comparison, stop recreating it in code and produce it as a rendered asset composited into the page. Only when reproduction holds does phase two begin: static regions become animated or interactive, reveals and motion are added, then responsiveness across the surface's devices.
 
 Build the assigned direction, not a safer interpretation of it. The form supplies structure, reading order, component conventions, and native motion; the product supplies every fact. Commit every atom: nav, buttons, inputs, and links are rebuilt in the form's vocabulary. Land the first build fully committed; committing is the hard part, and the passes that follow exist to make the committed thing clear and effective, never to dilute it.

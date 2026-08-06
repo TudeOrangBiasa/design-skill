@@ -302,6 +302,20 @@ Keep opacity and color transitions that aid comprehension. Remove movement and p
 
 ---
 
+## The Animation Suite
+
+Beyond the decision framework, the wider toolkit.
+
+**Find opportunities.** Audit which interactions occur often (frequency table), which states change, and which transitions feel jarring without motion. Occasional and rare interactions are the candidates; interactions seen a hundred times a day are not.
+
+**Improve with priorities.** Fix the visible failures first (jarring, sluggish, broken states), then the feel (easing, duration, transform-origin), then the delight. Prioritized fixes beat a list of every possible improvement.
+
+**Apple-design motion for the web.** Springs with bounce 0.1-0.3 for sheets and drags, momentum for dismissal, haptic-like feedback via scale on press, quiet entrances (fade plus a slight translate), no bounce in professional contexts.
+
+**Vocabulary.** Use precise terms so the model and the reviewer agree: ease-out, ease-in-out, spring (mass, stiffness, damping, or duration, bounce), stagger, transform-origin, clip-path inset, WAAPI, reduced-motion. "Add a nice animation" is not a specification; "enter with 160ms ease-out from scale 0.97" is.
+
+**Pick a library like a product.** Components come from the ecosystem (see [resources.md](resources.md)). Motion for springs and gestures, CSS animations for predetermined motion, WAAPI for programmatic control. Never hand-roll what a library does well.
+
 ## The Sonner Principles (from building Sonner, 13M+ weekly npm downloads)
 
 1. **Developer experience is key.** No hooks, no context, no complex setup.
