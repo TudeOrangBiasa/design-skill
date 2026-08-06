@@ -179,7 +179,7 @@ The skill works through three steps.
 - Focus rings 2-3px with 3:1 contrast. Never `outline: none`.
 
 ### Responsive
-- **Viewport gauntlet:** 320, 375, 768, 1024, 1440, 2560px.
+- **Universal breakpoints (locked):** 375, 640, 768, 1024, 1280, 1536px.
 - Container queries, not page queries. Input mode detection.
 - Never amputate a feature for mobile.
 
@@ -209,23 +209,57 @@ If a glance says "AI made that", the design failed. Two checks:
 
 ## Install
 
-### From npm
+### With skills.sh (recommended)
 
+The skill is a standard Agent Skills package: a root `SKILL.md` with `name` and `description`, plus `scripts/` for its CLI tools. The [skills.sh CLI](https://github.com/vercel-labs/skills) installs it for any supported agent:
+
+```bash
+npx skills@1.5.22 add TudeOrangBiasa/design-skill
 ```
-npm install omp-design-skill
+
+Project scope (default) lands in the agent's project skills path (`.pi/skills/`, `.agents/skills/`, `.claude/skills/`, depending on the agent). Add `-g` for a global install into the agent's user skills root:
+
+| Agent | Global install command |
+|-------|------------------------|
+| Pi | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a pi -g` |
+| OpenCode | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a opencode -g` |
+| Claude Code | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a claude-code -g` |
+| Codex | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a codex -g` |
+| Cursor | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a cursor -g` |
+| Gemini CLI | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a gemini-cli -g` |
+| Shared `.agents/skills` agents | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a universal -g` |
+
+From a local checkout, the plugin script wraps the same commands and covers omp, which skills.sh has no entry for:
+
+```bash
+bash plugins/install.sh pi       # global Pi install
+bash plugins/install.sh omp      # symlink into ~/.agents/skills/
+bash plugins/install.sh project  # into this repo's .agents/skills/
 ```
 
-Point your agent at `node_modules/omp-design-skill/SKILL.md`, or symlink it into your agent's skills directory. Restart your agent afterwards.
+`bash plugins/install.sh` with no agent prints the full list.
 
-### On this machine (omp)
+### omp (example harness)
 
 omp discovers authored skills one level under a `skills/` root: `<skills-root>/<skill-name>/SKILL.md`. The canonical user-level root is `~/.agents/skills/` (the `agents` provider, enabled by default). One symlink installs it:
 
 ```bash
-ln -sfn ~/Workspace/personal/agents/design-skill ~/.agents/skills/design-skill
+ln -sfn "$PWD" ~/.agents/skills/design-skill   # run from the repo root
 ```
 
-Restart the agent. A new session picks the skill up. Nested paths like `skills/engineering/design-skill` are not discovered; keep the skill one level under the root.
+or run `bash plugins/install.sh omp`. Restart the agent. A new session picks the skill up. Nested paths like `skills/engineering/design-skill` are not discovered; keep the skill one level under the root.
+
+### From npm
+
+```
+npm install agent-design-skill
+```
+
+Point your agent at `node_modules/agent-design-skill/SKILL.md`, or symlink it into your agent's skills directory. Restart your agent afterwards.
+
+### Tooling
+
+The skill ships zero servers and no MCP. Visual audits require a scriptable browser: the harness browser tool when present, else the browser-use MCP server (keyless harness, pinned at `browser-use==0.1.40`). If neither is installed, the skill points you to the install command (see SKILL.md, Tooling). Every automation is a dependency-free Node CLI script under `scripts/`, invoked per run: `node scripts/detector.mjs <target>`, `node scripts/live.mjs`. Any harness gets the same tools with nothing to configure beyond Node >= 18. See [SKILL.md](SKILL.md) for the full tooling contract.
 
 ## Sources
 

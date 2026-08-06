@@ -16,6 +16,12 @@ description: >-
   accelerators; their absence never blocks work, ask the user instead.
 argument-hint: "[{{command_hint}}] [target]"
 license: Apache 2.0. Based on Anthropic's frontend-design skill + CommandCode design + Emil Kowalski's design engineering. See NOTICE.md for attribution.
+allowed-tools:
+  - Read
+  - Write
+  - Bash
+  - WebFetch
+  - env
 ---
 
 # Design
@@ -34,7 +40,7 @@ Two skill types, two ways in.
 
 **Model-invoked (auto).** Load without being asked when the model detects design smells in existing UI  (AI-slop tells (identical card grids, purple-blue gradients, template heroes, repetitive sections), broken states, a11y gaps, or layout smells, functional or artistic: broken hierarchy, buried primary actions, voiceless composition, generic structure. Or when the work is procedure+ability: audit, checkup, polish, deslop, access, optimize. Detect → report → propose fixes. The user confirms before files change.
 
-**The design reflex.** Whenever UI is in view during any session, in screenshots, artifacts, or live pages, flag visible tells in one line and offer the matching command. When the page's HTML is reachable, run `node {{scripts_path}}/detector.mjs <target>` for the mechanical half. Detection is ambient, not invoked.
+**The design reflex.** Whenever UI is in view during any session, in screenshots, artifacts, or live pages, flag visible tells in one line and offer the matching command. When the page's HTML is reachable, run `node {{scripts_path}}/detector.mjs <target>` for the mechanical half, then open the page in the browser and verify visual state per [reference/browser-layout.md](reference/browser-layout.md) (anti-collapse, anti-overlap, locked viewports). Detection is ambient, not invoked.
 
 **User-invoked (planning).** Load when the user asks for new or redesigned work: build, shape, craft, setup, init, redesign. These interview first: 2-3 questions per round, each carrying a recommendation. No code before the brief is confirmed.
 
@@ -73,12 +79,12 @@ And the agent stays terse: briefs are compact, reports are scannable, questions 
 | User says | Route | Load |
 |-----------|-------|------|
 | Unknown codebase | `audit` → report → fix | reference/brand.md |
-| "slop" / "kacau" / "numpuk" | `audit --smell` → `refine --deslop` → `systems --layout` | reference/smell.md |
+| "slop" | `audit --smell` → `refine --deslop` → `systems --layout` | reference/smell.md |
 | "looks like AI made it" | `audit --smell` → `refine --deslop` → `refine --distill` | reference/smell.md |
-| "bikin X dari 0" / "build me X" | `build --init` → `build --shape` → `build --craft` | reference/craft.md |
-| "tambahin accessibility" / "fix accessibility" | `fix --access` | reference/access.md |
-| "make it pop" / "bikin hidup" | `refine --bolder` | reference/bolder.md |
-| "bikin lebih X" / "kurangin X" | `refine`, auto-detect mode | per mode |
+| "build me X" | `build --init` → `build --shape` → `build --craft` | reference/craft.md |
+| "fix accessibility" | `fix --access` | reference/access.md |
+| "make it pop" | `refine --bolder` | reference/bolder.md |
+| "make it more X" / "less X" | `refine`, auto-detect mode | per mode |
 | "add dark mode" | `systems --colorize` (theme scene) → `fix --access` (contrast) | reference/colorize.md |
 | "pre-ship" / "final" | `audit --polish` | reference/polish.md |
 | Existing report in `.design-skill/` | Load report before work | report continuity |
@@ -140,11 +146,26 @@ If 2s glance says "AI made that" → failed. First-order: palette guessable from
 
 Existing `.design-skill/` reports load before work. Prioritize blockers, high-severity, repeated smells.
 
+## Tooling
+
+**Doctrine, scoped to the skill itself.** The skill ships zero MCP servers and no daemons; its deterministic automation is dependency-free `scripts/*.mjs` CLIs run per invocation. When new automation is needed, add a `scripts/*.mjs` CLI with flags, `--help`, and JSON output; do not add an MCP server or a daemon to this skill. The browser requirement below is an external dependency, like Node: the skill requires it, it does not ship it.
+
+**Browser requirement.** Visual work on existing UI (audit, checkup, polish, smell, refine, fix, live) opens the page in a scriptable browser. Sources: (1) the harness's browser tool with JS evaluation and screenshots (the harness's built-in browser tool), (2) the browser-use MCP server, a keyless browser harness pinned at `browser-use==0.1.40` (no LLM API key, no model config; this machine runs it through the pipx `mcp-browser-use` wrapper, binary `bu-mcp`, which resolves `browser-use` 0.1.40). Its tool surface is navigation, DOM inspection, clicks/typing/scroll/select, tabs, and `validate_page`; it has no JS evaluation, no screenshots, and no viewport control (verified from the installed server source). The official browser-use MCP server documented at docs.browser-use.com (run via `uvx --from 'browser-use[cli]' browser-use --mcp`) is a different, agent-driven server that requires an LLM API key; the skill does not use it. Coordinate maps and screenshots run through whichever surface supports them; when only the action server exists, mark coordinate findings `[UNVERIFIED_COORDS]` instead of guessing. See [reference/browser-layout.md](reference/browser-layout.md) for the accuracy ruleset.
+
+**Install pointer (shown when no browser surface exists).** When no browser surface exists, point the user to the browser-use MCP server (keyless harness, pinned at `browser-use==0.1.40`). Generic stdio config: `{ "mcpServers": { "browseruse": { "command": "mcp-browser-use" } } }` with the pipx bin on PATH; omp (example): put that entry in `~/.omp/agent/mcp.json`, then `/mcp reload`. Other harnesses: add the same stdio server via the harness's MCP config.
+
+`{{scripts_path}}` in this skill's docs means the skill's `scripts/` directory. Harnesses without the substitution resolve it as `<skill-dir>/scripts/` before running the command.
+
+**Available CLI tools.** `design` is the single entry for the skill's scripts: `design detect <target>` (detector.mjs), `design load-context` (load-context.mjs), `design pin <pin|unpin> <command>` (pin.mjs), `design seed --directions "A|B|C"` (concept-seed.mjs), `design live` and the `design live-*` helpers (live family), `design critique-storage <cmd>` (critique-storage.mjs), `design detect-csp` (detect-csp.mjs). Each maps one-to-one to a script; the per-tool `{{scripts_path}}/<script>.mjs` invocations in reference docs stay valid.
+
+**Injection (optional, per harness).** A harness may expose the CLI as native model-callable tools instead of shell invocations. omp (example): drop custom-tool modules into `.omp/tools/` (or `~/.omp/agent/tools/`), one module per command, each wrapping `node <skill-scripts>/design.mjs <subcommand> ...`; see the harness custom-tools doc for the module contract. The skill repo does not ship these modules (cross-harness concern).
+
 ## Setup
 
 1. Load existing context if present: `node {{scripts_path}}/load-context.mjs` (PRODUCT.md / DESIGN.md; legacy `brief.md` counts as context). Never block on these, if missing ask the user (2-3 questions) or offer `/design setup`.
 2. Identify register: brand or product. Load `reference/brand.md` or `reference/product.md`
 3. Select the surface mode (Persuade / Operate / Read / Experience) from the request. Load `reference/modes.md` for the doctrine.
 4. Load sub-command reference if invoked. Before editing UI, load `reference/craft-floor.md`.
+5. Browser gate: audits of existing UI open the page in a real browser (Tooling section). If no browser surface exists, tell the user how to install one (browser-use MCP server, Tooling section) and wait; do not audit layout from code alone.
 
 See [REFERENCE.md](REFERENCE.md) for design laws, full command tables, persona setup, pin/unpin.

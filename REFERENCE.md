@@ -98,7 +98,7 @@ Design consequences:
 - **CSS transitions > keyframes** for interruptible UI. Keyframes restart from zero.
 
 ### Responsive
-- **Viewport gauntlet:** 320px (iPhone SE) / 375px (iPhone) / 768px (iPad) / 1024px (laptop) / 1440px (desktop) / 2560px (ultrawide).
+- **Universal breakpoints (locked):** 375 (mobile base) / 640 (sm) / 768 (md) / 1024 (lg) / 1280 (xl) / 1536 (2xl). Lock the viewport before browser checks; never fluid-resize. See reference/browser-layout.md.
 - **Thumb zone:** Bottom 25% reachable one-hand. Primary actions there. Destructive in top 25%.
 - **Input mode detection:** `pointer: coarse` for touch sizing. `hover: hover` for hover affordances.
 - **Container queries:** Components respond to container, not page. Same `<Card>` adapts sidebar vs main.
