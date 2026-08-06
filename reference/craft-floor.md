@@ -13,7 +13,7 @@ Each check runs on the built result, not the intention. Run them together in the
 - **Motion:** one authored moment, not scattered effects and not one identical entrance on every section. Exponential ease-out from an already-visible default. Blur, backdrop-filter, clip-path, mask, and shadow belong to the palette when they stay smooth.
 - **States:** hover, disabled, loading, error, empty. Plus real content, working controls, responsive composition, keyboard focus.
 - **Browser surfaces:** the parts you did not draw still carry the design. Text selection, the caret, custom scrollbars, focus rings, underline offset, and the numerals in tabular data ship with browser defaults that belong to no design system. Theme them from the palette. This is the cheapest signal that a page was built rather than assembled, and the one models skip most reliably.
-- **Copy:** the product's own language. Controls name their action; errors name the problem and the recovery.
+- **Copy:** the product's own language. Controls name their action; errors name the problem and the recovery. Prose follows the full anti-AI rules in REFERENCE.md: no em dashes, no filler, no promotional words, no repetition.
 - **Coverage:** every brief requirement present and findable within seconds.
 
 ## Refuse

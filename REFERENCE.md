@@ -1,4 +1,4 @@
-# Design — Reference
+# Design Reference
 
 See [SKILL.md](SKILL.md) for routing, gates, persona, protocols.
 
@@ -6,7 +6,7 @@ See [SKILL.md](SKILL.md) for routing, gates, persona, protocols.
 
 ### Context gathering
 Optional accelerators, never blockers:
-- **PRODUCT.md** (or `brief.md`, or a Design Context section inside README/PRD/`docs/`): users, brand, tone, principles, persona profiles. Never create a new PRODUCT.md — merge into what the user already has.
+- **PRODUCT.md** (or `brief.md`, or a Design Context section inside README/PRD/`docs/`): users, brand, tone, principles, persona profiles. Never create a new PRODUCT.md; merge into what the user already has.
 - **DESIGN.md**: colors, typography, elevation, tokens. The one file this skill creates, via `/design build --document` (Google Stitch format).
 
 Load what exists: `node {{scripts_path}}/load-context.mjs`
@@ -26,6 +26,7 @@ If multiple personas, `build --shape` documents them in PRODUCT.md. All commands
 
 ### Color
 - **OKLCH only.** Never #000/#fff. Tint neutrals toward brand hue (chroma < 0.02).
+- **OKLCH is the source of truth.** Build and pick the palette in OKLCH first; convert to hex, rgba, or hsl only at the export edge, when legacy browser support or a specific tool constraint requires it. Never design the palette in HSL.
 - **4 commitment levels:** Restrained (1 accent ≤10%) / Committed (1 color 30-60%) / Full palette (3-4 roles) / Drenched (surface IS color).
 - **60-30-10 rule:** 60% primary, 30% secondary, 10% accent. If accent >10%, it's not an accent.
 - **Theme:** Write one sentence of physical scene before dark/light. If sentence doesn't force answer, add detail til it does.
@@ -48,6 +49,25 @@ If multiple personas, `build --shape` documents them in PRODUCT.md. All commands
 - **Cards are lazy.** Use only when content is genuinely discrete. No nested cards.
 - **Z-index scale:** Semantic (dropdown → sticky → modal-backdrop → modal → toast → tooltip). Never 999.
 - **Surface patterns:** 7 surfaces: Monitor / Operate / Compare / Configure / Learn / Decide / Explore.
+
+### How users scan
+
+Users do not read pages, they scan them. Four patterns, depending on the surface:
+
+- **F-shaped:** the top horizontal line, a shorter second line, then a vertical sweep down the left. Dense text pages.
+- **Z-shaped:** top-left to top-right, diagonal to bottom-left, across to bottom-right. Minimal and landing pages.
+- **Spotted:** jumps straight to data points (links, prices, bold words, icons), ignoring surrounding text.
+- **Layer cake:** hops from one heading or subheading to the next, without reading body paragraphs.
+
+Core scanning behaviors: **headline hunting** (skimming large text to see if a section matters), **link spotting** (searching for clickable buttons or anchor text), **visual anchoring** (photos, icons, or charts pulling the eye away from text blocks).
+
+Design consequences:
+
+- Headings must carry the message alone. A visitor who reads only headings must still understand the offer. (This is why the kicker and eyebrow are banned.)
+- Links and buttons must look clickable on sight. Affordance is not decoration.
+- The primary action sits where the scan ends: F ends bottom-left, Z ends bottom-right.
+- Visual anchors break up text blocks and pull the eye down the page. Long unbroken prose is where scanning dies.
+- Prices, numbers, and key data get the spotted pattern: place them where they matter, set in tabular figures.
 
 ### Motion
 - **Animation decision framework:** 4 questions before writing code:
@@ -94,6 +114,22 @@ If multiple personas, `build --shape` documents them in PRODUCT.md. All commands
 - **No exclamation points.** Reads as desperate.
 - **Sentence case everywhere.** "Save changes" not "Save Changes".
 - **Strip filler.** Restated headings, marketing preamble, transition sentences.
+
+### Anti-AI prose (the full list)
+
+When writing prose (docs, README, reports, articles, comments, captions, labels), avoid these patterns by default. This is the minimum bar:
+
+- **Em dashes (—):** use comma, period, or rephrase.
+- **"Stands as" / "serves as" / "functions as":** say what it does directly.
+- **Rule of three:** don't pad with three-item lists when two suffice.
+- **Promotional words:** pivotal, vibrant, intricate, tapestry, testament. Cut.
+- **Corporate AI speak:** evolving landscape, navigating, leverage, utilize. Cut.
+- **Negative parallelisms:** "not just X, but Y". Rephrase directly.
+- **Fragmented headers:** heading plus restatement. Write full sentences.
+- **Signposting:** "In this section...", "Berikut adalah...". Just start.
+- **Filler:** "Penting untuk diingat", "Perlu diketahui", "saat ini", "pada era", "dalam konteks". Cut.
+- **Promotional language:** seamless, powerful, cutting-edge. Describe facts.
+- **Repetition:** the same idea restated in two or more sentences. Keep the clearest, delete the rest.
 
 ## Commands
 
@@ -166,8 +202,8 @@ node {{scripts_path}}/pin.mjs <pin|unpin> <command>
 
 ## Report Templates
 
-- `reference/checkup-report-html.md` — template for checkup HTML report
-- `reference/smell-report-html.md` — template for smell HTML report
-- `reference/review-report-html.md` — template for review HTML report
+- `reference/checkup-report-html.md` template for the checkup HTML report
+- `reference/smell-report-html.md` template for the smell HTML report
+- `reference/review-report-html.md` template for the review HTML report
 
 Reports are `.design-skill/<mode>-report.md` + `.html`. No browser dep. Template-based.

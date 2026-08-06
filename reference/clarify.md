@@ -2,6 +2,8 @@
 
 Find the unclear, confusing, or poorly written interface text and rewrite it. Vague copy creates support tickets and abandonment; specific copy gets users through the task.
 
+Prose follows the full anti-AI rules in REFERENCE.md (no em dashes, no filler, no promotional words, no negative parallelisms, no repetition). The copy the skill writes must pass the same bar it teaches.
+
 
 ---
 
