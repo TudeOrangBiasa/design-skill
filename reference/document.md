@@ -45,7 +45,7 @@ components:
 Rules that matter:
 
 - **Token refs** use `{path.to.token}` (e.g. `{colors.primary}`, `{rounded.md}`). Components may reference primitives; primitives may not reference each other.
-- **Any valid CSS color is a valid token value** per the spec: hex (`#RRGGBB` recommended default), named colors, `rgb()/hsl()/hwb()`, wide-gamut `oklch()/oklab()/lch()/lab()`, and `color-mix()`. Values are converted to sRGB internally for WCAG contrast checks; the original format is preserved. OKLCH is fully spec-legal — the project's OKLCH-only doctrine goes straight in. Prefer hex when there's no strong reason otherwise, for broad tooling support (Tailwind/DTCG export). Never split the source of truth without explicit reason.
+- **Any valid CSS color is a valid token value** per the spec: hex (`#RRGGBB` recommended default), named colors, `rgb()/hsl()/hwb()`, wide-gamut `oklch()/oklab()/lch()/lab()`, and `color-mix()`. Values are converted to sRGB internally for WCAG contrast checks; the original format is preserved. OKLCH is fully spec-legal. The project's OKLCH-only doctrine goes straight in. Prefer hex when there's no strong reason otherwise, for broad tooling support (Tailwind/DTCG export). Never split the source of truth without explicit reason.
 - **`version` and `omitted` are optional but useful**: `version: alpha` marks the spec draft level; `omitted` declares intentionally-missing sections (plain strings or `{ section, reason }` objects) so linters don't flag them.
 - **Component sub-tokens** are limited to 8 props: `backgroundColor`, `textColor`, `typography`, `rounded`, `padding`, `size`, `height`, `width`. Shadows, motion, focus rings, backdrop-filter: none of those fit. Carry them in the sidecar (Step 4b).
 - **Scale keys are open-ended.** Use whatever names the project already uses (`warm-ash-cream`, `surface-container-low`). Don't rename to Material defaults.
@@ -190,7 +190,7 @@ colors:
 
 ## Layout
 
-[One paragraph: the grid model and spacing strategy — e.g. "Fluid Grid on mobile, Fixed-Max-Width 1200px on desktop; strict 8px spacing scale with a 4px half-step for micro-adjustments." Name the `spacing` tokens this maps to in the frontmatter.]
+[One paragraph: the grid model and spacing strategy, e.g. "Fluid Grid on mobile, Fixed-Max-Width 1200px on desktop; strict 8px spacing scale with a 4px half-step for micro-adjustments." Name the `spacing` tokens this maps to in the frontmatter.]
 
 ## Elevation & Depth
 
@@ -205,7 +205,7 @@ colors:
 
 ## Shapes
 
-[One paragraph: the shape language — corner radii for buttons, cards, inputs, containers. Name the `rounded` tokens it maps to. State it explicitly ("architectural, 4px", "sharp, 0px") rather than leaving it implied.]
+[One paragraph: the shape language, corner radii for buttons, cards, inputs, containers. Name the `rounded` tokens it maps to. State it explicitly ("architectural, 4px", "sharp, 0px") rather than leaving it implied.]
 
 ## Components
 

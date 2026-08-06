@@ -27,7 +27,7 @@ Discovery includes at least one user-answer round unless PRODUCT.md, DESIGN.md, 
 
 **Assert-then-confirm, not menu-with-escape.** When PRODUCT.md and the user's prompt make one option obvious, name it and ask the user to confirm or override. Don't enumerate "Restrained / Committed / Or something else?" as a real choice; "This reads as Restrained, confirm?" beats a four-option menu when the answer is already clear.
 
-**Recommend with every question.** Even open discovery questions carry your best hypothesis: "I'd guess this is for X — confirm or correct?" A question with no suggested answer is homework, and homework wastes the user's time.
+**Recommend with every question.** Even open discovery questions carry your best hypothesis: "I'd guess this is for X. Confirm or correct?" A question with no suggested answer is homework, and homework wastes the user's time.
 
 ### Purpose & Context
 - What is this feature for? What problem does it solve?

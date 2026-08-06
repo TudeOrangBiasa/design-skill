@@ -8,15 +8,15 @@ This is not polish. This is not relayout. This is not color work. Redesign repla
 
 ## Discipline files
 
-This mode drives the full redesign. These files are reference material — consult them when each dimension comes up during the redesign, not as a separate pass:
+This mode drives the full redesign. These files are reference material. Consult them when each dimension comes up during the redesign, not as a separate pass:
 
-- [color.md](color.md) — for correct palette construction when choosing the new color system
-- [typeset.md](typeset.md) — for correct type hierarchy when building the new type voice
-- [layout.md](layout.md) — for correct spatial logic when choosing the new composition
-- [border.md](border.md) — for correct edge language when choosing the new radius and frame system
-- [shadow.md](shadow.md) — for correct depth decisions when setting or removing elevation
-- [motion.md](motion.md) — for correct timing and easing when defining the new motion personality
-- [button.md](button.md) — for correct control states when replacing the component language
+- [colorize.md](colorize.md): for correct palette construction when choosing the new color system
+- [typeset.md](typeset.md): for correct type hierarchy when building the new type voice
+- [layout.md](layout.md): for correct spatial logic when choosing the new composition
+- [craft-floor.md](craft-floor.md): for correct edge language when choosing the new radius and frame system
+- [craft-floor.md](craft-floor.md): for correct depth decisions when setting or removing elevation
+- [animate.md](animate.md): for correct timing and easing when defining the new motion personality
+- [interaction.md](interaction.md): for correct control states when replacing the component language
 
 ---
 
@@ -180,7 +180,7 @@ A redesign that only covers the happy screenshot is unfinished.
 - Accessibility and performance are not worse
 - The result feels authored, not trend-composed
 
-STRICT RULE — NEVER BREAK THIS
+STRICT RULE: NEVER BREAK THIS
 Do not create report.md, any kind of report, summary, analysis file,
 or extra documentation. This applies every time this file is used.
 Generate no reports unless explicitly asked.

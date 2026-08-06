@@ -185,7 +185,16 @@ The skill works through three steps.
 
 ### Copy
 - One verb per button. Errors are recovery paths. Empty states teach.
-- No em dashes, no exclamation points, sentence case.
+- No em dashes, no exclamation points, sentence case. No filler, no promotional words, no repetition. See the full anti-AI prose list in REFERENCE.md.
+
+### Scanning
+- Users scan pages in four patterns: F-shaped, Z-shaped, Spotted, Layer Cake.
+- Headings carry the message alone. Links look clickable. The primary action sits where the scan ends.
+
+### Landing pages
+- The six-beat narrative: Hook, Catalyst, Mentor, Journey, Proof, Resolution.
+- Max 2-3 extra components; if a component does not advance the story or build trust, delete it.
+- Mobile-first for content discipline, desktop for immersion.
 
 ## Bans (never generate)
 

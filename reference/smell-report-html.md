@@ -9,7 +9,7 @@ td,th{padding:8px;text-align:left;border-bottom:1px solid #e5e7eb}
 <body>
 <h1>AI Slop Detection</h1>
 <p>Generated: {{DATE}} | Scope: {{TARGET}}</p>
-<div class="smell"><strong>Found {{COUNT}} smell patterns</strong> — {{CRITICAL}} critical, {{WARNING}} warnings</div>
+<div class="smell"><strong>Found {{COUNT}} smell patterns</strong>: {{CRITICAL}} critical, {{WARNING}} warnings</div>
 <table>
 <tr><th>Pattern</th><th>Severity</th><th>Location</th><th>Suggested fix</th></tr>
 {{SMELLS}}

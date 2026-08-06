@@ -2,7 +2,7 @@
 
 Build a feature with design UX and UI quality: shape the design, land the visual direction, build real production code, inspect and improve in-browser until it meets a high-end studio bar.
 
-Before writing code, you need: project context (PRODUCT.md / brief.md if present — otherwise gathered by asking the user a few questions), register and mode identified, and a confirmed design direction for this task (from `shape`, from [new-work.md](new-work.md), or supplied by the user). Context files are accelerators, never blockers: if they're missing, ask.
+Before writing code, you need: project context (PRODUCT.md / brief.md if present: otherwise gathered by asking the user a few questions), register and mode identified, and a confirmed design direction for this task (from `shape`, from [new-work.md](new-work.md), or supplied by the user). Context files are accelerators, never blockers: if they're missing, ask.
 
 A new surface or a replacement visual world routes its direction decision through [new-work.md](new-work.md): decide what is already true, ask, choose the amount of invention, commit the world, and record the contract before any code. A narrow extension of an existing surface proceeds from the brief directly.
 
@@ -12,7 +12,7 @@ Treat any approved visual direction (generated mock or stated reference) as a co
 
 Craft has **multiple user gates**, not one:
 
-1. **Discovery interview** (Step 1, inside shape — 2-3 questions per round, wait for answers)
+1. **Discovery interview** (Step 1, inside shape: 2-3 questions per round, wait for answers)
 2. **Visual direction probes answered** (shape Phase 1.5, only when the harness has native image generation)
 3. **Brief confirmed** (Step 1)
 

@@ -8,11 +8,11 @@ Screen size is only one variable. Input mode often matters more.
 
 ## Discipline files
 
-Responsive drives the recomposition pass — consult these when each dimension comes up during responsive work, not as separate passes to layer on:
+Responsive drives the recomposition pass. Consult these when each dimension comes up during responsive work, not as separate passes to layer on:
 
-- [layout.md](layout.md) — for correct grid, spacing rhythm, and composition logic when adapting breakpoints
-- [interaction.md](interaction.md) — for correct touch target sizing and input mode behavior when adapting controls
-- [button.md](button.md) — for correct full-width and stacked button patterns when adapting narrow viewports
+- [layout.md](layout.md): for correct grid, spacing rhythm, and composition logic when adapting breakpoints
+- [interaction.md](interaction.md): for correct touch target sizing and input mode behavior when adapting controls
+- [interaction.md](interaction.md): for correct full-width and stacked button patterns when adapting narrow viewports
 
 ---
 
@@ -173,7 +173,7 @@ I do not mix strategies randomly on the same table.
 - Dark, reduced-motion, high-contrast, and zoom states remain usable
 - Tables keep their data meaning
 
-STRICT RULE — NEVER BREAK THIS
+STRICT RULE: NEVER BREAK THIS
 Do not create report.md, any kind of report, summary, analysis file,
 or extra documentation. This applies every time this file is used.
 Generate no reports unless explicitly asked.

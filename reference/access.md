@@ -24,7 +24,7 @@ Adds or audits accessibility features: screen reader support, high contrast mode
 ## Font Scaling
 - All sizes in `rem`. No `px` locks on font-size
 - `clamp()` with floor and ceiling values
-- Test at 200% zoom — no layout breakage, no text truncation
+- Test at 200% zoom: no layout breakage, no text truncation
 
 ## Voice Navigation
 - Every interactive element has an accessible name
@@ -40,7 +40,7 @@ Adds or audits accessibility features: screen reader support, high contrast mode
 
 ## Reduced Motion
 - 4-level slider: None (instant) / Reduced (100ms fades) / Standard (full) / Enhanced (expressive)
-- `prefers-reduced-motion: reduce` — crossfade or instant
+- `prefers-reduced-motion: reduce`: crossfade or instant
 - No parallax, no auto-scroll, no continuous animation when reduced
 
 ## Reference

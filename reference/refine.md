@@ -56,19 +56,19 @@ One small detail, one hover effect, or one copy edit does not count as refinemen
 
 ## How I Choose The Move
 
-If the design is safe and flat, I **push** it — stronger commitment, sharper point of view.
+If the design is safe and flat, I **push** it: stronger commitment, sharper point of view.
 
-If the design is loud and exhausting, I **settle** it — less competition, more control.
+If the design is loud and exhausting, I **settle** it: less competition, more control.
 
-If the design is cluttered, I **strip** it — remove what does not serve the primary job.
+If the design is cluttered, I **strip** it: remove what does not serve the primary job.
 
-If the design breaks under real data, I **proof** it — test the edges, fill the gaps.
+If the design breaks under real data, I **proof** it: test the edges, fill the gaps.
 
-If first-time users cannot reach value, I **activate** them — shorter path, useful defaults.
+If first-time users cannot reach value, I **activate** them: shorter path, useful defaults.
 
-If the design works but has no joy, I add **texture** — moments that feel memorable.
+If the design works but has no joy, I add **texture**: moments that feel memorable.
 
-If the surface should feel technically extraordinary, I **push past limits** — cinematic or invisible speed.
+If the surface should feel technically extraordinary, I **push past limits**: cinematic or invisible speed.
 
 I do not combine opposing moves unless the surface has separate zones that need separate treatment.
 
@@ -187,7 +187,7 @@ I know it worked when removing the effect would make the experience feel meaning
 - Edge states are not worse
 - The result does not need another opposite refine pass to recover
 
-STRICT RULE — NEVER BREAK THIS
+STRICT RULE: NEVER BREAK THIS
 Do not create report.md, any kind of report, summary, analysis file,
 or extra documentation. This applies every time this file is used.
 Generate no reports unless explicitly asked.

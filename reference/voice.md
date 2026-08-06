@@ -8,13 +8,13 @@ Here, design is not serving a task. The design is the product.
 
 ## Discipline files
 
-Voice drives the brand identity pass — consult these when each dimension comes up, not as additional work to run on top:
+Voice drives the brand identity pass. Consult these when each dimension comes up, not as additional work to run on top:
 
-- [color.md](color.md) — for correct palette construction when committing to a brand hue
-- [typeset.md](typeset.md) — for correct type hierarchy when building the brand voice and display scale
-- [motion.md](motion.md) — for correct timing and personality when adding expressive animation
-- [border.md](border.md) — for correct edge language when choosing frame and art-direction treatments
-- [shadow.md](shadow.md) — for correct depth model when adding atmospheric lighting or elevation
+- [colorize.md](colorize.md): for correct palette construction when committing to a brand hue
+- [typeset.md](typeset.md): for correct type hierarchy when building the brand voice and display scale
+- [animate.md](animate.md): for correct timing and personality when adding expressive animation
+- [craft-floor.md](craft-floor.md): for correct edge language when choosing frame and art-direction treatments
+- [craft-floor.md](craft-floor.md): for correct depth model when adding atmospheric lighting or elevation
 
 ---
 
@@ -177,7 +177,7 @@ Sometimes the most confident brand motion is none.
 - It does not look like the median generated landing page
 - The visitor has a reason to scroll
 
-STRICT RULE — NEVER BREAK THIS
+STRICT RULE: NEVER BREAK THIS
 Do not create report.md, any kind of report, summary, analysis file,
 or extra documentation. This applies every time this file is used.
 Generate no reports unless explicitly asked.

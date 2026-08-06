@@ -6,7 +6,7 @@ See [SKILL.md](SKILL.md) for routing, gates, persona, protocols.
 
 ### Context gathering
 Optional accelerators, never blockers:
-- **PRODUCT.md** (or `brief.md`, or a Design Context section inside README/PRD/`docs/`): users, brand, tone, principles, persona profiles. Never create a new PRODUCT.md; merge into what the user already has.
+- **PRODUCT.md** (or `brief.md`, or a Design Context section inside README/PRD/`docs/`): users, brand, tone, principles, persona profiles. Merge into what the user already has; create PRODUCT.md only when no existing doc fits.
 - **DESIGN.md**: colors, typography, elevation, tokens. The one file this skill creates, via `/design build --document` (Google Stitch format).
 
 Load what exists: `node {{scripts_path}}/load-context.mjs`
@@ -17,7 +17,7 @@ When these are missing, gather the same answers by asking the user (2-3 question
 Every task is **brand** (marketing, landing) or **product** (app UI, dashboard). Load matching register reference before work.
 
 ### Mode
-Every surface also has a **mode**: what success looks like for its visitor. Persuade (decide and act), Operate (complete a task), Read (understand), Experience (be inside the work). Choose it from the surface, not the product; see [modes.md](modes.md). Register is the product's durable lane, mode is the per-surface lens.
+Every surface also has a **mode**: what success looks like for its visitor. Persuade (decide and act), Operate (complete a task), Read (understand), Experience (be inside the work). Choose it from the surface, not the product; see [reference/modes.md](reference/modes.md). Register is the product's durable lane, mode is the per-surface lens.
 
 ### Persona Profile
 If multiple personas, `build --shape` documents them in PRODUCT.md. All commands read and enforce.
@@ -175,7 +175,7 @@ When writing prose (docs, README, reports, articles, comments, captions, labels)
 | redesign | Complete visual transformation | reference/redesign.md |
 | setup | Project brief context | reference/setup.md |
 
-Specialized playbooks: [modes.md](modes.md) (surface lens), [new-work.md](new-work.md) (new surfaces and replacement worlds), [craft-floor.md](craft-floor.md) (quality floor before editing UI), [hero.md](hero.md) (hero-led Persuade surfaces), [landing-pages.md](landing-pages.md) (the five-beat narrative for landing pages).
+Specialized playbooks: [reference/modes.md](reference/modes.md) (surface lens), [reference/new-work.md](reference/new-work.md) (new surfaces and replacement worlds), [reference/craft-floor.md](reference/craft-floor.md) (quality floor before editing UI), [reference/hero.md](reference/hero.md) (hero-led Persuade surfaces), [reference/landing-pages.md](reference/landing-pages.md) (the six-beat narrative for landing pages).
 
 ### fix
 | Mode | What | Load |

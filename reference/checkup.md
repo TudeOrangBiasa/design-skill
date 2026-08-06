@@ -70,7 +70,7 @@ When accessibility is weak, the whole checkup is weak. It affects real people, n
 
 ## Scoring
 
-Checkup uses a `/60` score across the six vital signs. **MAX_SCORE = 60.** Use `/60` as the denominator in the report template — never `/40` or `/10`.
+Checkup uses a `/60` score across the six vital signs. **MAX_SCORE = 60.** Use `/60` as the denominator in the report template: never `/40` or `/10`.
 
 Each vital is scored by status:
 
@@ -125,7 +125,7 @@ Checkup always produces two report artifacts:
 
 **Important Rule for Generating HTML Report:**
 
-- **Use the following template structure** [report-html.md](report-html.md) to generate `checkup-report.html`:
+- **Use the following template structure** [checkup-report-html.md](checkup-report-html.md) to generate `checkup-report.html`:
 - Do not change the visual design. Only fill in the content.
 
 These are the only report artifacts checkup creates.
@@ -154,7 +154,7 @@ These are the only report artifacts checkup creates.
 - The user knows whether to proceed, fix, or pause
 - `checkup-report.md` and `checkup-report.html` both exist
 
-STRICT RULE — NEVER BREAK THIS
+STRICT RULE: NEVER BREAK THIS
 Always create .design-skill/checkup-report.md and
 .design-skill/checkup-report.html. Do not create any other report,
 summary, analysis file, or extra documentation.
