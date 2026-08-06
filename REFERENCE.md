@@ -175,7 +175,7 @@ When writing prose (docs, README, reports, articles, comments, captions, labels)
 | redesign | Complete visual transformation | reference/redesign.md |
 | setup | Project brief context | reference/setup.md |
 
-Specialized playbooks: [modes.md](modes.md) (surface lens), [new-work.md](new-work.md) (new surfaces and replacement worlds), [craft-floor.md](craft-floor.md) (quality floor before editing UI), [hero.md](hero.md) (hero-led Persuade surfaces), [landing-pages.md](landing-pages.md) (the six-beat narrative for landing pages), [resources.md](resources.md) (trusted icon, background, and component sources).
+Specialized playbooks: [reference/modes.md](reference/modes.md) (surface lens), [reference/new-work.md](reference/new-work.md) (new surfaces and replacement worlds), [reference/craft-floor.md](reference/craft-floor.md) (quality floor before editing UI), [reference/hero.md](reference/hero.md) (hero-led Persuade surfaces), [reference/landing-pages.md](reference/landing-pages.md) (the six-beat narrative for landing pages), [reference/resources.md](reference/resources.md) (trusted icon, background, and component sources).
 
 ### fix
 | Mode | What | Load |
