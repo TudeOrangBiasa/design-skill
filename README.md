@@ -4,6 +4,8 @@
 
 # Design Skill
 
+[![npm version](https://img.shields.io/npm/v/agent-design-skill.svg)](https://www.npmjs.com/package/agent-design-skill)
+
 Every AI-generated interface has a tell. The identical card grid. The purple-blue gradient. The hero that reads like a template. Two seconds of looking and you know a model made it. This skill exists to make that reaction impossible.
 
 New here? Start with [Using the Design Skill](GUIDE.md), a walkthrough of the skill in practice.
@@ -269,6 +271,10 @@ The skill ships zero servers and no MCP. Visual audits require a scriptable brow
 | [Emil Kowalski's design engineering](https://animations.dev/) | Motion philosophy, animation framework, spring physics |
 | CommandCode design | Report workflow, color/type/layout/interaction/responsive/copy philosophy |
 | [Anthropic's frontend-design skill](https://github.com/anthropics/skills) | Craft and shape flows, production quality bar |
+
+## Contributing
+
+See [CONTRIBUTION.md](CONTRIBUTION.md) for the contribution rules, the check commands, and the repo conventions.
 
 ## License
 

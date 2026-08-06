@@ -13,6 +13,8 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 - npm package renamed to `agent-design-skill` (the `omp-design-skill` name is retired).
 - Machine-specific paths removed from SKILL.md Tooling and the README install section.
 - Indonesian routing triggers removed (English-only triggers remain).
+- `CONTRIBUTING.md` renamed to `CONTRIBUTION.md`; the README links to it.
+- README gained an npm version badge for `agent-design-skill`.
 
 ## [1.0.19] - 2026-08-06
 
