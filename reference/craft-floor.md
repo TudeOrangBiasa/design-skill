@@ -37,7 +37,7 @@ Surface habits:
 - Sparklines, progress rings, and soft-shadowed rounded rectangles standing in for content.
 - Monospace as a costume for "technical" rather than for code, data, or measurement.
 - A system display face (Impact, Arial Black, the platform sans) as the display voice of an own-world page. Source and self-host a face whose character matches the approved lettering.
-- Unicode glyphs or emoji standing in for an icon system. Icons are drawn, from a real library or authored SVG, in one consistent stroke and weight.
+- **Emoji or unicode glyphs standing in for an icon system.** Hard ban. Use a real icon product from [resources.md](resources.md) (Iconoir, Humbleicons, Flowbite) or an authored SVG set in one consistent stroke and weight; never mix sets.
 - Light or dark picked by category. Pick it from the use scene: who, where, under what ambient light.
 
 Mechanics:
@@ -45,7 +45,7 @@ Mechanics:
 - Tracking stops at -0.04em. -0.02 to -0.03em usually reads better.
 - Declare elevation once, border or shadow. A 1px border under a wide soft shadow is the ghost card. Card radii stay at 12-16px; pills are for small controls.
 - Real illustration or none. Sketch-style SVG scenes and feTurbulence grain read as amateur. This bans SVG imitating pictures, never SVG doing geometry: crisp vector shapes, diagrams, animated linework, and shader-driven effects remain first-class media.
-- Backgrounds are surfaces, textured only from the subject's world. repeating-linear-gradient stripes and two-axis grid overlays need an actual canvas, map, blueprint, or measuring tool under them.
+- Backgrounds are surfaces, textured only from the subject's world. Use real background material from [resources.md](resources.md) (Backgrounds Supply, Paper Shaders) when the surface wants texture; a CSS-only gradient wash is a fallback of last resort. repeating-linear-gradient stripes and two-axis grid overlays need an actual canvas, map, blueprint, or measuring tool under them.
 - Claims and configuration come from supplied truth; label illustrative values honestly. Naming a concept and then ironizing it is not a claim.
 
 ## The floor in practice
