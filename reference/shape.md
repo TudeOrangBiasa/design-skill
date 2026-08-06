@@ -48,7 +48,7 @@ Force a visual decision on three fronts. Skip anything PRODUCT.md or DESIGN.md a
 
 - **Color strategy for this surface.** Pick one: Restrained / Committed / Full palette / Drenched. Can override the project default if the surface earns it (e.g. a drenched hero inside an otherwise Restrained product).
 - **Theme via scene sentence.** Write one sentence of physical context for this surface: who uses it, where, under what ambient light, in what mood. The sentence forces dark vs light. If it doesn't, add detail until it does.
-- **Two or three named anchor references.** Specific products, brands, objects. Not adjectives like "modern" or "clean."
+- **Two or three named anchor references.** Specific products, brands, objects. Not adjectives like "modern" or "clean." For Persuade surfaces, pull anchors from the Lapa Ninja reference list in `scraped/lapa-ninja-references.json`; hero prompt examples live in `scraped/vibeui-prompts.md`.
 
 ### Scope
 

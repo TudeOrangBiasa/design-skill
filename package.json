@@ -36,7 +36,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node --test scripts/design-parser.test.mjs scripts/detector.test.mjs",
+    "test": "node --test scripts/design-parser.test.mjs scripts/detector.test.mjs scripts/concept-seed.test.mjs",
     "lint:docs": "node scripts/lint-docs.mjs",
     "detect": "node scripts/detector.mjs"
   }
