@@ -32,7 +32,9 @@ Two skill types, two ways in.
 | Ability | Capability applied on demand | colorize, typeset, layout, animate, interaction, responsive, access, live | Model or user |
 | Planning | Design before code: interview → brief → confirm | build, shape, craft, setup, init, redesign | User only |
 
-**Model-invoked (auto).** Load without being asked when the model detects design smells in existing UI: AI-slop tells (identical card grids, purple-blue gradients, template heroes, repetitive sections), broken states, a11y gaps, or layout smells, functional or artistic: broken hierarchy, buried primary actions, voiceless composition, generic structure. Or when the work is procedure+ability: audit, checkup, polish, deslop, access, optimize. Detect → report → propose fixes. The user confirms before files change.
+**Model-invoked (auto).** Load without being asked when the model detects design smells in existing UI  (AI-slop tells (identical card grids, purple-blue gradients, template heroes, repetitive sections), broken states, a11y gaps, or layout smells, functional or artistic: broken hierarchy, buried primary actions, voiceless composition, generic structure. Or when the work is procedure+ability: audit, checkup, polish, deslop, access, optimize. Detect → report → propose fixes. The user confirms before files change.
+
+**The design reflex.** Whenever UI is in view during any session, in screenshots, artifacts, or live pages, flag visible tells in one line and offer the matching command. When the page's HTML is reachable, run `node {{scripts_path}}/detector.mjs <target>` for the mechanical half. Detection is ambient, not invoked.
 
 **User-invoked (planning).** Load when the user asks for new or redesigned work: build, shape, craft, setup, init, redesign. These interview first: 2-3 questions per round, each carrying a recommendation. No code before the brief is confirmed.
 

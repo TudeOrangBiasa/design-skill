@@ -56,6 +56,10 @@ A landing page is a story with six beats, designed for emotional resonance first
 - **Proof ruts:** fake metrics, logos without names, testimonials without attribution.
 - **Resolution ruts:** the CTA buried, two competing primary CTAs, "Get started" with no stated outcome.
 
+## References
+
+Named anchors for the direction come from the Lapa Ninja reference list in `scraped/lapa-ninja-references.json` (live URLs and taglines, local reference). Hero prompt examples live in `scraped/vibeui-prompts.md`; the prompt pattern they share is documented in [prompt-patterns.md](prompt-patterns.md).
+
 ## The arc in the skill
 
 The beats map onto existing playbooks: Hook is [hero.md](hero.md), Journey and Mentor draw on [layout.md](layout.md) and [craft.md](craft.md), Proof and Resolution draw on [craft-floor.md](craft-floor.md) and [clarify.md](clarify.md). The whole page is a Persuade surface, so [modes.md](modes.md) and [new-work.md](new-work.md) govern the direction and the contract.

@@ -1,6 +1,6 @@
 {
   "name": "omp-design-skill",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Design partner skill for frontend agents. Procedure and ability commands for audit, refine, build, fix and design systems, with user-invoked planning and model-invoked slop detection.",
   "license": "Apache-2.0",
   "keywords": [
@@ -36,7 +36,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node --test scripts/design-parser.test.mjs scripts/detector.test.mjs",
+    "test": "node --test scripts/design-parser.test.mjs scripts/detector.test.mjs scripts/concept-seed.test.mjs",
     "lint:docs": "node scripts/lint-docs.mjs",
     "detect": "node scripts/detector.mjs"
   }
