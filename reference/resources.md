@@ -3,6 +3,9 @@
 Real products beat hand-rolled substitutes. Use these sources for icons, illustrations, backgrounds, gradients, components, avatars, and shapes instead of inventing them or falling back to CSS-only placeholders. Each entry is a trusted source from the collection this skill maintains.
 
 ## Icons and illustrations
+- [Lucide](https://lucide.dev/icons/): clean, consistent stroke icons, the ecosystem default for React.
+- [Phosphor](https://phosphoricons.com/): flexible weight and style system across a single family.
+- [Tabler](https://tabler.io/icons): a large, uniform stroke icon set.
 - [Iconoir](https://iconoir.com/): a consistent stroke icon set.
 - [Humbleicons](https://www.humbleicons.com/): free icons for UI.
 - [Flowbite icons](https://flowbite.com/icons/): SVG icon library.
@@ -39,7 +42,7 @@ Real products beat hand-rolled substitutes. Use these sources for icons, illustr
 
 ## Rules
 
-- **Icons come from a real product.** Pick one set (Iconoir, Humbleicons, Flowbite) and use it consistently. Never mix sets. Never use emoji as UI icons; OpenMoji is for expressive content only.
+- **Icons come from a real product.** Pick one set (Lucide, Phosphor, Tabler, Iconoir, Humbleicons, Flowbite) and use it consistently. Never mix sets. Never use emoji as UI icons; OpenMoji is for expressive content only.
 - **Illustrations come from a real source.** Humaaans, Open Doodles, or an authored set. Never shape-assembled SVG scenes standing in for pictures.
 - **Backgrounds come from real material.** A background from Backgrounds Supply, a shader from Paper Shaders, or the subject's own world. A CSS-only gradient wash is a fallback of last resort, not a default.
 - **Components come from the ecosystem.** When the project has no component library, pull from the UI component list instead of hand-rolling everything.
