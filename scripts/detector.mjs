@@ -266,7 +266,7 @@ const RULES = [
     severity: 'warning',
     check(ctx) {
       const families = prop(ctx.css, 'font-family');
-      const overused = ['Inter', 'Roboto', 'Fraunces', 'Geist', 'Plus Jakarta Sans', 'Space Grotesk'];
+      const overused = ['Inter', 'Roboto', 'Fraunces', 'Geist', 'Plus Jakarta Sans', 'Space Grotesk', 'Playfair', 'Lora', 'Cormorant', 'Newsreader', 'Recoleta'];
       const found = [];
       for (const fam of overused) {
         if (families.some((v) => new RegExp(fam, 'i').test(v))) found.push(fam);
@@ -481,6 +481,258 @@ const RULES = [
       const re = /<p[^>]*>[^<]{0,60}<\/p>[\s\S]{0,80}<h1/gi;
       const m = ctx.html.match(re);
       return m ? [{ evidence: 'small label block directly above the h1' }] : [];
+    },
+  },
+  {
+    id: 'semantic-palette',
+    name: 'Default semantic palette',
+    category: 'Color',
+    severity: 'warning',
+    check(ctx) {
+      const hues = new Set();
+      const classRe = /(?:bg|text|border)-(blue|amber|green|red)-(?:50|500|600)(?:\/\d+)?/gi;
+      let m;
+      while ((m = classRe.exec(ctx.html)) !== null) hues.add(m[1]);
+      const hexHues = { eff6ff: 'blue', fffbeb: 'amber', f0fdf4: 'green', fef2f2: 'red', '2563eb': 'blue', d97706: 'amber', '16a34a': 'green', dc2626: 'red', '3b82f6': 'blue', ef4444: 'red', '22c55e': 'green', f59e0b: 'amber' };
+      const cssHueRe = /#(eff6ff|fffbeb|f0fdf4|fef2f2|2563eb|d97706|16a34a|dc2626|3b82f6|ef4444|22c55e|f59e0b)\b/gi;
+      let hm;
+      while ((hm = cssHueRe.exec(ctx.css)) !== null) hues.add(hexHues[hm[1]]);
+      return hues.size >= 3 ? [{ evidence: `${hues.size} default semantic hues together: ${[...hues].join(', ')}` }] : [];
+    },
+  },
+  {
+    id: 'mono-hue-alert',
+    name: 'Same-hue status box',
+    category: 'Color',
+    severity: 'warning',
+    check(ctx) {
+      const fam = (cls) => {
+        const m = /(?:bg|border|text)-([a-z]+)-(?:[0-9]{2,3}|\[[^\]]*\])/.exec(cls);
+        return m ? m[1] : null;
+      };
+      let boxes = 0;
+      const elRe = /class="([^"]*)"/gi;
+      let m;
+      while ((m = elRe.exec(ctx.html)) !== null) {
+        const bg = new Set();
+        const fg = new Set();
+        for (const cls of m[1].split(/\s+/)) {
+          const f = fam(cls);
+          if (!f) continue;
+          if (cls.startsWith('bg-')) bg.add(f);
+          else fg.add(f);
+        }
+        for (const f of bg) {
+          if (fg.has(f)) { boxes++; break; }
+        }
+      }
+      return boxes >= 2 ? [{ evidence: `${boxes} same-hue status boxes (border/text/bg in one family)` }] : [];
+    },
+  },
+  {
+    id: 'atmosphere-gradients',
+    name: 'Gradients as atmosphere',
+    category: 'Color',
+    severity: 'warning',
+    check(ctx) {
+      const stripes = countProp(ctx.css, 'background-image', /repeating-linear-gradient/i);
+      const surfaces = countProp(ctx.css, 'background-image', /linear-gradient/i) + countProp(ctx.css, 'background', /linear-gradient/i);
+      const radial = countProp(ctx.css, 'background-image', /radial-gradient/i);
+      const hits = [];
+      if (stripes > 0) hits.push(`${stripes} repeating-gradient stripes`);
+      if (radial > 0 && /(?:body|html|main|\.page|\.app)[^{]*\{[^}]*radial-gradient/i.test(ctx.css)) hits.push('radial page background');
+      if (surfaces >= 4) hits.push(`${surfaces} linear-gradient surfaces`);
+      return hits.length ? [{ evidence: hits.join('; ') }] : [];
+    },
+  },
+  {
+    id: 'glassmorphism',
+    name: 'Glassmorphism surfaces',
+    category: 'Color',
+    severity: 'warning',
+    check(ctx) {
+      const cssBlur = (ctx.css.match(/backdrop(-filter)?\s*:\s*blur\(/gi) || []).length;
+      const classes = (ctx.html.match(/backdrop-blur(?:-sm|-md|-lg|-xl|-2xl|-\[[^\]]*\])?/g) || []).length;
+      const n = cssBlur + classes;
+      return n >= 1 ? [{ evidence: `${n} backdrop-blur surfaces` }] : [];
+    },
+  },
+  {
+    id: 'decorative-strikes',
+    name: 'Decorative strikethrough and highlight',
+    category: 'Typography',
+    severity: 'advisory',
+    check(ctx) {
+      const tags = (ctx.html.match(/<(?:s|del|mark)(\s[^>]*)?>/gi) || []).length;
+      const css = (ctx.css.match(/text-decoration\s*:\s*line-through/gi) || []).length;
+      const n = tags + css;
+      return n >= 2 ? [{ evidence: `${n} decorative strike/highlight marks` }] : [];
+    },
+  },
+  {
+    id: 'flat-type-hierarchy',
+    name: 'Flat type hierarchy',
+    category: 'Typography',
+    severity: 'warning',
+    check(ctx) {
+      const sizes = [];
+      for (const v of prop(ctx.css, 'font-size')) {
+        const m = v.match(/(\d+(?:\.\d+)?)(px|rem)/);
+        if (!m) continue;
+        const px = m[2] === 'rem' ? parseFloat(m[1]) * 16 : parseFloat(m[1]);
+        if (px >= 8) sizes.push(px);
+      }
+      if (sizes.length < 3) return [];
+      const min = Math.min(...sizes);
+      const max = Math.max(...sizes);
+      return max - min <= 6 && max <= 20
+        ? [{ evidence: `all sizes within ${(max - min).toFixed(1)}px (${min}px-${max}px)` }]
+        : [];
+    },
+  },
+  {
+    id: 'invented-stat-row',
+    name: 'Invented stat row',
+    category: 'Copy',
+    severity: 'warning',
+    check(ctx) {
+      const t = ctx.text;
+      const found = [];
+      if (/\b\d{2,}k\s*\+/.test(t)) found.push('Nk+ figure');
+      if (/\b99(?:\.\d+)?\s*%/.test(t)) found.push('99.x% figure');
+      if (/\b24\/7\b|\b24×7\b/.test(t)) found.push('24/7');
+      if (/\b\d+\+\s*(developers|users|customers|teams)\b/i.test(t)) found.push('round social proof');
+      return found.length >= 2 ? [{ evidence: `stat cliches: ${found.join(', ')}` }] : [];
+    },
+  },
+  {
+    id: 'copy-tics',
+    name: 'AI copywriting voice',
+    category: 'Copy',
+    severity: 'advisory',
+    check(ctx) {
+      const t = ctx.text;
+      const tics = [];
+      if (/\bSay goodbye to\b/i.test(t)) tics.push('"say goodbye to"');
+      if (/\bIt'?s not just\b/i.test(t)) tics.push('"it\'s not just"');
+      if (/\bWelcome to the (future|next|new)\b/i.test(t)) tics.push('"welcome to the ..."');
+      if (/\bMeet the (new )?[A-Z]/i.test(t)) tics.push('"meet the ..."');
+      if (/\b[a-z]+ theater\b/i.test(t)) tics.push('"X theater"');
+      return tics.length >= 2 ? [{ evidence: `copy tics: ${tics.join(', ')}` }] : [];
+    },
+  },
+  {
+    id: 'star-rating',
+    name: 'Decorative star rating',
+    category: 'Copy',
+    severity: 'advisory',
+    check(ctx) {
+      const stars = (ctx.text.match(/[★☆⭐]/g) || []).length;
+      const text5 = /\b(?:rated\s+)?5(?:\/5|\.0\s*(?:out of\s*5|stars?))\b/i.test(ctx.text);
+      return stars >= 5 || text5 ? [{ evidence: `${stars} star glyphs or a 5/5 rating row` }] : [];
+    },
+  },
+  {
+    id: 'badge-spam',
+    name: 'Badge and pill spam',
+    category: 'Components',
+    severity: 'warning',
+    check(ctx) {
+      const elRe = /<([a-z][a-z0-9]*)\b[^>]*class="([^"]*)"/gi;
+      let n = 0;
+      let m;
+      while ((m = elRe.exec(ctx.html)) !== null) {
+        if (m[1] === 'img') continue;
+        if (/\b(?:rounded-full|badge|pill)\b/.test(m[2])) n++;
+      }
+      return n >= 4 ? [{ evidence: `${n} pill badges` }] : [];
+    },
+  },
+  {
+    id: 'tinted-icon-tile',
+    name: 'Icon in a tint of itself',
+    category: 'Components',
+    severity: 'warning',
+    check(ctx) {
+      const elRe = /class="([^"]*)"/gi;
+      let n = 0;
+      let m;
+      while ((m = elRe.exec(ctx.html)) !== null) {
+        const fams = new Set();
+        for (const cls of m[1].split(/\s+/)) {
+          const fm = /^bg-([a-z]+)-(?:[0-9]{2,3}|\[[^\]]*\])(?:\/\d+)?$/.exec(cls);
+          const tm = /^text-([a-z]+)-(?:[0-9]{2,3}|\[[^\]]*\])$/.exec(cls);
+          if (fm) fams.add('bg:' + fm[1]);
+          if (tm) fams.add('text:' + tm[1]);
+        }
+        for (const s of fams) {
+          const fam = s.split(':')[1];
+          if (fams.has('bg:' + fam) && fams.has('text:' + fam)) { n++; break; }
+        }
+      }
+      return n >= 3 ? [{ evidence: `${n} icons in tinted containers` }] : [];
+    },
+  },
+  {
+    id: 'springy-hover',
+    name: 'Springy scale hover',
+    category: 'Motion',
+    severity: 'warning',
+    check(ctx) {
+      const classes = (ctx.html.match(/hover:(?:scale-105|scale-110|-(?:translate-y-1|translate-y-2)|scale-\[[^\s"']*\]?)/g) || []).length;
+      const transitionAll = (ctx.css.match(/transition[^;}]*\ball\b/gi) || []).length;
+      const scaleHover = (ctx.css.match(/:hover\s*\{[^}]*transform\s*:\s*(?:scale\(1\.0[2-9]|translateY\(-\d+px\))/gi) || []).length;
+      return classes >= 3 || (transitionAll > 0 && scaleHover > 0)
+        ? [{ evidence: `${classes} scale-on-hover interactions, ${transitionAll} transition:all declarations` }]
+        : [];
+    },
+  },
+  {
+    id: 'all-caps-grid',
+    name: 'All-caps label grid',
+    category: 'Layout',
+    severity: 'advisory',
+    check(ctx) {
+      const labels = ctx.text.match(/\b[A-Z]{3,}\b/g) || [];
+      return labels.length >= 6 ? [{ evidence: `${labels.length} all-caps labels` }] : [];
+    },
+  },
+  {
+    id: 'tasteful-terminal',
+    name: 'Mono chrome everywhere',
+    category: 'Typography',
+    severity: 'warning',
+    check(ctx) {
+      const monoCss = (ctx.css.match(/(?:font-family\s*:[^;}]*\b(?:monospace|ui-monospace|SFMono|Menlo|JetBrains Mono|Fira Code)\b)/gi) || []).length;
+      const monoCls = (ctx.html.match(/\bfont-mono\b/g) || []).length;
+      const n = monoCss + monoCls;
+      const nearBlack = /background(?:-color)?\s*:\s*#(?:0[0-9a-f]{5}|1[0-4][0-9a-f]{4})\b/i.test(ctx.css);
+      return n >= 6 && nearBlack ? [{ evidence: `${n} mono declarations on a near-black surface` }] : [];
+    },
+  },
+  {
+    id: 'editorial-dashboard',
+    name: 'Editorial dressing on an operational surface',
+    category: 'Typography',
+    severity: 'advisory',
+    check(ctx) {
+      const greeting = /\bGood (morning|afternoon|evening)\b/i.test(ctx.text);
+      const serif = /font-family[^;}]*\b(?:serif|Fraunces|Playfair|Lora|Cormorant|Newsreader|Recoleta)\b/i.test(ctx.css);
+      return greeting && serif ? [{ evidence: 'serif greeting on an operational surface' }] : [];
+    },
+  },
+  {
+    id: 'equal-card-grid',
+    name: 'Equal-weight card grid',
+    category: 'Layout',
+    severity: 'warning',
+    check(ctx) {
+      const grid = /grid-cols-3|repeat\(\s*3\s*,\s*1fr\)|grid-template-columns[^;}]*repeat\(\s*3\s*,/i.test(ctx.css + ' ' + ctx.html);
+      const tileRe = /<(svg|img)[^>]*>[\s\S]{0,300}?<h([1-6])/gi;
+      let tiles = 0;
+      let m;
+      while ((m = tileRe.exec(ctx.html)) !== null) tiles++;
+      return grid && tiles >= 3 ? [{ evidence: '3+ equal cards in a 3-column grid' }] : [];
     },
   },
 ];

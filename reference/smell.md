@@ -66,7 +66,7 @@ Before the LLM judgment, run the deterministic detector once. It catches the mec
 node {{scripts_path}}/detector.mjs <file|dir|url> [--json]
 ```
 
-It covers emoji icons, gradient text, the AI palette, cream backgrounds, overused fonts, italic serif displays, crushed tracking, oversized headlines, icon tile stacks, nested cards, side-tab borders, ghost cards, over-rounding, bounce easing, pulsing dots, marquees, broken images, missing alt, content hidden at rest, eyebrow labels, marketing buzzwords, aphoristic cadence, and em-dash saturation.
+It covers emoji icons, gradient text, the AI palette, cream backgrounds, overused fonts, italic serif displays, crushed tracking, oversized headlines, icon tile stacks, nested cards, side-tab borders, ghost cards, over-rounding, bounce easing, pulsing dots, blinking cursors, marquees, broken images, missing alt, content hidden at rest, eyebrow labels, marketing buzzwords, aphoristic cadence, em-dash saturation, glowing shadow accents, radial gradient halos, the default semantic palette, same-hue status boxes, atmosphere gradients, glassmorphism, decorative strikes, flat type hierarchy, invented stat rows, AI copy tics, decorative star ratings, badge spam, tinted icon containers, springy scale hovers, all-caps label grids, mono chrome, editorial dressing, and equal-weight card grids.
 
 The detector output is defect evidence, never the verdict. Merge its findings with the LLM pass, mark false positives honestly, and judge severity yourself. Error-severity findings block shipping until fixed or explicitly accepted.
 
@@ -130,6 +130,9 @@ The deterministic catalog, aligned with impeccable's antipattern detector. Every
 - **Numbered section labels:** tiny index numbers riding beside headings, repeated section after section. Editorial scaffolding, not structure.
 - **Edge-flush cards:** cards touching viewport edges with no margin.
 - **Content invisible at rest:** page text at opacity 0 after all reveals ran. The failed-reveal signature; content must be visible by default.
+- **Equal-weight card grid:** three or more identical cards in a 3-column grid, each an icon, a heading, and one line. Structure faked by stuffing unrelated things into identical boxes; decide the one most important thing and show it fully.
+- **All-caps label grid:** uppercase micro-labels stamped across interchangeable cards. The default costume for "looks designed".
+- **Invented stat rows:** a row of round numbers (10k+, 99.9%, 24/7) that are set dressing, not measurements. Real numbers are odd and specific; one invented figure poisons every true one beside it.
 
 ### Typography
 - **Overused font:** Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, Space Grotesk appear on so many sites they no longer feel distinctive. Choose a face with personality.
@@ -138,6 +141,9 @@ The deterministic catalog, aligned with impeccable's antipattern detector. Every
 - **Hero eyebrow chip:** a tiny uppercase letter-spaced label above the oversized hero headline, or the same shape as a pill. The heading carries its own weight.
 - **Oversized hero headline:** a full sentence set at display size dominates the viewport. Punchy short headlines at that size are fine.
 - **Crushed letter spacing:** tracking pulled past legibility. Tighten optically, not destructively.
+- **Decorative strikes and highlights:** strikethrough on words that are not being deleted, underlines that are not links, highlighter marks. The model does not trust the words to carry weight, so it draws on them; weight, size, and sentence structure should carry emphasis.
+- **Mono chrome:** the terminal look for its own sake: monospace across all UI, near-black surface, one warm accent, ASCII art. It is not ugly, which is the trap. Keep mono for code, not UI chrome.
+- **Editorial dressing on operational surfaces:** cream paper, display serif, and tracked-caps kickers applied to a dashboard or console. A magazine is read once; a console is scanned all day. Tabular numerals and a legible sans belong to scanned interfaces.
 
 ### Color
 - **AI palette:** purple-violet gradients and cyan-on-dark.
@@ -146,24 +152,55 @@ The deterministic catalog, aligned with impeccable's antipattern detector. Every
 - **Glowing shadow accents:** zero-offset chromatic halos, or colored blurred shadows on dark backgrounds.
 - **Radial halo:** a saturated radial-gradient wash used as a background glow.
 - **Spotlight glow:** a low-opacity accent radial gradient behind a hero, the translucent cousin of the halo.
+- **Default semantic palette:** the framework info/tip/success/error set (blue, amber, green, red in -50 backgrounds with -600 text), unrelated to the brand or to each other. Grow semantic colors out of one palette; most notes need no color at all.
+- **Same-hue status box:** border, text, and background all one hue, the background a see-through version of it. Red on red, green on green; a traffic light is not a palette. Carry the state in words and weight first.
+- **Atmosphere gradients:** gradients as mood, not decisions: repeating stripes, gradient card fills, a radial spotlight behind everything. Pick one flat background and hold it; build depth with hairlines and restrained shadows.
+- **Glassmorphism:** backdrop-blur on navbars, modals, and overlays as a status signal rather than a legibility decision. A frozen slice of 2021 Dribbble.
 
 ### Motion
 - **Bounce or elastic easing:** dated. Exponential ease-out instead.
 - **Pulsing status dot:** decoratively simulates liveness. Reserve pulse for genuinely live data.
 - **Blinking cursor:** a fake typing prompt in a hero where no input exists.
 - **Auto-scrolling marquee:** demands attention it has not earned and hides half its content.
+- **Springy scale hover:** every card, button, and image grows on hover (scale-105, transition-all). Motion is information; scaling says nothing, and animating every property at once is deciding none of them matters. Hover feedback is a surface shift, not growth.
 
 ### Imagery
 - **Emoji icon:** an emoji standing in for an icon system. Icons come from one real product in a consistent stroke and weight; the moment two emoji styles mix, the system is broken.
 - **Shape-assembled illustration:** a hero-sized SVG built from primitive shapes reads as placeholder clip art. Real artwork, a deliberate graphic, or none.
 - **Broken or placeholder image:** an empty src ships as a broken box.
 
+### Components
+- **Badge and pill spam:** "New", "Beta", "Hot" pills everywhere, manufacturing a fake sense of buzz and credibility. Badges mark status; in bulk, each one stops meaning anything.
+- **Tinted icon containers:** every icon wrapped in a rounded square washed in 10% of its own hue (bg-{color}/10 behind text-{color}). A one-line reflex, not a decision; let an icon be an icon.
+- **Glowing status dot:** (under Motion; the halo and pulse are its decoration.)
+
 ### Copy
 - **Marketing buzzword:** streamline, empower, supercharge, world-class, enterprise-grade. Say what the product literally does.
 - **Aphoristic cadence:** three or more sections landing on a short manufactured-contrast line ("Not a feature. A platform."). Once is voice; repetition is the tell.
 - **Em-dash overuse:** saturation in body copy, near one em dash per 500 characters. Prefer commas, colons, periods, parentheses.
+- **AI copy tics:** "say goodbye to X", "it's not just X", "welcome to the future", punchy triads. The rhythmic fingerprint of generated copy: forever symmetrical, one notch too excited, specifics-free.
+- **Decorative star ratings:** star rows and 5/5 ratings not tied to a real review. Social proof turned into a layout.
 
 ---
+
+## The Six Principles
+
+Every tell above is a violation of one of six principles. Name the principle when you report a smell; it turns the finding into a rule the model can generalize.
+
+1. **Decide before you decorate.** Every visual choice must be explainable. If you cannot explain it, it is a default someone else set.
+2. **One accent, one voice.** A single accent color, sparingly. The whole page reads as one person talking.
+3. **Hierarchy from scale and space.** Rank with size, weight, and spacing. Coloring words or swapping in a font is the lazy shortcut.
+4. **Subtract first.** Slop is what piles up. Remove until everything left has to be there.
+5. **Specific beats loud.** Real numbers, nouns, consequences. "40% faster" says more than "blazing fast".
+6. **Decoration must mean something.** Icons, badges, and callouts are signals. Spread everywhere, they signal nothing.
+
+## Evolved Slop (the new default)
+
+The first wave of tells got scolded out of circulation. The second wave is the model's new shorthand for "taste": the same absence of decisions, in cooler clothing. Track these as hard as the classics.
+
+- **Inter everywhere:** Space Grotesk for display, Inter for body, or Geist, Manrope, Plus Jakarta Sans. A typeface is the loudest single signal of who made this; outsourcing it to the training-data average dodges the identity decision exactly like the indigo gradient dodged the color one.
+- **The tasteful terminal:** monospace across all UI chrome, a near-black background, one warm accent, ASCII art. It is not ugly, which is the trap: once "hacker terminal" is a one-click template, it dodges the design decision in cooler clothing.
+- **The editorial dashboard:** an operational UI dressed as a magazine. Serif "Good evening" greeting, serif numerals in stat cards, cream paper, a tracked-caps kicker over every block. A console is scanned all day; a magazine is read once. Tabular numerals and a legible sans belong to scanned interfaces.
 
 ## The Domain Default Trap
 
