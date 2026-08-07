@@ -6,6 +6,21 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [1.0.22] - 2026-08-06
+
+### Added
+
+- Detector grows from 26 to 42 rules with the 2025-2026 AI-tell set (research: killaislop.com, ai-layout research): default semantic palette, same-hue status boxes, atmosphere gradients, glassmorphism, decorative strikes, flat type hierarchy, invented stat rows, AI copy tics, decorative star ratings, badge spam, tinted icon containers, springy scale hovers, all-caps label grids, mono chrome terminals, editorial dressing on operational surfaces, equal-weight card grids.
+- `overused-font` extended with the display-serif cliches (Playfair, Lora, Cormorant, Newsreader, Recoleta).
+- smell.md: the Tells Registry and Detector Pass updated to the full 42-rule set; new Evolved Slop section (2026 second wave: Inter everywhere, tasteful terminal, editorial dashboard); the six anti-slop principles (decide before you decorate, one accent one voice, hierarchy from scale and space, subtract first, specific beats loud, decoration must mean something).
+- SKILL.md bans: decorative strikethroughs, badge and pill spam, invented stat rows, tinted icon containers, springy scale hovers, mono chrome.
+- Detector tests: new-slop fixture covering all 16 new rules, clean-markup false-positive guard, and a locked rule count.
+
+### Changed
+
+- lint-docs glob updated after the CONTRIBUTING.md to CONTRIBUTION.md rename; CONTRIBUTION.md is now linted by CI.
+- `gradient-text` narrowed to `background-clip: text` only; gradient backgrounds are covered by the new `atmosphere-gradients` rule, so a surface choice is no longer an error-severity finding.
+
 ## [1.0.21] - 2026-08-06
 
 ### Changed

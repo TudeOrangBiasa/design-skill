@@ -136,7 +136,7 @@ Before done: verify each change in real files, visible in UI, scope matches. If 
 
 ## Bans
 
-Side-stripe borders · Gradient text · Glassmorphism default · Hero-metric template · Identical card grids · Eyebrow on every section · Numbered section markers · Text overflow · Ghost-card (border + wide shadow) · Over-rounding (32px+ on cards) · Sketchy SVG · Stripe backgrounds · Grid backgrounds · Meta-criticism copy · Bounce easing · Neon-on-black · Cards inside cards · Cream/sand/beige default bg · Box-shadow on cards (use 1px border instead) · Emoji as icons (use a real icon product: Lucide, Phosphor, Tabler, Iconoir, Humbleicons, Flowbite).
+Side-stripe borders · Gradient text · Glassmorphism default · Hero-metric template · Identical card grids · Eyebrow on every section · Numbered section markers · Text overflow · Ghost-card (border + wide shadow) · Over-rounding (32px+ on cards) · Sketchy SVG · Stripe backgrounds · Grid backgrounds · Meta-criticism copy · Bounce easing · Neon-on-black · Cards inside cards · Cream/sand/beige default bg · Box-shadow on cards (use 1px border instead) · Emoji as icons (use a real icon product: Lucide, Phosphor, Tabler, Iconoir, Humbleicons, Flowbite) · Decorative strikethroughs and highlights · Badge and pill spam · Invented stat rows (10k+ / 99.9% / 24/7) · Tinted icon containers (an icon in a 10% tint of itself) · Springy scale hovers (hover:scale-105) · Mono chrome everywhere (terminal dressing on UI).
 
 ## AI Slop Test
 

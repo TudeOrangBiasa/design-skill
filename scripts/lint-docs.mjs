@@ -22,7 +22,7 @@ const DOC_GLOBS = [
   'REFERENCE.md',
   'GUIDE.md',
   'README.md',
-  'CONTRIBUTING.md',
+  'CONTRIBUTION.md',
   'CHANGELOG.md',
   'reference/*.md',
   'agents/*.md',

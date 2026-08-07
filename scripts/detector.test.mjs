@@ -8,9 +8,10 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildContext, runRules, stripTags } from './detector.mjs';
+import { buildContext, runRules, stripTags, RULES } from './detector.mjs';
 
 const FIXTURE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'slop.html');
+const NEW_FIXTURE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'new-slop.html');
 
 const CLEAN = `<!DOCTYPE html>
 <html>
@@ -72,4 +73,46 @@ test('clean markup produces no error findings', () => {
 test('emo dash saturation rule fires on dense dashes', () => {
   const html = '<h1>Title</h1><p>' + ('word — word — word — word — word — word — word — word — ').repeat(6) + '</p>';
   assert.ok(ids(html).includes('em-dash-saturation'));
+});
+
+test('rule registry size is locked', () => {
+  assert.equal(RULES.length, 42);
+});
+
+test('detects the 2025-2026 tells in the new-slop fixture', () => {
+  const html = fs.readFileSync(NEW_FIXTURE, 'utf8');
+  const found = ids(html);
+  for (const expected of [
+    'semantic-palette',
+    'mono-hue-alert',
+    'atmosphere-gradients',
+    'glassmorphism',
+    'decorative-strikes',
+    'flat-type-hierarchy',
+    'invented-stat-row',
+    'copy-tics',
+    'star-rating',
+    'badge-spam',
+    'tinted-icon-tile',
+    'springy-hover',
+    'all-caps-grid',
+    'tasteful-terminal',
+    'editorial-dashboard',
+    'equal-card-grid',
+  ]) {
+    assert.ok(found.includes(expected), `expected rule ${expected} to fire, got: ${found.join(', ')}`);
+  }
+  assert.ok(!found.includes('gradient-text'), 'gradient backgrounds alone must not fire gradient-text');
+});
+
+test('gradient backgrounds without text clipping do not fire gradient-text', () => {
+  const html = '<!DOCTYPE html><html><head><style>.hero { background-image: linear-gradient(180deg, #6366f1, #a855f7); }</style></head><body><h1>Title</h1></body></html>';
+  assert.ok(!ids(html).includes('gradient-text'));
+});
+
+test('clean markup fires no new-slop rules', () => {
+  const found = ids(CLEAN);
+  const newRules = ['semantic-palette', 'mono-hue-alert', 'atmosphere-gradients', 'glassmorphism', 'decorative-strikes', 'flat-type-hierarchy', 'invented-stat-row', 'copy-tics', 'star-rating', 'badge-spam', 'tinted-icon-tile', 'springy-hover', 'all-caps-grid', 'tasteful-terminal', 'editorial-dashboard', 'equal-card-grid'];
+  const fired = found.filter((id) => newRules.includes(id));
+  assert.deepEqual(fired, [], `clean markup fired new-slop rules: ${fired.join(', ')}`);
 });
