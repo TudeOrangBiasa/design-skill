@@ -6,6 +6,12 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [1.0.25] - 2026-08-06
+
+### Added
+
+- reference/dashboards.md gains the real-time dashboards section (Smashing Magazine, "From Data To Decisions"): change perception (delta plus sparkline, sparkline rules, change-blindness micro-cues, mini-history), the Refresh Rule, the trust layer (Data Freshness Indicator, cached snapshots, skeleton UIs, retry with backoff, "Why this alert?"), change-cue motion timing (200-400ms value updates, 300-600ms chart trails, 100-150ms control feedback) scoped explicitly under animate.md's authoritative interaction timing, and the real-time audit pass.
+
 ## [1.0.24] - 2026-08-06
 
 ### Added

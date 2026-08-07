@@ -99,9 +99,45 @@ The only honest measure of a dashboard is whether users complete tasks faster an
 - Task success rate and error rate: did they find the right answer, and did they misread the data?
 - The 5-second test: can a new user identify the dashboard's purpose within five seconds?
 
+## Real-time dashboards
+
+Operational and monitoring surfaces that stream updates are decision assistants, not passive displays. The user decides under time pressure; the dashboard's job is to make each change and its meaning visible in the moment. This section extends the rest of this playbook for live data.
+
+### Change perception
+
+Numbers that update without explanation read as noise. Every changing metric carries the direction, the scale, and the shape of the change:
+
+- Delta indicator plus trend sparkline: "up 3.2%" beside a rising line says both where and how fast, before the number is read.
+- Sparkline rules: pair with the metric, drop axes and legends unless they add value, highlight the latest point, limit the window (7 or 30 days) so the trend stays legible, and use rows of sparklines in comparative tables to surface anomalies that static numbers hide.
+- Micro-cues beat change blindness. Fade-ins and count-up transitions mark the update; a list reorder slides under 300ms so spatial memory survives. A soft pulse around a changed metric draws the eye without stealing it.
+- Mini-history views let the user scroll back a few minutes. The memory of the change lives in the interface, not in the user.
+
+### Refresh discipline
+
+Not all data needs constant updates. **The Refresh Rule.** Refresh what the decision needs, nothing more. Excessive refresh creates motion and strain the user cannot filter; batch the updates that do not need immediacy.
+
+### Trust layer
+
+Real-time data fails: streams lag, networks drop, datasets arrive incomplete. The dashboard shows the truth about the data, not just the data.
+
+- **The Data Freshness Indicator.** Sync status, last-updated time, and a manual refresh control, personalized by role: "Live", "Stale", "Paused" for business users, update logs for analysts.
+- Cached snapshots, labeled "Data as of 10:42 AM", keep the user confident when the stream is out of sync.
+- Skeleton UIs replace spinners: the shape of the incoming data (a candlestick chart filling in) signals that the system is working, not stalled.
+- Connectivity failures retry quietly with exponential backoff, then surface a plain banner: "Offline, reconnecting". Never hide a delay; a dip that looks like a market decline but is only a stream delay misleads the decision.
+- Every alert carries its rationale. The "Why this alert?" affordance builds trust; users trust predictive alerts only after they understand the trigger.
+
+### Motion for change cues
+
+Interactive transitions follow [animate.md](animate.md). Change cues on live data may run longer because they carry information: value updates smooth over 200-400ms, chart trails fade over 300-600ms, control feedback stays at 100-150ms. Respect reduced-motion preferences; change must stay visible without animation.
+
+### The real-time audit pass
+
+Real-time surfaces audit for: a freshness indicator, delta plus sparkline on every changing KPI, a "why" on every alert, cached-snapshot handling for stream gaps, refresh discipline (no full-page repaint on every tick), and color never alone (about 1 in 12 men is color-blind; every status carries a label).
+
 ## Sources
 
 - UX Pilot, "12 Dashboard Design Principles For Better UX" (https://uxpilot.ai/blogs/dashboard-design-principles).
+- Smashing Magazine, "From Data To Decisions: UX Strategies For Real-Time Dashboards", Karan Rawal (https://www.smashingmagazine.com/).
 - Nielsen Norman Group: dashboard preattentive processing, data tables, F-pattern eye tracking, mobile tables.
 - IBM Carbon: data table style, 2x grid, presentation dashboards.
 - Material 3 density; Edward Tufte, The Visual Display of Quantitative Information; WCAG 2.1 AA.
