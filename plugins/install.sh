@@ -13,7 +13,7 @@
 #   pi, opencode, claude-code, codex, cursor, gemini-cli
 #   universal   (agents that read .agents/skills/; global install)
 #   omp         (symlink into ~/.agents/skills/)
-#   project     (install into this repo's .agents/skills/)
+#   project     (records skills-lock.json; the repo is the skill)
 
 set -euo pipefail
 
@@ -30,6 +30,8 @@ case "${AGENT}" in
     echo "design-skill -> ${HOME}/.agents/skills/design-skill"
     ;;
   project)
+    # Local source: the repo IS the skill, so the CLI records a
+    # skills-lock.json at the repo root instead of copying files.
     npx --yes skills@1.5.22 add "${REPO_ROOT}" -a universal -y
     ;;
   *)
