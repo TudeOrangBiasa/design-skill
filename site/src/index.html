@@ -168,7 +168,7 @@
     <div class="f-bottom">© 2026 DESIGN SKILL · <a href="notice.html">NOTICE</a> · <a href="contribution.html">CONTRIBUTE</a></div>
   </div>
 </footer>
-<script src="slop-specimens.js"></script>
+<script src="slop-specimens.js?v=2"></script>
 <script>
 (function () {
   document.documentElement.classList.add('js');
@@ -189,7 +189,14 @@
   // the detector audits the site's own design, not embedded evidence.
   var gallery = document.getElementById('slop-gallery');
   var specs = window.SLOP_SPECIMENS;
-  if (!gallery || !specs || !specs.length) return;
+  if (!gallery) return;
+  if (!specs || !specs.length) {
+    console.warn('design-skill: slop-specimens.js did not load; gallery empty');
+    var p = el('p', 'slop-credit');
+    p.textContent = 'The specimen gallery could not load. Hard-refresh to retry.';
+    gallery.appendChild(p);
+    return;
+  }
   function el(tag, cls, text) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
