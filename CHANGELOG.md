@@ -6,6 +6,18 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [1.0.28] - 2026-08-06
+
+### Added
+
+- docs/ wiki: index, per-agent install matrix, architecture, command reference, the 42-rule detector guide, live mode, DESIGN.md, and the checklist engine. The wiki is lint-gated like the rest of the corpus.
+- README rewritten in the storytelling style (failure modes, problem and fix, 30-second install with per-agent blocks) after the mattpocock/skills model.
+
+### Changed
+
+- plugins/install.sh verified against the omp skills docs (agents provider layout, `~/.agents/skills/<name>/SKILL.md`), the opencode source (`{skill,skills}/**/SKILL.md`), and a live universal install. The `project` branch comment now describes the lock behavior it actually has.
+- skills-lock.json committed: the repo is the skill, and the lock records it for `skills experimental_install`.
+
 ## [1.0.27] - 2026-08-06
 
 ### Changed

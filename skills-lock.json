@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "design-skill": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "91285c8e73aad6b6bc3f311fdc686ec5e8299016dcf2c8472dd8611fb01be287"
+    }
+  }
+}

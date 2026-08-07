@@ -4,159 +4,173 @@
 
 # Design Skill
 
+[![skills.sh](https://skills.sh/b/TudeOrangBiasa/design-skill)](https://skills.sh/TudeOrangBiasa/design-skill)
 [![npm version](https://img.shields.io/npm/v/agent-design-skill.svg)](https://www.npmjs.com/package/agent-design-skill)
 
 Every AI-generated interface has a tell. The identical card grid. The purple-blue gradient. The hero that reads like a template. Two seconds of looking and you know a model made it. This skill exists to make that reaction impossible.
 
-New here? Start with [Using the Design Skill](GUIDE.md), a walkthrough of the skill in practice.
+It is one skill, not a prompt: a router, a deterministic detector, a doctrine library, and a checklist engine. It works with any model and any harness. New here? Start with [GUIDE.md](GUIDE.md), the walkthrough of the skill in practice.
 
 ## The story
 
-The skill is a merger of three projects, each of which solved one piece of the problem.
+Design is a conversation, not a spec delivery. But agents fail at design in the same specific ways, every time. This skill exists because I watched those failures happen and built the fix for each one.
 
-[impeccable](https://github.com/pbakaus/impeccable) by Paul Bakaus knew how to route design work. Twenty-two commands, a setup flow, and a list of patterns to never ship. [Emil Kowalski's design engineering](https://animations.dev/) knew how motion should feel. When to animate, which easing to use, how fast, and why spring physics beats a default curve. CommandCode design knew how to build visual systems. Color roles, type hierarchy, layout rhythm, interaction states, responsive behavior, and a report workflow that turns review into fixes.
+### #1: The interface reads as AI
 
-Each source was strong where the others were silent. Merged, they cover each other's gaps. The result is one design partner for frontend interfaces, from first question to final polish.
+> "No-one knows exactly what they want"
+>
+> David Thomas and Andrew Hunt, The Pragmatic Programmer
 
-## Two kinds of design work, two ways to start
+**The Problem.** Ask an agent for a landing page and you get the median of every landing page it has ever seen: indigo gradients, Inter at weight 700, three identical cards, a badge on everything. The output is competent and interchangeable. It could have come from any prompt, any template, any average SaaS homepage.
 
-**Procedure work starts with detection.** Audit a page, check accessibility, catalog AI tells, remove slop. The model can start this on its own. When it spots a smell in an existing interface, the skill loads itself, reports what it found, and proposes fixes. The user confirms before files change.
+**The Fix** is a two-layer machine:
 
-**Planning work starts with questions.** Build a new dashboard, redesign a landing page, shape a feature from scratch. No one knows exactly what they want, write David Thomas and Andrew Hunt in The Pragmatic Programmer. So planning commands interview first. Two or three questions per round, each with a recommendation attached. The user confirms or corrects, and nothing is built until the direction is agreed.
+- A deterministic **42-rule detector** ([docs/detector.md](docs/detector.md)) that scans HTML and CSS with zero model and zero API key: emoji icons, gradient text, the AI palette, cream backgrounds, overused fonts, nested cards, invented stat rows, badge spam, glassmorphism, and 34 more. Error-severity findings block shipping until fixed or explicitly accepted.
+- A **bans list** and an **AI Slop Test**: if a glance says "AI made that", the design failed. First-order: is the palette guessable from the category alone? Second-order: is the aesthetic guessable from anti-references? Rework until it is not.
 
-This split is the skill's invocation model.
+### #2: The agent has no taste
 
-| Type | Skills | Invoked by |
-|------|--------|-----------|
-| Procedure | audit, checkup, smell, polish, deslop, fix, refine | Model, on detection |
-| Ability | colorize, typeset, layout, animate, interaction, responsive, access, live | Model or user |
-| Planning | build, shape, craft, setup, init, redesign | User only |
+> "Invest in the design of the system every day."
+>
+> Kent Beck, Extreme Programming Explained
 
-## Just say what you want
+**The Problem.** Taste cannot be enumerated, so agents default to safe. Every spacing decision a multiple of 4, every heading weight 700, every card the same size, hierarchy carried by shades of gray. Nothing is wrong and nothing is decided.
 
-You do not need to memorize flags. Say what is wrong or what you want in plain words. The skill reads the situation and picks the right tool.
+**The Fix** is a doctrine library, one playbook per concern, loaded only when the work needs it ([docs/architecture.md](docs/architecture.md)):
 
-| You say | What happens |
-|---------|-------------|
-| "This looks like AI made it" | It catalogs the AI tells, then strips them |
-| "Make this bolder" | It amplifies the design's character |
-| "The layout is a mess, everything overlaps" | It finds the smells, removes the bloat, rebuilds the rhythm |
-| "Fix the accessibility" | It checks WCAG and adds keyboard, screen reader and contrast support |
-| "Build me a landing page" | It asks a few questions, confirms the direction, then builds |
-| "Add dark mode" | It builds the color system first, then applies it |
-| "Pre-ship check" | It runs the final polish pass |
-| "I don't know this codebase" | It runs a health scan and reports what needs fixing |
+- [colorize](reference/colorize.md), [typeset](reference/typeset.md), [layout](reference/layout.md), [animate](reference/animate.md), [interaction](reference/interaction.md), [responsive](reference/responsive.md), [access](reference/access.md): the capabilities.
+- [modes](reference/modes.md): every surface has a mode, Persuade, Operate, Read, Experience, chosen from the surface not the product.
+- [craft-floor](reference/craft-floor.md): the mechanics floor nothing ships below.
+- [doctrine](reference/doctrine.md): the brief wins, demonstrate the mechanism, the first viewport is a thesis.
 
-## How it routes
+The anti-slop principles are baked into every layer: decide before you decorate, one accent one voice, hierarchy from scale and space, subtract first, specific beats loud, decoration must mean something.
 
-Each sentence maps to a `/design` command behind the scenes. "This looks like AI made it" becomes `audit --smell`, then `refine --deslop`. You never have to know that mapping. When you want to name the command yourself, type `/design` plus the mode, like `/design audit --checkup`. Both paths do the same work.
+### #3: Dashboards bury the decision
+
+> "The best modules are deep."
+>
+> John Ousterhout, A Philosophy of Software Design
+
+**The Problem.** Dashboards are built to display data, not support decisions. Screens packed with charts nobody reads, KPIs stripped of context, real-time updates that move without meaning.
+
+**The Fix** is [reference/dashboards.md](reference/dashboards.md): the decision trace (every metric answers a named decision), the F-pattern inverted pyramid, the row-height and density scale, chart-to-question mapping, the trust layer for real-time data (freshness indicators, cached snapshots, why-this-alert), and the responsiveness contract in [reference/performance.md](reference/performance.md) (feedback in the next frame, 200ms good, 500ms poor).
+
+### #4: Nobody checks the details
+
+**The Problem.** The hero looks great and the button has no focus state. The form has no error path. The empty state is a blank screen. Details are where interfaces die, and agents skip them because nothing forces the pass.
+
+**The Fix** is [reference/ui-checklist.md](reference/ui-checklist.md), the universal pre-ship pass, backed by the full 110-checklist, 703-check catalog in [reference/checklist-catalog.md](reference/checklist-catalog.md): components, the system layer, feedback and states, data surfaces, and a per-surface catalog for website pages, web app screens, mobile, and flows.
+
+### #5: You can't tell when it's done
+
+> "Always take small, deliberate steps. The rate of feedback is your speed limit."
+>
+> David Thomas and Andrew Hunt, The Pragmatic Programmer
+
+**The Problem.** An agent that never stops polishing burns your time; an agent that stops early ships broken states. Both are the same failure: no definition of done.
+
+**The Fix** is the skill's completion discipline: verify every change in real files, visible in the browser, in bounded passes (build fully, inspect once, fix in one batch, at most one confirm round, stop). Reports land in `.design-skill/` and load on the next session, so a fixed issue stays fixed and regressions show as trends.
+
+## How it starts
+
+Two ways, the same as any good design partner.
+
+**You ask.** Say what you want in plain words. "This looks like AI made it", "Build me a landing page", "Fix the accessibility". The routing table maps the sentence to a command chain. You never name a flag.
+
+**The skill notices.** When UI is in view and it spots tells, it loads itself and reports what it found. Nothing changes until you confirm.
+
+## Installation (30-second setup)
+
+One package, every harness. Install per agent; a fresh session picks the skill up.
+
+<details>
+<summary><strong>Pi</strong></summary>
+
+```bash
+npx skills@1.5.22 add TudeOrangBiasa/design-skill -a pi -g
+```
+
+</details>
+
+<details>
+<summary><strong>OpenCode</strong></summary>
+
+```bash
+npx skills@1.5.22 add TudeOrangBiasa/design-skill -a opencode -g
+```
+
+</details>
+
+<details>
+<summary><strong>Claude Code</strong></summary>
+
+```bash
+npx skills@1.5.22 add TudeOrangBiasa/design-skill -a claude-code -g
+```
+
+</details>
+
+<details>
+<summary><strong>Codex, Cursor, Gemini CLI</strong></summary>
+
+```bash
+npx skills@1.5.22 add TudeOrangBiasa/design-skill -a codex -g
+npx skills@1.5.22 add TudeOrangBiasa/design-skill -a cursor -g
+npx skills@1.5.22 add TudeOrangBiasa/design-skill -a gemini-cli -g
+```
+
+</details>
+
+<details>
+<summary><strong>Shared .agents/skills agents (omp and friends)</strong></summary>
+
+Harnesses that read `~/.agents/skills/<name>/SKILL.md` (the omp agents provider and other `.agents` readers) get a symlink from a local checkout, so updates are live:
+
+```bash
+# from the repo root
+ln -sfn "$PWD" ~/.agents/skills/design-skill
+```
+
+or `bash plugins/install.sh omp`. Nested paths like `skills/engineering/design-skill` are not discovered; keep the skill one level under the root.
+
+</details>
+
+<details>
+<summary><strong>npm</strong></summary>
+
+```bash
+npm install agent-design-skill
+```
+
+Point your agent at `node_modules/agent-design-skill/SKILL.md`, or symlink it into the agent's skills directory.
+
+</details>
+
+From a local checkout, the plugin script wraps the same commands and covers every agent, including omp which skills.sh has no entry for:
+
+```bash
+bash plugins/install.sh pi       # global Pi install
+bash plugins/install.sh omp      # symlink into ~/.agents/skills/
+bash plugins/install.sh project  # records skills-lock.json (the repo is the skill)
+```
+
+Full per-agent matrix and the skills.sh contract: [docs/install.md](docs/install.md).
+
+## What's inside
+
+| Instrument | What it does | Read more |
+|-----------|--------------|-----------|
+| SKILL.md | The router: invocation model, routing table, bans, scope gate | [docs/architecture.md](docs/architecture.md) |
+| 42-rule detector | Deterministic design-smell scan of HTML and CSS | [docs/detector.md](docs/detector.md) |
+| Doctrine library | 50+ playbooks, one per concern, loaded on demand | [docs/architecture.md](docs/architecture.md) |
+| Live variant mode | Browser iteration with a durable journal | [docs/live-mode.md](docs/live-mode.md) |
+| DESIGN.md | The visual system spec (google-labs format), validated by the canonical linter | [docs/design-md.md](docs/design-md.md) |
+| Checklist engine | 703 checks across 110 checklists for the pre-ship pass | [docs/checklists.md](docs/checklists.md) |
+| CLI | `design` dispatcher over dependency-free Node scripts | [docs/commands.md](docs/commands.md) |
 
 ## Command reference
 
-For the curious, the full command set. Each command has modes, and the mode is the flag after the command name.
-
-### /design audit: evaluate
-
-| Mode | What | When |
-|------|------|------|
-| `--critique` | UX judgment with heuristic scoring | Aesthetics and taste review |
-| `--audit` | Technical quality: a11y, perf, responsive | Production readiness |
-| `--polish` | Final pre-ship pass | Before deploy |
-| `--checkup` | Health scan with traffic-light scores | Unknown codebase, first pass |
-| `--smell` | AI-tells catalog | Slop detection |
-| `--review` | Design review with scoring | Thorough critique |
-| `--overdrive` | Push past conventional limits | When safe is not enough |
-
-### /design refine: change character
-
-| Mode | What |
-|------|------|
-| `--bolder` | Amplify safe or bland designs |
-| `--quieter` | Tone down aggressive designs |
-| `--distill` | Strip to essence |
-| `--harden` | Edge cases, i18n, error states |
-| `--deslop` | Remove AI-generated tells |
-| `--refine` | Change design character |
-
-### /design systems: build the system
-
-| Mode | What |
-|------|------|
-| `--colorize` | Color palette and roles in OKLCH |
-| `--typeset` | Typography system |
-| `--layout` | Spacing, rhythm, hierarchy |
-| `--animate` | Motion system |
-| `--interaction` | States, behavior, affordances |
-| `--responsive` | Multi-screen orchestration |
-
-### /design build: create
-
-| Mode | What |
-|------|------|
-| `--craft` | Feature end to end |
-| `--shape` | UX plan before code |
-| `--init` | Project context setup |
-| `--document` | Generate DESIGN.md in Google Stitch format |
-| `--extract` | Pull tokens and components |
-| `--redesign` | Complete visual transformation |
-| `--setup` | Project brief context |
-
-### /design fix: repair
-
-| Mode | What |
-|------|------|
-| `--clarify` | UX copy, labels, errors |
-| `--adapt` | Responsive adaptation |
-| `--optimize` | UI performance |
-| `--onboard` | First-run flows, empty states |
-| `--voice` | Brand identity, art direction |
-| `--access` | Accessibility: screen reader, WCAG, contrast, font scaling, voice nav |
-
-### /design iterate and manage
-
-| Mode | What |
-|------|------|
-| `--live` | Browser iteration with hot reload |
-| `--delight` | Micro-interactions, personality |
-| `--pin`, `--unpin`, `--hooks` | Shortcuts and auto-detection |
-
-## Real flows
-
-**"This layout is a mess, everything overlaps"**
-
-The skill works through three steps.
-
-1. Find the smells. (the `audit --smell` mode)
-2. Remove the AI-generated bloat. (`refine --deslop`)
-3. Rebuild the spacing and rhythm. (`systems --layout`)
-
-**"Build a SaaS dashboard from scratch for elderly users"**
-
-1. Set up project context. (`build --init`)
-2. Document the elderly persona: bigger type, larger touch targets. (`build --shape`)
-3. Build the dashboard. (`build --craft`)
-4. Create a high-contrast palette. (`systems --colorize`)
-5. Check WCAG compliance. (`fix --access`)
-
-**"Add disability features to an existing app"**
-
-1. Add screen reader, high contrast, font scaling and voice nav support. (`fix --access`)
-2. Harden the edge cases. (`refine --harden`)
-
-**"This looks like AI designed it"**
-
-1. Catalog the AI tells. (`audit --smell`)
-2. Remove them one by one. (`refine --deslop`)
-3. Strip the generic patterns. (`refine --distill`)
-
-## Doctrine playbooks
-
-The reference library grows with the surface it works on:
-
-- [dashboards.md](reference/dashboards.md): decision surfaces, density and tables, real-time dashboards.
-- [performance.md](reference/performance.md): the responsiveness contract (200ms good, 500ms poor).
-- [ui-checklist.md](reference/ui-checklist.md): the universal pre-ship pass, backed by the full 110-checklist catalog in [checklist-catalog.md](reference/checklist-catalog.md).
-- [smell.md](reference/smell.md): the tells registry behind the 42-rule detector.
+The full `/design` command tables and routing map moved to [docs/commands.md](docs/commands.md) as the skill grew. The quick version: `/design audit` evaluates, `/design refine` changes character, `/design systems` builds the system, `/design build` creates, `/design fix` repairs, `/design iterate` iterates live.
 
 ## Design laws in brief
 
@@ -196,7 +210,7 @@ The reference library grows with the surface it works on:
 
 ### Copy
 - One verb per button. Errors are recovery paths. Empty states teach.
-- No em dashes, no exclamation points, sentence case. No filler, no promotional words, no repetition. See the full anti-AI prose list in REFERENCE.md.
+- No em dashes, no exclamation points, sentence case. No filler, no promotional words, no repetition.
 
 ### Scanning
 - Users scan pages in four patterns: F-shaped, Z-shaped, Spotted, Layer Cake.
@@ -205,7 +219,6 @@ The reference library grows with the surface it works on:
 ### Landing pages
 - The six-beat narrative: Hook, Catalyst, Mentor, Journey, Proof, Resolution.
 - Max 2-3 extra components; if a component does not advance the story or build trust, delete it.
-- Mobile-first for content discipline, desktop for immersion.
 
 ## Bans (never generate)
 
@@ -217,60 +230,6 @@ If a glance says "AI made that", the design failed. Two checks:
 
 1. **First-order:** is the palette guessable from the category alone? Rework.
 2. **Second-order:** is the aesthetic guessable from category plus anti-references? Rework until it is not.
-
-## Install
-
-### With skills.sh (recommended)
-
-The skill is a standard Agent Skills package: a root `SKILL.md` with `name` and `description`, plus `scripts/` for its CLI tools. The [skills.sh CLI](https://github.com/vercel-labs/skills) installs it for any supported agent:
-
-```bash
-npx skills@1.5.22 add TudeOrangBiasa/design-skill
-```
-
-Project scope (default) lands in the agent's project skills path (`.pi/skills/`, `.agents/skills/`, `.claude/skills/`, depending on the agent). Add `-g` for a global install into the agent's user skills root:
-
-| Agent | Global install command |
-|-------|------------------------|
-| Pi | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a pi -g` |
-| OpenCode | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a opencode -g` |
-| Claude Code | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a claude-code -g` |
-| Codex | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a codex -g` |
-| Cursor | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a cursor -g` |
-| Gemini CLI | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a gemini-cli -g` |
-| Shared `.agents/skills` agents | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a universal -g` |
-
-From a local checkout, the plugin script wraps the same commands and covers omp, which skills.sh has no entry for:
-
-```bash
-bash plugins/install.sh pi       # global Pi install
-bash plugins/install.sh omp      # symlink into ~/.agents/skills/
-bash plugins/install.sh project  # into this repo's .agents/skills/
-```
-
-`bash plugins/install.sh` with no agent prints the full list.
-
-### omp (example harness)
-
-omp discovers authored skills one level under a `skills/` root: `<skills-root>/<skill-name>/SKILL.md`. The canonical user-level root is `~/.agents/skills/` (the `agents` provider, enabled by default). One symlink installs it:
-
-```bash
-ln -sfn "$PWD" ~/.agents/skills/design-skill   # run from the repo root
-```
-
-or run `bash plugins/install.sh omp`. Restart the agent. A new session picks the skill up. Nested paths like `skills/engineering/design-skill` are not discovered; keep the skill one level under the root.
-
-### From npm
-
-```
-npm install agent-design-skill
-```
-
-Point your agent at `node_modules/agent-design-skill/SKILL.md`, or symlink it into your agent's skills directory. Restart your agent afterwards.
-
-### Tooling
-
-The skill ships zero servers and no MCP. Visual audits require a scriptable browser: the harness browser tool when present, else the browser-use MCP server (keyless harness, pinned at `browser-use==0.1.40`). If neither is installed, the skill points you to the install command (see SKILL.md, Tooling). Every automation is a dependency-free Node CLI script under `scripts/`, invoked per run: the 42-rule design-smell detector (`node scripts/detector.mjs <target>`), the live variant mode (`node scripts/live.mjs`), and the DESIGN.md validator in the document flow. Any harness gets the same tools with nothing to configure beyond Node >= 18. See [SKILL.md](SKILL.md) for the full tooling contract.
 
 ## Sources
 
