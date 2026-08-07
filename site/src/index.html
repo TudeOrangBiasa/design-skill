@@ -85,26 +85,26 @@
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">02 / THE COLLECTION</span><h2>What's inside</h2></div>
     <div class="lib">
-      <div class="lib-row">
+      <a class="lib-row" href="detector.html" style="--i:0">
         <div class="lab"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="7" x2="17" y1="12" y2="12"/></svg> THE DETECTOR</div>
-        <div class="t">42 rules, zero keys</div><div class="d">Deterministic design-smell scan of HTML and CSS. Error findings block shipping. <a href="detector.html">The rules</a>.</div><div class="c">/detect</div>
-      </div>
-      <div class="lib-row">
+        <div class="t">42 rules, zero keys</div><div class="d">Deterministic design-smell scan of HTML and CSS. Error findings block shipping.</div><div class="c">/detect<span class="go">→</span></div>
+      </a>
+      <a class="lib-row" href="doctrine/index.html" style="--i:1">
         <div class="lab"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> THE DOCTRINE</div>
-        <div class="t">55 playbooks</div><div class="d">Color, type, layout, motion, interaction, responsive, access, dashboards, performance. <a href="doctrine/index.html">Browse the library</a>.</div><div class="c">/reference</div>
-      </div>
-      <div class="lib-row">
+        <div class="t">55 playbooks</div><div class="d">Color, type, layout, motion, interaction, responsive, access, dashboards, performance.</div><div class="c">/reference<span class="go">→</span></div>
+      </a>
+      <a class="lib-row" href="live-mode.html" style="--i:2">
         <div class="lab"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg> LIVE MODE</div>
-        <div class="t">Browser iteration</div><div class="d">Select an element, pick an action, hot-swap variants. The journal survives restarts. <a href="live-mode.html">How it works</a>.</div><div class="c">/design live</div>
-      </div>
-      <div class="lib-row">
+        <div class="t">Browser iteration</div><div class="d">Select an element, pick an action, hot-swap variants. The journal survives restarts.</div><div class="c">/design live<span class="go">→</span></div>
+      </a>
+      <a class="lib-row" href="design-md.html" style="--i:3">
         <div class="lab"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg> DESIGN.MD</div>
-        <div class="t">The visual spec</div><div class="d">Google-labs format, validated by the canonical linter before it ships. <a href="design-md.html">The format</a>.</div><div class="c">/document</div>
-      </div>
-      <div class="lib-row">
+        <div class="t">The visual spec</div><div class="d">Google-labs format, validated by the canonical linter before it ships.</div><div class="c">/document<span class="go">→</span></div>
+      </a>
+      <a class="lib-row" href="checklists.html" style="--i:4">
         <div class="lab"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> THE CHECKLIST</div>
-        <div class="t">703 checks</div><div class="d">110 checklists, per surface and per flow, for the pre-ship pass. <a href="checklists.html">The engine</a>.</div><div class="c">/polish</div>
-      </div>
+        <div class="t">703 checks</div><div class="d">110 checklists, per surface and per flow, for the pre-ship pass.</div><div class="c">/polish<span class="go">→</span></div>
+      </a>
     </div>
   </div>
 </section>
@@ -159,5 +159,20 @@
     <div class="f-bottom">© 2026 DESIGN SKILL · <a href="notice.html">NOTICE</a> · <a href="contribution.html">CONTRIBUTE</a></div>
   </div>
 </footer>
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.lib-row').forEach(function (r) { r.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.lib-row').forEach(function (r) { io.observe(r); });
+})();
+</script>
 </body>
 </html>
