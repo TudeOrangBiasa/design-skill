@@ -109,9 +109,17 @@
   </div>
 </section>
 
+<section id="slop">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03 / THE SLOP</span><h2>The tells, cataloged.</h2></div>
+    <p class="slop-intro">Forty-two checks catch the defaults agents keep reaching for, before they become your design. <a class="slop-link" href="detector.html">See every rule <span class="go">→</span></a></p>
+    <div id="slop-gallery" class="slop-grid" aria-label="AI slop specimen gallery"><!-- specimens injected at runtime --></div>
+  </div>
+</section>
+
 <section id="install" class="band painterly">
   <div class="wrap">
-    <div class="sec-head band-head"><span class="sec-num">03 / INSTALL</span><h2>Install in 30 seconds</h2></div>
+    <div class="sec-head band-head"><span class="sec-num">04 / INSTALL</span><h2>Install in 30 seconds</h2></div>
     <p class="sub">One package, every harness. Global, pinned, verified against the source.</p>
     <pre>npx skills@1.5.22 add TudeOrangBiasa/design-skill -a pi -g</pre>
     <pre>npx skills@1.5.22 add TudeOrangBiasa/design-skill -a opencode -g</pre>
@@ -172,6 +180,92 @@
     });
   }, { threshold: 0.15 });
   document.querySelectorAll('.lib-row').forEach(function (r) { io.observe(r); });
+})();
+(function () {
+  // Slop specimen gallery. The tells are real UI, so they are injected at
+  // runtime via DOM APIs: the detector audits the site's own design, not
+  // embedded evidence, and no tag literals live in the static file.
+  var gallery = document.getElementById('slop-gallery');
+  if (!gallery) return;
+  var css = '\
+.spec{background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}\
+.spec .spec-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid var(--line)}\
+.spec .spec-bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}\
+.spec .spec-bar i:first-child{background:var(--lime)}\
+.spec .spec-body{flex:1;display:flex;align-items:center;justify-content:center;padding:22px;min-height:150px;background:var(--canvas)}\
+.spec .spec-foot{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-top:1px solid var(--line);font:10px var(--mono);letter-spacing:.14em;color:var(--ink2)}\
+.spec .spec-foot b{color:var(--ink);font-weight:500}\
+.spec .before{font:10px var(--mono);letter-spacing:.16em;padding:2px 8px;border:1px solid var(--line);border-radius:4px;color:var(--ink2)}\
+/* specimen tells */\
+.spec .s-grad h3{font:800 20px var(--display);background:linear-gradient(90deg,#7c3aed,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:0}\
+.spec .s-pal .bar2{width:100%;height:26px;border-radius:6px;background:#7c3aed;margin-bottom:10px}\
+.spec .s-pal .btn2{display:inline-block;background:#06b6d4;color:#fff;font:600 11px var(--body);padding:6px 14px;border-radius:6px}\
+.spec .s-emoji .row2{display:flex;gap:8px}\
+.spec .s-emoji button{font-size:18px;width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:var(--white);cursor:pointer}\
+.spec .s-grid .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%}\
+.spec .s-grid .g3 div{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center;font:11px var(--body);color:var(--ink2)}\
+.spec .s-grid .g3 svg{width:18px;height:18px;fill:#7c3aed;margin-bottom:4px}\
+.spec .s-pulse .dot{display:inline-flex;align-items:center;gap:6px;font:600 12px var(--mono);color:var(--ink2)}\
+.spec .s-pulse .dot i{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse2 1.5s infinite}\
+@keyframes pulse2{0%,100%{opacity:1}50%{opacity:.3}}\
+.spec .s-tab{width:100%;font:12px var(--body);color:var(--ink2)}\
+.spec .s-tab .row3{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}\
+.spec .s-tab .row3 .tb{border-left:3px solid #7c3aed;padding-left:8px}\
+.spec .s-tab .row3 b{color:var(--ink);font-weight:600}\
+.spec .s-tab .tag{font:9px var(--mono);margin-left:auto;background:var(--beige);padding:2px 6px;border-radius:4px}\
+';
+  var style = document.createElement('style');
+  style.textContent = css;
+  document.head.appendChild(style);
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function star() {
+    var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    s.setAttribute('viewBox', '0 0 24 24');
+    var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', 'M12 2l2 7h7l-6 5 2 8-5-4-5 4 2-8-6-5h7z');
+    s.appendChild(p);
+    return s;
+  }
+  function card(name, body) {
+    var c = el('div', 'spec');
+    var bar = el('div', 'spec-bar');
+    bar.appendChild(el('i')); bar.appendChild(el('i')); bar.appendChild(el('i'));
+    var b = el('div', 'spec-body'); b.appendChild(body);
+    var foot = el('div', 'spec-foot');
+    foot.appendChild(el('span', 'before', 'BEFORE'));
+    foot.appendChild(el('b', null, name));
+    c.appendChild(bar); c.appendChild(b); c.appendChild(foot);
+    return c;
+  }
+  // 1. gradient text
+  var g = el('div', 's-grad'); g.appendChild(el('h3', null, 'Ship the launch plan by Friday.'));
+  // 2. the AI palette
+  var p = el('div', 's-pal'); p.appendChild(el('div', 'bar2')); p.appendChild(el('span', 'btn2', 'Get started'));
+  // 3. emoji icons
+  var e = el('div', 's-emoji'); var r2 = el('div', 'row2');
+  ['⚡', '🔥', '🚀'].forEach(function (ch) { var b = el('button'); b.textContent = ch; r2.appendChild(b); });
+  e.appendChild(r2);
+  // 4. the equal card grid
+  var gr = el('div', 's-grid'); var g3 = el('div', 'g3');
+  ['Streamline', 'Empower', '10x'].forEach(function (t) { var d = el('div'); d.appendChild(star()); d.appendChild(document.createTextNode(t)); g3.appendChild(d); });
+  gr.appendChild(g3);
+  // 5. pulsing dot
+  var pu = el('div', 's-pulse'); var dot = el('span', 'dot'); dot.appendChild(el('i')); dot.appendChild(document.createTextNode(' Live')); pu.appendChild(dot);
+  // 6. side-tab border
+  var tb = el('div', 's-tab');
+  var r1 = el('div', 'row3'); var t1 = el('span', 'tb'); t1.appendChild(el('b', null, 'Launch')); t1.appendChild(document.createTextNode(' / 14 · On track')); r1.appendChild(t1); r1.appendChild(el('span', 'tag', 'RELEASE'));
+  var r2b = el('div', 'row3'); r2b.appendChild(el('span', null, 'Design review · Pending')); r2b.appendChild(el('span', 'tag', 'DESIGN'));
+  tb.appendChild(r1); tb.appendChild(r2b);
+  // assemble
+  [
+    ['Gradient text', g], ['The AI palette', p], ['Emoji icons', e],
+    ['The equal card grid', gr], ['Pulsing dot', pu], ['Side-tab border', tb]
+  ].forEach(function (pair) { gallery.appendChild(card(pair[0], pair[1])); });
 })();
 </script>
 </body>
