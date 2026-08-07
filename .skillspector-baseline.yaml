@@ -220,3 +220,15 @@ fingerprints:
   rule_id: YR4
   file: reference/checklist-catalog.md
   reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+- hash: sha256:86d7b1dc237031aa50687fd28c48a1376a050018c46c5e3ecf331c336fd0b934
+  rule_id: RP1
+  file: CHANGELOG.md
+  reason: Changelog entry documenting the npx linter command, never executed as an install
+- hash: sha256:097d777292f456a855847ff73ee7e26c0ae4304a3e129642c0c99004a2fec5b9
+  rule_id: RP1
+  file: docs/design-md.md
+  reason: Docs page documenting the canonical DESIGN.md linter command, never executed as an install
+- hash: sha256:71860e22257f50405757c138c17409db1f44295aec1205300f41a58e9b697ef8
+  rule_id: RP1
+  file: docs/design-md.md
+  reason: Docs page documenting the canonical DESIGN.md linter command, never executed as an install
