@@ -149,6 +149,15 @@ The skill works through three steps.
 2. Remove them one by one. (`refine --deslop`)
 3. Strip the generic patterns. (`refine --distill`)
 
+## Doctrine playbooks
+
+The reference library grows with the surface it works on:
+
+- [dashboards.md](reference/dashboards.md): decision surfaces, density and tables, real-time dashboards.
+- [performance.md](reference/performance.md): the responsiveness contract (200ms good, 500ms poor).
+- [ui-checklist.md](reference/ui-checklist.md): the universal pre-ship pass, backed by the full 110-checklist catalog in [checklist-catalog.md](reference/checklist-catalog.md).
+- [smell.md](reference/smell.md): the tells registry behind the 42-rule detector.
+
 ## Design laws in brief
 
 ### Modes
@@ -200,7 +209,7 @@ The skill works through three steps.
 
 ## Bans (never generate)
 
-Side-stripe borders · Gradient text · Glassmorphism as default · Hero-metric template · Identical card grids · Eyebrow on every section · Numbered section markers · Text overflow · Ghost-card (border and wide shadow) · Over-rounding (32px+ on cards) · Sketchy SVG illustrations · Stripe backgrounds · Grid backgrounds · Meta-criticism copy · Bounce easing · Neon-on-black · Cards inside cards · Cream or sand or beige default body background · Box-shadow on cards (use a 1px border)
+Side-stripe borders · Gradient text · Glassmorphism as default · Hero-metric template · Identical card grids · Eyebrow on every section · Numbered section markers · Text overflow · Ghost-card (border and wide shadow) · Over-rounding (32px+ on cards) · Sketchy SVG illustrations · Stripe backgrounds · Grid backgrounds · Meta-criticism copy · Bounce easing · Neon-on-black · Cards inside cards · Cream or sand or beige default body background · Box-shadow on cards (use a 1px border instead) · Emoji as icons (use a real icon product: Lucide, Phosphor, Tabler, Iconoir, Humbleicons, Flowbite) · Decorative strikethroughs and highlights · Badge and pill spam · Invented stat rows (10k+ / 99.9% / 24/7) · Tinted icon containers (an icon in a 10% tint of itself) · Springy scale hovers (hover:scale-105) · Mono chrome everywhere (terminal dressing on UI)
 
 ## AI Slop Test
 
@@ -261,7 +270,7 @@ Point your agent at `node_modules/agent-design-skill/SKILL.md`, or symlink it in
 
 ### Tooling
 
-The skill ships zero servers and no MCP. Visual audits require a scriptable browser: the harness browser tool when present, else the browser-use MCP server (keyless harness, pinned at `browser-use==0.1.40`). If neither is installed, the skill points you to the install command (see SKILL.md, Tooling). Every automation is a dependency-free Node CLI script under `scripts/`, invoked per run: `node scripts/detector.mjs <target>`, `node scripts/live.mjs`. Any harness gets the same tools with nothing to configure beyond Node >= 18. See [SKILL.md](SKILL.md) for the full tooling contract.
+The skill ships zero servers and no MCP. Visual audits require a scriptable browser: the harness browser tool when present, else the browser-use MCP server (keyless harness, pinned at `browser-use==0.1.40`). If neither is installed, the skill points you to the install command (see SKILL.md, Tooling). Every automation is a dependency-free Node CLI script under `scripts/`, invoked per run: the 42-rule design-smell detector (`node scripts/detector.mjs <target>`), the live variant mode (`node scripts/live.mjs`), and the DESIGN.md validator in the document flow. Any harness gets the same tools with nothing to configure beyond Node >= 18. See [SKILL.md](SKILL.md) for the full tooling contract.
 
 ## Sources
 
@@ -271,6 +280,10 @@ The skill ships zero servers and no MCP. Visual audits require a scriptable brow
 | [Emil Kowalski's design engineering](https://animations.dev/) | Motion philosophy, animation framework, spring physics |
 | CommandCode design | Report workflow, color/type/layout/interaction/responsive/copy philosophy |
 | [Anthropic's frontend-design skill](https://github.com/anthropics/skills) | Craft and shape flows, production quality bar |
+| [Checklist Design](https://www.checklist.design/) | UI pre-ship checklist and catalog (created by George Hatzis; no license published, attribution in NOTICE.md) |
+| [Nielsen Norman Group](https://www.nngroup.com/) | Scanning, dashboards, data tables, forms research |
+| [IBM Carbon](https://carbondesignsystem.com/) | Data table and grid norms |
+| [web.dev](https://web.dev/articles/inp) | Responsiveness contract (INP, 200ms/500ms thresholds) |
 
 ## Contributing
 
