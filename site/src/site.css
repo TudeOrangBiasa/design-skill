@@ -77,6 +77,9 @@ h2{font-family:var(--display);font-weight:900;font-size:40px;letter-spacing:-.01
 .slop-intro{color:var(--ink2);font-size:17px;max-width:52ch;margin:-28px 0 40px}
 .slop-link{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--lime-deep)}
 .slop-link:hover{color:var(--lime-deep)}
+.slop-credit{font:11px var(--mono);letter-spacing:.1em;color:var(--ink2);margin-top:18px}
+.slop-credit a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+.slop-credit a:hover{color:var(--ink)}
 .slop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .spec{background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s cubic-bezier(.25,1,.5,1),border-color .2s ease-out,box-shadow .25s ease-out}
 .spec:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:0 12px 28px rgba(20,18,15,.07)}

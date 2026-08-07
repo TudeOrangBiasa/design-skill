@@ -323,6 +323,11 @@ mkdirSync(join(DIST, 'assets', 'bg'), { recursive: true });
 for (const f of readdirSync(join(SRC, 'assets', 'bg'))) {
   copyFileSync(join(SRC, 'assets', 'bg', f), join(DIST, 'assets', 'bg', f));
 }
+// runtime slop specimen data (real tells; loaded client-side so the site's
+// own detector audits the site, not its evidence)
+if (existsSync(join(SRC, 'slop-specimens.js'))) {
+  copyFileSync(join(SRC, 'slop-specimens.js'), join(DIST, 'slop-specimens.js'));
+}
 
 // landing
 copyFileSync(join(SRC, 'index.html'), join(DIST, 'index.html'));

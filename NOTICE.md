@@ -2,7 +2,7 @@
 
 agent-design-skill is licensed under Apache License 2.0. It merges and adapts material from the following projects:
 
-- [pbakaus/impeccable](https://github.com/pbakaus/impeccable): routing layer, command set, setup flow, bans. MIT licensed.
+- [pbakaus/impeccable](https://github.com/pbakaus/impeccable): routing layer, command set, setup flow, bans. MIT licensed. The landing page's slop specimen gallery (`site/src/slop-specimens.js`) reproduces specimen markup scraped from https://impeccable.style/slop.
 - [Emil Kowalski's design engineering](https://animations.dev/): motion philosophy, animation decision framework, spring physics.
 - CommandCode design: report workflow, color, type, layout, interaction, responsive and copy philosophy.
 - [Anthropic's frontend-design skill](https://github.com/anthropics/skills): craft and shape flows, production quality bar, reference structure.
