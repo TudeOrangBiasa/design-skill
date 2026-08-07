@@ -130,6 +130,8 @@ Dashboard and monitoring surfaces audit against [dashboards.md](dashboards.md): 
 
 The performance dimension audits against [performance.md](performance.md): the 200ms next-paint contract on primary interactions, long tasks over 50ms, layout-property animation, and input-delay windows. Motion doctrine stays in [animate.md](animate.md).
 
+The polish pass runs the universal component checklist ([ui-checklist.md](ui-checklist.md)): every component in the surface gets its states, copy, and system placement checked before it ships.
+
 ## Recommended Actions
 
 List recommended commands in priority order (P0 first, then P1, then P2):

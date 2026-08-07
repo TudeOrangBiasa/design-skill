@@ -6,6 +6,13 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [1.0.26] - 2026-08-06
+
+### Added
+
+- reference/ui-checklist.md: the universal pre-ship UI checklist, scraped from Checklist Design (110 checklists, 703 checks). Core components (button, input, toggle, checkbox, radio), the system layer (color system, typography, spacing and grid, three-tier tokens), feedback and states (loading, empty, modal, tooltip, toast), data surfaces (tables), and the per-surface catalog (website pages, web app screens, design system components, mobile, flows). Cross-linked to existing doctrine instead of restating it. The raw scraped dataset is kept locally, not versioned (its credential-like vocabulary trips the security scanner at scale).
+- checkup.md runs the checklist first; audit.md polish pass runs it before shipping.
+
 ## [1.0.25] - 2026-08-06
 
 ### Added

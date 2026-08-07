@@ -172,11 +172,11 @@ fingerprints:
   rule_id: P2
   file: reference/document.md
   reason: HTML comment markers in markdown (SEED marker), not hidden instructions
-- hash: sha256:fee5507a217eabcce3d85b52f769f9e263bd211b9e1b6679d0e9b39f43c1cc6d
+- hash: sha256:0cbcdca72e801ed758ac707c7da2b5b868252c2d92b9a3967d4a4b585dc9e328
   rule_id: RP1
   file: CHANGELOG.md
   reason: Changelog entry documenting the npx linter command, never executed as an install
-- hash: sha256:6883963f1156f02dffec938c389b3ff30b5b597ac30d4daac6900b4ae1aad80c
+- hash: sha256:046c630499c1b5d619c5cb5b35e2ef049e297c349bdc154a2d4f654709b90376
   rule_id: EA2
   file: reference/audit.md
-  reason: Audit playbook instructs the dashboard pass; every write is gated behind user confirmation (SKILL.md invocation model)
+  reason: Audit playbook instructs the checklist pass; every write is gated behind user confirmation (SKILL.md invocation model)
