@@ -81,9 +81,18 @@
   </div>
 </section>
 
+<section id="slop">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02 / THE SLOP</span><h2>The tells, cataloged.</h2><span class="floater">42 RULES / 0 KEYS</span></div>
+    <p class="slop-intro">Forty-two checks catch the defaults agents keep reaching for, before they become your design. <a class="slop-link" href="detector.html">See every rule <span class="go">→</span></a></p>
+    <div id="slop-gallery" class="slop-grid" aria-label="AI slop specimen gallery"><!-- specimens injected at runtime --></div>
+    <p class="slop-credit">Specimens from <a href="https://impeccable.style/slop">impeccable.style</a>, the source skill this one routes through. Hover a card to catch its tell.</p>
+  </div>
+</section>
+
 <section id="library">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">02 / THE COLLECTION</span><h2>What's inside</h2></div>
+    <div class="sec-head"><span class="sec-num">03 / THE COLLECTION</span><h2>What's inside</h2></div>
     <div class="lib">
       <a class="lib-row" href="detector.html" style="--i:0">
         <div class="lab"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="7" x2="17" y1="12" y2="12"/></svg> THE DETECTOR</div>
@@ -106,15 +115,6 @@
         <div class="t">703 checks</div><div class="d">110 checklists, per surface and per flow, for the pre-ship pass.</div><div class="c">/polish<span class="go">→</span></div>
       </a>
     </div>
-  </div>
-</section>
-
-<section id="slop">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">03 / THE SLOP</span><h2>The tells, cataloged.</h2></div>
-    <p class="slop-intro">Forty-two checks catch the defaults agents keep reaching for, before they become your design. <a class="slop-link" href="detector.html">See every rule <span class="go">→</span></a></p>
-    <div id="slop-gallery" class="slop-grid" aria-label="AI slop specimen gallery"><!-- specimens injected at runtime --></div>
-    <p class="slop-credit">Specimens from <a href="https://impeccable.style/slop">impeccable.style</a>, the source skill this one routes through.</p>
   </div>
 </section>
 
@@ -196,15 +196,27 @@
     if (text != null) n.textContent = text;
     return n;
   }
-  specs.forEach(function (s) {
-    var c = el('div', 'spec');
+  specs.forEach(function (s, i) {
+    var c = document.createElement('a');
+    c.className = 'spec';
+    c.href = 'https://impeccable.style' + (s.link || '');
+    c.target = '_blank';
+    c.rel = 'noopener';
     c.title = s.desc;
+    c.setAttribute('aria-label', s.name);
+    c.style.setProperty('--i', i);
+    var tilt = ((i % 2 === 0 ? -1 : 1) * (1 + (i % 3) * 0.45)).toFixed(1) + 'deg';
+    c.style.setProperty('--tilt', tilt);
+    if (i === 0 || i === 4 || i === 5) c.classList.add('wide');
     var bar = el('div', 'spec-bar');
     bar.appendChild(el('i')); bar.appendChild(el('i')); bar.appendChild(el('i'));
     var b = el('div', 'spec-body');
     b.innerHTML = s.html;
     var foot = el('div', 'spec-foot');
-    foot.appendChild(el('span', 'before', 'BEFORE'));
+    var tw = el('span', 'tagwrap');
+    tw.appendChild(el('span', 'before', 'BEFORE'));
+    tw.appendChild(el('span', 'caught', 'CAUGHT'));
+    foot.appendChild(tw);
     foot.appendChild(el('b', null, s.name));
     c.appendChild(bar); c.appendChild(b); c.appendChild(foot);
     gallery.appendChild(c);

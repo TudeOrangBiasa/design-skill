@@ -74,9 +74,35 @@ h2{font-family:var(--display);font-weight:900;font-size:40px;letter-spacing:-.01
 .fail p{color:var(--ink2);font-size:15px;max-width:44ch}
 .lib{border-top:1px solid var(--line)}
 .lib-row{display:grid;grid-template-columns:180px 1fr 140px;gap:24px;padding:28px 24px;border-bottom:1px solid var(--line);align-items:baseline;text-decoration:none;color:var(--ink);position:relative;border-radius:10px;transition:background-color .25s ease-out,box-shadow .25s ease-out;margin:0 -24px;padding-left:24px}
+/* ---- slop gallery (cntrl-style broken grid) ---- */
 .slop-intro{color:var(--ink2);font-size:17px;max-width:52ch;margin:-28px 0 40px}
 .slop-link{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--lime-deep)}
 .slop-link:hover{color:var(--lime-deep)}
+.slop-credit{font:11px var(--mono);letter-spacing:.1em;color:var(--ink2);margin-top:18px}
+.slop-credit a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+.slop-credit a:hover{color:var(--ink)}
+.floater{background:var(--lime);color:var(--ink);font:12px var(--mono);letter-spacing:.12em;padding:9px 16px;border-radius:8px;transform:rotate(2.5deg);white-space:nowrap;margin-left:auto}
+.slop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+.spec{background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;color:inherit;text-decoration:none;transform:rotate(var(--tilt,0));transition:transform .22s cubic-bezier(.25,1,.5,1),border-color .22s ease-out,box-shadow .25s ease-out}
+.spec.wide{grid-column:span 2}
+.spec:nth-child(3n+1){margin-top:30px}
+.spec:nth-child(5n+2){margin-top:14px}
+.spec:hover,.spec:focus-visible{transform:rotate(0deg) translateY(-6px);border-color:var(--ink);box-shadow:0 14px 30px rgba(20,18,15,.08)}
+.spec .spec-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid var(--line)}
+.spec .spec-bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.spec .spec-bar i:first-child{background:var(--lime)}
+.spec .spec-body{flex:1;display:flex;align-items:center;justify-content:center;padding:22px;min-height:150px;background:var(--canvas)}
+.spec .spec-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-top:1px solid var(--line);font:11px var(--mono);letter-spacing:.12em;color:var(--ink2)}
+.spec .spec-foot b{color:var(--ink);font-weight:600;font-size:12px}
+.spec .tagwrap{position:relative;min-width:64px}
+.spec .before{font:10px var(--mono);letter-spacing:.16em;padding:2px 8px;border:1px solid var(--line);border-radius:4px;color:var(--ink2);transition:opacity .18s ease-out;display:inline-block}
+.spec .caught{position:absolute;left:0;top:-1px;font:600 10px var(--mono);letter-spacing:.16em;padding:2px 8px;border-radius:4px;background:var(--lime);color:var(--ink);transform:rotate(-8deg) translateY(3px);opacity:0;transition:opacity .2s ease-out,transform .2s ease-out;white-space:nowrap}
+.spec:hover .before,.spec:focus-visible .before{opacity:0}
+.spec:hover .caught,.spec:focus-visible .caught{opacity:1;transform:rotate(-8deg) translateY(0)}
+/* reveal */
+html.js .spec{opacity:0;transform:translateY(16px) rotate(var(--tilt,0));transition:opacity .26s ease-out,transform .26s cubic-bezier(.25,1,.5,1),border-color .22s ease-out,box-shadow .25s ease-out;transition-delay:calc(var(--i, 0) * 60ms)}
+html.js .spec.in{opacity:1;transform:rotate(var(--tilt,0));transition-delay:0s}
+html.js .spec:hover,html.js .spec:focus-visible{transform:rotate(0deg) translateY(-6px);border-color:var(--ink);box-shadow:0 14px 30px rgba(20,18,15,.08)}
 .slop-credit{font:11px var(--mono);letter-spacing:.1em;color:var(--ink2);margin-top:18px}
 .slop-credit a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
 .slop-credit a:hover{color:var(--ink)}
@@ -181,6 +207,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px}
   .stage{display:flex;flex-wrap:wrap}
   .fails{grid-template-columns:1fr}
   .slop-grid{grid-template-columns:repeat(2,1fr)}
+  .floater{display:none}
   .lib-row{grid-template-columns:1fr;gap:4px}
   .hero{padding:80px 0 64px}
   section{padding:64px 0}
