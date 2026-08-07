@@ -7,3 +7,6 @@
 research/*.html
 research/*_files/
 research/*.json
+
+# Static site build output (rebuilt in CI by the Pages workflow).
+site/dist/

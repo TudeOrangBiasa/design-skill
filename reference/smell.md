@@ -132,7 +132,7 @@ The deterministic catalog, aligned with impeccable's antipattern detector. Every
 - **Content invisible at rest:** page text at opacity 0 after all reveals ran. The failed-reveal signature; content must be visible by default.
 - **Equal-weight card grid:** three or more identical cards in a 3-column grid, each an icon, a heading, and one line. Structure faked by stuffing unrelated things into identical boxes; decide the one most important thing and show it fully.
 - **All-caps label grid:** uppercase micro-labels stamped across interchangeable cards. The default costume for "looks designed".
-- **Invented stat rows:** a row of round numbers (10k+, 99.9%, 24/7) that are set dressing, not measurements. Real numbers are odd and specific; one invented figure poisons every true one beside it.
+- **Invented stat rows:** a row of round numbers (`10k+`, `99.9%`, `24/7`) that are set dressing, not measurements. Real numbers are odd and specific; one invented figure poisons every true one beside it.
 
 ### Typography
 - **Overused font:** Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, Space Grotesk appear on so many sites they no longer feel distinctive. Choose a face with personality.
@@ -155,7 +155,7 @@ The deterministic catalog, aligned with impeccable's antipattern detector. Every
 - **Default semantic palette:** the framework info/tip/success/error set (blue, amber, green, red in -50 backgrounds with -600 text), unrelated to the brand or to each other. Grow semantic colors out of one palette; most notes need no color at all.
 - **Same-hue status box:** border, text, and background all one hue, the background a see-through version of it. Red on red, green on green; a traffic light is not a palette. Carry the state in words and weight first.
 - **Atmosphere gradients:** gradients as mood, not decisions: repeating stripes, gradient card fills, a radial spotlight behind everything. Pick one flat background and hold it; build depth with hairlines and restrained shadows.
-- **Glassmorphism:** backdrop-blur on navbars, modals, and overlays as a status signal rather than a legibility decision. A frozen slice of 2021 Dribbble.
+- **Glassmorphism:** `backdrop-blur` on navbars, modals, and overlays as a status signal rather than a legibility decision. A frozen slice of 2021 Dribbble.
 
 ### Motion
 - **Bounce or elastic easing:** dated. Exponential ease-out instead.
@@ -175,7 +175,7 @@ The deterministic catalog, aligned with impeccable's antipattern detector. Every
 - **Glowing status dot:** (under Motion; the halo and pulse are its decoration.)
 
 ### Copy
-- **Marketing buzzword:** streamline, empower, supercharge, world-class, enterprise-grade. Say what the product literally does.
+- **Marketing buzzword:** `streamline`, `empower`, `supercharge`, `world-class`, `enterprise-grade`. Say what the product literally does.
 - **Aphoristic cadence:** three or more sections landing on a short manufactured-contrast line ("Not a feature. A platform."). Once is voice; repetition is the tell.
 - **Em-dash overuse:** saturation in body copy, near one em dash per 500 characters. Prefer commas, colons, periods, parentheses.
 - **AI copy tics:** "say goodbye to X", "it's not just X", "welcome to the future", punchy triads. The rhythmic fingerprint of generated copy: forever symmetrical, one notch too excited, specifics-free.

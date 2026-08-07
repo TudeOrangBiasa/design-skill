@@ -232,3 +232,7 @@ fingerprints:
   rule_id: RP1
   file: docs/design-md.md
   reason: Docs page documenting the canonical DESIGN.md linter command, never executed as an install
+- hash: sha256:840bf0dfc7ee02bba732e96a159d02ee017f751e9c0f6fbd56e7d9b9f63075d5
+  rule_id: RP1
+  file: CHANGELOG.md
+  reason: Changelog entry documenting the npx linter command, never executed as an install

@@ -34,9 +34,9 @@ Severities: error (blocks), warning, advisory. Groups: Imagery, Copy, Color, Typ
 
 ### Copy (6)
 - `em-dash-saturation` (advisory): em/en dash density in body copy.
-- `marketing-buzzword` (error): streamline, empower, supercharge, and the rest of the buzzword list.
+- `marketing-buzzword` (error): `streamline`, `empower`, `supercharge`, and the rest of the buzzword list.
 - `aphoristic-cadence` (advisory): manufactured-contrast lines ("Not a feature. A platform.").
-- `invented-stat-row` (warning): 10k+, 99.9%, 24/7 cliches together.
+- `invented-stat-row` (warning): `10k+`, `99.9%`, `24/7` cliches together.
 - `copy-tics` (advisory): "say goodbye to", "it's not just", "welcome to the future".
 - `star-rating` (advisory): star rows not tied to a review.
 
@@ -49,7 +49,7 @@ Severities: error (blocks), warning, advisory. Groups: Imagery, Copy, Color, Typ
 - `semantic-palette` (warning): the framework blue/amber/green/red -50/-600 set together.
 - `mono-hue-alert` (warning): border, text, and background all one hue.
 - `atmosphere-gradients` (warning): repeating stripes, gradient card fills, radial page background.
-- `glassmorphism` (warning): backdrop-blur surfaces.
+- `glassmorphism` (warning): `backdrop-blur` surfaces.
 
 ### Typography (11)
 - `overused-font` (warning): Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, Space Grotesk, Playfair, Lora, Cormorant, Newsreader, Recoleta.

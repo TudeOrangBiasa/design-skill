@@ -116,3 +116,17 @@ test('clean markup fires no new-slop rules', () => {
   const fired = found.filter((id) => newRules.includes(id));
   assert.deepEqual(fired, [], `clean markup fired new-slop rules: ${fired.join(', ')}`);
 });
+
+test('copy rules do not fire on code blocks (copyText)', () => {
+  const html = '<h1>Docs</h1><pre>{ "evidence": "streamline, empower, supercharge" }</pre><p>Prose.</p>';
+  assert.ok(!ids(html).includes('marketing-buzzword'), 'buzzwords quoted in a code block must not fire');
+  const prose = '<h1>Docs</h1><p>Our platform will streamline and empower your team.</p>';
+  assert.ok(ids(prose).includes('marketing-buzzword'), 'buzzwords in prose must fire');
+});
+
+test('glassmorphism ignores documentation mentions of the class name', () => {
+  const doc = '<h1>Docs</h1><p>The rule fires on <code>backdrop-blur</code> surfaces.</p>';
+  assert.ok(!ids(doc).includes('glassmorphism'), 'a prose mention of backdrop-blur must not fire');
+  const real = '<h1>Page</h1><div class="backdrop-blur-md nav">Nav</div>';
+  assert.ok(ids(real).includes('glassmorphism'), 'an actual backdrop-blur class must fire');
+});

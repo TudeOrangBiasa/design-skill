@@ -6,6 +6,17 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [1.0.29] - 2026-08-06
+
+### Added
+
+- Static wiki site in `site/`: a Cntrl-style freehand landing page plus a browsable wiki rendering the docs/ and reference/ corpus (66 pages, client-side search, sidebar, 404, favicon, og image). Zero npm dependencies: `node site/build.mjs` is the whole build. GitHub Pages workflow added; `site/dist/` is build output and gitignored.
+- Detector: `ctx.copyText` context (prose with `<pre>`/`<code>` stripped) and copy rules now scan it, so quoted evidence inside code blocks no longer self-fires. `glassmorphism` matches class attributes only, not documentation mentions. Two tests lock both contracts.
+
+### Changed
+
+- The detector's own docs quote banned vocabulary as code tokens (`streamline`, `10k+`, `backdrop-blur`) so the skill does not flag its own rulebook.
+
 ## [1.0.28] - 2026-08-06
 
 ### Added
