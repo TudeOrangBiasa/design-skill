@@ -1,0 +1,9 @@
+# Saved webpage artifacts (research input, not skill content).
+# Raw HTML carries third-party tracking scripts that trip the security scan
+# at CRITICAL severity; scraped datasets carry credential-like vocabulary that
+# the scan reads the same way. Keep extracted doctrine as markdown in
+# reference/ and research/ instead. Add new artifacts here before saving them
+# into research/.
+research/*.html
+research/*_files/
+research/*.json

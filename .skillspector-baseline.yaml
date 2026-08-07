@@ -72,10 +72,6 @@ fingerprints:
   rule_id: EA3
   file: LICENSE
   reason: Apache-2.0 LICENSE text, not a scope claim
-- hash: sha256:48e6297cae03b86b77393ace3f947c8a230c205ae2fa1eafe3ff4f535e84434a
-  rule_id: EA2
-  file: reference/audit.md
-  reason: Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation
 - hash: sha256:6dbfe8a2a9d10bede7598b37b460cb00a23f017b16fd013c7d94b40b7367d218
   rule_id: EA2
   file: reference/craft.md
@@ -148,10 +144,6 @@ fingerprints:
   rule_id: P6
   file: scripts/design-parser.mjs
   reason: 'False positive: parser reads user DESIGN.md, never prints system prompts'
-- hash: sha256:ba8828f5c32095c6547c6841741c84e2eaaef616b97af137c7bb11524bfb093f
-  rule_id: RP1
-  file: CHANGELOG.md
-  reason: Changelog entry documenting the npx linter command, never executed as an install
 - hash: sha256:d3554a43f07fe28ccab05a972f5358b0bb45b459e4fe6822f7c5e9bc2bffffde
   rule_id: RP1
   file: reference/document.md
@@ -180,3 +172,51 @@ fingerprints:
   rule_id: P2
   file: reference/document.md
   reason: HTML comment markers in markdown (SEED marker), not hidden instructions
+- hash: sha256:0cbcdca72e801ed758ac707c7da2b5b868252c2d92b9a3967d4a4b585dc9e328
+  rule_id: RP1
+  file: CHANGELOG.md
+  reason: Changelog entry documenting the npx linter command, never executed as an install
+- hash: sha256:046c630499c1b5d619c5cb5b35e2ef049e297c349bdc154a2d4f654709b90376
+  rule_id: EA2
+  file: reference/audit.md
+  reason: Audit playbook instructs the checklist pass; every write is gated behind user confirmation (SKILL.md invocation model)
+- hash: sha256:3a16d53e7409129ecdad4722fc2bb6125962ed62b94bcb278af9fbbed6ceec76
+  rule_id: EA1
+  file: reference/checklist-catalog.md
+  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+- hash: sha256:5b7174a16b6826b89b3f53d7dc0a0b87019087e5600dcec2af990cba91703045
+  rule_id: EA1
+  file: reference/checklist-catalog.md
+  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+- hash: sha256:7b39a055789abe0fd84a07d51fabb2fdd886315feaeb6611ebd560a45cf35205
+  rule_id: EA1
+  file: reference/checklist-catalog.md
+  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+- hash: sha256:0c26682ff4e28968f2372c67eb0967af9a79f09af3cb761f64abd3e36a24d737
+  rule_id: MP3
+  file: reference/checklist-catalog.md
+  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+- hash: sha256:20baf8d1b1ff014db981cd1847f3cc73c1c1a98c087b19e7c45ba2bf5b291371
+  rule_id: MP3
+  file: reference/checklist-catalog.md
+  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+- hash: sha256:927b88d6fc9bbe8b5f3d0e65d9e3176ce01af53c3687287d742b1a00c47e140d
+  rule_id: MP3
+  file: reference/checklist-catalog.md
+  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+- hash: sha256:5e5a1152dd0412daeeaee1d2d6346f08e6a59ba7694e9a35827e62b5e29c196e
+  rule_id: MP3
+  file: reference/checklist-catalog.md
+  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+- hash: sha256:8efced6eae5a4bf67b0cfef2c192db35ee329a78eb0b918a8f3fe558d1ff657c
+  rule_id: PE1
+  file: reference/checklist-catalog.md
+  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+- hash: sha256:54582a2fa968bdf623c87aebb0b78eb53ab43a3317cebec3a8badf60ed569463
+  rule_id: PE1
+  file: reference/checklist-catalog.md
+  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+- hash: sha256:8d6cd84584ad41e948318d0ca12faea76307bd18a446b64b260b91b3d49b9f27
+  rule_id: YR4
+  file: reference/checklist-catalog.md
+  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent

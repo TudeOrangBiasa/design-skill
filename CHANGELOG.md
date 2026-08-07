@@ -6,6 +6,38 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [1.0.26] - 2026-08-06
+
+### Added
+
+- reference/ui-checklist.md: the universal pre-ship UI checklist, scraped from Checklist Design (110 checklists, 703 checks). Core components (button, input, toggle, checkbox, radio), the system layer (color system, typography, spacing and grid, three-tier tokens), feedback and states (loading, empty, modal, tooltip, toast), data surfaces (tables), and the per-surface catalog (website pages, web app screens, design system components, mobile, flows). Cross-linked to existing doctrine instead of restating it. The raw scraped dataset is kept locally, not versioned (its credential-like vocabulary trips the security scanner at scale).
+- checkup.md runs the checklist first; audit.md polish pass runs it before shipping.
+
+## [1.0.25] - 2026-08-06
+
+### Added
+
+- reference/dashboards.md gains the real-time dashboards section (Smashing Magazine, "From Data To Decisions"): change perception (delta plus sparkline, sparkline rules, change-blindness micro-cues, mini-history), the Refresh Rule, the trust layer (Data Freshness Indicator, cached snapshots, skeleton UIs, retry with backoff, "Why this alert?"), change-cue motion timing (200-400ms value updates, 300-600ms chart trails, 100-150ms control feedback) scoped explicitly under animate.md's authoritative interaction timing, and the real-time audit pass.
+
+## [1.0.24] - 2026-08-06
+
+### Added
+
+- reference/performance.md: the responsiveness playbook (web.dev INP doctrine). The Next Paint Contract (feedback in the next frame, interaction total under 200ms, never above 500ms), the interaction anatomy (input delay, event handler duration, next-paint delay), the Long Task Rule (no main-thread task over 50ms), layout-thrash and over-rendering bans, and field-vs-lab measurement. Motion doctrine stays in animate.md (Emil Kowalski).
+- audit.md performance dimension loads the playbook; dashboards.md links it.
+
+## [1.0.23] - 2026-08-06
+
+### Added
+
+- reference/dashboards.md: the decision-surface playbook for operational, analytical, and monitoring UIs. Twelve dashboard principles (decision trace, role-matched depth, F-pattern and inverted-pyramid hierarchy, grid systems, chart-to-question mapping, metric context, progressive disclosure, structured filters, designed empty/loading/error states, accessibility, performance measurement) plus the density and table norms (row-height scale 24-64px, header matches body row, sticky header and frozen first column, tabular lining numerals, data-ink).
+- audit.md loads the dashboard playbook for dashboard and monitoring surfaces; the product register links it.
+
+### Changed
+
+- SkillSpector baseline refreshed for fingerprint drift in audit.md and CHANGELOG.md.
+- Saved webpage artifacts in research/ (raw HTML with third-party scripts) are gitignored; their extracted doctrine and research notes stay versioned as markdown.
+
 ## [1.0.22] - 2026-08-06
 
 ### Added
