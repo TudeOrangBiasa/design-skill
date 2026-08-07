@@ -318,6 +318,11 @@ if (existsSync(join(SRC, 'favicon.svg'))) copyFileSync(join(SRC, 'favicon.svg'),
 for (const f of ['og.png', 'og.svg']) {
   if (existsSync(join(SRC, 'assets', f))) copyFileSync(join(SRC, 'assets', f), join(DIST, 'assets', f));
 }
+// painterly background library
+mkdirSync(join(DIST, 'assets', 'bg'), { recursive: true });
+for (const f of readdirSync(join(SRC, 'assets', 'bg'))) {
+  copyFileSync(join(SRC, 'assets', 'bg', f), join(DIST, 'assets', 'bg', f));
+}
 
 // landing
 copyFileSync(join(SRC, 'index.html'), join(DIST, 'index.html'));
