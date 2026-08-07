@@ -1,6 +1,6 @@
 # UI checklist: the pre-ship pass
 
-Load before shipping any UI: the final pass of `audit --polish`, `audit --checkup`, and the end of `build --craft`. The source is Checklist Design (110 checklists, 703 checks, scraped for this distillation; the raw dataset stays local, not versioned). This file carries the universal pass; the per-surface catalog is at the bottom. Where a check has doctrine elsewhere, link to it; the checklist is the run, not a second source of truth.
+Load before shipping any UI: the final pass of `audit --polish`, `audit --checkup`, and the end of `build --craft`. The source is Checklist Design (110 checklists, 703 checks, scraped for this distillation; the raw dataset stays local, not versioned). This file carries the universal pass; the per-surface catalog is a separate file behind the pointer at the bottom. Where a check has doctrine elsewhere, link to it; the checklist is the run, not a second source of truth.
 
 ## Core components
 
@@ -29,13 +29,7 @@ Load before shipping any UI: the final pass of `audit --polish`, `audit --checku
 
 ## The catalog
 
-Pick the surface, run its checklist (all 110 from Checklist Design; the ones below are the common cases).
-
-- **Website pages (23):** Pricing, FAQ, 404, Contact Us, Blog and Blog Post, Login, Sign up, Search, Cart, Careers, Team, About, Status, Billing, Waitlist, Affiliate, Compare, Privacy, Security, Features, Testimonials, Press and Media.
-- **Web app screens (26):** Onboarding, Empty State, Notifications and Notification Settings, Settings, Account, Billing, Admin Panel, Search Results, Multi-step form, Kanban board, Chat, Feed, Comments, Integrations, API Keys, Version History, Timeline and Gantt, Public Profile, User Management, Single Item Detail, 2FA, Help Center, Maintenance, Pricing, Login.
-- **Design system components (28):** the component's own checklist, e.g. Button, Input Field, Toggle, Checkbox, Radio, Select, Modal, Tooltip, Toast, Tabs, Accordion, Drawer, Carousel, Slider, Date Picker, Skeleton, Banner, Badge, Avatar, Icon, Card, Table, Dropdown Menu, Searchbar, Loading, Typography, Color System, Spacing and Grid, Tokens.
-- **Mobile app (20):** Tab Bar Navigation, Gesture navigation, Splash Screen, Checkout, Paywall, Onboarding, In-App Notifications, Action Sheet, Search, Camera, Map View, Chat, Settings, In-App Browser, Cart, Login, Account, Invite, Billing.
-- **Flows (13):** Adding to cart, Uploading media, Verifying account, Canceling subscription, Filtering items, Saving changes, Entering promo code, Showing input error, Resetting password, Deleting account, Contacting support, Making a card payment, Submitting a form.
+For a per-surface run, load [checklist-catalog.md](checklist-catalog.md) when working a website page, a web app screen, a design-system component, a mobile app screen, or a flow, and run the matching checklist's items. All 110 checklists and their 703 checks live there; the universal pass above covers the cross-cutting essentials.
 
 ## Sources
 
