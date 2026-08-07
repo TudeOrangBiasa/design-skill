@@ -6,6 +6,18 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [1.0.23] - 2026-08-06
+
+### Added
+
+- reference/dashboards.md: the decision-surface playbook for operational, analytical, and monitoring UIs. Twelve dashboard principles (decision trace, role-matched depth, F-pattern and inverted-pyramid hierarchy, grid systems, chart-to-question mapping, metric context, progressive disclosure, structured filters, designed empty/loading/error states, accessibility, performance measurement) plus the density and table norms (row-height scale 24-64px, header matches body row, sticky header and frozen first column, tabular lining numerals, data-ink).
+- audit.md loads the dashboard playbook for dashboard and monitoring surfaces; the product register links it.
+
+### Changed
+
+- SkillSpector baseline refreshed for fingerprint drift in audit.md and CHANGELOG.md.
+- Saved webpage artifacts in research/ (raw HTML with third-party scripts) are gitignored; their extracted doctrine and research notes stay versioned as markdown.
+
 ## [1.0.22] - 2026-08-06
 
 ### Added

@@ -72,10 +72,6 @@ fingerprints:
   rule_id: EA3
   file: LICENSE
   reason: Apache-2.0 LICENSE text, not a scope claim
-- hash: sha256:48e6297cae03b86b77393ace3f947c8a230c205ae2fa1eafe3ff4f535e84434a
-  rule_id: EA2
-  file: reference/audit.md
-  reason: Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation
 - hash: sha256:6dbfe8a2a9d10bede7598b37b460cb00a23f017b16fd013c7d94b40b7367d218
   rule_id: EA2
   file: reference/craft.md
@@ -148,10 +144,6 @@ fingerprints:
   rule_id: P6
   file: scripts/design-parser.mjs
   reason: 'False positive: parser reads user DESIGN.md, never prints system prompts'
-- hash: sha256:ba8828f5c32095c6547c6841741c84e2eaaef616b97af137c7bb11524bfb093f
-  rule_id: RP1
-  file: CHANGELOG.md
-  reason: Changelog entry documenting the npx linter command, never executed as an install
 - hash: sha256:d3554a43f07fe28ccab05a972f5358b0bb45b459e4fe6822f7c5e9bc2bffffde
   rule_id: RP1
   file: reference/document.md
@@ -180,3 +172,11 @@ fingerprints:
   rule_id: P2
   file: reference/document.md
   reason: HTML comment markers in markdown (SEED marker), not hidden instructions
+- hash: sha256:fee5507a217eabcce3d85b52f769f9e263bd211b9e1b6679d0e9b39f43c1cc6d
+  rule_id: RP1
+  file: CHANGELOG.md
+  reason: Changelog entry documenting the npx linter command, never executed as an install
+- hash: sha256:6883963f1156f02dffec938c389b3ff30b5b597ac30d4daac6900b4ae1aad80c
+  rule_id: EA2
+  file: reference/audit.md
+  reason: Audit playbook instructs the dashboard pass; every write is gated behind user confirmation (SKILL.md invocation model)
