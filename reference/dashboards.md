@@ -93,7 +93,7 @@ Dashboard accessibility is the same set of decisions as dashboard quality, not a
 
 ## Measurement
 
-The only honest measure of a dashboard is whether users complete tasks faster and more accurately than before. Track it as a loop after every major release:
+The only honest measure of a dashboard is whether users complete tasks faster and more accurately than before. Track it as a loop after every major release. Responsiveness is part of the contract: [performance.md](performance.md) owns the interaction-latency rules (200ms good, 500ms poor).
 
 - Time on task, in the three MeasuringU variants: time to complete (successful tasks only), time on task (all participants), time till failure (failed tasks only). The spread reveals both how fast the fast users are and how long the struggling ones persist before giving up.
 - Task success rate and error rate: did they find the right answer, and did they misread the data?

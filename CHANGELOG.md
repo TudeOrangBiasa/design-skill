@@ -6,6 +6,13 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [1.0.24] - 2026-08-06
+
+### Added
+
+- reference/performance.md: the responsiveness playbook (web.dev INP doctrine). The Next Paint Contract (feedback in the next frame, interaction total under 200ms, never above 500ms), the interaction anatomy (input delay, event handler duration, next-paint delay), the Long Task Rule (no main-thread task over 50ms), layout-thrash and over-rendering bans, and field-vs-lab measurement. Motion doctrine stays in animate.md (Emil Kowalski).
+- audit.md performance dimension loads the playbook; dashboards.md links it.
+
 ## [1.0.23] - 2026-08-06
 
 ### Added
