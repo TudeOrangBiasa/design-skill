@@ -6,6 +6,17 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [1.0.27] - 2026-08-06
+
+### Changed
+
+- README synced with the released skill: full bans list, a doctrine playbooks section (dashboards, performance, ui-checklist, catalog), the 42-rule detector in the tooling contract, and Sources rows for Checklist Design, Nielsen Norman Group, IBM Carbon, and web.dev.
+- NOTICE.md attributes Checklist Design (`reference/ui-checklist.md`, `reference/checklist-catalog.md`); the source publishes no explicit license, flagged for verification before commercial redistribution of the catalog text.
+
+### Fixed
+
+- Release audit: no secrets, machine paths, or personal data in the committed tree; no stale references (links, versions, asset paths) found; README and NOTICE were the only stale artifacts.
+
 ## [1.0.26] - 2026-08-06
 
 ### Added
