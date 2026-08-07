@@ -6,6 +6,17 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [1.0.21] - 2026-08-06
+
+### Changed
+
+- DESIGN.md generation aligned to the canonical [google-labs-code/design.md](https://github.com/google-labs-code/design.md) spec (`docs/spec.md`): frontmatter examples use schema-valid dimensions (no `clamp()`, no `"normal"` letter spacing, single-value `padding`), token-reference rules match the spec's composite-ref allowance, and the document flow gained a Step 4c that validates the generated file with `npx @google/design.md lint` before presenting it.
+- Parser tests cover the spec's token vocabulary: composite typography references in components and unitless spacing numbers.
+
+### Fixed
+
+- document.md Pitfalls claimed the spec has six sections; it has eight.
+
 ## [1.0.20] - 2026-08-06
 
 ### Changed
