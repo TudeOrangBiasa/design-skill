@@ -133,6 +133,69 @@ test('parses typography as object', () => {
   });
 });
 
+test('parses spec-conformant composite refs and unitless spacing', () => {
+  const md = `---
+name: Conformant
+colors:
+  primary: "#1A1C1E"
+typography:
+  label-caps:
+    fontFamily: Space Grotesk
+    fontSize: 12px
+    fontWeight: 500
+    letterSpacing: 0.1em
+spacing:
+  base: 16
+  gutter: 24px
+components:
+  button-primary:
+    typography: "{typography.label-caps}"
+    padding: 12px
+---
+
+## Overview
+
+Overview prose.
+
+## Colors
+
+- **Primary (#1A1C1E):** Deep ink.
+
+## Typography
+
+Labels set in Space Grotesk.
+
+## Layout
+
+Fluid grid, 8px scale.
+
+## Elevation & Depth
+
+Flat by default.
+
+## Shapes
+
+4px radii.
+
+## Components
+
+### Buttons
+- **Shape:** 4px
+
+## Do's and Don'ts
+
+### Do:
+- Do keep tokens tight.
+`;
+  const model = parseDesignMd(md);
+  assert.equal(model.frontmatter.components['button-primary'].typography, '{typography.label-caps}');
+  assert.equal(model.frontmatter.components['button-primary'].padding, '12px');
+  assert.equal(model.frontmatter.spacing.base, 16, 'unitless spacing stays a number');
+  assert.equal(model.frontmatter.spacing.gutter, '24px');
+  assert.equal(model.frontmatter.typography['label-caps'].fontWeight, 500);
+  assert.equal(model.frontmatter.typography['label-caps'].letterSpacing, '0.1em');
+});
+
 test('extracts layout and shapes prose', () => {
   const model = parseDesignMd(SPEC);
   assert.ok(model.layout.description.includes('Fluid Grid'));

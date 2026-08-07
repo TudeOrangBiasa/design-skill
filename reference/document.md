@@ -19,10 +19,10 @@ colors:
 typography:
   display:
     fontFamily: "Cormorant Garamond, Georgia, serif"
-    fontSize: "clamp(2.5rem, 7vw, 4.5rem)"
+    fontSize: "3.5rem"
     fontWeight: 300
     lineHeight: 1
-    letterSpacing: "normal"
+    letterSpacing: "-0.01em"
   body:
     # ...
 rounded:
@@ -44,10 +44,11 @@ components:
 
 Rules that matter:
 
-- **Token refs** use `{path.to.token}` (e.g. `{colors.primary}`, `{rounded.md}`). Components may reference primitives; primitives may not reference each other.
+- **Token refs** use `{path.to.token}` (e.g. `{colors.primary}`, `{rounded.md}`). A reference must point at a primitive value, not a group; within `components`, references to composite values (e.g. `{typography.label-md}`) are permitted.
 - **Any valid CSS color is a valid token value** per the spec: hex (`#RRGGBB` recommended default), named colors, `rgb()/hsl()/hwb()`, wide-gamut `oklch()/oklab()/lch()/lab()`, and `color-mix()`. Values are converted to sRGB internally for WCAG contrast checks; the original format is preserved. OKLCH is fully spec-legal. The project's OKLCH-only doctrine goes straight in. Prefer hex when there's no strong reason otherwise, for broad tooling support (Tailwind/DTCG export). Never split the source of truth without explicit reason.
 - **`version` and `omitted` are optional but useful**: `version: alpha` marks the spec draft level; `omitted` declares intentionally-missing sections (plain strings or `{ section, reason }` objects) so linters don't flag them.
-- **Component sub-tokens** are limited to 8 props: `backgroundColor`, `textColor`, `typography`, `rounded`, `padding`, `size`, `height`, `width`. Shadows, motion, focus rings, backdrop-filter: none of those fit. Carry them in the sidecar (Step 4b).
+- **Dimensions** carry a unit suffix (`px`, `em`, `rem`). Unitless numbers are schema-valid only for `lineHeight` and `spacing` scale values (ratios and column counts). Fluid `clamp()` values and multi-value shorthands are not schema-valid; keep them in prose or the sidecar.
+- **Component sub-tokens** are limited to 8 props: `backgroundColor`, `textColor`, `typography`, `rounded`, `padding`, `size`, `height`, `width`. Each takes a single scalar: `padding` is one Dimension (`"16px"`), not multi-value shorthand; exact two-axis padding lives in the sidecar component CSS. Shadows, motion, focus rings, backdrop-filter: none of those fit. Carry them in the sidecar (Step 4b).
 - **Scale keys are open-ended.** Use whatever names the project already uses (`warm-ash-cream`, `surface-container-low`). Don't rename to Material defaults.
 - **Variants are naming convention, not schema.** `button-primary` / `button-primary-hover` / `button-primary-active` as sibling keys.
 
@@ -344,6 +345,18 @@ Pull directly from the DESIGN.md you just wrote:
 
 Do not reword. The panel shows these as secondary collapsible context; the same voice that's in the Markdown carries through.
 
+### Step 4c: Validate against the canonical spec
+
+Run the canonical linter before presenting the file. It is zero-install via npx and runs in the project, not the skill, so the skill itself stays dependency-free:
+
+```bash
+npx @google/design.md lint DESIGN.md
+```
+
+Fix every error and warning it reports (broken token refs, missing primary, wrong section order, contrast failures) before Step 5. The linter is the compatibility gate: a file that passes it is readable by every other DESIGN.md-aware tool (Stitch, awesome-design-md, Figma token importers).
+
+Between refresh runs, `npx @google/design.md diff DESIGN.md DESIGN-v2.md` catches token and prose regressions (added, removed, and modified tokens, contrast deltas) that a re-read would miss. If npx is unavailable, say the file is unvalidated and finish the rest of the flow.
+
 ### Step 5: Confirm, refine, and refresh session cache
 
 1. Show the user the full DESIGN.md you wrote. Briefly highlight the non-obvious creative choices (descriptive color names, atmosphere language, named rules).
@@ -437,7 +450,7 @@ Seed mode writes a minimal frontmatter with `name` and `description` only; no co
 - Don't invent components that don't exist. If the project only has buttons and cards, only document those.
 - Don't overwrite an existing DESIGN.md without asking.
 - Don't duplicate content from PRODUCT.md. DESIGN.md is strictly visual.
-- Don't add a "Layout Principles" or "Motion" or "Responsive Behavior" top-level section. The spec has six, not nine. Fold that content where it belongs.
+- Don't add a "Layout Principles" or "Motion" or "Responsive Behavior" top-level section. The spec has exactly eight sections. Fold that content where it belongs.
 - Don't rename sections even slightly. "Colors" not "Color Palette & Roles". "Typography" not "Typography Rules". Tooling parsing depends on exact headers.
 - Don't duplicate token values between frontmatter and prose. If a color is in `colors.primary` as hex, the prose can name it and describe its role but should not reassert a different hex. The frontmatter is normative.
 - Don't invent frontmatter token groups outside Stitch's schema (no `motion:`, `breakpoints:`, `shadows:` at the top level). Stitch's Zod schema only accepts `colors`, `typography`, `rounded`, `spacing`, `components`. Anything else belongs in the sidecar's `extensions`.
