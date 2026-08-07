@@ -126,6 +126,8 @@ Note what's working well: good practices to maintain and replicate.
 
 For a complex single-page design (dense dashboard, landing page, app shell), run the full reconciliation pipeline from [browser-layout.md](browser-layout.md) §5 before and after each fix round: snapshot the coordinate map, apply the change, re-run, report the delta. The report must end with an ambition statement: what the layout should become, so follow-up commands (`refine`, `deslop`, `systems --layout`) target the direction, not the checklist.
 
+Dashboard and monitoring surfaces audit against [dashboards.md](dashboards.md): the decision trace, the scan path, the density and chart rules, and the states pass. A dashboard that passes the mechanical checks but buries its primary decision still fails.
+
 ## Recommended Actions
 
 List recommended commands in priority order (P0 first, then P1, then P2):
