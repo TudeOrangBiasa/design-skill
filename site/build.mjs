@@ -22,7 +22,6 @@ const DOCTRINE_GROUPS = [
   ['Procedures', ['audit', 'checkup', 'smell', 'polish', 'review', 'critique', 'refine', 'bolder', 'quieter', 'distill', 'harden', 'deslop', 'overdrive', 'delight', 'clarify', 'optimize', 'adapt', 'onboard']],
   ['Surfaces', ['dashboards', 'performance', 'ui-checklist', 'checklist-catalog', 'browser-layout']],
   ['Live & tooling', ['live', 'prompt-patterns']],
-  ['Reports', ['smell-report-html', 'review-report-html', 'checkup-report-html']],
 ];
 const DOCTRINE_FILES = DOCTRINE_GROUPS.flatMap(([, files]) => files.map((f) => `${f}.md`));
 
@@ -242,7 +241,7 @@ function searchScript() {
     var q = input.value.trim().toLowerCase();
     if (!q || !idx) { box.hidden = true; return; }
     var hits = idx.filter(function (e) {
-      return e.t.toLowerCase().includes(q) || e.s.toLowerCase().includes(q) || e.g.toLowerCase().includes(q);
+      return e.t.toLowerCase().includes(q) || e.s.toLowerCase().includes(q) || e.g.toLowerCase().includes(q) || (e.k && e.k.toLowerCase().includes(q));
     }).slice(0, 8);
     if (!hits.length) { box.innerHTML = '<a class="no">NO PAGES MATCH</a>'; }
     else {
@@ -296,9 +295,13 @@ ${searchScript()}
 // ---------------------------------------------------------------------------
 // Build
 // ---------------------------------------------------------------------------
-function pageTitle(md) {
+function humanize(slug) {
+  return slug.replace(/-/g, ' ').replace(/\bui\b/g, 'UI').replace(/\bmd\b/g, 'MD')
+    .split(' ').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+function pageTitle(md, fallback) {
   const m = md.match(/^#\s+(.+)$/m);
-  return m ? m[1].replace(/[*_`]/g, '').trim() : 'Untitled';
+  return m ? m[1].replace(/[*_`]/g, '').trim() : humanize(fallback || '');
 }
 function pageExcerpt(md) {
   const m = md.match(/^#\s+.+\n\n(.+)$/m);
@@ -322,7 +325,7 @@ copyFileSync(join(SRC, 'index.html'), join(DIST, 'index.html'));
 // wiki + doctrine pages
 const searchIndex = [];
 for (const page of PAGES) {
-  page.title = pageTitle(readFileSync(join(ROOT, page.file), 'utf8'));
+  page.title = pageTitle(readFileSync(join(ROOT, page.file), 'utf8'), basename(page.file).replace('.md', ''));
 }
 for (const page of PAGES) {
   const raw = readFileSync(join(ROOT, page.file), 'utf8');
@@ -332,7 +335,7 @@ for (const page of PAGES) {
   const prev = idx > 0 ? PAGES[idx - 1] : null;
   const next = idx < PAGES.length - 1 ? PAGES[idx + 1] : null;
   writeFileSync(join(DIST, page.url), shellHTML({ title, group: page.group, content: body, hereUrl: page.url, prev, next }));
-  searchIndex.push({ t: title, u: page.url, s: pageExcerpt(raw), g: page.group });
+  searchIndex.push({ t: title, u: page.url, s: pageExcerpt(raw), g: page.group, k: basename(page.file).replace('.md', '').replace(/_/g, ' ') });
 }
 
 // doctrine index page (directory landing)
