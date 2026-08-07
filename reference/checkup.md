@@ -8,6 +8,8 @@ This is not a deep critique. It is a vital-sign read.
 
 ## Composition Vital Sign
 
+Run the universal component and system checklist from [ui-checklist.md](ui-checklist.md) first; the mechanical pass catches what the eye skips. Then judge composition.
+
 I check whether the page shape matches the work.
 
 Monitor: can the user see priority, change, and freshness fast?
