@@ -198,9 +198,12 @@ const RULES = [
     category: 'Color',
     severity: 'error',
     check(ctx) {
+      // Only background-clip:text is gradient text. Gradient backgrounds are a
+      // separate tell, covered by atmosphere-gradients (warning), ai-palette,
+      // and radial-halo; counting them here made a legibility error out of a
+      // surface choice.
       const clip = countProp(ctx.css, 'background-clip', /text/i);
-      const bg = countProp(ctx.css, 'background-image', /linear-gradient|radial-gradient/i);
-      return clip > 0 || bg > 0 ? [{ evidence: `${clip} background-clip:text, ${bg} gradient backgrounds` }] : [];
+      return clip > 0 ? [{ evidence: `${clip} background-clip:text declarations` }] : [];
     },
   },
   {

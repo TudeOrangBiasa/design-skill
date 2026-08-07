@@ -102,6 +102,12 @@ test('detects the 2025-2026 tells in the new-slop fixture', () => {
   ]) {
     assert.ok(found.includes(expected), `expected rule ${expected} to fire, got: ${found.join(', ')}`);
   }
+  assert.ok(!found.includes('gradient-text'), 'gradient backgrounds alone must not fire gradient-text');
+});
+
+test('gradient backgrounds without text clipping do not fire gradient-text', () => {
+  const html = '<!DOCTYPE html><html><head><style>.hero { background-image: linear-gradient(180deg, #6366f1, #a855f7); }</style></head><body><h1>Title</h1></body></html>';
+  assert.ok(!ids(html).includes('gradient-text'));
 });
 
 test('clean markup fires no new-slop rules', () => {

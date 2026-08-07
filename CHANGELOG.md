@@ -19,6 +19,7 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 ### Changed
 
 - lint-docs glob updated after the CONTRIBUTING.md to CONTRIBUTION.md rename; CONTRIBUTION.md is now linted by CI.
+- `gradient-text` narrowed to `background-clip: text` only; gradient backgrounds are covered by the new `atmosphere-gradients` rule, so a surface choice is no longer an error-severity finding.
 
 ## [1.0.21] - 2026-08-06
 
