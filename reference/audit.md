@@ -128,6 +128,8 @@ For a complex single-page design (dense dashboard, landing page, app shell), run
 
 Dashboard and monitoring surfaces audit against [dashboards.md](dashboards.md): the decision trace, the scan path, the density and chart rules, and the states pass. A dashboard that passes the mechanical checks but buries its primary decision still fails.
 
+The performance dimension audits against [performance.md](performance.md): the 200ms next-paint contract on primary interactions, long tasks over 50ms, layout-property animation, and input-delay windows. Motion doctrine stays in [animate.md](animate.md).
+
 ## Recommended Actions
 
 List recommended commands in priority order (P0 first, then P1, then P2):
