@@ -90,17 +90,85 @@
   </div>
 </section>
 
-<section id="slop">
+<section id="usecases">
   <div class="wrap nudge-sec">
-    <span class="pill">THE SLOP</span>
-    <h2 class="nudge-h">The tells, catalogued.</h2>
-    <p class="nudge-sub">Forty-two checks catch the defaults agents keep reaching for, before they become your design. Drag or use the arrows.</p>
-    <div class="carousel-wrap">
-      <div id="tells-carousel" class="carousel" aria-label="AI slop specimen carousel"><!-- cards injected at runtime --></div>
-      <button class="car-arrow prev" id="car-prev" aria-label="Previous tells"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button class="car-arrow next" id="car-next" aria-label="Next tells"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <span class="pill">USE CASES</span>
+    <h2 class="nudge-h">What it's actually for.</h2>
+    <p class="nudge-sub">Eight ways the skill earns its place, from rescue to redesign. Each one maps to a single command.</p>
+    <div class="uc-grid">
+      <a class="uc-card" href="doctrine/deslop.html" style="--i:0">
+        <div class="uc-img uc-1"></div>
+        <div class="uc-body">
+          <span class="uc-tag">RESCUE</span>
+          <h3>Make your last AI build stop reading as AI</h3>
+          <p>Run the detector, catch every tell, ship the fix. The de-slop pass turns a vibe-coded MVP into a real product.</p>
+          <div class="uc-foot"><span class="uc-cmd">/design deslop</span><span class="go">→</span></div>
+        </div>
+      </a>
+      <a class="uc-card" href="doctrine/craft.html" style="--i:1">
+        <div class="uc-img uc-2"></div>
+        <div class="uc-body">
+          <span class="uc-tag">CREATE</span>
+          <h3>Design a landing page that commits</h3>
+          <p>Interview-first craft: a confirmed brief before any code, a six-beat narrative, verification in the real browser.</p>
+          <div class="uc-foot"><span class="uc-cmd">/design build</span><span class="go">→</span></div>
+        </div>
+      </a>
+      <a class="uc-card" href="doctrine/access.html" style="--i:2">
+        <div class="uc-img uc-3"></div>
+        <div class="uc-body">
+          <span class="uc-tag">ACCESS</span>
+          <h3>Ship accessible, not aspirational</h3>
+          <p>WCAG AA contrast, focus rings, screen readers, voice navigation, 200% zoom. The access playbook checks what matters.</p>
+          <div class="uc-foot"><span class="uc-cmd">/design fix --access</span><span class="go">→</span></div>
+        </div>
+      </a>
+      <a class="uc-card" href="doctrine/document.html" style="--i:3">
+        <div class="uc-img uc-4"></div>
+        <div class="uc-body">
+          <span class="uc-tag">SYSTEM</span>
+          <h3>One design system, every screen</h3>
+          <p>DESIGN.md in google-labs format, validated by the canonical linter. New screens stay on brand without a handoff doc.</p>
+          <div class="uc-foot"><span class="uc-cmd">/design document</span><span class="go">→</span></div>
+        </div>
+      </a>
+      <a class="uc-card" href="doctrine/polish.html" style="--i:4">
+        <div class="uc-img uc-5"></div>
+        <div class="uc-body">
+          <span class="uc-tag">SHIP</span>
+          <h3>Pre-flight before you ship</h3>
+          <p>703 checks across 110 checklists, per surface and per flow. The last pass is a run, not a hope.</p>
+          <div class="uc-foot"><span class="uc-cmd">/design audit --polish</span><span class="go">→</span></div>
+        </div>
+      </a>
+      <a class="uc-card" href="doctrine/live.html" style="--i:5">
+        <div class="uc-img uc-6"></div>
+        <div class="uc-body">
+          <span class="uc-tag">ITERATE</span>
+          <h3>Iterate in the browser, not the chat</h3>
+          <p>Select an element, pick a design action, hot-swap variants. The journal survives restarts, mid-conversation.</p>
+          <div class="uc-foot"><span class="uc-cmd">/design live</span><span class="go">→</span></div>
+        </div>
+      </a>
+      <a class="uc-card" href="doctrine/dashboards.html" style="--i:6">
+        <div class="uc-img uc-7"></div>
+        <div class="uc-body">
+          <span class="uc-tag">DECIDE</span>
+          <h3>Dashboards that answer decisions</h3>
+          <p>Every metric answers a named decision. No charts nobody reads, no KPIs stripped of context.</p>
+          <div class="uc-foot"><span class="uc-cmd">reference/dashboards</span><span class="go">→</span></div>
+        </div>
+      </a>
+      <a class="uc-card" href="doctrine/optimize.html" style="--i:7">
+        <div class="uc-img uc-8"></div>
+        <div class="uc-body">
+          <span class="uc-tag">PERFORM</span>
+          <h3>Feel fast, not just claim it</h3>
+          <p>INP contract: feedback in the next frame, 200ms good, 500ms poor. Fix the actual bottleneck, then measure.</p>
+          <div class="uc-foot"><span class="uc-cmd">/design optimize</span><span class="go">→</span></div>
+        </div>
+      </a>
     </div>
-    <p class="slop-credit">Specimens from <a href="https://impeccable.style/slop">impeccable.style</a>, the source skill this one routes through.</p>
   </div>
 </section>
 
@@ -204,7 +272,7 @@
 (function () {
   document.documentElement.classList.add('js');
   if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.lib-row, .feat, .spec, .alt-row, .car-card').forEach(function (r) { r.classList.add('in'); });
+    document.querySelectorAll('.lib-row, .feat, .spec, .alt-row, .car-card, .uc-card').forEach(function (r) { r.classList.add('in'); });
     return;
   }
   var io = new IntersectionObserver(function (entries) {
@@ -213,7 +281,7 @@
     });
   }, { threshold: 0.12 });
   var revealTargets = function () {
-    return document.querySelectorAll('.lib-row, .feat, .spec, .alt-row, .car-card');
+    return document.querySelectorAll('.lib-row, .feat, .spec, .alt-row, .car-card, .uc-card');
   };
   revealTargets().forEach(function (r) { io.observe(r); });
   // fallback: if the observer never dispatches (headless, virtual time, edge
