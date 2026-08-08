@@ -429,11 +429,7 @@ html.js .uc-card{transition:opacity .35s ease-out,transform .35s cubic-bezier(.2
 .see-all:hover{background:var(--ink);color:var(--lime)}
 .see-all .go{color:var(--lime-deep);transition:transform .2s cubic-bezier(.25,1,.5,1)}
 .see-all:hover .go{transform:translateX(4px);color:var(--lime)}
-.car-note{font:11px var(--mono);letter-spacing:.08em;color:var(--ink2);margin:0;text-align:right;max-width:30ch}
-.car-note a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
-.car-note a:hover{color:var(--ink)}
 @media (max-width:900px){
   .uc-sec-head{flex-direction:column;gap:24px;margin-bottom:36px}
   .uc-sec-actions{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
-  .car-note{text-align:left}
 }
