@@ -305,7 +305,7 @@ html.js .feat.in{opacity:1;transform:rotate(var(--tilt,0));transition-delay:0s}
 .nudge-sec{padding:96px 0}
 .pill{display:inline-block;background:var(--beige);color:var(--ink);font:600 12px var(--mono);letter-spacing:.14em;padding:8px 16px;border-radius:999px;text-transform:uppercase}
 .pill.alt{background:transparent;border:1px solid var(--line)}
-.nudge-h{font-family:"Dela Gothic One",var(--display);font-weight:400;font-size:clamp(30px,4.4vw,52px);line-height:1.05;text-transform:uppercase;margin:20px 0 12px}
+.nudge-h{font-family:var(--display);font-weight:900;letter-spacing:-.01em;font-size:clamp(30px,4.4vw,52px);line-height:1.05;text-transform:uppercase;margin:20px 0 12px}
 .nudge-sub{color:var(--ink2);font-size:17px;max-width:56ch;margin:0 0 56px}
 .alt-rows{display:flex;flex-direction:column;gap:0}
 .alt-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:44px 0;border-top:1px solid var(--line)}
@@ -330,4 +330,48 @@ html.js .feat.in{opacity:1;transform:rotate(var(--tilt,0));transition-delay:0s}
   .alt-row{grid-template-columns:1fr;gap:20px;padding:32px 0}
   .alt-row.flip .alt-text,.alt-row.flip .alt-visual{order:0}
   .alt-visual{min-height:180px}
+}
+
+/* painterly image backgrounds behind the failure specimens */
+.alt-visual{position:relative;overflow:hidden}
+.alt-visual::before{content:'';position:absolute;inset:0;background:rgba(253,253,251,.86)}
+.alt-visual.v1{background-image:url("assets/bg/viridian-1.webp");background-size:cover;background-position:center 30%}
+.alt-visual.v2{background-image:url("assets/bg/viridian-2.webp");background-size:cover;background-position:center 40%}
+.alt-visual.v3{background-image:url("assets/bg/viridian-10.webp");background-size:cover;background-position:center 35%}
+.alt-visual.v4{background-image:url("assets/bg/viridian-15.webp");background-size:cover;background-position:center 30%}
+.alt-visual.v5{background-image:url("assets/bg/viridian-16.webp");background-size:cover;background-position:center 40%}
+.alt-visual .spec-mini{position:relative;z-index:1}
+/* nudge-style carousel */
+.carousel-wrap{position:relative}
+.carousel{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 20px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.carousel::-webkit-scrollbar{height:6px}
+.carousel::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.car-card{flex:0 0 330px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;color:inherit;text-decoration:none;transition:transform .22s cubic-bezier(.25,1,.5,1),border-color .22s ease-out}
+.car-card:hover,.car-card:focus-visible{transform:translateY(-5px);border-color:var(--ink)}
+.car-img{height:96px;background-size:cover;background-position:center 35%}
+.car-img.car-0{background-image:url("assets/bg/viridian-1.webp")}
+.car-img.car-1{background-image:url("assets/bg/viridian-2.webp")}
+.car-img.car-2{background-image:url("assets/bg/viridian-10.webp")}
+.car-img.car-3{background-image:url("assets/bg/viridian-15.webp")}
+.car-img.car-4{background-image:url("assets/bg/viridian-16.webp")}
+.car-img.car-5{background-image:url("assets/bg/viridian-18.webp")}
+.car-img.car-6{background-image:url("assets/bg/viridian-21.webp")}
+.car-body{display:flex;align-items:center;justify-content:center;padding:20px;min-height:120px;background:var(--canvas)}
+.car-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;min-height:46px;border-top:1px solid var(--line);font:11px var(--mono);letter-spacing:.12em;color:var(--ink2)}
+.car-foot b{color:var(--ink);font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.car-foot .before{font:10px var(--mono);letter-spacing:.16em;padding:2px 8px;border:1px solid var(--line);border-radius:4px}
+.car-arrow{position:absolute;top:-76px;z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid var(--ink);background:var(--canvas);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease-out,color .2s ease-out}
+.car-arrow:hover{background:var(--ink);color:var(--lime)}
+.car-arrow.prev{right:58px}
+.car-arrow.next{right:0}
+.car-arrow .ic{width:20px;height:20px}
+/* reveal for nudge rows + carousel */
+html.js .alt-row{opacity:0;transform:translateY(26px);transition:opacity .5s ease-out,transform .5s cubic-bezier(.25,1,.5,1)}
+html.js .alt-row.in{opacity:1;transform:none}
+html.js .car-card{opacity:0;transform:translateY(18px);transition:opacity .35s ease-out,transform .35s cubic-bezier(.25,1,.5,1),border-color .22s ease-out;transition-delay:calc(var(--i, 0) * 40ms)}
+html.js .car-card.in{opacity:1;transform:none;transition-delay:0s}
+html.js .car-card:hover{transform:translateY(-5px)}
+@media (max-width:900px){
+  .car-arrow{display:none}
+  .car-card{flex:0 0 280px}
 }

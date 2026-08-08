@@ -29,9 +29,6 @@
       <a href="detector.html">Detector</a>
       <a href="#install">Install</a>
     </div>
-    <button class="cine-burger" id="burger" aria-label="Open menu" aria-expanded="false">
-      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
-    </button>
   </nav>
   <div class="cine-content">
     <h1 class="cine-title" aria-label="Every AI interface has a tell.">
@@ -42,6 +39,9 @@
     <a class="liquid cine-cta" href="install.html">Install in 30 seconds</a>
     <div class="cine-callout">THIS LANDING PAGE WAS BUILT BY THE SKILL IT DOCUMENTS. NO DESIGNER REQUIRED. - DESIGN SKILL</div>
   </div>
+    <button class="cine-burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+    </button>
 </section>
 <div id="mobile-menu" class="mobile-glass" aria-label="Menu">
   <a href="wiki.html">The Wiki</a>
@@ -68,23 +68,23 @@
     <div class="alt-rows">
       <div class="alt-row">
         <div class="alt-text"><div class="alt-num">01</div><h3>The interface reads as AI</h3><p>Indigo gradients, Inter at weight 700, three identical cards, a badge on everything. Competent and interchangeable.</p><a class="alt-link" href="#slop">See the tells <span class="go">→</span></a></div>
-        <div class="alt-visual" data-spec="ai-color-palette"></div>
+        <div class="alt-visual v1" data-spec="ai-color-palette"></div>
       </div>
       <div class="alt-row flip">
         <div class="alt-text"><div class="alt-num">02</div><h3>The agent has no taste</h3><p>Nothing is wrong and nothing is decided. Every spacing a multiple of 4, every heading weight 700, hierarchy carried by gray.</p><a class="alt-link" href="#slop">See the tells <span class="go">→</span></a></div>
-        <div class="alt-visual" data-spec="cream-palette"></div>
+        <div class="alt-visual v2" data-spec="cream-palette"></div>
       </div>
       <div class="alt-row">
         <div class="alt-text"><div class="alt-num">03</div><h3>Dashboards bury the decision</h3><p>Charts nobody reads, KPIs stripped of context, real-time updates that move without meaning.</p><a class="alt-link" href="#slop">See the tells <span class="go">→</span></a></div>
-        <div class="alt-visual" data-spec="side-tab"></div>
+        <div class="alt-visual v3" data-spec="side-tab"></div>
       </div>
       <div class="alt-row flip">
         <div class="alt-text"><div class="alt-num">04</div><h3>Nobody checks the details</h3><p>The hero looks great and the button has no focus state. The empty state is a blank screen.</p><a class="alt-link" href="#slop">See the tells <span class="go">→</span></a></div>
-        <div class="alt-visual" data-spec="gpt-thin-border-wide-shadow"></div>
+        <div class="alt-visual v4" data-spec="gpt-thin-border-wide-shadow"></div>
       </div>
       <div class="alt-row">
         <div class="alt-text"><div class="alt-num">05</div><h3>You can't tell when it's done</h3><p>An agent that never stops polishing burns your time; an agent that stops early ships broken states.</p><a class="alt-link" href="#slop">See the tells <span class="go">→</span></a></div>
-        <div class="alt-visual" data-spec="pulsing-dot"></div>
+        <div class="alt-visual v5" data-spec="pulsing-dot"></div>
       </div>
     </div>
   </div>
@@ -94,32 +94,13 @@
   <div class="wrap nudge-sec">
     <span class="pill">THE SLOP</span>
     <h2 class="nudge-h">The tells, catalogued.</h2>
-    <p class="nudge-sub">Forty-two checks catch the defaults agents keep reaching for, before they become your design.</p>
-    <div class="alt-rows">
-      <div class="alt-row">
-        <div class="alt-text"><div class="alt-num">T1</div><h3>Gradient text</h3><p>Background-clip text in purple-to-blue. The detector reads the declaration and blocks the build.</p><a class="alt-link" href="detector.html">See the rule <span class="go">→</span></a></div>
-        <div class="alt-visual" data-spec="gradient-text"></div>
-      </div>
-      <div class="alt-row flip">
-        <div class="alt-text"><div class="alt-num">T2</div><h3>The AI palette</h3><p>Purple-violet plus cyan, or purple with any gradient. Two color families are enough to fire.</p><a class="alt-link" href="detector.html">See the rule <span class="go">→</span></a></div>
-        <div class="alt-visual" data-spec="ai-color-palette"></div>
-      </div>
-      <div class="alt-row">
-        <div class="alt-text"><div class="alt-num">T3</div><h3>Identical card grids</h3><p>Three equal cards, icon before heading, the same padding everywhere. The detector counts them.</p><a class="alt-link" href="detector.html">See the rule <span class="go">→</span></a></div>
-        <div class="alt-visual" data-spec="identical-card-grids"></div>
-      </div>
-      <div class="alt-row flip">
-        <div class="alt-text"><div class="alt-num">T4</div><h3>Glassmorphism</h3><p>Backdrop-blur panels as a status signal. The detector flags the declaration, not the vibe.</p><a class="alt-link" href="detector.html">See the rule <span class="go">→</span></a></div>
-        <div class="alt-visual" data-spec="glassmorphism"></div>
-      </div>
-      <div class="alt-row">
-        <div class="alt-text"><div class="alt-num">T5</div><h3>The hero eyebrow chip</h3><p>A pill above the headline, every time. The detector reads the heading structure.</p><a class="alt-link" href="detector.html">See the rule <span class="go">→</span></a></div>
-        <div class="alt-visual" data-spec="hero-eyebrow-chip"></div>
-      </div>
+    <p class="nudge-sub">Forty-two checks catch the defaults agents keep reaching for, before they become your design. Drag or use the arrows.</p>
+    <div class="carousel-wrap">
+      <div id="tells-carousel" class="carousel" aria-label="AI slop specimen carousel"><!-- cards injected at runtime --></div>
+      <button class="car-arrow prev" id="car-prev" aria-label="Previous tells"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="car-arrow next" id="car-next" aria-label="Next tells"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
-    <div class="catalog-head"><span class="pill alt">THE FULL CATALOGUE</span><p class="nudge-sub">Twelve real specimens, hover to catch each tell.</p></div>
-    <div id="slop-gallery" class="slop-grid" aria-label="AI slop specimen gallery"><!-- specimens injected at runtime --></div>
-    <p class="slop-credit">Specimens from <a href="https://impeccable.style/slop">impeccable.style</a>, the source skill this one routes through. Hover a card to catch its tell.</p>
+    <p class="slop-credit">Specimens from <a href="https://impeccable.style/slop">impeccable.style</a>, the source skill this one routes through.</p>
   </div>
 </section>
 
@@ -223,7 +204,7 @@
 (function () {
   document.documentElement.classList.add('js');
   if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.lib-row, .feat, .spec').forEach(function (r) { r.classList.add('in'); });
+    document.querySelectorAll('.lib-row, .feat, .spec, .alt-row, .car-card').forEach(function (r) { r.classList.add('in'); });
     return;
   }
   var io = new IntersectionObserver(function (entries) {
@@ -232,7 +213,7 @@
     });
   }, { threshold: 0.12 });
   var revealTargets = function () {
-    return document.querySelectorAll('.lib-row, .feat, .spec');
+    return document.querySelectorAll('.lib-row, .feat, .spec, .alt-row, .car-card');
   };
   revealTargets().forEach(function (r) { io.observe(r); });
   // fallback: if the observer never dispatches (headless, virtual time, edge
@@ -257,48 +238,50 @@
   }
 })();
 (function () {
-  var gallery = document.getElementById('slop-gallery');
+  // Nudge-style carousel: cards from the real specimen data, painterly headers
+  var track = document.getElementById('tells-carousel');
   var specs = window.SLOP_SPECIMENS;
-  if (!gallery) return;
+  if (!track) return;
   if (!specs || !specs.length) {
-    console.warn('design-skill: slop-specimens.js did not load; gallery empty');
     var p = document.createElement('p');
     p.className = 'slop-credit';
-    p.textContent = 'The specimen gallery could not load. Hard-refresh to retry.';
-    gallery.appendChild(p);
+    p.textContent = 'The specimen carousel could not load. Hard-refresh to retry.';
+    track.appendChild(p);
     return;
   }
-  function el(tag, cls, text) {
-    var n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (text != null) n.textContent = text;
-    return n;
-  }
+  var imgs = ['viridian-1.webp', 'viridian-2.webp', 'viridian-10.webp', 'viridian-15.webp', 'viridian-16.webp', 'viridian-18.webp', 'viridian-21.webp'];
   specs.forEach(function (s, i) {
     var c = document.createElement('a');
-    c.className = 'spec';
+    c.className = 'car-card';
     c.href = 'https://impeccable.style' + (s.link || '');
     c.target = '_blank';
     c.rel = 'noopener';
     c.title = s.desc;
-    c.setAttribute('aria-label', s.name);
     c.style.setProperty('--i', i);
-    var tilt = ((i % 2 === 0 ? -1 : 1) * (1 + (i % 3) * 0.45)).toFixed(1) + 'deg';
-    c.style.setProperty('--tilt', tilt);
-    if (i === 0 || i === 4 || i === 5) c.classList.add('wide');
-    var bar = el('div', 'spec-bar');
-    bar.appendChild(el('i')); bar.appendChild(el('i')); bar.appendChild(el('i'));
-    var b = el('div', 'spec-body');
-    b.innerHTML = s.html;
-    var foot = el('div', 'spec-foot');
-    var tw = el('span', 'tagwrap');
-    tw.appendChild(el('span', 'before', 'BEFORE'));
-    tw.appendChild(el('span', 'caught', 'CAUGHT'));
-    foot.appendChild(tw);
-    foot.appendChild(el('b', null, s.name));
-    c.appendChild(bar); c.appendChild(b); c.appendChild(foot);
-    gallery.appendChild(c);
+    var img = document.createElement('div');
+    img.className = 'car-img car-' + (i % imgs.length);
+    var body = document.createElement('div');
+    body.className = 'car-body';
+    body.innerHTML = s.html;
+    var foot = document.createElement('div');
+    foot.className = 'car-foot';
+    var tag = document.createElement('span');
+    tag.className = 'before';
+    tag.textContent = 'BEFORE';
+    var name = document.createElement('b');
+    name.textContent = s.name;
+    foot.appendChild(tag); foot.appendChild(name);
+    c.appendChild(img); c.appendChild(body); c.appendChild(foot);
+    track.appendChild(c);
   });
+  // arrows
+  var prev = document.getElementById('car-prev');
+  var next = document.getElementById('car-next');
+  if (prev && next) {
+    var step = function () { return track.clientWidth * 0.8; };
+    prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+  }
 })();
 </script>
 <script>
