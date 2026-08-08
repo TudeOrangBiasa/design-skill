@@ -328,10 +328,6 @@ for (const f of readdirSync(join(SRC, 'assets', 'bg'))) {
 if (existsSync(join(SRC, 'slop-specimens.js'))) {
   copyFileSync(join(SRC, 'slop-specimens.js'), join(DIST, 'slop-specimens.js'));
 }
-// runtime hero shader (WebGL2 mesh gradient, GLSL from paper.design)
-if (existsSync(join(SRC, 'hero-shader.js'))) {
-  copyFileSync(join(SRC, 'hero-shader.js'), join(DIST, 'hero-shader.js'));
-}
 
 // landing
 copyFileSync(join(SRC, 'index.html'), join(DIST, 'index.html'));

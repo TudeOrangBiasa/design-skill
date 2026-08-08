@@ -225,17 +225,6 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px}
   html.js .lib-row{opacity:1;transform:none}
 }
 
-/* ---- cntrl-style hero (shader background) ---- */
-.hero{position:relative;overflow:hidden;padding:120px 0 80px}
-.hero-shader{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-.hero-fade{position:absolute;inset:0;z-index:1;background:rgba(253,253,251,.58)}
-.hero .wrap{position:relative;z-index:2}
-.brandline{font-family:var(--display);font-weight:400;font-size:84px;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;margin:28px 0 22px}
-.brandline .bl-black{font-weight:900}
-h1{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.32;text-transform:uppercase;letter-spacing:.015em;max-width:62ch}
-h1 .reg{font-size:.55em;vertical-align:super;letter-spacing:0;color:var(--ink2)}
-.callout{font:12px var(--mono);letter-spacing:.08em;color:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin-top:56px;max-width:74ch}
-.cta.big{padding:14px 26px;font-size:15px;min-height:48px}
 /* stats band */
 .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0}
 .stats-row{display:flex;align-items:center;gap:48px;padding:20px 32px;overflow-x:auto;font:12px var(--mono);letter-spacing:.14em;color:var(--ink2);white-space:nowrap}
@@ -265,10 +254,49 @@ html.js .feat.in{opacity:1;transform:rotate(var(--tilt,0));transition-delay:0s}
   .feat-grid{grid-template-columns:1fr}
 }
 
-/* ---- brand voice: Syne (wordmark, nav, brandline) ---- */
-.logo{font-family:"Syne",var(--display);font-weight:800;letter-spacing:.04em;display:inline-flex;align-items:center;gap:10px;font-size:19px}
-.logo-mark{width:22px;height:22px;flex:none}
-.hd-nav a{font-family:"Syne",var(--display);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12.5px}
-.brandline{font-family:"Syne",var(--display);font-weight:400}
-.brandline .bl-black{font-weight:800}
-.f-brand .logo{font-size:17px}
+/* ---- brand voice: Dela Gothic One (wordmark) ---- */
+.logo{font-family:"Dela Gothic One",var(--display);font-weight:400;letter-spacing:.06em;display:inline-flex;align-items:center;gap:10px;font-size:18px;text-transform:uppercase}
+.logo-mark{width:20px;height:20px;flex:none}
+.hd-nav a{font:12px var(--mono);letter-spacing:.12em}
+.f-brand .logo{font-size:16px}
+
+/* ---- cinematic hero (video background) ---- */
+.cine{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:#010101;color:#fff;overflow:hidden}
+.cine-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.cine-overlay{position:absolute;inset:0;z-index:1;background:rgba(1,1,1,.45)}
+.cine-overlay2{position:absolute;inset:0;z-index:1;background:rgba(1,1,1,.2)}
+.cine-nav{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:48px;padding:30px 40px}
+.cine-brand{font-family:"Dela Gothic One",var(--display);font-size:19px;letter-spacing:.24em;text-transform:uppercase;color:#fff;text-decoration:none}
+.cine-links{display:flex;gap:38px}
+.cine-links a{color:rgba(255,255,255,.78);text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:400;text-decoration:none;transition:color .3s ease-out}
+.cine-links a:hover{color:#fff}
+.cine-burger{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:10px;position:absolute;right:20px;top:22px}
+.cine-burger .ic{width:24px;height:24px}
+.cine-content{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px 90px}
+.cine-title{font-family:"EB Garamond",Georgia,serif;font-weight:400;font-size:clamp(44px,9vw,110px);line-height:1.08;letter-spacing:-.01em;color:#fff;margin:0 0 30px;text-transform:uppercase}
+.cine-title .line{display:block}
+.cine-title .ch{opacity:0;display:inline-block;transition:opacity .5s ease-out;will-change:opacity}
+.cine-title .ch.show{opacity:1}
+.cine-sub{color:rgba(255,255,255,.7);font-weight:300;line-height:1.65;max-width:540px;font-size:clamp(14px,1.7vw,18px);margin:0 0 38px;opacity:0;transform:translateY(20px);transition:opacity .8s ease-out,transform .8s ease-out}
+.cine-sub.show{opacity:1;transform:none}
+.liquid{position:relative;display:inline-block;background:rgba(255,255,255,.02);border-radius:999px;padding:16px 44px;color:rgba(255,255,255,.9);text-transform:uppercase;letter-spacing:.2em;font-size:13px;text-decoration:none;overflow:hidden;transition:background .3s ease-out;opacity:0;transform:translateY(20px)}
+.liquid.show{opacity:1;transform:none}
+.liquid::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.liquid:hover{background:rgba(255,255,255,.05)}
+.liquid:active{transform:scale(.98)}
+.liquid.small{padding:12px 28px;font-size:12px}
+.cine-callout{font:11px var(--mono);letter-spacing:.08em;color:rgba(255,255,255,.45);margin-top:46px;max-width:64ch;opacity:0;transition:opacity .8s ease-out .2s}
+.cine-callout.show{opacity:1}
+.mobile-glass{display:none;position:fixed;top:76px;left:16px;right:16px;z-index:50;background:rgba(10,10,10,.85);border:1px solid rgba(255,255,255,.08);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1);padding:28px 0;flex-direction:column;align-items:center;gap:22px}
+.mobile-glass.open{display:flex}
+.mobile-glass a{color:rgba(255,255,255,.9);text-transform:uppercase;letter-spacing:.25em;font-size:13px;text-decoration:none}
+.mobile-glass a:hover{color:#fff}
+@media (max-width:900px){
+  .cine-links{display:none}
+  .cine-burger{display:block}
+  .cine-nav{justify-content:flex-start;padding-left:24px}
+}
+@media (prefers-reduced-motion: reduce){
+  .cine-title .ch{opacity:1;transition:none}
+  .cine-sub,.cine-cta,.cine-callout{opacity:1;transform:none;transition:none}
+}

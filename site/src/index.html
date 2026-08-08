@@ -12,38 +12,43 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=Schibsted+Grotesk:wght@400;700;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Schibsted+Grotesk:wght@400;700;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
-<header>
-  <div class="wrap hd">
-    <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="4" fill="#14120f"/><text x="12" y="17" font-family="Arial, sans-serif" font-weight="900" font-size="13" fill="#fdfdfb" text-anchor="middle">D</text><rect x="4" y="17.5" width="16" height="2.4" rx="1.2" fill="#b6f22e"/></svg>DESIGN SKILL</a>
-    <nav class="hd-nav">
-      <a href="wiki.html">THE WIKI</a>
-      <a href="detector.html">DETECTOR</a>
-      <a href="#install">INSTALL</a>
-    </nav>
-    <a class="cta" href="install.html">INSTALL THE SKILL</a>
-  </div>
-</header>
-
-<section class="hero">
-  <canvas id="hero-shader" class="hero-shader" aria-hidden="true"></canvas>
-  <div class="hero-fade" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="kicker">FREEFHAND DESIGN PARTNER / FOR AGENTS BY AGENTS</div>
-    <div class="brandline">Keep the <span class="bl-black">craft.</span></div>
-    <h1>Fix the tells intuitively, moving design with your words<span class="reg">®</span>, using your eyes<span class="reg">®</span> to make the judgement and the detector<span class="reg">®</span> to lead the way.</h1>
-    <div class="actions">
-      <a class="cta big" href="install.html">INSTALL IN 30 SECONDS ↑</a>
-      <a class="ghost" href="wiki.html">LEARN</a>
-      <a class="ghost" href="https://www.npmjs.com/package/agent-design-skill" rel="noopener">npm</a>
+<section class="cine">
+  <video class="cine-video" autoplay muted loop playsinline preload="metadata" poster="assets/bg/hero-poster.jpg" aria-hidden="true">
+    <source src="assets/bg/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="cine-overlay" aria-hidden="true"></div>
+  <div class="cine-overlay2" aria-hidden="true"></div>
+  <nav class="cine-nav" aria-label="Main">
+    <a class="cine-brand" href="index.html">DESIGN&nbsp;SKILL</a>
+    <div class="cine-links">
+      <a href="wiki.html">The Wiki</a>
+      <a href="detector.html">Detector</a>
+      <a href="#install">Install</a>
     </div>
-    <div class="callout">THIS LANDING PAGE WAS BUILT BY THE SKILL IT DOCUMENTS. NO DESIGNER REQUIRED. - DESIGN SKILL</div>
+    <button class="cine-burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+    </button>
+  </nav>
+  <div class="cine-content">
+    <h1 class="cine-title" aria-label="Every AI interface has a tell.">
+      <span class="line">EVERY AI INTERFACE</span>
+      <span class="line">HAS A TELL.</span>
+    </h1>
+    <p class="cine-sub">A freehand design partner for agents. The detector, the doctrine, and the checklist in one skill. No model, no API key.</p>
+    <a class="liquid cine-cta" href="install.html">Install in 30 seconds</a>
+    <div class="cine-callout">THIS LANDING PAGE WAS BUILT BY THE SKILL IT DOCUMENTS. NO DESIGNER REQUIRED. - DESIGN SKILL</div>
   </div>
 </section>
-
+<div id="mobile-menu" class="mobile-glass" aria-label="Menu">
+  <a href="wiki.html">The Wiki</a>
+  <a href="detector.html">Detector</a>
+  <a href="install.html">Install</a>
+  <a class="liquid small" href="install.html">Install the skill</a>
+</div>
 <section class="stats">
   <div class="wrap stats-row">
     <span>DESIGN SKILL</span>
@@ -243,6 +248,61 @@
   });
 })();
 </script>
-<script src="hero-shader.js"></script>
+<script>
+(function () {
+  // staggered character reveal for the cinematic title
+  var title = document.querySelector('.cine-title');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (title && !reduce) {
+    title.querySelectorAll('.line').forEach(function (line) {
+      var text = line.textContent;
+      line.textContent = '';
+      var chars = [];
+      Array.from(text).forEach(function (ch) {
+        var s = document.createElement('span');
+        s.className = 'ch';
+        if (ch === ' ') s.innerHTML = '&nbsp;'; else s.textContent = ch;
+        s.setAttribute('aria-hidden', 'true');
+        line.appendChild(s);
+        chars.push(s);
+      });
+      chars.forEach(function (c, i) {
+        setTimeout(function () { c.classList.add('show'); }, 250 + i * 45);
+      });
+    });
+    setTimeout(function () { var s = document.querySelector('.cine-sub'); if (s) s.classList.add('show'); }, 1500);
+    setTimeout(function () { var c = document.querySelector('.cine-cta'); if (c) c.classList.add('show'); }, 1900);
+    setTimeout(function () { var c = document.querySelector('.cine-callout'); if (c) c.classList.add('show'); }, 2300);
+  } else if (title) {
+    title.querySelectorAll('.ch, .cine-sub, .cine-cta, .cine-callout').forEach(function (n) { n.classList.add('show'); });
+  }
+  // video: explicit muted + play (autoplay attribute can be deferred on restore)
+  var v = document.querySelector('.cine-video');
+  if (v) {
+    if (reduce) {
+      v.pause();
+    } else {
+      v.muted = true;
+      var attemptPlay = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+      attemptPlay();
+      v.addEventListener('loadeddata', attemptPlay);
+    }
+  }
+  // mobile menu toggle
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobile-menu');
+  if (burger && menu) {
+    burger.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      burger.querySelector('svg').innerHTML = open ? '<path d="M6 6l12 12"/><path d="M18 6L6 18"/>' : '<path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/>';
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); });
+    });
+  }
+})();
+</script>
 </body>
 </html>
