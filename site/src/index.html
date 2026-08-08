@@ -95,7 +95,9 @@
     <span class="pill">USE CASES</span>
     <h2 class="nudge-h">What it's actually for.</h2>
     <p class="nudge-sub">Eight ways the skill earns its place, from rescue to redesign. Each one maps to a single command.</p>
-    <div class="uc-grid">
+    <div class="carousel-wrap uc-carousel-wrap">
+  <div id="usecases-carousel" class="carousel uc-carousel" aria-label="Use cases carousel">
+
       <a class="uc-card" href="doctrine/deslop.html" style="--i:0">
         <div class="uc-img uc-1"></div>
         <div class="uc-body">
@@ -169,6 +171,11 @@
         </div>
       </a>
     </div>
+  </div>
+  <button class="car-arrow prev" id="uc-prev" aria-label="Previous use cases"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="car-arrow next" id="uc-next" aria-label="Next use cases"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+
   </div>
 </section>
 
@@ -294,6 +301,16 @@
   }, 600);
 })();
 (function () {
+  // use-cases carousel arrows
+  var prev = document.getElementById('uc-prev');
+  var next = document.getElementById('uc-next');
+  var track = document.getElementById('usecases-carousel');
+  if (prev && next && track) {
+    prev.addEventListener('click', function () { track.scrollBy({ left: -track.clientWidth * 0.75, behavior: 'smooth' }); });
+    next.addEventListener('click', function () { track.scrollBy({ left: track.clientWidth * 0.75, behavior: 'smooth' }); });
+  }
+})();
+(function () {
   // Nudge-style alternating rows: inject real specimens into their visual cards
   if (window.SLOP_SPECIMENS) {
     document.querySelectorAll('.alt-visual').forEach(function (card) {
@@ -303,52 +320,6 @@
         card.title = spec.desc;
       }
     });
-  }
-})();
-(function () {
-  // Nudge-style carousel: cards from the real specimen data, painterly headers
-  var track = document.getElementById('tells-carousel');
-  var specs = window.SLOP_SPECIMENS;
-  if (!track) return;
-  if (!specs || !specs.length) {
-    var p = document.createElement('p');
-    p.className = 'slop-credit';
-    p.textContent = 'The specimen carousel could not load. Hard-refresh to retry.';
-    track.appendChild(p);
-    return;
-  }
-  var imgs = ['viridian-1.webp', 'viridian-2.webp', 'viridian-10.webp', 'viridian-15.webp', 'viridian-16.webp', 'viridian-18.webp', 'viridian-21.webp'];
-  specs.forEach(function (s, i) {
-    var c = document.createElement('a');
-    c.className = 'car-card';
-    c.href = 'https://impeccable.style' + (s.link || '');
-    c.target = '_blank';
-    c.rel = 'noopener';
-    c.title = s.desc;
-    c.style.setProperty('--i', i);
-    var img = document.createElement('div');
-    img.className = 'car-img car-' + (i % imgs.length);
-    var body = document.createElement('div');
-    body.className = 'car-body';
-    body.innerHTML = s.html;
-    var foot = document.createElement('div');
-    foot.className = 'car-foot';
-    var tag = document.createElement('span');
-    tag.className = 'before';
-    tag.textContent = 'BEFORE';
-    var name = document.createElement('b');
-    name.textContent = s.name;
-    foot.appendChild(tag); foot.appendChild(name);
-    c.appendChild(img); c.appendChild(body); c.appendChild(foot);
-    track.appendChild(c);
-  });
-  // arrows
-  var prev = document.getElementById('car-prev');
-  var next = document.getElementById('car-next');
-  if (prev && next) {
-    var step = function () { return track.clientWidth * 0.8; };
-    prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
-    next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
   }
 })();
 </script>

@@ -376,29 +376,23 @@ html.js .car-card:hover{transform:translateY(-5px)}
   .car-card{flex:0 0 280px}
 }
 
-/* ---- use cases (big image-led hook cards) ---- */
-.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
-.uc-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;color:inherit;text-decoration:none;transition:transform .25s cubic-bezier(.25,1,.5,1),border-color .22s ease-out}
-.uc-card:hover,.uc-card:focus-visible{transform:translateY(-6px);border-color:var(--ink)}
-.uc-img{height:120px;background-size:cover;background-position:center 35%}
-.uc-img.uc-1{background-image:url("assets/bg/viridian-1.webp")}
-.uc-img.uc-2{background-image:url("assets/bg/viridian-2.webp")}
-.uc-img.uc-3{background-image:url("assets/bg/viridian-10.webp")}
-.uc-img.uc-4{background-image:url("assets/bg/viridian-15.webp")}
-.uc-img.uc-5{background-image:url("assets/bg/viridian-16.webp")}
-.uc-img.uc-6{background-image:url("assets/bg/viridian-18.webp")}
-.uc-img.uc-7{background-image:url("assets/bg/viridian-21.webp")}
-.uc-img.uc-8{background-image:url("assets/bg/viridian-1.webp")}
-.uc-body{display:flex;flex-direction:column;flex:1;padding:22px 22px 18px}
-.uc-tag{font:10px var(--mono);letter-spacing:.18em;color:var(--lime-deep);text-transform:uppercase;margin-bottom:10px}
-.uc-body h3{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.22;margin:0 0 10px}
-.uc-body p{color:var(--ink2);font-size:14px;line-height:1.55}
-.uc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:16px;border-top:1px solid var(--line);margin-top:16px}
-.uc-cmd{font:12px var(--mono);color:var(--ink);letter-spacing:.06em}
-.uc-card .go{color:var(--lime-deep);opacity:0;transform:translateX(-4px);transition:opacity .2s ease-out,transform .2s cubic-bezier(.25,1,.5,1)}
-.uc-card:hover .go,.uc-card:focus-visible .go{opacity:1;transform:none}
-html.js .uc-card{opacity:0;transform:translateY(20px);transition:opacity .35s ease-out,transform .35s cubic-bezier(.25,1,.5,1),border-color .22s ease-out;transition-delay:calc(var(--i, 0) * 55ms)}
-html.js .uc-card.in{opacity:1;transform:none;transition-delay:0s}
-html.js .uc-card:hover{transform:translateY(-6px)}
-@media (max-width:1000px){.uc-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:640px){.uc-grid{grid-template-columns:1fr}}
+/* ---- use cases carousel (nudge use-case style, standard aspect) ---- */
+.uc-carousel-wrap{margin:0 8px}
+.uc-carousel{scroll-padding:0 4px}
+.uc-card{flex:0 0 min(430px, 84vw);aspect-ratio:4/5;scroll-snap-align:start}
+.uc-card .uc-img{flex:none;height:210px;position:relative;overflow:hidden}
+.uc-img::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center 35%;transition:transform .6s cubic-bezier(.25,1,.5,1)}
+.uc-img.uc-1::before{background-image:url("assets/bg/viridian-1.webp")}
+.uc-img.uc-2::before{background-image:url("assets/bg/viridian-2.webp")}
+.uc-img.uc-3::before{background-image:url("assets/bg/viridian-10.webp")}
+.uc-img.uc-4::before{background-image:url("assets/bg/viridian-15.webp")}
+.uc-img.uc-5::before{background-image:url("assets/bg/viridian-16.webp")}
+.uc-img.uc-6::before{background-image:url("assets/bg/viridian-18.webp")}
+.uc-img.uc-7::before{background-image:url("assets/bg/viridian-21.webp")}
+.uc-img.uc-8::before{background-image:url("assets/bg/viridian-1.webp")}
+.uc-card:hover .uc-img::before,.uc-card:focus-visible .uc-img::before{transform:scale(1.07)}
+.uc-body{padding:24px 24px 20px}
+.uc-tag{margin-bottom:12px}
+.uc-body h3{font-size:22px}
+.uc-body p{font-size:14.5px}
+html.js .uc-card{transition:opacity .35s ease-out,transform .35s cubic-bezier(.25,1,.5,1),border-color .22s ease-out;transition-delay:calc(var(--i, 0) * 60ms)}
