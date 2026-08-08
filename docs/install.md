@@ -6,14 +6,16 @@ One package, every harness. The installer is the [skills.sh CLI](https://github.
 
 | Agent | Global install command | Skill location |
 |-------|----------------------|----------------|
-| Pi | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a pi -g` | `~/.pi/skills/design-skill/SKILL.md` |
-| OpenCode | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a opencode -g` | `~/.config/opencode/skill/design-skill/SKILL.md` (scanned as `{skill,skills}/**/SKILL.md`, source-verified) |
+| Pi | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a pi -g` | `~/.pi/agent/skills/design-skill/SKILL.md` |
+| OpenCode | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a opencode -g` | `~/.agents/skills/design-skill/SKILL.md` (shared root, symlinked for live updates) |
 | Claude Code | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a claude-code -g` | `~/.claude/skills/design-skill/SKILL.md` |
-| Codex | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a codex -g` | Codex skills root |
-| Cursor | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a cursor -g` | Cursor skills root |
-| Gemini CLI | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a gemini-cli -g` | Gemini CLI skills root |
-| `.agents/skills` agents (omp, universal) | see omp below | `~/.agents/skills/design-skill/SKILL.md` |
+| Codex | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a codex -g` | `~/.agents/skills/design-skill/SKILL.md` (shared root) |
+| Cursor | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a cursor -g` | `~/.agents/skills/design-skill/SKILL.md` (shared root) |
+| Gemini CLI | `npx skills@1.5.22 add TudeOrangBiasa/design-skill -a gemini-cli -g` | `~/.agents/skills/design-skill/SKILL.md` (shared root) |
+| `.agents/skills` agents (omp, opencode, codex, cursor, gemini) | see omp below | `~/.agents/skills/design-skill/SKILL.md` |
 | npm | `npm install agent-design-skill` | `node_modules/agent-design-skill/SKILL.md` |
+
+Paths verified against live installs (skills.sh 1.5.22): opencode, codex, cursor, and gemini-cli all resolve their global skills to the shared `~/.agents/skills/` root, the same layout omp's agents provider reads. The CLI copies by default; restore the symlink after a CLI install so every `.agents` reader sees repo-live updates (`ln -sfn "$PWD" ~/.agents/skills/design-skill`).
 
 Drop `-g` for a project-scope install into the agent's project skills path.
 
