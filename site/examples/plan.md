@@ -40,7 +40,7 @@ for the signed fetch itself):
    the HttpOnly session cookie (unreadable via `document.cookie`).
 2. `curl -b "<cookie>" -L "https://app.backgrounds.supply/api/download/<id>"`
    → original PNG (≈10 MB, QHD 2912×1632).
-3. `ffmpeg -i in.png -vf scale=1920:-1 -q:v 80 out.webp` → `site/src/assets/examples-src/`.
+3. `ffmpeg -i in.png -vf scale=1920:-1 -q:v 80 out.webp` → `site/examples/assets/` (source webps).
 
 License: freebies are free for personal projects; commercial use requires the paid
 library. This landing is the skill's own site — attribution added to NOTICE.
