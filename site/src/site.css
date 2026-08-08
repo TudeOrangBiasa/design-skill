@@ -343,8 +343,8 @@ html.js .feat.in{opacity:1;transform:rotate(var(--tilt,0));transition-delay:0s}
 .alt-visual .spec-mini{position:relative;z-index:1}
 /* nudge-style carousel */
 .carousel-wrap{position:relative}
-.carousel{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 20px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
-.carousel::-webkit-scrollbar{height:6px}
+.carousel{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 12px;scrollbar-width:none;-ms-overflow-style:none}
+.carousel::-webkit-scrollbar{display:none}
 .carousel::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 .car-card{flex:0 0 330px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;color:inherit;text-decoration:none;transition:transform .22s cubic-bezier(.25,1,.5,1),border-color .22s ease-out}
 .car-card:hover,.car-card:focus-visible{transform:translateY(-5px);border-color:var(--ink)}
@@ -360,10 +360,9 @@ html.js .feat.in{opacity:1;transform:rotate(var(--tilt,0));transition-delay:0s}
 .car-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;min-height:46px;border-top:1px solid var(--line);font:11px var(--mono);letter-spacing:.12em;color:var(--ink2)}
 .car-foot b{color:var(--ink);font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .car-foot .before{font:10px var(--mono);letter-spacing:.16em;padding:2px 8px;border:1px solid var(--line);border-radius:4px}
-.car-arrow{position:absolute;top:-76px;z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid var(--ink);background:var(--canvas);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease-out,color .2s ease-out}
+.car-arrow{position:static;width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);background:var(--canvas);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease-out,color .2s ease-out}
 .car-arrow:hover{background:var(--ink);color:var(--lime)}
-.car-arrow.prev{right:58px}
-.car-arrow.next{right:0}
+
 .car-arrow .ic{width:20px;height:20px}
 /* reveal for nudge rows + carousel */
 html.js .alt-row{opacity:0;transform:translateY(26px);transition:opacity .5s ease-out,transform .5s cubic-bezier(.25,1,.5,1)}
@@ -379,7 +378,7 @@ html.js .car-card:hover{transform:translateY(-5px)}
 /* ---- use cases carousel (nudge use-case style, standard aspect) ---- */
 .uc-carousel-wrap{margin:0 8px}
 .uc-carousel{scroll-padding:0 4px}
-.uc-card{flex:0 0 min(430px, 84vw);aspect-ratio:4/5;scroll-snap-align:start}
+.uc-card{flex:0 0 min(400px, 82vw);aspect-ratio:3/5;scroll-snap-align:start}
 .uc-card .uc-img{flex:none;height:210px;position:relative;overflow:hidden}
 .uc-img::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center 35%;transition:transform .6s cubic-bezier(.25,1,.5,1)}
 .uc-img.uc-1::before{background-image:url("assets/bg/viridian-1.webp")}
@@ -393,7 +392,7 @@ html.js .car-card:hover{transform:translateY(-5px)}
 .uc-card:hover .uc-img::before,.uc-card:focus-visible .uc-img::before{transform:scale(1.07)}
 .uc-body{padding:24px 24px 20px}
 .uc-tag{margin-bottom:12px}
-.uc-body h3{font-size:22px}
+.uc-body h3{font-size:22px;text-decoration:none}
 .uc-body p{font-size:14.5px}
 html.js .uc-card{transition:opacity .35s ease-out,transform .35s cubic-bezier(.25,1,.5,1),border-color .22s ease-out;transition-delay:calc(var(--i, 0) * 60ms)}
 
@@ -413,10 +412,26 @@ html.js .uc-card{transition:opacity .35s ease-out,transform .35s cubic-bezier(.2
 .uc-carousel-wrap::before{left:-10px}
 .uc-carousel-wrap::after{right:-10px;transform:scaleX(-1)}
 /* scroll progress bar */
-.car-progress{height:3px;background:var(--line);border-radius:2px;margin:6px 4px 0;overflow:hidden}
+.car-progress{height:3px;background:var(--line);border-radius:2px;margin:2px 4px 0;overflow:hidden}
 .car-progress i{display:block;height:100%;background:var(--lime-deep);width:0;transition:width .12s linear}
 /* arrow disabled state */
 .car-arrow.disabled{opacity:.25;pointer-events:none}
 @media (prefers-reduced-motion: reduce){
   .uc-img::before{animation:none}
+}
+
+/* carousel header row + bottom CTA */
+.car-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px}
+.car-arrows{display:flex;gap:10px}
+.car-note{font:11px var(--mono);letter-spacing:.08em;color:var(--ink2);order:-1;margin:0}
+.car-note a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+.car-note a:hover{color:var(--ink)}
+.see-all-row{display:flex;justify-content:flex-end;margin-top:20px}
+.see-all{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);border-radius:999px;padding:13px 26px;font:600 12px var(--mono);letter-spacing:.14em;color:var(--ink);text-decoration:none;transition:background .22s ease-out,color .22s ease-out}
+.see-all:hover{background:var(--ink);color:var(--lime)}
+.see-all .go{color:var(--lime-deep);transition:transform .2s cubic-bezier(.25,1,.5,1)}
+.see-all:hover .go{transform:translateX(4px);color:var(--lime)}
+@media (max-width:900px){
+  .car-head{flex-wrap:wrap}
+  .car-note{order:0;width:100%}
 }
