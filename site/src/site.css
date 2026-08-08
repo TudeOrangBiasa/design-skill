@@ -378,7 +378,7 @@ html.js .car-card:hover{transform:translateY(-5px)}
 /* ---- use cases carousel (nudge use-case style, standard aspect) ---- */
 .uc-carousel-wrap{margin:0 8px}
 .uc-carousel{scroll-padding:0 4px}
-.uc-card{flex:0 0 clamp(220px, calc((100dvh - 330px) * 0.75), 420px);aspect-ratio:3/4;scroll-snap-align:start;overflow:hidden}
+.uc-card{flex:0 0 clamp(220px, calc((100dvh - 330px) * 0.75), 420px);aspect-ratio:3/4;scroll-snap-align:start;overflow:hidden;text-decoration:none}
 .uc-card .uc-img{flex:none;height:210px;position:relative;overflow:hidden}
 .uc-img::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center 35%;transition:transform .6s cubic-bezier(.25,1,.5,1)}
 .uc-img.uc-1::before{background-image:url("assets/bg/viridian-1.webp")}
@@ -425,7 +425,7 @@ html.js .uc-card{transition:opacity .35s ease-out,transform .35s cubic-bezier(.2
 .uc-sec-head{display:flex;align-items:flex-start;justify-content:space-between;gap:48px;margin-bottom:26px}
 .uc-sec-title .nudge-sub{margin:0}
 .uc-sec-title .nudge-h{margin:14px 0 10px;font-size:clamp(28px,3.6vw,44px)}
-.uc-sec-actions{display:flex;flex-direction:column;align-items:flex-end;gap:12px;padding-top:6px;flex:none}
+.uc-sec-actions{display:flex;flex-direction:row;align-items:center;gap:14px;padding-top:8px;flex:none}
 .car-arrows{display:flex;gap:10px}
 .see-all{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);border-radius:999px;padding:13px 26px;font:600 12px var(--mono);letter-spacing:.14em;color:var(--ink);text-decoration:none;transition:background .22s ease-out,color .22s ease-out}
 .see-all:hover{background:var(--ink);color:var(--lime)}
