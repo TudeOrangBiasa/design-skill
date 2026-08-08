@@ -379,7 +379,7 @@ html.js .car-card:hover{transform:translateY(-5px)}
 .uc-carousel-wrap{margin:0 8px}
 .uc-carousel{scroll-padding:0 4px}
 .uc-card{flex:0 0 clamp(200px, calc((100dvh - 370px) * 0.75), 420px);aspect-ratio:3/4;scroll-snap-align:start;overflow:hidden;text-decoration:none}
-.uc-card .uc-img{flex:none;height:210px;position:relative;overflow:hidden}
+.uc-card .uc-img{flex:none;height:clamp(110px, 33%, 190px);position:relative;overflow:hidden}
 .uc-img::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center 35%;transition:transform .6s cubic-bezier(.25,1,.5,1)}
 .uc-img.uc-1::before{background-image:url("assets/bg/viridian-1.webp")}
 .uc-img.uc-2::before{background-image:url("assets/bg/viridian-2.webp")}
