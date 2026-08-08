@@ -7,3 +7,10 @@
 research/*.html
 research/*_files/
 research/*.json
+
+# Static site build output (rebuilt in CI by the Pages workflow).
+site/dist/
+
+# Original background downloads (10MB+ PNGs); the compressed webp set in
+# site/src/assets/bg/ is what ships.
+assets/viridian-*.png

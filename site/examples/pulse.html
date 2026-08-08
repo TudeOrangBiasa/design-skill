@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  :root{--bg:#f6f8fa;--surface:#ffffff;--surface-2:#eef2f7;--ink:#14202e;--ink-2:#5d6b7e;--line:#e3e8ef;--accent:#2f6fdb;--accent-ink:#ffffff;--accent-soft:#e8f0fb}
+  body{display:grid;grid-template-columns:208px 1fr;min-height:720px}
+  aside{background:var(--ink);color:#fff;padding:22px 18px;display:flex;flex-direction:column}
+  .logo{font:800 15px/1 var(--display);letter-spacing:.08em;margin-bottom:26px}
+  .logo i{font-style:normal;color:var(--accent-soft)}
+  aside nav{display:flex;flex-direction:column;gap:4px}
+  aside nav a{font:12px/1.4 var(--mono);color:#9fb0c4;text-decoration:none;padding:8px 10px;border-radius:6px;letter-spacing:.04em}
+  aside nav a.on{background:rgba(255,255,255,.12);color:#fff;font-weight:600}
+  aside .mini{margin-top:auto;border-radius:8px;overflow:hidden;position:relative;height:110px}
+  aside .mini img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .main{padding:26px 30px;display:flex;flex-direction:column;gap:14px}
+  .top{display:flex;justify-content:space-between;align-items:center}
+  .top h1{font:700 22px/1.2 var(--display)}
+  .top .date{font:12px/1 var(--mono);color:var(--ink-2)}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .m{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+  .m .lab{font:11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:10px}
+  .m .v{font:700 24px/1 var(--mono);letter-spacing:-.02em}
+  .m .d{font:11px/1 var(--mono);margin-top:8px}
+  .up{color:#0e9f6e}.down{color:#e04f39}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+  .panel h2{font:700 13px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
+  .bars{display:flex;align-items:flex-end;gap:10px;height:96px}
+  .bars i{flex:1;border-radius:3px 3px 0 0;background:var(--accent)}
+  .bars i:nth-child(2),.bars i:nth-child(5){background:var(--accent-soft)}
+  .x{display:flex;gap:10px;margin-top:8px}
+  .x span{flex:1;font:10px/1 var(--mono);color:var(--ink-2);text-align:center}
+  table{width:100%;border-collapse:collapse}
+  th{font:11px/1 var(--mono);color:var(--ink-2);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);letter-spacing:.08em;text-transform:uppercase}
+  td{padding:11px 10px;border-bottom:1px solid var(--line);font-size:13px}
+  .tag{font:11px/1 var(--mono);padding:4px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent)}
+  .bars i:nth-child(1){height:38%}.bars i:nth-child(2){height:52%}.bars i:nth-child(3){height:44%}.bars i:nth-child(4){height:70%}.bars i:nth-child(5){height:58%}.bars i:nth-child(6){height:86%}.bars i:nth-child(7){height:74%}
+</style>
+</head>
+<body>
+  <aside>
+    <div class="logo">PULSE<i>.</i></div>
+    <nav><a class="on">Overview</a><a>Campaigns</a><a>Audiences</a><a>Reports</a><a>Settings</a></nav>
+    <div class="mini"><img src="assets/pexels-desk.webp" alt="A minimal desk workspace — Pexels photo"></div>
+  </aside>
+  <div class="main">
+    <div class="top">
+      <div><h1>Overview</h1><span class="date">WED 06 AUG 2026 · Q3</span></div>
+      <a class="btn small" href="#">Export</a>
+    </div>
+    <div class="metrics">
+      <div class="m"><div class="lab">Revenue</div><div class="v">12,480</div><div class="d up">+8.2%</div></div>
+      <div class="m"><div class="lab">Sessions</div><div class="v">8,912</div><div class="d up">+3.1%</div></div>
+      <div class="m"><div class="lab">Conversion</div><div class="v">3.4%</div><div class="d up">+0.4</div></div>
+      <div class="m"><div class="lab">Churn</div><div class="v">1.9%</div><div class="d down">+0.2</div></div>
+    </div>
+    <div class="panel">
+      <h2>Weekly volume</h2>
+      <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="x"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div>
+    </div>
+    <div class="panel">
+      <table>
+        <tr><th>Campaign</th><th>Status</th><th>Change</th></tr>
+        <tr><td>Spring relaunch</td><td><span class="tag">Live</span></td><td class="up">+12.4%</td></tr>
+        <tr><td>Newsletter push</td><td><span class="tag">Live</span></td><td class="up">+5.8%</td></tr>
+        <tr><td>Retention loop</td><td><span class="tag">Paused</span></td><td class="down">-2.1%</td></tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

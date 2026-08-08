@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  :root{--bg:#f4f1ea;--surface:#fbfaf6;--surface-2:#e8e3d6;--ink:#141210;--ink-2:#6d675c;--line:#d9d4c6;--accent:#c43b2f;--accent-ink:#fdf6f2;--accent-soft:#f3e2dd}
+  .nav{border-bottom:2px solid var(--ink)}
+  .hero h1{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:clamp(40px,4.4vw,54px);letter-spacing:-.03em}
+  .hero .sub{color:var(--ink-2)}
+  .rows{border-top:2px solid var(--ink)}
+  .row .n{color:var(--accent)}
+  .plate{position:relative;border-radius:10px;overflow:hidden;min-height:360px;box-shadow:0 18px 40px rgba(20,18,16,.18)}
+  .plate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .plate .cap{position:absolute;left:16px;bottom:12px;font:10px/1.5 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--bg);border-radius:6px;padding:8px 12px}
+  .foot{color:var(--ink-2)}
+</style>
+</head>
+<body>
+  <div class="nav">
+    <span class="brand">Studio Noma</span>
+    <div class="nav-links"><a>Identity</a><a>Print</a><a>Web</a></div>
+  </div>
+  <main class="hero">
+    <div>
+      <h1>We make paper feel expensive.</h1>
+      <p class="sub">Identity, print, and editorial web for studios that still believe a brochure can close a deal.</p>
+      <div class="actions"><a class="btn" href="#">Start a project</a></div>
+      <div class="rows">
+        <div class="row"><span class="n">01</span><b>Identity systems</b><span class="m">12 projects</span></div>
+        <div class="row"><span class="n">02</span><b>Print &amp; packaging</b><span class="m">9 projects</span></div>
+        <div class="row"><span class="n">03</span><b>Editorial web</b><span class="m">7 projects</span></div>
+      </div>
+    </div>
+    <div class="plate">
+      <img src="assets/pexels-studio.webp" alt="Sketches and proofs pinned to a studio wall — Pexels photo">
+      <div class="cap">Field journal — Noma print, 2025</div>
+    </div>
+  </main>
+  <div class="foot"><span>Studio Noma</span><span>Est 2019 — Oslo</span><span>noma.studio</span></div>
+</body>
+</html>

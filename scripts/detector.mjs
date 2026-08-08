@@ -138,7 +138,10 @@ function buildContext({ html, text }) {
   const imgRe = /<img([^>]*)>/gi;
   let im;
   while ((im = imgRe.exec(html)) !== null) imgs.push({ attrs: im[1] });
-  return { html, text, css, headings, imgs };
+  // copyText = visible prose only; strips <pre>/<code> so copy rules do not
+  // fire on code blocks or quoted evidence inside them.
+  const copyText = stripTags(html.replace(/<(pre|code)[^>]*>[\s\S]*?<\/\1>/gi, ' '));
+  return { html, text, copyText, css, headings, imgs };
 }
 
 const RULES = [
@@ -163,8 +166,8 @@ const RULES = [
     category: 'Copy',
     severity: 'advisory',
     check(ctx) {
-      const dashes = (ctx.text.match(/[\u2014\u2013]/g) || []).length;
-      const per500 = ctx.text.length ? (dashes / ctx.text.length) * 500 : 0;
+      const dashes = (ctx.copyText.match(/[\u2014\u2013]/g) || []).length;
+      const per500 = ctx.copyText.length ? (dashes / ctx.copyText.length) * 500 : 0;
       return per500 >= 1 ? [{ evidence: `${dashes} em/en dashes, ${per500.toFixed(1)} per 500 chars` }] : [];
     },
   },
@@ -177,7 +180,7 @@ const RULES = [
       const hits = [];
       for (const w of BUZZWORDS) {
         const re = new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i');
-        if (re.test(ctx.text)) hits.push(w);
+        if (re.test(ctx.copyText)) hits.push(w);
       }
       return hits.length ? [{ evidence: hits.slice(0, 6).join(', ') }] : [];
     },
@@ -188,7 +191,7 @@ const RULES = [
     category: 'Copy',
     severity: 'advisory',
     check(ctx) {
-      const matches = ctx.text.match(/Not a [A-Z][^.]*\. A [A-Z][^.]*\.|\. (No|Just) [^.]*\./g) || [];
+      const matches = ctx.copyText.match(/Not a [A-Z][^.]*\. A [A-Z][^.]*\.|\. (No|Just) [^.]*\./g) || [];
       return matches.length >= 3 ? [{ evidence: `${matches.length} manufactured-contrast lines` }] : [];
     },
   },
@@ -555,7 +558,8 @@ const RULES = [
     severity: 'warning',
     check(ctx) {
       const cssBlur = (ctx.css.match(/backdrop(-filter)?\s*:\s*blur\(/gi) || []).length;
-      const classes = (ctx.html.match(/backdrop-blur(?:-sm|-md|-lg|-xl|-2xl|-\[[^\]]*\])?/g) || []).length;
+      // class attribute usage only; a mention in prose or code is documentation, not a surface
+      const classes = (ctx.html.match(/class\s*=\s*["'][^"']*\bbackdrop-blur(?:-sm|-md|-lg|-xl|-2xl|-\[[^\]]*\])?/gi) || []).length;
       const n = cssBlur + classes;
       return n >= 1 ? [{ evidence: `${n} backdrop-blur surfaces` }] : [];
     },
@@ -599,7 +603,7 @@ const RULES = [
     category: 'Copy',
     severity: 'warning',
     check(ctx) {
-      const t = ctx.text;
+      const t = ctx.copyText;
       const found = [];
       if (/\b\d{2,}k\s*\+/.test(t)) found.push('Nk+ figure');
       if (/\b99(?:\.\d+)?\s*%/.test(t)) found.push('99.x% figure');
@@ -614,7 +618,7 @@ const RULES = [
     category: 'Copy',
     severity: 'advisory',
     check(ctx) {
-      const t = ctx.text;
+      const t = ctx.copyText;
       const tics = [];
       if (/\bSay goodbye to\b/i.test(t)) tics.push('"say goodbye to"');
       if (/\bIt'?s not just\b/i.test(t)) tics.push('"it\'s not just"');
@@ -630,8 +634,8 @@ const RULES = [
     category: 'Copy',
     severity: 'advisory',
     check(ctx) {
-      const stars = (ctx.text.match(/[★☆⭐]/g) || []).length;
-      const text5 = /\b(?:rated\s+)?5(?:\/5|\.0\s*(?:out of\s*5|stars?))\b/i.test(ctx.text);
+      const stars = (ctx.copyText.match(/[★☆⭐]/g) || []).length;
+      const text5 = /\b(?:rated\s+)?5(?:\/5|\.0\s*(?:out of\s*5|stars?))\b/i.test(ctx.copyText);
       return stars >= 5 || text5 ? [{ evidence: `${stars} star glyphs or a 5/5 rating row` }] : [];
     },
   },
@@ -696,7 +700,7 @@ const RULES = [
     category: 'Layout',
     severity: 'advisory',
     check(ctx) {
-      const labels = ctx.text.match(/\b[A-Z]{3,}\b/g) || [];
+      const labels = ctx.copyText.match(/\b[A-Z]{3,}\b/g) || [];
       return labels.length >= 6 ? [{ evidence: `${labels.length} all-caps labels` }] : [];
     },
   },
