@@ -396,3 +396,27 @@ html.js .car-card:hover{transform:translateY(-5px)}
 .uc-body h3{font-size:22px}
 .uc-body p{font-size:14.5px}
 html.js .uc-card{transition:opacity .35s ease-out,transform .35s cubic-bezier(.25,1,.5,1),border-color .22s ease-out;transition-delay:calc(var(--i, 0) * 60ms)}
+
+/* ---- use-cases carousel delight pass ---- */
+.uc-card .uc-tag{transition:color .2s ease-out}
+.uc-card .uc-body h3{transition:color .2s ease-out}
+.uc-card:hover .uc-tag,.uc-card:focus-visible .uc-tag{color:var(--lime-deep)}
+.uc-card:hover .uc-body h3,.uc-card:focus-visible .uc-body h3{color:var(--lime-deep)}
+.uc-cmd{transition:background .22s ease-out,color .22s ease-out;padding:5px 10px;border-radius:6px}
+.uc-card:hover .uc-cmd,.uc-card:focus-visible .uc-cmd{background:var(--lime);color:var(--ink)}
+/* ambient pan on the painterly headers */
+@keyframes uc-pan{from{transform:scale(1)}to{transform:scale(1.09)}}
+.uc-img::before{animation:uc-pan 26s ease-in-out infinite alternate}
+.uc-card:hover .uc-img::before,.uc-card:focus-visible .uc-img::before{animation-play-state:paused}
+/* edge fades signalling more content */
+.uc-carousel-wrap::before,.uc-carousel-wrap::after{content:'';position:absolute;top:0;bottom:26px;width:56px;z-index:2;pointer-events:none;background:linear-gradient(90deg,var(--canvas),rgba(253,253,251,0))}
+.uc-carousel-wrap::before{left:-10px}
+.uc-carousel-wrap::after{right:-10px;transform:scaleX(-1)}
+/* scroll progress bar */
+.car-progress{height:3px;background:var(--line);border-radius:2px;margin:6px 4px 0;overflow:hidden}
+.car-progress i{display:block;height:100%;background:var(--lime-deep);width:0;transition:width .12s linear}
+/* arrow disabled state */
+.car-arrow.disabled{opacity:.25;pointer-events:none}
+@media (prefers-reduced-motion: reduce){
+  .uc-img::before{animation:none}
+}

@@ -172,9 +172,11 @@
       </a>
     </div>
   </div>
+  <div class="car-progress" aria-hidden="true"><i id="uc-progress"></i></div>
   <button class="car-arrow prev" id="uc-prev" aria-label="Previous use cases"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
   <button class="car-arrow next" id="uc-next" aria-label="Next use cases"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
 </div>
+<p class="slop-credit">Every command has a full playbook in the <a href="doctrine/index.html">doctrine library</a>.</p>
 
   </div>
 </section>
@@ -301,13 +303,46 @@
   }, 600);
 })();
 (function () {
-  // use-cases carousel arrows
+  // use-cases carousel: arrows, progress, edge states, gentle autoplay
   var prev = document.getElementById('uc-prev');
   var next = document.getElementById('uc-next');
   var track = document.getElementById('usecases-carousel');
-  if (prev && next && track) {
-    prev.addEventListener('click', function () { track.scrollBy({ left: -track.clientWidth * 0.75, behavior: 'smooth' }); });
-    next.addEventListener('click', function () { track.scrollBy({ left: track.clientWidth * 0.75, behavior: 'smooth' }); });
+  var bar = document.getElementById('uc-progress');
+  if (!track) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var userStopped = false;
+  var maxScroll = function () { return track.scrollWidth - track.clientWidth; };
+  function paint() {
+    var m = maxScroll();
+    if (bar) bar.style.width = (m > 0 ? (track.scrollLeft / m) * 100 : 100) + '%';
+    if (prev) prev.classList.toggle('disabled', track.scrollLeft <= 4);
+    if (next) next.classList.toggle('disabled', track.scrollLeft >= m - 4);
+  }
+  var raf = 0;
+  function schedule() { if (raf) return; raf = requestAnimationFrame(function () { raf = 0; paint(); }); }
+  track.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', paint);
+  if (prev) prev.addEventListener('click', function () { userStopped = true; track.scrollBy({ left: -track.clientWidth * 0.75, behavior: 'smooth' }); });
+  if (next) next.addEventListener('click', function () { userStopped = true; track.scrollBy({ left: track.clientWidth * 0.75, behavior: 'smooth' }); });
+  track.addEventListener('pointerdown', function () { userStopped = true; });
+  paint();
+  // gentle autoplay: pauses on hover/focus, stops after the first user interaction
+  if (!reduce) {
+    var auto = null;
+    var step = function () {
+      var m = maxScroll();
+      if (m <= 0) return;
+      var atEnd = track.scrollLeft >= m - 4;
+      track.scrollBy({ left: atEnd ? -m : track.clientWidth * 0.75, behavior: 'smooth' });
+    };
+    var stop = function () { if (auto) { clearInterval(auto); auto = null; } };
+    var start = function () { if (!auto && !userStopped) auto = setInterval(step, 5200); };
+    track.addEventListener('mouseenter', stop);
+    track.addEventListener('mouseleave', start);
+    track.addEventListener('focusin', stop);
+    track.addEventListener('focusout', start);
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    start();
   }
 })();
 (function () {
