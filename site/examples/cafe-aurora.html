@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  :root{--bg:#171310;--surface:#221b14;--surface-2:#2b2118;--ink:#f2e8d8;--ink-2:#a89884;--line:#3a2f24;--accent:#e07b39;--accent-ink:#1a110a;--accent-soft:#3a2a1c}
+  body{background:var(--bg);color:var(--ink)}
+  .nav{border-bottom-color:var(--line)}
+  .nav-links a{color:var(--ink-2)}
+  .hero h1{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(40px,4.4vw,56px);letter-spacing:-.02em}
+  .hero .sub{color:var(--ink-2)}
+  .row b{color:var(--ink)}
+  .row .n{color:var(--accent)}
+  .frame{min-height:360px}
+  .foot{color:var(--ink-2);border-top-color:var(--line)}
+</style>
+</head>
+<body>
+  <div class="nav">
+    <span class="brand">Café Aurora</span>
+    <div class="nav-links"><a>Menu</a><a>Visit</a><a>Hours</a></div>
+  </div>
+  <main class="hero">
+    <div>
+      <h1>Coffee, roasted slow.</h1>
+      <p class="sub">Single-origin beans, a proper grinder, and no rush at the counter. The neighbourhood comes here to think.</p>
+      <div class="actions"><a class="btn" href="#">Order a bag</a><a class="btn ghost" href="#">See the menu</a></div>
+      <div class="rows">
+        <div class="row"><span class="n">01</span><b>Espresso bar</b><span class="m">house blend, 9 bar</span></div>
+        <div class="row"><span class="n">02</span><b>Bakery</b><span class="m">baked before dawn</span></div>
+        <div class="row"><span class="n">03</span><b>Beans</b><span class="m">roasted Tue + Fri</span></div>
+      </div>
+    </div>
+    <div class="frame">
+      <img src="../assets/examples-src/cafe-aurora.webp" alt="Warm amber marbled gradient — Backgrounds Supply freebie">
+      <div class="cap">The morning counter — Aurora St 12, Turin</div>
+    </div>
+  </main>
+  <div class="foot"><span>Est 2019</span><span>Mon — Fri · 07:00 — 17:00</span><span>Turin</span></div>
+</body>
+</html>

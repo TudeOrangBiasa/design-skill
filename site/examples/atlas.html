@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="design-system.css">
+<style>
+  :root{--bg:#14100c;--surface:#1e1812;--surface-2:#291f15;--ink:#f2e9d8;--ink-2:#a89b85;--line:#3a3125;--accent:#e3a94c;--accent-ink:#1a1206;--accent-soft:#3d311b}
+  body{background:var(--bg);color:var(--ink)}
+  .nav{border-bottom-color:var(--line)}
+  .nav-links a{color:var(--ink-2)}
+  .hero h1{font-family:"Archivo",system-ui,sans-serif;font-weight:800;font-size:clamp(42px,4.6vw,58px);letter-spacing:-.03em;text-transform:uppercase}
+  .hero .sub{color:var(--ink-2)}
+  .rows{border-top:2px solid var(--accent)}
+  .row .n{color:var(--accent)}
+  .row b{color:var(--ink)}
+  .chip{font:11px/1 var(--mono);letter-spacing:.08em;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:6px 10px;margin-left:auto}
+  .frame{min-height:360px}
+  .foot{color:var(--ink-2);border-top-color:var(--line)}
+</style>
+</head>
+<body>
+  <div class="nav">
+    <span class="brand">Atlas</span>
+    <div class="nav-links"><a>Expeditions</a><a>Journal</a><a class="btn small" href="#">Book</a></div>
+  </div>
+  <main class="hero">
+    <div>
+      <h1>Go where the map ends.</h1>
+      <p class="sub">Three expeditions a year, twelve travellers each, and a route the guidebooks have not caught up with yet.</p>
+      <div class="actions"><a class="btn" href="#">Plan the trip</a></div>
+      <div class="rows">
+        <div class="row"><span class="n">01</span><b>Kyoto, in season</b><span class="chip">MAR · 8 days · €2,400</span></div>
+        <div class="row"><span class="n">02</span><b>Patagonia on foot</b><span class="chip">NOV · 12 days · €3,100</span></div>
+        <div class="row"><span class="n">03</span><b>Svalbard, light</b><span class="chip">JUN · 7 days · €2,900</span></div>
+      </div>
+    </div>
+    <div class="frame">
+      <img src="../assets/examples-src/atlas.webp" alt="Golden canyon walls in light beams — Backgrounds Supply freebie">
+      <div class="cap">Perplex canyon — route 03, golden hour</div>
+    </div>
+  </main>
+  <div class="foot"><span>Atlas Expeditions</span><span>Oslo — Reykjavík</span><span>Since 2011</span></div>
+</body>
+</html>

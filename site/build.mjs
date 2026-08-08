@@ -323,6 +323,14 @@ mkdirSync(join(DIST, 'assets', 'bg'), { recursive: true });
 for (const f of readdirSync(join(SRC, 'assets', 'bg'))) {
   copyFileSync(join(SRC, 'assets', 'bg', f), join(DIST, 'assets', 'bg', f));
 }
+// example sites + magazine covers (HTML rendered to ffmpeg webp)
+mkdirSync(join(DIST, 'assets', 'examples'), { recursive: true });
+for (const f of readdirSync(join(SRC, 'assets', 'examples'))) {
+  copyFileSync(join(SRC, 'assets', 'examples', f), join(DIST, 'assets', 'examples', f));
+}
+for (const f of ['mag-editions.webp', 'mag-templates.webp']) {
+  copyFileSync(join(SRC, 'assets', f), join(DIST, 'assets', f));
+}
 // runtime slop specimen data (real tells; loaded client-side so the site's
 // own detector audits the site, not its evidence)
 if (existsSync(join(SRC, 'slop-specimens.js'))) {
