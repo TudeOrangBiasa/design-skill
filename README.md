@@ -14,7 +14,7 @@ New here? Start with [Using the Design Skill](GUIDE.md), a walkthrough of the sk
 
 v1 was a fork of [pbakaus/impeccable](https://github.com/pbakaus/impeccable): 55 reference files, 30 routed commands, a live browser subsystem, and zero measurement. The baseline proved it did not kill slop: with the skill loaded, models still produced gradient heroes and identical card grids, and build-from-brief got *worse*.
 
-v2 is a rebuild measured by [agent-skills-eval](https://github.com/darkrishabh/agent-skills-eval): SKILL.md teaches 10 tells with positive direction, five commands, grilling-first planning, and an on-demand eval scorecard. See [evals/BASELINE-v1.md](evals/BASELINE-v1.md).
+v2 is a rebuild measured by [agent-skills-eval](https://github.com/darkrishabh/agent-skills-eval): SKILL.md teaches 10 tells with positive direction, five commands, grilling-first planning, and an on-demand eval scorecard. See [evals/BASELINE-v1.md](evals/BASELINE-v1.md) and [evals/BASELINE-v2.md](evals/BASELINE-v2.md).
 
 ## Five commands
 

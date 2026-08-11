@@ -1,6 +1,9 @@
 ---
 name: design-skill
-description: Frontend design partner. Kills AI-slop by teaching 10 tells with positive direction. Five commands: detect, audit, deslop, shape, craft. Model-invoked: flag tells in-view, run detect. User-invoked: shape/craft interview first.
+description: >-
+  Frontend design partner. Kills AI-slop by teaching 10 tells with positive
+  direction. Five commands: detect, audit, deslop, shape, craft. Model-invoked:
+  flag tells in-view, run detect. User-invoked: shape/craft interview first.
 license: Apache 2.0
 allowed-tools: Read, Write, Bash, WebFetch, env
 ---

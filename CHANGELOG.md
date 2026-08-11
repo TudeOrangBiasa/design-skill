@@ -6,6 +6,33 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Nothing yet.
 
+## [2.0.0] - 2026-08-11
+
+From-scratch rebuild measured with agent-skills-eval (see evals/BASELINE-v1.md, evals/BASELINE-v2.md). Baseline: with_skill 17/54 (31.5%) -> v2 39/54 (72.2%); slop-kill + build-from-brief with_skill +62.5pp.
+
+### Added
+
+- SKILL.md rewritten (3052B): the 10 tells with positive direction (Tech gradient, Generic tech hue, Feature-tile grid, Accent rail, Unearned blur, Stat monument, Icon topper, Template hero, Default type stack, Anti-reference echo), an explicit Invocation section (model-invoked flag-and-detect, user-invoked grill-first), five commands with ability flags, and a five-line Never appendix.
+- `evals/`: agentskills.io evals.json (12 evals across slop-kill, build-from-brief, redesign, two-axis audit, a11y, deslop, shape-grill) + `agent-skills-eval.yaml` (opencode zen free API default, env-overridable) + `npm run eval`.
+- Two-axis audit (reference/audit.md): Standards x Spec run as parallel passes, reported side by side, never reranked. Modeled on Matt Pocock's code-review skill; detector.mjs is the smell baseline; laws-of-UX GAPs (Cognitive Bias, Doherty Threshold, Flow, Goal-Gradient) folded in; /24 score with a fixed denominator.
+- Grilling protocol (reference/shape.md): design tree, frontier rounds, every question with a recommendation, never assume. Copied from Matt Pocock's grilling skill.
+- `scripts/validate-catalog.mjs`: machine-validates command-metadata.json vs the dispatcher vs REFERENCE.md; wired into CI.
+- `node scripts/design.mjs validate DESIGN.md`: spec-conformance validation (frontmatter + 8 canonical sections in order) via design-parser.mjs.
+- `datasets/`: checklist-catalog.md and scraped galleries (git clones only, never shipped).
+
+### Changed
+
+- Command surface: 55 reference files + 30 routed commands collapsed to 5 commands (detect, audit, deslop, shape, craft) with abilities as flags; command-metadata.json regenerated from 23 stale entries to exactly 5.
+- reference/ merged to 7 files totalling 23401B (register, modes, craft-floor, audit, deslop, shape, craft), each <= 4096B; SKILL.md <= 3072B.
+- load-context.mjs is read-only (the `.design.md` -> PRODUCT.md auto-rename is gone) and now reads legacy brief.md. is-generated.mjs uses spawnSync array argv instead of a shell string.
+- craft.md: gates (do not compress), ability-flag doctrine, motionsites.ai free-gallery motion reference for --animate, DESIGN.md generation + validation for --document, drift upkeep (doctor.md merged).
+- Version 2.0.0; files[] = SKILL.md, REFERENCE.md, GUIDE.md, reference/, scripts/, agents/, evals/, plugins/, NOTICE.md, LICENSE.
+
+### Removed
+
+- Live browser subsystem (18 scripts incl. vendored modern-screenshot.umd.js, tagged `v1-live-mode`), reference/live.md, and the browser-use MCP requirement: the skill ships zero servers, no MCP, no browser automation.
+- The v1 routing tables, 30-item bans list, and per-surface interview scripts (hero, landing-pages, dashboards, redesign, new-work): replaced by the tells table and the merged playbooks.
+
 ## [1.0.26] - 2026-08-06
 
 ### Added
