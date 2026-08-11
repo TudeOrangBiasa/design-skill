@@ -17,10 +17,10 @@ The mode names what success looks like on this surface. Choose it from the reque
 
 ## Register still exists
 
-The register (brand or product, recorded in PRODUCT.md) is the durable lane of the product. The mode is the per-surface lens. Both are read together: a brand product with a settings page operates that page; a product company with a landing page persuades it. Load `reference/brand.md` or `reference/product.md` for the lane, then apply the mode.
+The register (brand or product, recorded in PRODUCT.md) is the durable lane of the product. The mode is the per-surface lens. Both are read together: a brand product with a settings page operates that page; a product company with a landing page persuades it. Load `reference/register.md` for the lane, then apply the mode.
 
 ## Where modes apply
 
-- `shape` and `new-work` select the mode during discovery and carry it through the brief.
+- `shape` selects the mode during discovery and carries it through the brief.
 - `craft` inherits the mode from the surface being built.
 - The mode lives in the surface brief or task scope, never in PRODUCT.md. Different surfaces of the same product can have different modes.

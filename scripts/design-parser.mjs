@@ -6,6 +6,8 @@
 // exposed on `model.frontmatter` alongside the prose-scraped sections;
 // consumers can prefer frontmatter values and fall back to prose.
 
+import fs from 'node:fs';
+
 const CANONICAL_SECTIONS = [
   'Overview',
   'Colors',
@@ -897,3 +899,68 @@ export function parseDesignMd(md) {
 }
 
 export { assessCoverage };
+
+// ---------- Validation (google-labs-code/design.md spec conformance) ----------
+
+/**
+ * Validate a DESIGN.md against the spec: YAML frontmatter present, and all
+ * eight canonical sections present in order. Returns a findings list;
+ * empty list = conformant.
+ */
+export function validateDesignMd(md) {
+  const findings = [];
+  const { frontmatter, body } = parseFrontmatter(md);
+
+  if (!frontmatter || Object.keys(frontmatter).length === 0) {
+    findings.push('missing YAML frontmatter (colors/typography/spacing tokens)');
+  }
+
+  const headings = [...body.matchAll(/^##\s+(.+)$/gm)].map((m) => m[1].trim());
+  const norm = (s) => s.replace(/&/g, '&amp;').trim().toLowerCase();
+  const present = new Map(headings.map((h) => [norm(h), h]));
+
+  let prevIndex = -1;
+  for (const expected of CANONICAL_SECTIONS) {
+    const key = norm(expected);
+    const actual = present.get(key);
+    if (!actual) {
+      findings.push(`missing section "## ${expected}"`);
+      continue;
+    }
+    const index = headings.findIndex((h) => norm(h) === key);
+    if (index < prevIndex) {
+      findings.push(`section "## ${expected}" is out of order (must follow the canonical sequence)`);
+    }
+    prevIndex = Math.max(prevIndex, index);
+  }
+
+  return findings;
+}
+
+function validateCli() {
+  const file = process.argv[2];
+  if (!file) {
+    console.error('usage: node design-parser.mjs <DESIGN.md>');
+    process.exit(2);
+  }
+  let md;
+  try {
+    md = fs.readFileSync(file, 'utf8');
+  } catch (err) {
+    console.error(`design-parser: cannot read ${file}: ${err.message}`);
+    process.exit(1);
+  }
+  const findings = validateDesignMd(md);
+  if (findings.length === 0) {
+    console.log(`${file}: conforms to the google-labs-code/design.md spec`);
+    process.exit(0);
+  }
+  console.error(`${file}: ${findings.length} spec finding(s):`);
+  for (const f of findings) console.error(`  - ${f}`);
+  process.exit(1);
+}
+
+const _parserRunning = process.argv[1];
+if (_parserRunning?.endsWith('design-parser.mjs') || _parserRunning?.endsWith('design-parser.mjs/')) {
+  validateCli();
+}

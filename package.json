@@ -1,7 +1,7 @@
 {
   "name": "agent-design-skill",
-  "version": "1.0.26",
-  "description": "Design partner skill for frontend agents. Procedure and ability commands for audit, refine, build, fix and design systems, with user-invoked planning and model-invoked slop detection.",
+  "version": "2.0.0",
+  "description": "Design partner skill for frontend agents. Kills AI-slop: 10 tells with positive direction, five commands (detect, audit, deslop, shape, craft), grilling-first planning, measured with agent-skills-eval.",
   "license": "Apache-2.0",
   "keywords": [
     "design",
@@ -22,8 +22,9 @@
     "REFERENCE.md",
     "GUIDE.md",
     "reference/",
-    "agents/",
     "scripts/",
+    "agents/",
+    "evals/",
     "plugins/",
     "NOTICE.md",
     "LICENSE"

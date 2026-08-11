@@ -13,7 +13,7 @@
  *      within the first ~300 characters — catches non-git projects.
  */
 
-import { execSync } from 'node:child_process';
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -40,17 +40,16 @@ export function isGeneratedFile(filePath, options = {}) {
 }
 
 function isGitIgnored(absPath, cwd) {
-  try {
-    execSync(`git check-ignore --quiet ${JSON.stringify(absPath)}`, {
-      cwd,
-      stdio: 'ignore',
-    });
-    return true; // exit 0 = ignored
-  } catch (err) {
-    // Exit code 1 = not ignored. Exit code 128 = not a git repo or other error.
-    // In both cases, treat as "not known to be ignored."
+  // spawnSync with array argv — no shell quoting, portable across platforms.
+  const result = spawnSync('git', ['check-ignore', '--quiet', '--', absPath], {
+    cwd,
+    encoding: 'utf8',
+  });
+  if (result.error) {
+    // git missing or failed to spawn — treat as "not known to be ignored".
     return false;
   }
+  return result.status === 0; // exit 0 = ignored
 }
 
 function hasGeneratedHeader(absPath) {

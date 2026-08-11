@@ -1,6 +1,6 @@
 # Checklist catalog
 
-Reference for per-surface checklist runs. Load when working a website page, a web app screen, a design-system component, a mobile app screen, or a flow; run the matching checklist items. Carries all 703 checks from Checklist Design. The universal pre-ship pass lives in [ui-checklist.md](ui-checklist.md); this file is the per-surface detail.
+Reference for per-surface checklist runs. Load when working a website page, a web app screen, a design-system component, a mobile app screen, or a flow; run the matching checklist items. Carries all 703 checks from Checklist Design. The universal pre-ship pass lives in [audit.md](audit.md); this file is the per-surface detail.
 
 ## Website (23 checklists, 160 checks)
 

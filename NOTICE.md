@@ -2,10 +2,10 @@
 
 agent-design-skill is licensed under Apache License 2.0. It merges and adapts material from the following projects:
 
-- [pbakaus/impeccable](https://github.com/pbakaus/impeccable): routing layer, command set, setup flow, bans. MIT licensed.
+- [pbakaus/impeccable](https://github.com/pbakaus/impeccable): detector lineage, craft-floor, modes doctrine. MIT licensed.
 - [Emil Kowalski's design engineering](https://animations.dev/): motion philosophy, animation decision framework, spring physics.
-- CommandCode design: report workflow, color, type, layout, interaction, responsive and copy philosophy.
+- CommandCode design: 10-tell slop theory, color, type, layout, interaction, responsive and copy philosophy.
 - [Anthropic's frontend-design skill](https://github.com/anthropics/skills): craft and shape flows, production quality bar, reference structure.
-- [modern-screenshot](https://github.com/qq15725/modern-screenshot): DOM-to-image capture for the live session, bundled as `scripts/modern-screenshot.umd.js` at version 4.7.0. MIT licensed.
+- [Matt Pocock's skills](https://github.com/mattpocock/skills): grilling protocol (shape) and two-axis review model (audit). See `.agents/skills/grilling/SKILL.md` and `.agents/skills/code-review/SKILL.md` in the development checkout.
 
 Apache 2.0 requires preserving notices from the original works. This file carries that attribution.

@@ -4,24 +4,28 @@ Thanks for contributing to the design skill. This file covers how to run the che
 
 ## Repository layout
 
-- `SKILL.md`: the entry point. Routing table, bans, invocation model.
-- `reference/`: doctrine. One file per command plus shared playbooks (modes, brand, product, hero, landing pages, craft floor).
+- `SKILL.md`: the entry point. 10 tells, invocation modes, the five commands.
+- `reference/`: doctrine. One file per command (audit, deslop, shape, craft) plus shared playbooks (register, modes, craft floor).
 - `scripts/`: deterministic Node CLIs, no npm dependencies.
-- `scripts/command-metadata.json`: command catalog that drives `{{available_commands}}`.
+- `scripts/command-metadata.json`: command catalog (single source of truth), machine-validated by `validate-catalog.mjs`.
+- `scripts/validate-catalog.mjs`: asserts command metadata, the dispatcher, and the reference index agree.
 - `plugins/install.sh`: per-agent installer.
 - `agents/`: optional companion agents.
+- `evals/`: the agent-skills-eval suite and baseline scorecards.
+- `datasets/`: scraped reference material (git clones only, never shipped).
 
 ## Checks
 
 Run before submitting anything:
 
 ```bash
-npm test                          # 16 tests, node --test
+npm test                          # 21 tests, node --test
 npm run lint:docs                 # em dashes, banned AI-prose phrases, broken links
+npm run validate-catalog          # command catalog vs dispatcher vs reference index
 node scripts/design.mjs --help    # dispatcher works
 ```
 
-CI runs the same three checks plus a SkillSpector security scan. There is nothing to install: the skill has zero npm dependencies and needs only Node >= 18.
+CI runs the same checks plus a SkillSpector security scan. There is nothing to install: the skill has zero npm dependencies and needs only Node >= 18.
 
 ## Prose conventions
 
@@ -32,17 +36,27 @@ The doc lint is a hard gate. Follow the anti-AI prose rules in REFERENCE.md:
 - No exclamation points. Sentence case everywhere.
 - Every internal markdown link target must exist. The lint checks this.
 
-Single source of truth: when a rule belongs in one place, link to it, do not copy it. `reference/browser-layout.md` is the model: layout.md and responsive.md link to its sections instead of restating them. New normative lists get the same treatment.
+Single source of truth: when a rule belongs in one place, link to it, do not copy it. New normative lists get the same treatment.
+
+## Size budget
+
+The skill ships inside a model's context, so size is a contract:
+
+- `SKILL.md` <= 3072 bytes.
+- Each `reference/*.md` <= 4096 bytes; the `reference/` directory <= 25600 bytes total.
+- The 10-tell table in SKILL.md is the teaching core. Reference files add depth; they never restate the table.
 
 ## Adding a command
 
 A command touches five places. Do all five in one change:
 
-1. `scripts/command-metadata.json`: add the entry with a description and argument hint.
-2. `SKILL.md`: add a row to the routing table and, when the command ships CLI automation, a line in the Tooling section.
+1. `scripts/command-metadata.json`: add the entry (`type: "flow"|"script"`, flags, description, `reference: "<file>.md"`).
+2. `SKILL.md`: add a row to the Commands section (and keep it within the size budget).
 3. `reference/<command>.md`: the command playbook. Link to shared doctrine instead of restating it.
-4. `scripts/design.mjs`: add the subcommand to the dispatcher map.
+4. `scripts/design.mjs`: add a dispatcher tool when the command ships CLI automation.
 5. A test, when the command has deterministic behavior (detector, parser, concept-seed are the existing test targets).
+
+`npm run validate-catalog` must stay green.
 
 ## Adding a script
 
@@ -51,9 +65,9 @@ A command touches five places. Do all five in one change:
 - Place it under `scripts/`, then wire it into the `scripts/design.mjs` dispatcher map.
 - Keep it small. A script that needs its own subsystem deserves a review first.
 
-## Vendored code
+## Evals
 
-The one vendored bundle is `scripts/modern-screenshot.umd.js` (MIT, pinned at 4.7.0, attributed in NOTICE.md). If you replace or upgrade it, update the header comment and NOTICE.md in the same change.
+The skill is measured with `npm run eval` (agent-skills-eval, 12 evals, with_skill vs without_skill). Evals run on demand, never in CI. When you change doctrine that affects what the model outputs, re-run the suite and record the delta in `evals/BASELINE-v2.md`. See [evals/BASELINE-v1.md](evals/BASELINE-v1.md) for the backend contract (opencode zen free API by default, env-overridable).
 
 ## Security
 

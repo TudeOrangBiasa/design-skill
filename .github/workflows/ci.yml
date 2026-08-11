@@ -16,6 +16,7 @@ jobs:
           node-version: 20
       - run: npm test
       - run: npm run lint:docs
+      - run: npm run validate-catalog
       - name: Dispatcher smoke
         run: node scripts/design.mjs --help | grep -q "Usage: design"
 
