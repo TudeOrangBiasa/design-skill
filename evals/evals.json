@@ -1,0 +1,164 @@
+{
+  "skill_name": "design-skill",
+  "evals": [
+    {
+      "id": "slop-kill-1",
+      "name": "slop kill: gradient hero page",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": ["scripts/fixtures/slop.html"],
+      "expected_output": "A landing page with a deliberate, non-template design: no purple-blue gradient hero, no three identical feature cards, no invented stats.",
+      "assertions": [
+        "The output contains no purple-blue or violet gradient hero or gradient text",
+        "The output does not use three or more identical equal-width feature cards",
+        "The output contains no invented statistic rows (10k+, 99.9%, 24/7)",
+        "The page has a clear visual hierarchy with one primary action",
+        "The copy avoids marketing buzzwords (streamline, empower, supercharge, seamless)"
+      ]
+    },
+    {
+      "id": "slop-kill-2",
+      "name": "slop kill: new-slop tells",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": ["scripts/fixtures/new-slop.html"],
+      "expected_output": "A page whose design is not guessable from AI anti-reference lists.",
+      "assertions": [
+        "The output does not use glassmorphism (backdrop-blur) as a default surface treatment",
+        "The output does not use the identical-icon-tile-above-heading pattern",
+        "The output does not use an accent stripe as decoration",
+        "Typography shows editorial contrast: not one font at one weight for everything",
+        "The output does not use a template hero (centered headline, 2-line subtitle, primary+ghost buttons, 100vh)"
+      ]
+    },
+    {
+      "id": "slop-kill-3",
+      "name": "slop kill: copy voice",
+      "prompt": "Rewrite only the copy of this page so it reads like a human wrote it, not an LLM. Output the revised copy with the section headings.",
+      "files": ["scripts/fixtures/slop.html"],
+      "expected_output": "Copy with a specific voice and concrete claims.",
+      "assertions": [
+        "The copy contains no em-dash saturation (no more than 1 per 500 characters)",
+        "The copy contains no aphoristic manufactured-contrast lines (Not a X. A Y.)",
+        "The copy avoids three-word marketing triads and 'say goodbye to X' constructions",
+        "Every claim is specific enough to be fact-checked"
+      ]
+    },
+    {
+      "id": "build-from-brief-1",
+      "name": "build from brief: dashboard",
+      "prompt": "Build a single-page HTML/CSS dashboard for 'Roastline', a coffee roastery's production tool, used by ops managers to track batch yields and roast profiles. Mode: Operate. Follow the skill document if one is attached.",
+      "expected_output": "A functional-feeling dashboard that fits the brief.",
+      "assertions": [
+        "The output is recognizably a coffee-roastery production dashboard (batch, roast, yield vocabulary)",
+        "The layout supports task completion: primary actions and data are scannable, not decorative",
+        "The output does not use the generic tech hue (#6366F1 indigo) or a blue-violet gradient",
+        "The design does not use three identical equal-weight cards for the main content",
+        "The color palette is not guessable from the product category alone"
+      ]
+    },
+    {
+      "id": "build-from-brief-2",
+      "name": "build from brief: landing",
+      "prompt": "Build a landing page for 'Roastline', a coffee roastery selling subscription beans. Audience: home brewers who care about origin and freshness. Mode: Persuade. Follow the skill document if one is attached.",
+      "expected_output": "A persuasive landing page with a point of view.",
+      "assertions": [
+        "The page has a clear persuasion structure: one hook, one primary action, proof that supports the claim",
+        "The design has a distinctive character beyond Tailwind defaults (not Inter-everything, not a template hero)",
+        "No invented stats or unverifiable claims",
+        "The output does not use an emoji as an icon",
+        "Typography has hierarchy: display, subhead, and body are visually distinct"
+      ]
+    },
+    {
+      "id": "redesign-character-1",
+      "name": "redesign: make it bolder",
+      "prompt": "Redesign this page to be bolder and more confident. Keep the content. Output the complete HTML.",
+      "files": ["scripts/fixtures/slop.html"],
+      "expected_output": "The same content with a stronger, more assertive design character.",
+      "assertions": [
+        "The redesign has a clearly stronger visual character than the input (bigger type, stronger contrast, more deliberate color)",
+        "Accessibility is not broken: text/background contrast remains sufficient",
+        "The redesign does not merely add gradient text or a purple-blue palette",
+        "The redesign does not increase the number of equally-weighted elements"
+      ]
+    },
+    {
+      "id": "audit-report-1",
+      "name": "audit report: two axes",
+      "prompt": "The brief for this page: a persuasive landing page for 'Roastline', a coffee subscription for home brewers who care about origin and freshness. Audit the page against that brief AND against design standards. Produce a structured report. Follow the skill document if one is attached.",
+      "files": ["scripts/fixtures/slop.html"],
+      "expected_output": "A two-axis audit report: a Standards axis and a Spec axis, reported separately.",
+      "assertions": [
+        "The report has two separate axes: a Standards axis (conformance: layout, a11y, hierarchy, tells) and a Spec axis (fidelity to the coffee-subscription brief)",
+        "The two axes are reported separately and are not merged or reranked into one score",
+        "The Spec axis quotes the brief and identifies missing, partial, or scope-creep requirements",
+        "The Standards axis uses severity levels consistently and names the element and fix for each finding",
+        "No finding is invented or unsupported by the input HTML"
+      ]
+    },
+    {
+      "id": "audit-report-2",
+      "name": "audit report: honesty",
+      "prompt": "No brief exists for this page. Audit it for design problems. The page has no images and no forms. Produce a structured report. Follow the skill document if one is attached.",
+      "files": ["scripts/fixtures/new-slop.html"],
+      "expected_output": "An audit that stays truthful about what is and is not in the page.",
+      "assertions": [
+        "The report states 'no spec available' for the Spec axis instead of inventing a brief",
+        "The report does not claim missing alt text or missing form labels exist when there are no images or forms",
+        "The report flags real issues present in the HTML (layout, hierarchy, color)",
+        "Every fix suggestion is verifiable against the input"
+      ]
+    },
+    {
+      "id": "a11y-fix-1",
+      "name": "a11y fix: contrast and targets",
+      "prompt": "Fix the accessibility problems in this HTML: contrast, touch targets, and text sizing. Output the complete corrected HTML.",
+      "files": ["scripts/fixtures/slop.html"],
+      "expected_output": "The page with WCAG-conformant contrast and touch targets, visually unchanged in intent.",
+      "assertions": [
+        "Text on colored backgrounds meets WCAG AA contrast (4.5:1 body, 3:1 large)",
+        "Interactive elements have at least 44x44px touch targets",
+        "The fix did not change the page's content or design intent",
+        "No new layout breakage was introduced"
+      ]
+    },
+    {
+      "id": "a11y-fix-2",
+      "name": "a11y fix: semantics",
+      "prompt": "Fix the semantic accessibility problems in this HTML: landmarks, heading order, focus. Output the complete corrected HTML.",
+      "files": ["scripts/fixtures/new-slop.html"],
+      "expected_output": "The page with correct landmarks, a single h1, ordered headings, and visible focus states.",
+      "assertions": [
+        "The page has proper landmark elements (header, main, footer or equivalent)",
+        "There is exactly one h1 and heading levels do not skip",
+        "Interactive elements have visible focus states",
+        "The fix did not change the visual design"
+      ]
+    },
+    {
+      "id": "deslop-1",
+      "name": "deslop: targeted fix",
+      "prompt": "This page has AI-slop tells. Identify each tell you find and fix it with a positive alternative. Output the complete rewritten HTML plus a one-line note per fix.",
+      "files": ["scripts/fixtures/new-slop.html"],
+      "expected_output": "A page with each tell replaced by a deliberate alternative, documented.",
+      "assertions": [
+        "Each identified tell was replaced, not just removed: the replacement has an intentional rationale",
+        "The fixes do not introduce a different recognizable AI tell",
+        "The page keeps its content and purpose",
+        "The notes are specific enough that a reviewer can verify each fix"
+      ]
+    },
+    {
+      "id": "shape-interview-1",
+      "name": "shape: grill before building",
+      "prompt": "The user says: 'build me a landing page for my new product'. You may ask up to 3 questions before building. Follow the skill document if one is attached.",
+      "expected_output": "Frontier-round grilling: the questions whose answers are needed now, each with a recommended answer, and no code written.",
+      "assertions": [
+        "Every question carries a recommended answer (not an open menu)",
+        "Questions are asked in rounds on the frontier: no question depends on an answer the same round didn't settle, and none asks for a fact the agent could look up itself",
+        "Questions target register, mode, audience, and success criteria, not trivia",
+        "The response does not assume answers: it does not silently pick a register, palette, or layout for the user",
+        "No code was written before the brief is confirmed"
+      ]
+    }
+  ]
+}

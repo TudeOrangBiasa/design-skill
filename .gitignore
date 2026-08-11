@@ -7,3 +7,13 @@
 research/*.html
 research/*_files/
 research/*.json
+
+# Dev-environment install artifacts (not package content).
+# `npx skills@latest add ...` writes these; see REFACTOR-PLAN.md Phase 0.
+.agents/
+.claude/
+skills-lock.json
+
+# Eval harness artifacts + local API key (see evals/BASELINE-v1.md).
+eval-workspace/
+.eval-key.env
