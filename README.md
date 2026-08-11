@@ -56,7 +56,7 @@ The skill is measured, not assumed. Run the scorecard on demand (not in CI):
 npm run eval
 ```
 
-12 evals across slop-kill, build-from-brief, redesign, two-axis audit, a11y, deslop, and shape-grill families, run with_skill vs without_skill against the [agent-skills-eval](https://github.com/darkrishabh/agent-skills-eval) harness. Default backend: opencode zen free API (`deepseek-v4-flash-free`). Override with `OPENAI_COMPATIBLE_BASE_URL` / `OPENAI_COMPATIBLE_MODEL` / `OPENAI_COMPATIBLE_API_KEY`, or export `EVAL_API_KEY`. See [evals/BASELINE-v1.md](evals/BASELINE-v1.md).
+58 evals across slop-kill (including 11 real specimens from impeccable's antipattern-examples and 35 tell fragments from killaislop.com), build-from-brief, redesign, two-axis audit, a11y, deslop, and shape-grill families, run with_skill vs without_skill against the [agent-skills-eval](https://github.com/darkrishabh/agent-skills-eval) harness. Default backend: opencode zen free API (`deepseek-v4-flash-free`). Override with `OPENAI_COMPATIBLE_BASE_URL` / `OPENAI_COMPATIBLE_MODEL` / `OPENAI_COMPATIBLE_API_KEY`, or export `EVAL_API_KEY`. See [evals/BASELINE-v1.md](evals/BASELINE-v1.md) and [evals/BASELINE-v2.md](evals/BASELINE-v2.md).
 
 ## Install
 

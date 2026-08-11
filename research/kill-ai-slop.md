@@ -1,6 +1,8 @@
 # Kill AI Slop — learned and mapped to the design skill
 
-Status: research notes, 2026-08-06. Source: https://killaislop.com/ (fetched live; field guide in 4 languages; 35 tells with before/after HTML pairs + code signals, plus 6 principles). Purpose: audit which tells the skill's 26-rule detector already catches, which it misses, and which become new detector rules and doctrine. Outside the linted corpus.
+Status: research notes, 2026-08-06 (extended 2026-08-11). Source: https://killaislop.com/ (fetched live; field guide in 4 languages; 35 tells with before/after HTML pairs + code signals, plus 6 principles). Purpose: audit which tells the skill's 26-rule detector already catches, which it misses, and which become new detector rules and doctrine. Outside the linted corpus.
+
+2026-08-11 addendum: the 35 "before" specimens were extracted from the live DOM (the site renders them as HTML panes), enriched with their slop CSS from the site's stylesheet (the fragments are class-based; inline styles were needed for self-contained fixtures), and saved to `scripts/fixtures/killaislop/<tell>.html`. They are now eval fixtures: `slop-kill-15` through `slop-kill-49` in evals/evals.json (58-eval suite). Detector coverage on the enriched fragments: 26/35 exit 1 with error findings; the misses are structural/LLM patterns (editorial-dashboard, tasteful-terminal, default-semantic-palette, badge-spam, emoji-everywhere, feature-grid, serif-emphasis, decorative-text-lines, ai-copy-tics) whose rules need full-page context or exact class signatures.
 
 The site also ships its own Agent Skill ("kill-ai-slop") that scans a project, flags each tell from this catalogue, explains why, and applies clean fixes in an approved scope: detect / explain / fix. Same architecture as this skill (detector + doctrine + fix flows); worth cross-referencing if it is public on GitHub.
 
