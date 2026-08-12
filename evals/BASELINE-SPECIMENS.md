@@ -73,3 +73,13 @@ The checklist is now mandatory and measured: `reference/checklist.md` (the unive
 | deslop-icons-1 (sanity) | 4/5 | 0/5 |
 
 The checklist eval is the strongest discriminator in the suite: 6/6 with the skill vs 0/6 without. Note: the eval harness loads only SKILL.md, so the six dimensions are enumerated in the eval prompt (mirroring the audit command); in a real harness the audit loads reference/checklist.md itself.
+
+## FINAL verification (iteration-18, 65-eval run)
+
+All changes in (core checklist mandatory, 3 goal evals, geometry detector rules, DESIGN.md drift check). First run with **0/64 API failures**.
+
+| | with_skill | without_skill | Lift |
+|---|---|---|---|
+| **Total** | **194/234 (82.9%)** | **51/234 (21.8%)** | **+61.1pp** |
+
+Key evals this run: goal-character **5/5**, goal-motion **5/5**, goal-narrative 4/5 (one-CTA, variance), audit-checklist 5/6 (was 6/6), deslop-icons 3/5 (was 5/5), invented-stat-row 1/3 (was 3/3). The aggregate is stable across runs (with 82.9-88.9%, lift +61 to +76pp); individual evals swing +-1-2 assertions run to run (model + judge variance). The strongest stable signals: character and motion 5/5, checklist 6/6-best vs 0/6 without, without-skill stuck at 15-22%.
