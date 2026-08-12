@@ -733,7 +733,7 @@
     {
       "id": "slop-kill-43",
       "name": "slop kill: The invented stat row",
-      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose, but invented stats (10k+, 99.9%, 24/7) are tells, not content - replace them with real numbers or specific claims. Output the complete rewritten HTML.",
       "files": [
         "scripts/fixtures/killaislop/fake-stat-trio.html"
       ],
@@ -868,6 +868,45 @@
         "Primary actions sit where the scan ends and choices are limited (Hick's, Fitts)",
         "There is one clear focal point per viewport (Von Restorff)",
         "The dashboard does not use the generic tech hue (#6366F1) or three identical equal-weight cards"
+      ]
+    },
+    {
+      "id": "goal-character-1",
+      "name": "GOAL: landing has genuine character (jiwa)",
+      "prompt": "Build a landing page for 'Roastline', a coffee roastery selling subscription beans to home brewers who care about origin and freshness. Mode: Persuade. The page must have genuine character and a point of view - a reviewer should be able to describe its personality in one sentence. Follow the skill document if one is attached.",
+      "expected_output": "A landing page with a named, distinctive character - not a neutral generic template.",
+      "assertions": [
+        "The design has a distinctive character and point of view, not a neutral generic template",
+        "The color palette is used with intent and is not guessable from the product category alone",
+        "Typography shows deliberate editorial contrast, not a reflex default stack",
+        "The hero is not a template hero (no centered stack, no invented stats, no generic AI layout)",
+        "The copy has a specific voice with concrete, fact-checkable claims"
+      ]
+    },
+    {
+      "id": "goal-animation-1",
+      "name": "GOAL: motion has purpose and custom easing (Emil)",
+      "prompt": "Build a single-page HTML/CSS landing page for 'Roastline', a coffee roastery selling subscription beans. Add purposeful animation: one primary motion per surface, custom easing, and never animate everything. Follow the skill document if one is attached.",
+      "expected_output": "Motion that follows a decision framework: purposeful, one primary moment per surface, custom easing.",
+      "assertions": [
+        "Motion is purposeful (reveal, state, or feedback), not decorative or everywhere",
+        "There is one primary motion per surface, not scattered identical entrances",
+        "Easing is custom (cubic-bezier beyond the browser default), not bounce or default everywhere",
+        "No layout-property animation (width/height); only transform/opacity or grid-template-rows",
+        "Motion does not block content and respects reduced-motion preference"
+      ]
+    },
+    {
+      "id": "goal-narrative-1",
+      "name": "GOAL: landing follows a six-beat narrative arc",
+      "prompt": "Build a landing page for 'Roastline', a coffee roastery selling subscription beans to home brewers who care about origin and freshness. Mode: Persuade. Structure it as a story with a clear narrative arc. Follow the skill document if one is attached.",
+      "expected_output": "A landing page structured as a narrative: hook, problem, solution, how it works, proof, resolution.",
+      "assertions": [
+        "The page follows a narrative arc: hook, then the problem, the solution, how it works, proof, and a resolution CTA",
+        "There is one primary CTA and all buttons lead to the same goal",
+        "The problem is named in the user's words, not a generic pain point",
+        "Proof is attributable (who said it, what result), not invented stats",
+        "Every section advances the story; there is no filler component"
       ]
     }
   ]

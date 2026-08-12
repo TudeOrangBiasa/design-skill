@@ -42,7 +42,7 @@ Single source of truth: when a rule belongs in one place, link to it, do not cop
 
 The skill ships inside a model's context, so size is a contract:
 
-- `SKILL.md` <= 3600 bytes (raised from 3072 on 2026-08-11: layout/icon/imagery/OKLCH/reference-hunt doctrine must stay always-loaded; ~900 tokens, inside SkillOpt's 300-2000-token artifact envelope; v1 was 14.7KB).
+- `SKILL.md` <= 3850 bytes (raised 3072 -> 3600 -> 3850 as goal doctrine landed: Build doctrine now carries layout, story, motion, numbers, modals, register-fit, icons, imagery, OKLCH, font, reference-hunt - ~960 tokens, inside SkillOpt's 300-2000-token artifact envelope; v1 was 14.7KB).
 - Each `reference/*.md` <= 4096 bytes; the `reference/` directory <= 25600 bytes total.
 - The 10-tell table + Build doctrine in SKILL.md are the teaching core. Reference files add depth; they never restate the table.
 
