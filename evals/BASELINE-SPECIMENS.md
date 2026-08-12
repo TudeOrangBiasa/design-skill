@@ -41,10 +41,7 @@ The original gate (BASELINE-v2.md, slop-kill + build-from-brief, +15pp) was meas
 ## How to re-run
 
 ```bash
-npm run eval                                          # zen-free backend (default)
-OPENAI_COMPATIBLE_BASE_URL=https://api.deepseek.com \
-OPENAI_COMPATIBLE_MODEL=deepseek-v4-flash \
-npm run eval                                          # fast DeepSeek backend
+npm run eval   # default: DeepSeek API (agent-skills-eval.yaml); key in .eval-key.env or EVAL_API_KEY
 ```
 
-The eval key comes from `.eval-key.env` (gitignored) or `EVAL_API_KEY`. DeepSeek: put the DeepSeek API key in `.eval-key.env` (or export `EVAL_API_KEY`); zen: the opencode zen key.
+Zen-free fallback: `OPENAI_COMPATIBLE_BASE_URL=https://opencode.ai/zen/v1 OPENAI_COMPATIBLE_MODEL=deepseek-v4-flash-free npm run eval` (zen stalls occasionally: no request timeout in the harness, two calls hung ~10h during the specimen run).

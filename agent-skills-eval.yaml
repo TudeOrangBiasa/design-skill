@@ -1,9 +1,9 @@
 root: .
 workspace: ./eval-workspace
 baseline: true
-target: deepseek-v4-flash-free
-judge: deepseek-v4-flash-free
-baseUrl: https://opencode.ai/zen/v1
+target: deepseek-v4-flash
+judge: deepseek-v4-flash
+baseUrl: https://api.deepseek.com
 apiKeyEnv: EVAL_API_KEY
 concurrency: 4
 layout: iteration
