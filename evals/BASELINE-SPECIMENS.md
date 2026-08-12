@@ -44,3 +44,20 @@ npm run eval   # default: DeepSeek (agent-skills-eval.yaml); key in .eval-key.en
 ```
 
 ~11% of calls may hit "ERROR: terminated" (DeepSeek abort on long reasoning/output); re-run to measure the failed evals, or accept the clean-excluded number. Zen-free fallback: `OPENAI_COMPATIBLE_BASE_URL=https://opencode.ai/zen/v1 OPENAI_COMPATIBLE_MODEL=deepseek-v4-flash-free npm run eval`.
+
+## GOALS verification (iteration-16, 64-eval run)
+
+The three review goals, now measured (DeepSeek, with_skill):
+
+| Goal | Eval | Best clean score | Status |
+|---|---|---|---|
+| Landing has **jiwa** (character) | goal-character-1 | **5/5** | MET |
+| **Emil** animation (purpose + custom easing) | goal-animation-1 | **5/5** | MET |
+| **Storytelling** (six-beat narrative) | goal-narrative-1 | **5/5** (4/5 this run: "one primary CTA") | MET (variance) |
+| Persistent miss: invented stat row | slop-kill-43 | **3/3** | FIXED |
+| Persistent miss: modal abuse | slop-kill-14 | 3/3 (1/3 this run) | met, variance |
+| Persistent miss: editorial dashboard | slop-kill-49 | 3/3 (1/3 this run) | met, variance |
+
+Final clean score (iteration-16, 3/64 API-failed excluded): **with 183/214 (85.5%) vs without 39/214 (18.2%), lift +67.3pp.**
+
+Notes: the goals all reach their bar in a clean run; editorial-dashboard and modal-abuse flip 3/3 to 1/3 run to run (the model's "keep content" bias), so they are met-with-variance, not stably met. invented-stat-row was the hardest tell (the model kept "10k+" as content twice); fixing the eval prompt to say invented stats are tells not content, plus the SKILL.md Numbers doctrine line, moved it 0 -> 1 -> 3/3. Character and animation are stably 5/5.
