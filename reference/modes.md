@@ -19,6 +19,14 @@ The mode names what success looks like on this surface. Choose it from the reque
 
 The register (brand or product, recorded in PRODUCT.md) is the durable lane of the product. The mode is the per-surface lens. Both are read together: a brand product with a settings page operates that page; a product company with a landing page persuades it. Load `reference/register.md` for the lane, then apply the mode.
 
+## Layout planning: boxes, no browser needed
+
+Plan the surface as boxes before writing markup. Name the grid frame in one sentence (12-col, named columns, or asymmetric split), then for every major block state: role, column span, and viewport relationship (full-bleed / contained / offset). Example: "hero: full-bleed, content 72% left-aligned; features: asymmetric 5/7 split; footer: contained, centered."
+
+Viewport discipline (locked breakpoints, restored from v1 browser-layout.md): **375 / 640 / 768 / 1024 / 1280 / 1536**. Mobile-first: build at 375, then verify each breakpoint. At every width check: no fixed width wider than the viewport, no horizontal scroll, no text crop (fixed height + overflow hidden on a text container), no element hanging off the edge.
+
+Self-checks for unnatural placement: absolutely-positioned elements must state an inset (top/left/right/bottom) and a containing block; no negative margins to force overlap; spacing comes from the grid frame, not from eyeballing. If a box's role or position cannot be stated in one line, the layout is not decided yet.
+
 ## Where modes apply
 
 - `shape` selects the mode during discovery and carries it through the brief.
