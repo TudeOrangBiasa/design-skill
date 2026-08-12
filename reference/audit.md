@@ -12,6 +12,8 @@ Modeled on Matt Pocock's code-review skill: run two independent review passes an
 
 Conformance to the skill's documented standards. The deterministic `detector.mjs` pass is the smell baseline (analogous to Fowler's code smells) - **run it first and report its findings verbatim** (exit 1 = error-severity findings). Then the craft-floor rules (reference/craft-floor.md), a11y (contrast ≥4.5:1 body / 3:1 large, touch 44×44, landmarks, heading order, focus), responsive rules, and the 10-tell catalog (SKILL.md).
 
+Layout dimension (the Laws-of-UX basis, reference/laws-of-ux doctrine): sections differ in structure and rhythm; one focal point per viewport (Von Restorff); the layout serves the register - a dashboard must stay dense and scannable (Operate), a brand page can editorialize (Persuade); overcorrecting a tell into a narrow centered column on an Operate surface is itself a finding (register-fit). Choices are limited by scope, not padded (Hick's); primary actions sit where the scan ends (Fitts). The checklist pass (checklist.design catalog in datasets/, optional deep pass) covers per-surface completeness.
+
 Two binding rules:
 
 - **The brief/DESIGN.md overrides.** A documented design decision that deliberately uses a flagged pattern suppresses the finding.
