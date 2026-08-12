@@ -37,7 +37,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node --test scripts/design-parser.test.mjs scripts/detector.test.mjs scripts/concept-seed.test.mjs",
+    "test": "node --test scripts/design-parser.test.mjs scripts/detector.test.mjs scripts/concept-seed.test.mjs scripts/design-system-check.test.mjs",
     "lint:docs": "node scripts/lint-docs.mjs",
     "detect": "node scripts/detector.mjs",
     "eval": "set -a; [ -f ./.eval-key.env ] && . ./.eval-key.env; set +a; EVAL_API_KEY=${EVAL_API_KEY:?EVAL_API_KEY is not set: export it, or create .eval-key.env (see evals/BASELINE-v1.md)} npx -y agent-skills-eval --config agent-skills-eval.yaml ${OPENAI_COMPATIBLE_BASE_URL:+--base-url $OPENAI_COMPATIBLE_BASE_URL} ${OPENAI_COMPATIBLE_MODEL:+--target $OPENAI_COMPATIBLE_MODEL --judge $OPENAI_COMPATIBLE_MODEL}",

@@ -25,6 +25,7 @@ const TOOLS = {
   'load-context': { script: 'load-context.mjs', help: 'Load existing design context (PRODUCT.md, DESIGN.md, brief.md) — read-only' },
   validate: { script: 'design-parser.mjs', help: 'Validate a DESIGN.md against the google-labs-code/design.md spec (sections, order, frontmatter)' },
   seed: { script: 'concept-seed.mjs', help: 'Seed concept directions' },
+  'check-design': { script: 'design-system-check.mjs', help: 'Check target tokens (colors, fonts, radii) against a DESIGN.md - drift detection' },
 };
 
 function version() {

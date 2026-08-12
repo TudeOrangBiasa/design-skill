@@ -29,5 +29,6 @@ Command definitions live in `scripts/command-metadata.json` (single source of tr
 - `scripts/load-context.mjs` - reads PRODUCT.md / DESIGN.md / brief.md (read-only)
 - `scripts/design-parser.mjs` - parses + validates DESIGN.md (google-labs-code/design.md spec)
 - `scripts/concept-seed.mjs` - seeded direction dice for shape
+- `scripts/design-system-check.mjs` - DESIGN.md drift detection (colors, fonts, radii)
 
 Datasets (git clones only, never shipped): `datasets/checklist-catalog.md` (checklist.design catalog, optional deep audit pass).

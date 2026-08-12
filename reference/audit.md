@@ -10,7 +10,7 @@ Modeled on Matt Pocock's code-review skill: run two independent review passes an
 
 ## Standards axis
 
-Conformance to the skill's documented standards. The deterministic `detector.mjs` pass is the smell baseline (analogous to Fowler's code smells) - **run it first and report its findings verbatim** (exit 1 = error-severity findings). Then the craft-floor rules (reference/craft-floor.md), a11y (contrast ≥4.5:1 body / 3:1 large, touch 44×44, landmarks, heading order, focus), responsive rules, and the 10-tell catalog (SKILL.md). **Run the core checklist (reference/checklist.md) on every audit** - it is the universal pre-ship floor; the 703-check catalog in datasets/ stays an optional deep pass (git clones).
+Conformance to the skill's documented standards. The deterministic `detector.mjs` pass is the smell baseline (analogous to Fowler's code smells) - **run it first and report its findings verbatim** (exit 1 = error-severity findings). Then the craft-floor rules (reference/craft-floor.md), a11y (contrast ≥4.5:1 body / 3:1 large, touch 44×44, landmarks, heading order, focus), responsive rules, and the 10-tell catalog (SKILL.md). **Run the core checklist (reference/checklist.md) on every audit** - the universal pre-ship floor; the datasets/ catalog stays an optional deep pass. When DESIGN.md exists, run `node scripts/design-system-check.mjs` and report token drift (colors, fonts, radii).
 
 Layout dimension (Laws-of-UX basis): sections differ in structure and rhythm; one focal point per viewport (Von Restorff); layout serves the register - a dashboard stays dense (Operate), a brand page can editorialize (Persuade); overcorrecting a tell into a narrow centered column is itself a finding. Choices limited by scope (Hick's); primary actions where the scan ends (Fitts). The checklist pass (datasets/, optional) covers completeness.
 
@@ -19,7 +19,7 @@ Two binding rules:
 - **The brief/DESIGN.md overrides.** A documented design decision that deliberately uses a flagged pattern suppresses the finding.
 - **Always a judgement call.** Each tell is a labelled heuristic, never a hard violation - except detector error-severity findings, which are hard. Skip anything tooling already enforces.
 
-Laws-of-UX doctrine to apply: Cognitive Bias - audit interview flows for anchoring effects; Doherty Threshold - system feedback should be <400ms; Flow - onboarding calibrates difficulty; Goal-Gradient - multi-step flows show progress.
+Laws-of-UX: Cognitive Bias - interview flows fight anchoring; Doherty - feedback <400ms; Flow - onboarding calibrates difficulty; Goal-Gradient - progress indicators in multi-step flows.
 
 Flag mapping: `--a11y` (contrast, targets, semantics) · `--responsive` (breakpoints, overflow, touch) · `--interaction` (states, feedback timing, keyboard) · `--checkup` (consistency, drift vs DESIGN.md) · `--polish` (alignment, spacing, micro-detail). No flag = full Standards pass.
 
