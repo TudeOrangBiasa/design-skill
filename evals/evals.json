@@ -908,6 +908,23 @@
         "Proof is attributable (who said it, what result), not invented stats",
         "Every section advances the story; there is no filler component"
       ]
+    },
+    {
+      "id": "audit-checklist-1",
+      "name": "audit: core checklist coverage",
+      "prompt": "Audit this HTML page against the core design checklist: content (real copy, labeled links, alt text), structure & semantics (one h1, landmarks, no skipped headings, form labels), states (hover/focus/disabled/loading/error/empty, visible focus), accessibility (contrast 4.5:1/3:1, touch targets 44x44), responsive (no horizontal scroll, no text clipping), quality (no console errors, no broken links/images). Produce a structured report with element-level findings. Follow the skill document if one is attached.",
+      "files": [
+        "scripts/fixtures/slop.html"
+      ],
+      "expected_output": "A structured audit report covering the six core-checklist dimensions with element-level findings.",
+      "assertions": [
+        "The report covers content: real copy, labeled links, and alt text",
+        "The report covers structure & semantics: one h1, landmarks, no skipped headings, form labels",
+        "The report covers states: hover/focus/disabled/loading/error/empty and visible focus",
+        "The report covers accessibility: contrast (4.5:1 body, 3:1 large) and touch targets (44x44)",
+        "The report covers responsive: no horizontal scroll and no text clipping",
+        "Findings are element-level: each names the element and the fix"
+      ]
     }
   ]
 }

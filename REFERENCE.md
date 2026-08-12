@@ -18,6 +18,7 @@ Command definitions live in `scripts/command-metadata.json` (single source of tr
 - `reference/modes.md` - Persuade / Operate / Read / Experience + scan patterns
 - `reference/craft-floor.md` - quality floor before editing UI (contrast, depth, type, motion, states)
 - `reference/audit.md` - two-axis audit: Standards × Spec, parallel passes, no reranking
+- `reference/checklist.md` - the core pre-ship checklist (always run by audit; datasets/ catalog = optional deep pass)
 - `reference/deslop.md` - tell-replacement playbook (positive direction, per-flag plays)
 - `reference/shape.md` - grilling protocol: design tree, frontier rounds, never assume
 - `reference/craft.md` - build flow, gates, ability flags, DESIGN.md generation

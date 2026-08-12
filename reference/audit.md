@@ -10,7 +10,7 @@ Modeled on Matt Pocock's code-review skill: run two independent review passes an
 
 ## Standards axis
 
-Conformance to the skill's documented standards. The deterministic `detector.mjs` pass is the smell baseline (analogous to Fowler's code smells) - **run it first and report its findings verbatim** (exit 1 = error-severity findings). Then the craft-floor rules (reference/craft-floor.md), a11y (contrast ≥4.5:1 body / 3:1 large, touch 44×44, landmarks, heading order, focus), responsive rules, and the 10-tell catalog (SKILL.md).
+Conformance to the skill's documented standards. The deterministic `detector.mjs` pass is the smell baseline (analogous to Fowler's code smells) - **run it first and report its findings verbatim** (exit 1 = error-severity findings). Then the craft-floor rules (reference/craft-floor.md), a11y (contrast ≥4.5:1 body / 3:1 large, touch 44×44, landmarks, heading order, focus), responsive rules, and the 10-tell catalog (SKILL.md). **Run the core checklist (reference/checklist.md) on every audit** - it is the universal pre-ship floor; the 703-check catalog in datasets/ stays an optional deep pass (git clones).
 
 Layout dimension (Laws-of-UX basis): sections differ in structure and rhythm; one focal point per viewport (Von Restorff); layout serves the register - a dashboard stays dense (Operate), a brand page can editorialize (Persuade); overcorrecting a tell into a narrow centered column is itself a finding. Choices limited by scope (Hick's); primary actions where the scan ends (Fitts). The checklist pass (datasets/, optional) covers completeness.
 

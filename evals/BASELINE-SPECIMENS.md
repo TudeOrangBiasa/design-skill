@@ -61,3 +61,15 @@ The three review goals, now measured (DeepSeek, with_skill):
 Final clean score (iteration-16, 3/64 API-failed excluded): **with 183/214 (85.5%) vs without 39/214 (18.2%), lift +67.3pp.**
 
 Notes: the goals all reach their bar in a clean run; editorial-dashboard and modal-abuse flip 3/3 to 1/3 run to run (the model's "keep content" bias), so they are met-with-variance, not stably met. invented-stat-row was the hardest tell (the model kept "10k+" as content twice); fixing the eval prompt to say invented stats are tells not content, plus the SKILL.md Numbers doctrine line, moved it 0 -> 1 -> 3/3. Character and animation are stably 5/5.
+
+## CORE CHECKLIST wiring (iteration-17, mini run)
+
+The checklist is now mandatory and measured: `reference/checklist.md` (the universal pre-ship floor: content, structure/semantics, states, a11y, responsive, quality) is always run by `audit`; the 703-check datasets/ catalog stays the optional deep pass (git clones).
+
+| Eval | with_skill | without_skill |
+|---|---|---|
+| audit-checklist-1 (core checklist coverage) | **6/6** | 0/6 |
+| goal-character-1 (sanity) | 5/5 | 4/5 |
+| deslop-icons-1 (sanity) | 4/5 | 0/5 |
+
+The checklist eval is the strongest discriminator in the suite: 6/6 with the skill vs 0/6 without. Note: the eval harness loads only SKILL.md, so the six dimensions are enumerated in the eval prompt (mirroring the audit command); in a real harness the audit loads reference/checklist.md itself.
