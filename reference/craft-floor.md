@@ -1,6 +1,6 @@
 # Craft floor
 
-Load after the direction is settled, right before editing UI. The floor holds mechanics, never direction; a pinned brief or committed visual world overrides anything here.
+Load after the direction is settled, right before editing UI. Mechanics, never direction; a pinned brief overrides anything here.
 
 ## Verify
 

@@ -12,7 +12,7 @@ Shape confirmation is NOT code-green; compressing gates is the dominant failure 
 
 ## Reference hunt
 
-Before writing markup, web-search 2-3 inspirations for the brief (layout, type, palette) and cite them; name what works for THIS brief, then exceed it. Never copy a template - references pick a lane (motionsites below is the motion case).
+Before writing markup, web-search 2-3 inspirations for the brief (layout, type, palette) and cite them; name what works for THIS brief, then exceed it. Never copy a template - references pick a lane.
 
 ## Step 0: project foundation
 

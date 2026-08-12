@@ -21,11 +21,11 @@ The register (brand or product, recorded in PRODUCT.md) is the durable lane of t
 
 ## Layout planning: boxes, no browser needed
 
-Plan the surface as boxes before writing markup. Name the grid frame in one sentence (12-col, named columns, or asymmetric split), then for every major block state: role, column span, and viewport relationship (full-bleed / contained / offset). Example: "hero: full-bleed, content 72% left-aligned; features: asymmetric 5/7 split; footer: contained, centered."
+Plan the surface as boxes before markup. Name the grid frame in one sentence (12-col, asymmetric split), then each major block: role, column span, viewport relationship (full-bleed/contained/offset). Example: "hero: full-bleed, content 72% left; features: 5/7 split; footer: contained, centered."
 
-Viewport discipline (locked breakpoints, restored from v1 browser-layout.md): **375 / 640 / 768 / 1024 / 1280 / 1536**. Mobile-first: build at 375, then verify each breakpoint. At every width check: no fixed width wider than the viewport, no horizontal scroll, no text crop (fixed height + overflow hidden on a text container), no element hanging off the edge.
+Viewport discipline (locked breakpoints): **375/640/768/1024/1280/1536**; mobile-first, verify each. No fixed width > viewport, no horizontal scroll, no text crop (fixed height + overflow hidden), no element off the edge.
 
-Self-checks for unnatural placement: absolutely-positioned elements must state an inset (top/left/right/bottom) and a containing block; no negative margins to force overlap; spacing comes from the grid frame, not from eyeballing. If a box's role or position cannot be stated in one line, the layout is not decided yet.
+Unnatural placement: absolute elements must state an inset + containing block; no negative-margin overlap; spacing from the grid frame, not eyeballing. If a box's role/position cannot be stated in one line, the layout is undecided.
 
 ## Where modes apply
 

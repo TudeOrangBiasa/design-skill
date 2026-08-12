@@ -34,17 +34,17 @@ The session is done when the frontier is empty - every branch visited, nothing l
 
 ## Landing-page narrative (Persuade mode)
 
-A landing page is a story with six beats, built for emotional resonance first, conversion second. Users scan before they read: structure for the scan, then reward with the story. Shape the brief so the landing page carries all six beats (restored from v1 landing-pages.md):
+A landing page is a story with six beats (restored from v1 landing-pages.md); structure for the scan, then reward with the story:
 
-1. **Hook (hero)** - core purpose + primary visual. One headline, one sub, one brand visual, one direct CTA.
-2. **Catalyst (the problem)** - validates the visitor's pain, in their words, not the category's. They recognize their own situation on sight.
-3. **Mentor (the solution)** - the brand as the guide; demonstrate the mechanism at real scale, never a feature list.
-4. **Journey (how it works)** - the process in one logical order, step to step, no dead ends.
-5. **Proof (social proof)** - attributable only: who said it, what result. Testimonials without a source are decoration.
+1. **Hook (hero)** - core purpose + primary visual; one headline, one sub, one visual, one CTA.
+2. **Catalyst (the problem)** - the visitor's pain, in their words; they recognize themselves on sight.
+3. **Mentor (the solution)** - the brand as guide; show the mechanism, never a feature list.
+4. **Journey (how it works)** - the process in one logical order, no dead ends.
+5. **Proof (social proof)** - attributable: who said it, what result; unsourced quotes are decoration.
 6. **Resolution (CTA)** - one verb, one path, the outcome named ("Start free", "Book a consultation").
 
-Discipline: **one primary CTA** (every button leads to the same goal); **the agency rule** (any component that does not advance the story or build trust is deleted - max 2-3 extra components); per-beat ruts to avoid: Hook (hero-metric, centered stack, eyebrow pill), Catalyst (generic pain), Mentor (feature grid), Journey (same-size cards with no order), Proof (fake metrics, unattributed quotes), Resolution (buried or two competing CTAs). Mobile-first forces the story tight; desktop earns the richness.
+Discipline: **one primary CTA**; **the agency rule** (delete any component that does not advance the story - max 2-3 extras); ruts: Hook (hero-metric, eyebrow pill), Catalyst (generic pain), Mentor (feature grid), Journey (cards with no order), Proof (fake metrics), Resolution (two competing CTAs). Mobile-first; desktop earns richness.
 
 ## Merged surfaces
 
-This file replaces the v1 per-surface interview scripts (hero, landing-pages, dashboards, redesign, new-work): they were the same tree with different branches. The tree above covers them - a hero brief still settles register/mode/persona/direction before any layout question.
+This file replaces the v1 per-surface interview scripts (hero, landing-pages, dashboards, redesign, new-work) - same tree, different branches.
