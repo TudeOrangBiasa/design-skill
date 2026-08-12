@@ -1,6 +1,6 @@
 # Kill AI Slop — learned and mapped to the design skill
 
-STATUS 2026-08-12: coverage audit below audits the v1 skill (26-rule detector era); the v2 detector is 42 rules - see research/impeccable-slop.md for the current coverage audit. Historical record.
+STATUS 2026-08-12: coverage audit below audits the v1 skill (26-rule detector era); the v2 detector is 46 rules (42 + 4 geometric: fixed-width-overflow, crop-risk-container, absolute-no-inset, negative-margin-overlap) - see research/impeccable-slop.md for the current coverage audit. Historical record.
 
 Status: research notes, 2026-08-06 (extended 2026-08-11). Source: https://killaislop.com/ (fetched live; field guide in 4 languages; 35 tells with before/after HTML pairs + code signals, plus 6 principles). Purpose: audit which tells the skill's 26-rule detector already catches, which it misses, and which become new detector rules and doctrine. Outside the linted corpus.
 

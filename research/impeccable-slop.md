@@ -1,6 +1,6 @@
 # impeccable.style/slop catalog
 
-Status: research notes, 2026-08-11. Source: https://impeccable.style/slop/ (fetched live; the 64-pattern catalog page from pbakaus/impeccable, the direct ancestor of this skill). Purpose: capture the full pattern catalog verbatim (it is the lineage's authoritative tell list), then audit which patterns the skill's 42-rule detector already catches, which live only in prose doctrine, and which are gaps. Outside the linted corpus.
+Status: research notes, 2026-08-11. Source: https://impeccable.style/slop/ (fetched live; the 64-pattern catalog page from pbakaus/impeccable, the direct ancestor of this skill). Purpose: capture the full pattern catalog verbatim (it is the lineage's authoritative tell list), then audit which patterns the skill's detector already catches (46 rules since 2026-08-12; the 4 geometric additions are not in this catalog), which live only in prose doctrine, and which are gaps. Outside the linted corpus.
 
 The page states: 64 patterns total, "including all 59 deterministic detector rules"; 11 synthetic specimen pages; 5 broader judgments stay in `/impeccable critique` (LLM-only).
 
@@ -166,7 +166,7 @@ Our detector also carries 11 rules absent from their catalog: all-caps-grid, atm
 
 ## Conclusions
 
-- **Detector overlap is strong**: 28 of 64 patterns are directly covered by our 42 rules; 6 more are same-family or prose-covered.
+- **Detector overlap is strong**: 28 of 64 patterns are directly covered by our detector; 6 more are same-family or prose-covered.
 - **The gaps are deliberate or prose-covered, not accidents**: the Browser-only quality checks (10+ patterns) are exactly what we removed with the live subsystem; the Personalized DESIGN.md rules (4) are a future direction (the parser + validate tool are the foundation, but no DESIGN.md-driven detection ships yet); the prose gaps (grid lines, stripes, SVG illustration, measure, spacing rhythm) are already taught in craft-floor.md and the 10-tells table.
 - **CLI-detectable gaps worth a future detector expansion** (registry is test-locked in this refactor; a follow-up can lift the lock deliberately): justified text, low contrast, skipped heading level, tight line height, tiny body text, wide body tracking, gray-on-colored, repeating-gradient stripes, monotonous spacing.
 - **Specimen pages**: the page links 11 synthetic slop specimens (/antipattern-examples/purple-gradients.html, lazy-cool.html, lazy-impact.html, thick-border-cards.html, cardocalypse.html, layout-templates.html, inter-everywhere.html, massive-icons.html, bad-contrast.html, redundant-ux-writing.html, modal-abuse.html). These are strong candidate eval fixtures for the slop-kill family; they live in the impeccable repo (MIT), so copying them into evals/ needs a license check + attribution first.

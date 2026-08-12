@@ -738,6 +738,52 @@ const RULES = [
       return grid && tiles >= 3 ? [{ evidence: '3+ equal cards in a 3-column grid' }] : [];
     },
   },
+  {
+    id: 'fixed-width-overflow',
+    name: 'Fixed pixel width risks viewport overflow',
+    category: 'Layout',
+    severity: 'warning',
+    check(ctx) {
+      const m = ctx.css.match(/(?:min-)?width\s*:\s*(\d{4,})px/);
+      return m ? [{ evidence: `fixed width ${m[1]}px risks horizontal overflow below 1280px (locked breakpoints 375-1536)` }] : [];
+    },
+  },
+  {
+    id: 'crop-risk-container',
+    name: 'Fixed height with overflow hidden can crop content',
+    category: 'Layout',
+    severity: 'warning',
+    check(ctx) {
+      const blocks = [...ctx.css.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
+      const hits = blocks
+        .filter((b) => /overflow\s*:\s*hidden/.test(b[2]) && /(?:max-)?height\s*:\s*\d+px/.test(b[2]))
+        .map((b) => `"${b[1].trim().slice(0, 40)}"`);
+      return hits.length ? [{ evidence: `fixed height + overflow hidden can crop text: ${hits.slice(0, 3).join(', ')}` }] : [];
+    },
+  },
+  {
+    id: 'absolute-no-inset',
+    name: 'Absolutely positioned element without an inset',
+    category: 'Layout',
+    severity: 'warning',
+    check(ctx) {
+      const blocks = [...ctx.css.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
+      const hits = blocks
+        .filter((b) => /position\s*:\s*(?:absolute|fixed)/.test(b[2]) && !/(?:^|;)\s*(?:top|left|right|bottom|inset)\s*:/.test(b[2]))
+        .map((b) => `"${b[1].trim().slice(0, 40)}"`);
+      return hits.length ? [{ evidence: `absolute/fixed without an inset - position undefined: ${hits.slice(0, 3).join(', ')}` }] : [];
+    },
+  },
+  {
+    id: 'negative-margin-overlap',
+    name: 'Negative margin forces overlap',
+    category: 'Layout',
+    severity: 'warning',
+    check(ctx) {
+      const m = ctx.css.match(/margin(?:-[a-z]+)?\s*:\s*(-\d[\w.]*)/);
+      return m ? [{ evidence: `negative margin (${m[1]}) forces element overlap - use the grid frame instead` }] : [];
+    },
+  },
 ];
 
 // ---------------------------------------------------------------------------
