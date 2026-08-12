@@ -1,6 +1,6 @@
 # Craft floor
 
-Load after the direction is settled, right before editing UI. The floor holds mechanics, never direction; a pinned brief or committed visual world overrides anything here, your own habit does not.
+Load after the direction is settled, right before editing UI. The floor holds mechanics, never direction; a pinned brief or committed visual world overrides anything here.
 
 ## Verify
 
@@ -9,16 +9,16 @@ Each check runs on the built result, not the intention; run them together in bat
 - **Contrast:** body and placeholder ≥4.5:1, large text ≥3:1. On colored surfaces, tint secondary text from that hue; never gray.
 - **Depth:** shadows carry an offset and a soft blur. A zero-offset colored halo is decoration.
 - **Spacing:** tight groups, generous separation, more space above a heading than below it. Read the computed values.
-- **Type:** body 60-76ch, display ≤6rem, tracking ≥-0.04em, balanced headings, obvious scale/weight steps; run real copy at every breakpoint, fix overflow.
-- **Motion:** one authored moment, not scattered effects, not one identical entrance per section. Exponential ease-out from an already-visible default. Blur/filter/clip/mask/shadow are palette when smooth.
+- **Type:** body 60-76ch, display ≤6rem, tracking ≥-0.04em, balanced headings, clear scale steps; run real copy at every breakpoint, fix overflow.
+- **Motion:** one authored moment, not scattered effects, not one identical entrance per section. Exponential ease-out from an already-visible default. Blur/filter/clip/mask/shadow are palette when smooth. Decide before animating (Emil's framework): should it animate, what purpose (state / explanation / feedback - never 'looks cool' on repeat), which easing (custom curves), how fast (feels).
 - **States:** hover, disabled, loading, error, empty. Plus real content, working controls, responsive composition, keyboard focus.
-- **Browser surfaces:** text selection, the caret, custom scrollbars, focus rings, underline offset, tabular numerals - the parts you did not draw still carry the design. Theme them from the palette.
+- **Browser surfaces:** text selection, the caret, custom scrollbars, focus rings, underline offset, tabular numerals Theme them from the palette.
 - **Copy:** the product's own language; controls name their action, errors name the problem and the recovery. No em dashes, filler, or promotional words.
 - **Coverage:** every brief requirement present and findable within seconds.
 
 ## Refuse
 
-Category defaults, not bans - the brief's own words can earn any. Reaching for one when the axis is free means you were not deciding; rewrite the element, don't soften it.
+Category defaults, not bans - the brief's own words can earn any; reaching for one when the axis is free means you were not deciding. Rewrite, don't soften.
 
 Page scaffolds:
 
@@ -38,7 +38,7 @@ Surface habits:
 - Monospace as a "technical" costume, not for code, data, or measurement.
 - A system display face (Impact, Arial Black) as the display voice; source a face matching the approved lettering.
 - **Emoji or unicode glyphs standing in for an icon system.** Hard ban. Use one real icon set - Lucide, Phosphor, Tabler, Iconoir, Humbleicons, Flowbite - or an authored SVG set in one consistent stroke and weight; never mix sets.
-- Light or dark picked by category. Pick from the use scene: who, where, what ambient light.
+- Light or dark picked from the use scene: who, where, what ambient light.
 
 Mechanics:
 
@@ -50,4 +50,4 @@ Mechanics:
 
 ## In practice
 
-The mechanical checks overlap with `audit`; when an audit report exists, act on its findings instead of re-auditing. With every check green, spend the page on the committed world; when torn between refined and committed, commit.
+The mechanical checks overlap with `audit`; when a report exists, act on it. With every check green, spend the page on the committed world; when torn between refined and committed, commit.
