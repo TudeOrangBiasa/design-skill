@@ -41,7 +41,8 @@
     "lint:docs": "node scripts/lint-docs.mjs",
     "detect": "node scripts/detector.mjs",
     "eval": "set -a; [ -f ./.eval-key.env ] && . ./.eval-key.env; set +a; EVAL_API_KEY=${EVAL_API_KEY:?EVAL_API_KEY is not set: export it, or create .eval-key.env (see evals/BASELINE-v1.md)} npx -y agent-skills-eval --config agent-skills-eval.yaml ${OPENAI_COMPATIBLE_BASE_URL:+--base-url $OPENAI_COMPATIBLE_BASE_URL} ${OPENAI_COMPATIBLE_MODEL:+--target $OPENAI_COMPATIBLE_MODEL --judge $OPENAI_COMPATIBLE_MODEL}",
-    "validate-catalog": "node scripts/validate-catalog.mjs"
+    "validate-catalog": "node scripts/validate-catalog.mjs",
+    "eval:zen": "set -a; [ -f ./.eval-key.zen.env ] && . ./.eval-key.zen.env; set +a; EVAL_API_KEY=${EVAL_API_KEY:?EVAL_API_KEY is not set: create .eval-key.zen.env with the opencode zen key} npx -y agent-skills-eval --config agent-skills-eval.yaml --base-url https://opencode.ai/zen/v1 --target deepseek-v4-flash-free --judge deepseek-v4-flash-free"
   },
   "bin": {
     "design-skill": "scripts/design.mjs"

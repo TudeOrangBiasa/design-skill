@@ -58,6 +58,8 @@ npm run eval
 
 58 evals across slop-kill (including 11 real specimens from impeccable's antipattern-examples and 35 tell fragments from killaislop.com), build-from-brief, redesign, two-axis audit, a11y, deslop, and shape-grill families, run with_skill vs without_skill against the [agent-skills-eval](https://github.com/darkrishabh/agent-skills-eval) harness. Default backend: DeepSeek API (`deepseek-v4-flash`), key in `.eval-key.env` (gitignored) or `EVAL_API_KEY`. Override with `OPENAI_COMPATIBLE_BASE_URL` / `OPENAI_COMPATIBLE_MODEL` / `OPENAI_COMPATIBLE_API_KEY`. Scorecards: [evals/BASELINE-v1.md](evals/BASELINE-v1.md), [evals/BASELINE-v2.md](evals/BASELINE-v2.md), [evals/BASELINE-SPECIMENS.md](evals/BASELINE-SPECIMENS.md).
 
+Budget fallback: when the DeepSeek balance runs out, `npm run eval:zen` runs the same suite on the opencode zen free tier (`deepseek-v4-flash-free`, key in `.eval-key.zen.env`). Caveat: the free tier rate-limits (HTTP 429) after heavy use and can stall on long generations - retry later; paid DeepSeek is the reliable path.
+
 ## Install
 
 ### With skills.sh (recommended)

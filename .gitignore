@@ -14,6 +14,7 @@ research/*.json
 .claude/
 skills-lock.json
 
-# Eval harness artifacts + local API key (see evals/BASELINE-v1.md).
+# Eval harness artifacts + local API keys (see evals/BASELINE-v1.md).
 eval-workspace/
 .eval-key.env
+.eval-key.zen.env
