@@ -1,47 +1,46 @@
-# BASELINE-SPECIMENS — 58-eval scorecard on real slop corpus
+# BASELINE-SPECIMENS — 61-eval scorecard on real slop corpus
 
-The v2 skill measured against the expanded suite: 12 original evals + 11 real slop specimens from impeccable's antipattern-examples + 35 tell fragments from killaislop.com.
+The v2 skill measured against the expanded suite: 12 original evals + 11 real slop specimens from impeccable's antipattern-examples + 35 tell fragments from killaislop.com + 3 priority evals (imagery, icon sourcing, layout laws).
 
-- Run: 2026-08-11, `agent-design-skill` 2.0.0 (commit `c3b49ff`)
-- Backend: **DeepSeek API** (`https://api.deepseek.com`, target + judge `deepseek-v4-flash`, concurrency 4) — fast rerun; the zen-free backend stalls occasionally (two calls hung ~10h with no request timeout in the harness), so the scorecard used the paid fast backend. Default config stays opencode zen free; override with `OPENAI_COMPATIBLE_BASE_URL` / `OPENAI_COMPATIBLE_MODEL` / `OPENAI_COMPATIBLE_API_KEY`.
-- Report: `eval-workspace/iteration-8/report/index.html`
-- Benchmark: `eval-workspace/iteration-8/benchmark.json`
+- Runs: 2026-08-11, `agent-design-skill` 2.0.0
+- Backend: DeepSeek API (`https://api.deepseek.com`, `deepseek-v4-flash`, concurrency 4) - the default
+- Reports: `eval-workspace/iteration-10/` (doctrine-changed, 7 API-terminated evals) and `eval-workspace/iteration-11/` (re-run, 7 API-terminated evals)
+- API reliability: ~11% of with_skill calls returned "ERROR: terminated" (DeepSeek aborts on long reasoning + large output; the harness retries twice then fails). Terminated evals are excluded from the clean score; the priority evals each measured clean in at least one run.
 
-## Results
+## Clean score (terminated evals excluded)
 
-Assertion-level, with_skill vs without_skill:
+iteration-11 (re-run):
 
-| Family | Evals | with_skill | without_skill | Lift |
-|---|---|---|---|---|
-| slop-kill (impeccable specimens + killaislop tells + originals) | 49 | **138/158 (87.3%)** | 20/158 (12.7%) | **+74.7pp** |
-| build-from-brief | 2 | 9/10 (90.0%) | 7/10 (70.0%) | +20.0pp |
-| audit (two-axis + honesty) | 2 | 7/9 (77.8%) | 3/9 (33.3%) | +44.4pp |
-| a11y | 2 | 7/8 (87.5%) | 0/8 (0.0%) | +87.5pp |
-| deslop | 1 | 3/4 (75.0%) | 0/4 (0.0%) | +75.0pp |
-| shape (grill) | 1 | 4/5 (80.0%) | 4/5 (80.0%) | +0.0pp |
-| redesign | 1 | 3/4 (75.0%) | 0/4 (0.0%) | +75.0pp |
-| **Total (58 evals)** | | **171/198 (86.4%)** | **34/198 (17.2%)** | **+69.2pp** |
+| | with_skill | without_skill | Lift |
+|---|---|---|---|
+| **Total** | **160/180 (88.9%)** | **26/180 (14.4%)** | **+74.4pp** |
 
-Harness summary: with_skill 87.4% vs without_skill 15.7%, delta +71.8pp.
+iteration-10 (first doctrine run): with 164/189 (86.8%), without 37/189 (19.6%), +67.2pp. Stable across both runs: with-skill ~87-89%, lift ~+67 to +74pp.
 
-## The slop-kill corpus, tell by tell
+## The priority evals (post-doctrine additions)
 
-- **Impeccable specimens (11)**: 9 of 11 are detector-catchable (exit 1); modal-abuse and redundant-ux-writing are LLM-only patterns in their catalog too. with_skill passes: purple-gradients 5/5, lazy-impact 5/5, cardocalypse 3/3, thick-border 3/3, layout-templates 4/4, inter-everywhere 3/3, massive-icons 3/3, bad-contrast 3/3, redundant-ux 3/3, lazy-cool 3/4, modal-abuse 1/3.
-- **Killaislop tells (35)**: 26/35 are detector-catchable after inlining the site's slop CSS into the fixtures (the fragments are class-based; the detector scans declarations). with_skill passes 31/35 fully; the four misses are honest:
-  - `the-invented-stat-row` 0/3: the model removed the badge-row treatment but KEPT the invented number ("10k+ developers"); the judge correctly flagged it. The skill says only real numbers; this fragment beat the doctrine.
-  - `the-warm-cozy-palette` 0/3: the rewrite kept a warm off-white surface; the "cozy wash" persisted in the judge's read.
-  - `ai-drawn-svg-icons` 1/3: partially fixed (mascot reduced but a primitive-shape logo remained).
-  - `modal-abuse-specimen` 1/3: settings stayed in a modal, just restyled.
-- **Known harness artifact**: `gradient-hero-page` scored 0/5 with_skill on this backend because the model tried to run the skill's `detect` command (the SKILL.md instructs exactly that) and the eval harness target has no tools - the output was a tool-call-shaped preamble, not a rewrite. The same eval scored 4/5 on the zen backend where the model rewrote directly. This is the skill working against a harness that cannot execute tools; if tool execution matters, run the slop-kill proof locally instead (detector exit 1 -> fixed rewrite exit 0).
+| Eval | Measures | Result |
+|---|---|---|
+| `build-imagery-1` | image-led brief ships real imagery, not colored divs/placeholders | **5/5** with (iter-10; iter-11 API-terminated) |
+| `deslop-icons-1` | icons from a real set / consistent geometry, no mascots, no emoji | **5/5** with, **0/5** without (both runs) |
+| `layout-laws-1` | layout structure named in one sentence; dense app shell; Hick's/Fitts/Von Restorff; no #6366F1 / equal cards | **5/5** with (iter-11; iter-10 API-terminated) |
+
+The doctrine changes that drove these: SKILL.md's always-loaded **Build doctrine** (layout positive-space, icons one-real-set-no-mascots, imagery real/verified, OKLCH-first, font physical-object, reference hunt) plus the craft.md Reference-hunt step, audit.md layout dimension, and the 3 new evals. The icons eval is the clearest proof: before the doctrine, `slop-kill-ai-drawn-svg-icons` scored 1/3 (the model hand-drew a mascot); after, `deslop-icons-1` is 5/5 vs 0/5 without the skill.
+
+## The slop-kill corpus, tell by tell (clean, combined runs)
+
+- **Impeccable specimens (11)**: purple-gradients 5/5, lazy-impact 5/5, cardocalypse 3/3, thick-border 3/3, massive-icons 3/3, bad-contrast 3/3, redundant-ux 3/3, inter-everywhere 3/3, lazy-cool 4/4, modal-abuse 0/3 (settings stay in a modal - honest miss), layout-templates terminated both runs (unmeasured, API).
+- **Killaislop tells (35)**: the overwhelming majority pass clean. Known honest misses: `invented-stat-row` (model kept the fake number), `modal-abuse`, `editorial-dashboard` (partial). Warm-cozy 3/3 (fixed vs the prior run's 0/3).
+- **Original 3**: gradient-hero 4/5, new-slop-tells 5/5, copy-voice 3/4.
 
 ## vs the 12-eval gate
 
-The original gate (BASELINE-v2.md, slop-kill + build-from-brief, +15pp) was measured on the zen backend with 12 evals and passed at +62.5pp. This run uses a different backend and a 46-eval slop-kill corpus; the gate families on DeepSeek: slop-kill + build-from-brief combined lift +72.4pp (with 147/168 = 87.5%, without 27/168 = 16.1%). The gate conclusion is unchanged and stronger.
+The original +15pp gate (BASELINE-v2.md) is superseded: the 61-eval corpus with the doctrine change shows with-skill ~88% vs without ~14-20%, lift +67-74pp on the full real-slop corpus. The gate conclusion holds and is stronger.
 
 ## How to re-run
 
 ```bash
-npm run eval   # default: DeepSeek API (agent-skills-eval.yaml); key in .eval-key.env or EVAL_API_KEY
+npm run eval   # default: DeepSeek (agent-skills-eval.yaml); key in .eval-key.env or EVAL_API_KEY
 ```
 
-Zen-free fallback: `OPENAI_COMPATIBLE_BASE_URL=https://opencode.ai/zen/v1 OPENAI_COMPATIBLE_MODEL=deepseek-v4-flash-free npm run eval` (zen stalls occasionally: no request timeout in the harness, two calls hung ~10h during the specimen run).
+~11% of calls may hit "ERROR: terminated" (DeepSeek abort on long reasoning/output); re-run to measure the failed evals, or accept the clean-excluded number. Zen-free fallback: `OPENAI_COMPATIBLE_BASE_URL=https://opencode.ai/zen/v1 OPENAI_COMPATIBLE_MODEL=deepseek-v4-flash-free npm run eval`.
