@@ -10,7 +10,6 @@ Thanks for contributing to the design skill. This file covers how to run the che
 - `scripts/command-metadata.json`: command catalog (single source of truth), machine-validated by `validate-catalog.mjs`.
 - `scripts/validate-catalog.mjs`: asserts command metadata, the dispatcher, and the reference index agree.
 - `plugins/install.sh`: per-agent installer.
-- `agents/`: optional companion agents.
 - `evals/`: the agent-skills-eval suite and baseline scorecards.
 - `datasets/`: scraped reference material (git clones only, never shipped).
 

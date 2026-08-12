@@ -29,4 +29,4 @@ Command definitions live in `scripts/command-metadata.json` (single source of tr
 - `scripts/design-parser.mjs` - parses + validates DESIGN.md (google-labs-code/design.md spec)
 - `scripts/concept-seed.mjs` - seeded direction dice for shape
 
-Datasets (git clones only, never shipped): `datasets/checklist-catalog.md` (checklist.design catalog, optional deep audit pass), `datasets/scraped/` (saved galleries).
+Datasets (git clones only, never shipped): `datasets/checklist-catalog.md` (checklist.design catalog, optional deep audit pass).

@@ -9,7 +9,7 @@ research/*_files/
 research/*.json
 
 # Dev-environment install artifacts (not package content).
-# `npx skills@latest add ...` writes these; see REFACTOR-PLAN.md Phase 0.
+# `npx skills@latest add ...` writes these.
 .agents/
 .claude/
 skills-lock.json

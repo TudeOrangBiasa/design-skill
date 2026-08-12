@@ -1,5 +1,7 @@
 # Laws of UX — learned and mapped to the design skill
 
+STATUS 2026-08-12: coverage audit below references v1 reference files (deleted in the v2 merge); the v2 doctrine folds the GAPs (Cognitive Bias, Doherty Threshold, Flow, Goal-Gradient) into reference/audit.md. Historical record.
+
 Status: research notes, 2026-08-06. Source: https://lawsofux.com/ (Jon Yablonski, fetched live; 30 entries). Purpose: audit which laws the skill already expresses, which it misses, and how to wire the gaps into doctrine. Outside the linted doctrine corpus.
 
 Coverage legend: COVERED = the skill already states this law in effect (reference file/rule named); PARTIAL = embodied in spirit but never named or only weakly; GAP = no expression found.
