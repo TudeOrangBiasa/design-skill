@@ -3,64 +3,196 @@
 version: 2
 scanner_version: 2.5.3
 rules: []
-fingerprints:- hash: sha256:f267110500eacaaa59d5280b9e97ba806112ccc652f731490b6b85172460b9bf
-  rule_id: EA3
-  file: LICENSE
-  reason: Apache-2.0 LICENSE text, not a scope claim- hash: sha256:43bd402753656f8a6bfea3cfd2d3e9dfe8d14a5ac74ea45d0bb087d53af147d5
-  rule_id: EA3
-  file: LICENSE
-  reason: Apache-2.0 LICENSE text, not a scope claim- hash: sha256:6dbfe8a2a9d10bede7598b37b460cb00a23f017b16fd013c7d94b40b7367d218
-  rule_id: EA2
-  file: reference/craft.md
-  reason: Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation- hash: sha256:34e697be6b3398a970f164fa4063e4903605e656864b0880d6a375b52b698936
-  rule_id: EA2
-  file: reference/shape.md
-  reason: Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation- hash: sha256:2dd54cd302b090bb0d4f4f1c75c79ca6d8bd6e8548f1bc186fbc35cee6ae4cc7
-  rule_id: EA2
-  file: reference/shape.md
-  reason: Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation- hash: sha256:5d7ead68d0f493238f20569893dbb42289d8d0fadcc0321e303d0faa2e7a08db
-  rule_id: EA2
-  file: reference/shape.md
-  reason: Live mode rewrites files by design (variant injection); the SKILL.md invocation model gates every change behind user confirmation- hash: sha256:f7a1d50a5ec32ac8aec3ff042e3ed6f2a7b378b6970ebf2802c943f4bd200c26
-  rule_id: P6
-  file: scripts/design-parser.mjs
-  reason: 'False positive: parser reads user DESIGN.md, never prints system prompts'- hash: sha256:ba07abf72de749d1fb2b3bf07639a1473eceb23164bd37a9d06df534779ef790
-  rule_id: AR2
-  file: research/ai-layout-research.md
-  reason: Research notes quoting a CHI 2025 paper finding that AI tools emit deceptive patterns without warnings; the note itself instructs nothing- hash: sha256:0cbcdca72e801ed758ac707c7da2b5b868252c2d92b9a3967d4a4b585dc9e328
+fingerprints:
+- hash: sha256:b63e59b7511936e13bc27c12fec6209b000e8b7423750df0ff7c4474eee9cb93
+  rule_id: RP1
+  file: .agents/skills/setup-pre-commit/SKILL.md
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:aed8c12b58ba6f8fbb7556665f5084d732b39d7e51fa62cbe3da9e7066b99e64
+  rule_id: RP1
+  file: .agents/skills/setup-pre-commit/SKILL.md
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:7ec4e69c2194bde4a9ed6a1b11bb58abffb80ac26726d9fc1f2f8cdafe295f5d
+  rule_id: RP1
+  file: .agents/skills/setup-pre-commit/SKILL.md
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:96b1810313a1add53af901e75b103b670126b494692aaf8111ddb253ee845b05
   rule_id: RP1
   file: CHANGELOG.md
-  reason: Changelog entry documenting the npx linter command, never executed as an install- hash: sha256:046c630499c1b5d619c5cb5b35e2ef049e297c349bdc154a2d4f654709b90376
+  reason: Changelog documenting the npx linter command, never executed as an install
+- hash: sha256:40ec4bf2db5e44962627f5eed0500d025b7069edc5d62a8bd87cab862a84041d
+  rule_id: RP1
+  file: REFACTOR-PLAN.md
+  reason: Plan doc mentioning the npx harness, never executed
+- hash: sha256:b8f3738fc383e7cde5ee597812c64be3b7d97e630bfb4d3c811eea30f0e84319
+  rule_id: RP1
+  file: package.json
+  reason: Eval script sources the gitignored .eval-key.env key file; npx is the documented harness CLI, never executed as an install
+- hash: sha256:95a55513f646c06cff03ef3f23b1e4ed375be2df0a2e4f76983aca060d02f6ec
+  rule_id: AS1
+  file: .agents/skills/git-guardrails-claude-code/SKILL.md
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:af6d33eddb128834ca42e2e1dad3a481a5f5d56fc504dc943436e6248a02dc0c
+  rule_id: AS3
+  file: NOTICE.md
+  reason: Apache NOTICE attribution enumerating source skills, not instruction
+- hash: sha256:6ea684257a4066b9f89cf602b0db0ab0dd8f2cfbed4ed74ffbaab2ec8325a303
+  rule_id: AS3
+  file: NOTICE.md
+  reason: Apache NOTICE attribution enumerating source skills, not instruction
+- hash: sha256:dd3b7814c1dd8d28d42af24b2b76287df9f7f42a2fc138e5f4c8115b47a815ac
+  rule_id: AR1
+  file: .agents/skills/to-questionnaire/SKILL.md
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:a12b0a63002b17c477829733dd40e85c335b86a3fdc91de4bd065f087235524b
+  rule_id: AR2
+  file: eval-workspace/iteration-16/eval-slop-kill-the-one-hue-status-box/with_skill/grading.json
+  reason: Eval harness transcripts (gitignored eval-workspace/); model outputs look credential-like, not real access
+- hash: sha256:ba07abf72de749d1fb2b3bf07639a1473eceb23164bd37a9d06df534779ef790
+  rule_id: AR2
+  file: research/ai-layout-research.md
+  reason: Research notes quoting a paper finding, the note itself instructs nothing
+- hash: sha256:511418fd9968c8d92deb2b11e1d80c15c37252aad579d7f223c0b2a8a816b438
+  rule_id: E3
+  file: eval-workspace/iteration-16/eval-build-image-led-brief-ships-real-imagery/with_skill/outputs/output.txt
+  reason: Eval harness transcripts (gitignored eval-workspace/); model outputs look credential-like, not real access
+- hash: sha256:d026710267566c97b31120e0d2716d8d1cb03e3e60ab15116e21cebd91762112
+  rule_id: E3
+  file: eval-workspace/iteration-16/eval-build-image-led-brief-ships-real-imagery/with_skill/outputs/response.txt
+  reason: Eval harness transcripts (gitignored eval-workspace/); model outputs look credential-like, not real access
+- hash: sha256:6f86e0b1a0f01580ba0af43c3e90a679c65646ee68c4a845ba7cbb02a00dbfc4
   rule_id: EA2
-  file: reference/audit.md
-  reason: Audit playbook instructs the checklist pass; every write is gated behind user confirmation (SKILL.md invocation model)- hash: sha256:3a16d53e7409129ecdad4722fc2bb6125962ed62b94bcb278af9fbbed6ceec76
+  file: .agents/skills/grilling/SKILL.md
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:11e9630631f1ea269913ceb1ffdc527ff10df5bcf2675cfe5ec2ea6d40feeca7
+  rule_id: EA2
+  file: .agents/skills/loop-me/SKILL.md
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:f267110500eacaaa59d5280b9e97ba806112ccc652f731490b6b85172460b9bf
+  rule_id: EA3
+  file: LICENSE
+  reason: Apache-2.0 LICENSE text, not a scope claim
+- hash: sha256:43bd402753656f8a6bfea3cfd2d3e9dfe8d14a5ac74ea45d0bb087d53af147d5
+  rule_id: EA3
+  file: LICENSE
+  reason: Apache-2.0 LICENSE text, not a scope claim
+- hash: sha256:50bd18d8c2c95b2e92180472687eb85f1c15c20f047096423dcb27f319e47f38
   rule_id: EA1
-  file: reference/checklist-catalog.md
-  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent- hash: sha256:5b7174a16b6826b89b3f53d7dc0a0b87019087e5600dcec2af990cba91703045
+  file: datasets/checklist-catalog.md
+  reason: Checklist catalog items describing access-control/permission design checks for the UI, not instructions to the agent
+- hash: sha256:eaa5f2b7d6d2b7e87e417471ec6eebfb49b75be99fcefe2f8d0c22c4714e96da
   rule_id: EA1
-  file: reference/checklist-catalog.md
-  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent- hash: sha256:7b39a055789abe0fd84a07d51fabb2fdd886315feaeb6611ebd560a45cf35205
+  file: datasets/checklist-catalog.md
+  reason: Checklist catalog items describing access-control/permission design checks for the UI, not instructions to the agent
+- hash: sha256:ddada0f462721c6d5278ab83b0a38a09caf3191b04badae4371f4ea1950ae3ad
   rule_id: EA1
-  file: reference/checklist-catalog.md
-  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent- hash: sha256:0c26682ff4e28968f2372c67eb0967af9a79f09af3cb761f64abd3e36a24d737
+  file: datasets/checklist-catalog.md
+  reason: Checklist catalog items describing access-control/permission design checks for the UI, not instructions to the agent
+- hash: sha256:bee7870b0488d7a9b3c2a8539524658a778bebcb2dec091983bb027a20ff5392
+  rule_id: EA3
+  file: eval-workspace/iteration-10/eval-build-from-brief-landing/without_skill/outputs/output.txt
+  reason: Eval harness transcripts (gitignored eval-workspace/); model outputs look credential-like, not real access
+- hash: sha256:8633c0033387e1fdf9d9c98953579d98bd038deceb7b01e218b052cdd1946d6c
+  rule_id: EA3
+  file: eval-workspace/iteration-10/eval-build-from-brief-landing/without_skill/outputs/response.txt
+  reason: Eval harness transcripts (gitignored eval-workspace/); model outputs look credential-like, not real access
+- hash: sha256:772564704eb0a3997a02e19e8aad8898e2679458d10d9a7bedfd4ae4c9df6e4c
+  rule_id: EA1
+  file: reference/register.md
+  reason: Brand-permissions prose (design concepts), not tool access
+- hash: sha256:204452ecba8bbd00b12b27c3208aba8bb72ff548e327fc91476dcca289033bb9
+  rule_id: EA1
+  file: reference/register.md
+  reason: Brand-permissions prose (design concepts), not tool access
+- hash: sha256:099d78b29a3a43c3d2925a20871924cb10ac4561c9711511c657355cd9fa4ec2
+  rule_id: EA2
+  file: reference/shape.md
+  reason: Grill protocol waits for user confirmation before acting; not autonomous execution
+- hash: sha256:25788be29eff796adea9d7d617713a70f45feecff5d52e215c9f2bb178eec2ac
   rule_id: MP3
-  file: reference/checklist-catalog.md
-  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent- hash: sha256:20baf8d1b1ff014db981cd1847f3cc73c1c1a98c087b19e7c45ba2bf5b291371
+  file: datasets/checklist-catalog.md
+  reason: Checklist catalog items describing access-control/permission design checks for the UI, not instructions to the agent
+- hash: sha256:16454377f28e9c0823603e28454e1ef9f5b040c6eee022f3e104d4a13f55d765
   rule_id: MP3
-  file: reference/checklist-catalog.md
-  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent- hash: sha256:927b88d6fc9bbe8b5f3d0e65d9e3176ce01af53c3687287d742b1a00c47e140d
+  file: datasets/checklist-catalog.md
+  reason: Checklist catalog items describing access-control/permission design checks for the UI, not instructions to the agent
+- hash: sha256:f0f7a2af723ddc385535772aea909b64b001bfed6ad853d12e9dfab61f24c962
   rule_id: MP3
-  file: reference/checklist-catalog.md
-  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent- hash: sha256:5e5a1152dd0412daeeaee1d2d6346f08e6a59ba7694e9a35827e62b5e29c196e
+  file: datasets/checklist-catalog.md
+  reason: Checklist catalog items describing access-control/permission design checks for the UI, not instructions to the agent
+- hash: sha256:600d3b0aac4ab2d87d09927199d164d873bb286f204736b966111f80a889c1ee
   rule_id: MP3
-  file: reference/checklist-catalog.md
-  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent- hash: sha256:8efced6eae5a4bf67b0cfef2c192db35ee329a78eb0b918a8f3fe558d1ff657c
+  file: datasets/checklist-catalog.md
+  reason: Checklist catalog items describing access-control/permission design checks for the UI, not instructions to the agent
+- hash: sha256:525026f6574315e38821051300f1e37df937fa464382132d6d656432c0147619
+  rule_id: PE3
+  file: .agents/skills/wizard/template.sh
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:75829ee9e585a314f44dae17ac38833533d5680ce7e023e801d7cc04c9c57c09
   rule_id: PE1
-  file: reference/checklist-catalog.md
-  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent- hash: sha256:54582a2fa968bdf623c87aebb0b78eb53ab43a3317cebec3a8badf60ed569463
+  file: datasets/checklist-catalog.md
+  reason: Checklist catalog items describing access-control/permission design checks for the UI, not instructions to the agent
+- hash: sha256:d0b6c69bc904ebf3d9f1d2f3cc28b41fe3edcc097dc2b8c0e8993c041546eba2
   rule_id: PE1
-  file: reference/checklist-catalog.md
-  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent- hash: sha256:8d6cd84584ad41e948318d0ca12faea76307bd18a446b64b260b91b3d49b9f27
+  file: datasets/checklist-catalog.md
+  reason: Checklist catalog items describing access-control/permission design checks for the UI, not instructions to the agent
+- hash: sha256:68a7a482bf0cbba009f369d27c4815e0f7a7d2d667930d9eb0aea4ee12e0ab56
+  rule_id: PE3
+  file: eval-workspace/iteration-8/eval-build-from-brief-dashboard/without_skill/outputs/output.txt
+  reason: Eval harness transcripts (gitignored eval-workspace/); model outputs look credential-like, not real access
+- hash: sha256:878371ca95440fc0ea226ae55867f4ef3fd2f759df3551302710093ace1eb855
+  rule_id: PE3
+  file: eval-workspace/iteration-8/eval-build-from-brief-dashboard/without_skill/outputs/response.txt
+  reason: Eval harness transcripts (gitignored eval-workspace/); model outputs look credential-like, not real access
+- hash: sha256:324fea1be48b08e81b0138bf9fce7aa33dc2ff90479a119b7c0ed6ebe4b3e555
+  rule_id: PE3
+  file: eval-workspace/iteration-8/eval-build-from-brief-dashboard/without_skill/prompts.json
+  reason: Eval harness transcripts (gitignored eval-workspace/); model outputs look credential-like, not real access
+- hash: sha256:391d7de6d3f56af7dd476c881d764db88a04d2d73d750f64cf58decba33331f0
+  rule_id: PE3
+  file: evals/BASELINE-SPECIMENS.md
+  reason: Scorecard documenting the eval key mechanism (.eval-key.env), not credential access
+- hash: sha256:67fe1d72514435f30acf0ccd603bca3d43f8f403d989d29fefc4e67f8041932b
+  rule_id: PE3
+  file: evals/BASELINE-v1.md
+  reason: Scorecard documenting the eval key mechanism (.eval-key.env), not credential access
+- hash: sha256:70032338fd1284483255931943cbae8de1eb8b1c74e6bda5667357aa8d3ac899
+  rule_id: PE3
+  file: package.json
+  reason: Eval script sources the gitignored .eval-key.env key file; npx is the documented harness CLI, never executed as an install
+- hash: sha256:7e826af6926af61c857ff519a44419ced5e1ba43036d35a4512ddad8e9a5b1e2
+  rule_id: PE1
+  file: reference/register.md
+  reason: Brand-permissions prose (design concepts), not tool access
+- hash: sha256:0c019403717222179d119a418fa84df9651a4de1ebe7a0121d00db50a27fd19f
+  rule_id: PE1
+  file: reference/register.md
+  reason: Brand-permissions prose (design concepts), not tool access
+- hash: sha256:b4aff76c4e84720a12047b3653f0f78d0e381e462c6ba76afc4d5d6057a89442
+  rule_id: P2
+  file: scripts/fixtures/specimens/redundant-ux-writing.html
+  reason: Slop specimen fixture (impeccable, Apache-2.0) with HTML comments, not hidden instructions
+- hash: sha256:3e3f8317dfd0700167e56eeab3084d98301046c74b7871d419717e15def9e665
+  rule_id: P6
+  file: .agents/skills/diagnosing-bugs/scripts/hitl-loop.template.sh
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:933a2b94259ef60449ad410362cd107a231f9fa462868914f9c96df3025aa710
+  rule_id: P6
+  file: scripts/design-parser.mjs
+  reason: Parser reads user DESIGN.md, never prints system prompts
+- hash: sha256:f526de61467b904139d66bc654e71d184296bf4d6629355be8350be6463355b0
+  rule_id: TM1
+  file: .agents/skills/git-guardrails-claude-code/SKILL.md
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:856b4add3661e45cabe4bfa4c8f59b3a4e47c559b33fe62aeede73007d6c3f3f
+  rule_id: TM1
+  file: .agents/skills/git-guardrails-claude-code/scripts/block-dangerous-git.sh
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:cedb8dae68cbb553351c86059c66d6d1210b75bea48a19b710fbb593963961bd
+  rule_id: TM2
+  file: .agents/skills/to-tickets/SKILL.md
+  reason: Development-only reference skills (gitignored .agents/, mattpocock install); never shipped, never in CI checkout
+- hash: sha256:4d3a88b5a25bcfd0758e11b56a2d62360425725d21982fcc259c0bbdd672095f
   rule_id: YR4
-  file: reference/checklist-catalog.md
-  reason: Checklist catalog item describing access-control and permission design checks for the UI, not instructions to the agent
+  file: datasets/checklist-catalog.md
+  reason: Checklist catalog items describing access-control/permission design checks for the UI, not instructions to the agent
