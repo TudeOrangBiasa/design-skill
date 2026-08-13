@@ -32,7 +32,7 @@ allowed-tools: Read, Write, Bash, WebFetch, env
 Abilities are flags, never standalone.
 
 - `detect <target>` - run detector.mjs, report tells
-- `audit [--a11y|--responsive|--interaction|--checkup|--polish]` - two-axis scored report
+- `audit [--a11y|--responsive|--interaction|--checkup|--polish]` - two-axis scored report; findings carry severity, element, fix; Spec axis quotes the brief
 - `deslop [--distill|--bolder|--quieter|--harden]` - kill tells with positive alternatives
 - `shape` - grill in frontier rounds, every question with a recommendation; settle register/mode/persona → brief
 - `craft [--typeset|--colorize|--layout|--animate|--document]` - brief-confirmed build; `--document` writes DESIGN.md (design.md)
@@ -42,12 +42,12 @@ Abilities are flags, never standalone.
 - **Layout:** name the structure in one sentence before markup (asymmetric split, strict grid, editorial column, dense shell); never the centered stack. Sections differ in rhythm; one focal point per viewport (Hick's, Fitts, Von Restorff).
 - **Story:** Persuade pages follow six beats: Hook, Catalyst, Mentor, Journey, Proof, Resolution (shape.md); one primary CTA.
 - **Motion:** one primary moment per surface, custom easing, transform/opacity - never width/height.
-- **Numbers:** replace invented stats (10k+/99.9%/24-7) with real numbers or specific claims - a fake figure is a tell, not content.
+- **Numbers:** replace invented stats, testimonials, or attributions (10k+, "Dan W. since 2023") with real, checkable claims - a fake figure is a tell, not content.
 - **Modals:** complex multi-section settings live on their own page, never in a modal.
 - **Register-fit:** ops UI stays dense and scannable - no serif greeting, cream, or magazine styling, even if the source theme is editorial.
 - **Icons:** one real set (Lucide, Phosphor, Tabler, Iconoir, Humbleicons, Flowbite); fetch it, no hand-drawn mascots, no emoji.
 - **Imagery:** image-led briefs ship real/generated imagery, URLs verified; colored div = bug.
-- **Color:** OKLCH-first; convert to hex/hsl only where the framework needs it (Tailwind etc.).
+- **Color:** OKLCH-first; hex/hsl only where the framework needs it. Palette never category-reflex: coffee -> brown, cozy -> beige, tech -> indigo.
 - **Font:** pick as a physical object (museum caption, terminal manual); reject reflex defaults (Inter, Fraunces, Space Grotesk).
 - **Reference hunt:** web-search 2-3 inspirations that fit the brief (layout, type, palette); cite them.
 

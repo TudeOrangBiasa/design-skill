@@ -11,6 +11,7 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 - Shared CSS scanning seam (`scripts/css-scan.mjs`): prop, countProp, splitBlocks, collectColors, collectFontFamilies, collectRadii. The detector rules and design-system-check.mjs now import the same scanners; the color-literal regexes and hand-rolled font/radius extractors in design-system-check.mjs are gone. New `css-scan.test.mjs` (6 tests).
 - `scripts/validate-evals.mjs` + `npm run validate-evals`: machine-checks evals/evals.json (unique ids, prompt, >= 1 assertion, fixture paths exist) before any API spend; wired into CI.
 - `CONTEXT.md`: the domain model (term to owning module) lands and is doc-linted.
+- SKILL.md doctrine closes the eval gaps (go scorecard 219/239): Numbers extended to invented testimonials/attributions, Color bans category-reflex palettes (coffee -> brown, cozy -> beige, tech -> indigo), audit findings must carry severity/element/fix and the Spec axis quotes the brief. SKILL.md cap raised 3850 -> 4100B (still ~1000 tokens).
 - Eval backend default switched to opencode go (`deepseek-v4-flash`, `https://opencode.ai/zen/go/v1`, key in `.eval-key.go.env`, the opencode account key). The zen free tier is `npm run eval:zen` (429s after ~4-5 heavy calls); the DeepSeek paid direct path is `npm run eval:deepseek` (`.eval-key.env`). agent-skills-eval.yaml points at go.
 
 
