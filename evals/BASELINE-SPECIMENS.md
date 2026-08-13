@@ -150,3 +150,13 @@ Layout doctrine gained the anti-KPI-monument line (from Jakub Krehel's better-la
 | build-from-brief-dashboard | 4/5 | 4/5 | Palette coffee-reflex persists (dark brown + amber for a coffee brand) - honest miss, the doctrine line did not move it |
 
 New merged with_skill: **222/239 (92.9%)** vs without 64/239 (26.8%), lift +66.1pp. warm-cozy flipped 0/3 -> 3/3 across runs (fixture-adversarial, high variance); layout-templates closed via doctrine + retry; the dashboard palette reflex is the strongest remaining miss (a coffee roastery brief invites roast-family hues, judge rejects exactly that).
+
+## OKLCH PALETTE GENERATION closes the last gap (iteration-31)
+
+Color doctrine upgraded to explicit OKLCH palette generation: one hue with a reason, equal-L steps, same C% across hues, accent from a different hue (per Jakub Krehel's better-colors, MIT). Measured on build-from-brief-dashboard (the only remaining miss).
+
+| Eval | Before | After | Verdict |
+|---|---|---|---|
+| build-from-brief-dashboard | 4/5 | **5/5** | CLOSED - output generates an OKLCH neutral scale (hue 85, L 0.16->0.92, C 0.012-0.018, equal steps) with an amber accent from a different hue; not coffee-guessable. without_skill still 4/5 (coffee-coded reflex - expected baseline). |
+
+All three target evals are now closed. Final merged scorecard: **with_skill 223/239 (93.3%)** vs without_skill 64/239 (26.8%), lift **+66.5pp** (from 219/239 at the start of this pass).
