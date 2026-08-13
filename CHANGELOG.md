@@ -4,7 +4,11 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 ## [Unreleased]
 
-- Nothing yet.
+### Changed
+
+- Detector rule registry split out of `scripts/detector.mjs` into per-category modules (`scripts/rules/`): context.mjs (shared extraction + helpers), layout/typography/color/copy/motion/quality/components/imagery.mjs, and index.mjs aggregation. detector.mjs keeps the runner, CLI, and public exports; findings content is unchanged, now grouped by category (same exit codes).
+- Detector grows 46 -> 52 rules: justified-text, tight-line-height, tiny-body-text, wide-body-tracking (Typography), repeating-gradient-stripes (Color), skipped-heading-level (Quality); all warning severity.
+
 
 ## [2.0.0] - 2026-08-11
 

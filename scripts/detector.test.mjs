@@ -78,8 +78,11 @@ test('emo dash saturation rule fires on dense dashes', () => {
 test('rule registry size is locked', () => {
   // 42 + 4 geometric rules (fixed-width-overflow, crop-risk-container,
   // absolute-no-inset, negative-margin-overlap) added 2026-08-12 as part of
-  // the geometry-detection work. Bump deliberately, with a test for each.
-  assert.equal(RULES.length, 46);
+  // the geometry-detection work + 6 rules (justified-text, tight-line-height,
+  // tiny-body-text, wide-body-tracking, repeating-gradient-stripes,
+  // skipped-heading-level) landed with the registry split 2026-08-13.
+  // Bump deliberately, with a test for each.
+  assert.equal(RULES.length, 52);
 });
 
 test('geometric rules fire on fixed-width, crop, floating, and overlap patterns', () => {
@@ -105,6 +108,17 @@ test('geometric rules do not fire on safe layout', () => {
   const found = ids(html);
   for (const forbidden of ['fixed-width-overflow', 'crop-risk-container', 'absolute-no-inset', 'negative-margin-overlap']) {
     assert.ok(!found.includes(forbidden), `rule ${forbidden} fired on safe layout: ${found.join(', ')}`);
+  }
+});
+
+test('new typography/color/quality rules fire on their patterns', () => {
+  const html = `<!DOCTYPE html><html><head><style>
+    .body { text-align: justify; line-height: 1.2; font-size: 10px; letter-spacing: 0.07em; }
+    .bg { background: repeating-linear-gradient(45deg, #eee, #fff 10px); }
+  </style></head><body><h1>Title</h1><h3>Skip</h3><p class="body">Text</p><div class="bg"></div></body></html>`;
+  const found = ids(html);
+  for (const expected of ['justified-text', 'tight-line-height', 'tiny-body-text', 'wide-body-tracking', 'repeating-gradient-stripes', 'skipped-heading-level']) {
+    assert.ok(found.includes(expected), `expected ${expected}, got: ${found.join(', ')}`);
   }
 });
 
