@@ -160,3 +160,15 @@ Color doctrine upgraded to explicit OKLCH palette generation: one hue with a rea
 | build-from-brief-dashboard | 4/5 | **5/5** | CLOSED - output generates an OKLCH neutral scale (hue 85, L 0.16->0.92, C 0.012-0.018, equal steps) with an amber accent from a different hue; not coffee-guessable. without_skill still 4/5 (coffee-coded reflex - expected baseline). |
 
 All three target evals are now closed. Fully merged scorecard (iterations 24-31, newest grading wins): **with_skill 228/239 (95.4%)** vs without_skill 64/239 (26.8%), lift **+68.6pp** (from 219/239 at the start of this pass; earlier 222/223 figures in this file were incremental undercounts - this merge is authoritative).
+
+## NARRATIVE / REGISTER / DESLOP closure (iterations 32-35)
+
+Doctrine: attributable proof (never invent, never omit), register-fit bans tracked-caps kickers + greeting copy, deslop replaces with a rationale, one primary CTA with in-page anchors included.
+
+| Eval | Before | After | Verdict |
+|---|---|---|---|
+| deslop-targeted-fix | 3/4 | **4/4** | CLOSED (replace-with-rationale) |
+| slop-kill-editorial-dashboard | 1/3 | **3/3** | CLOSED (tracked-caps + greeting gone) |
+| goal-narrative | 3/5 | **4/5** | Proof attributable now passes; multi-CTA remains. The in-page-anchor doctrine fix (56bdb88) is committed but UNVERIFIED: go API-caps the longest generation, zen free 429s (rate limit). |
+
+Final merged with_skill: **232/239 (97.1%)** vs 64/239 (26.8%), lift +68.4pp. Remaining 7: narrative multi-CTA (fix in, pending backend), a11y-fix-semantics visual equivalence (fixture artifact - no before image), bad-contrast gray-on-dark, lazy-cool monospace costume, new-slop accent stripe, flat-type scale <1.25x, springy-hover no feedback.

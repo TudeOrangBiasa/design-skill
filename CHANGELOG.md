@@ -4,7 +4,7 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 ## [2.1.0] - 2026-08-13
 
-Architecture cleanup + measured doctrine closure. Scorecard grows 219/239 -> 228/239 with_skill (95.4%), lift +68.6pp; eval backend moved to opencode go.
+Architecture cleanup + measured doctrine closure. Scorecard grows 219/239 -> 232/239 with_skill (97.1%), lift +68.4pp; eval backend moved to opencode go.
 
 ### Added
 
@@ -20,7 +20,7 @@ Architecture cleanup + measured doctrine closure. Scorecard grows 219/239 -> 228
 - SKILL.md doctrine closes the eval gaps (go scorecard 219/239): Numbers extended to invented testimonials/attributions, Color bans category-reflex palettes (coffee -> brown, cozy -> beige, tech -> indigo), audit findings must carry severity/element/fix and the Spec axis quotes the brief. Cap raised 3850 -> 4100B.
 - Layout doctrine gains the anti-KPI-monument line (big figure + small label + stat row -> lead with the delta or a table); detector grows 52 -> 53 rules with `kpi-monument` (catches the $2.4M/12.8K/$187 cluster invented-stat-row missed). Adapted from Jakub Krehel's skills (MIT) - attribution in NOTICE.md. Mini-runs close layout-templates (4/4) and warm-cozy (3/3).
 - Color doctrine upgraded to explicit OKLCH palette generation (one hue with a reason, equal-L steps, same C% across hues, accent from a different hue - per better-colors, MIT, see NOTICE.md), closing build-from-brief-dashboard 4/5 -> 5/5. Cap 4100 -> 4200B.
-- Version 2.1.0; final scorecard 228/239 (95.4%) vs 64/239 (26.8%), lift +68.6pp (evals/BASELINE-SPECIMENS.md).
+- Version 2.1.0; final scorecard 232/239 (97.1%) vs 64/239 (26.8%), lift +68.4pp (evals/BASELINE-SPECIMENS.md).
 - Narrative/register/deslop doctrine sharpened (attributable proof - never invent nor omit; no tracked-caps kickers or greeting copy; deslop replaces with a rationale, never bare removal). SKILL.md cap 4200 -> 4400B.
 
 ## [2.0.0] - 2026-08-11
