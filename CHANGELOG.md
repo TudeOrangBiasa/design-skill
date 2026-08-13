@@ -11,7 +11,7 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 - Shared CSS scanning seam (`scripts/css-scan.mjs`): prop, countProp, splitBlocks, collectColors, collectFontFamilies, collectRadii. The detector rules and design-system-check.mjs now import the same scanners; the color-literal regexes and hand-rolled font/radius extractors in design-system-check.mjs are gone. New `css-scan.test.mjs` (6 tests).
 - `scripts/validate-evals.mjs` + `npm run validate-evals`: machine-checks evals/evals.json (unique ids, prompt, >= 1 assertion, fixture paths exist) before any API spend; wired into CI.
 - `CONTEXT.md`: the domain model (term to owning module) lands and is doc-linted.
-- Eval backend default switched to the opencode zen free tier (`deepseek-v4-flash-free`, key in `.eval-key.zen.env`); the DeepSeek paid path is now `npm run eval:deepseek` (`.eval-key.env`). agent-skills-eval.yaml points at zen.
+- Eval backend default switched to opencode go (`deepseek-v4-flash`, `https://opencode.ai/zen/go/v1`, key in `.eval-key.go.env`, the opencode account key). The zen free tier is `npm run eval:zen` (429s after ~4-5 heavy calls); the DeepSeek paid direct path is `npm run eval:deepseek` (`.eval-key.env`). agent-skills-eval.yaml points at go.
 
 
 ## [2.0.0] - 2026-08-11

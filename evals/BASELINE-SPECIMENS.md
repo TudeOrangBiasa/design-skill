@@ -40,8 +40,9 @@ The original +15pp gate (BASELINE-v2.md) is superseded: the 61-eval corpus with 
 ## How to re-run
 
 ```bash
-npm run eval            # default: opencode zen free (agent-skills-eval.yaml); key in .eval-key.zen.env
-npm run eval:deepseek   # paid fallback: DeepSeek API; key in .eval-key.env
+npm run eval            # default: opencode go (agent-skills-eval.yaml); key in .eval-key.go.env
+npm run eval:zen        # free tier: opencode zen (429s after a few heavy calls - spot runs only)
+npm run eval:deepseek   # paid direct: DeepSeek API; key in .eval-key.env
 ```
 
 ~11% of calls may hit "ERROR: terminated" (DeepSeek abort on long reasoning/output); re-run to measure the failed evals, or accept the clean-excluded number. The zen free tier can return HTTP 429 under load or stall on long generations - wait and retry, or use `npm run eval:deepseek`.

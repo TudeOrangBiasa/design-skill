@@ -18,3 +18,4 @@ skills-lock.json
 eval-workspace/
 .eval-key.env
 .eval-key.zen.env
+.eval-key.go.env
