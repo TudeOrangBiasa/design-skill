@@ -159,4 +159,4 @@ Color doctrine upgraded to explicit OKLCH palette generation: one hue with a rea
 |---|---|---|---|
 | build-from-brief-dashboard | 4/5 | **5/5** | CLOSED - output generates an OKLCH neutral scale (hue 85, L 0.16->0.92, C 0.012-0.018, equal steps) with an amber accent from a different hue; not coffee-guessable. without_skill still 4/5 (coffee-coded reflex - expected baseline). |
 
-All three target evals are now closed. Final merged scorecard: **with_skill 223/239 (93.3%)** vs without_skill 64/239 (26.8%), lift **+66.5pp** (from 219/239 at the start of this pass).
+All three target evals are now closed. Fully merged scorecard (iterations 24-31, newest grading wins): **with_skill 228/239 (95.4%)** vs without_skill 64/239 (26.8%), lift **+68.6pp** (from 219/239 at the start of this pass; earlier 222/223 figures in this file were incremental undercounts - this merge is authoritative).
