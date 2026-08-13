@@ -172,3 +172,7 @@ Doctrine: attributable proof (never invent, never omit), register-fit bans track
 | goal-narrative | 3/5 | **4/5** | Proof attributable now passes; multi-CTA remains. The in-page-anchor doctrine fix (56bdb88) is committed but UNVERIFIED: go API-caps the longest generation, zen free 429s (rate limit). |
 
 Final merged with_skill: **232/239 (97.1%)** vs 64/239 (26.8%), lift +68.4pp. Remaining 7: narrative multi-CTA (fix in, pending backend), a11y-fix-semantics visual equivalence (fixture artifact - no before image), bad-contrast gray-on-dark, lazy-cool monospace costume, new-slop accent stripe, flat-type scale <1.25x, springy-hover no feedback.
+
+## CTA VERIFICATION (iteration-36)
+
+The in-page-anchor CTA doctrine was verified: the multi-CTA assertion PASSED this run (hero has one primary CTA, no diverging buttons). The eval scored 3/5 overall due to run variance on two other assertions: proof (model chose explicit "no fake testimonials" + omission over naming a person - the never-invent/never-omit tension: the brief supplies no named customer, so attribution is unsatisfiable without inventing) and problem-in-user's-words (brand voice, no user quote). goal-narrative best remains 4/5 (iteration-33); the CTA fix is confirmed working.
