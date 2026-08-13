@@ -91,4 +91,4 @@ function buildContext({ html, text }) {
   return { html, text, css, headings, imgs };
 }
 
-export { stripTags, collectTags, attr, inlineStyles, cssBlocks, prop, countProp, EMOJI_RE, BUZZWORDS, buildContext };
+export { stripTags, collectTags, attr, inlineStyles, cssBlocks, EMOJI_RE, BUZZWORDS, buildContext };

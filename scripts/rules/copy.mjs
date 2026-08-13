@@ -2,7 +2,7 @@
  * Copy rules for the deterministic design-smell detector.
  * Split out of scripts/detector.mjs during the rule-registry split.
  */
-import { prop, countProp, attr, stripTags, EMOJI_RE, BUZZWORDS } from './context.mjs';
+import { attr, stripTags, EMOJI_RE, BUZZWORDS } from './context.mjs';
 
 export const RULES = [
 

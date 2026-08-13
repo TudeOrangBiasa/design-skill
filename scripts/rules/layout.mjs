@@ -2,7 +2,8 @@
  * Layout rules for the deterministic design-smell detector.
  * Split out of scripts/detector.mjs during the rule-registry split.
  */
-import { prop, countProp, attr, stripTags, EMOJI_RE, BUZZWORDS } from './context.mjs';
+import { prop, countProp, splitBlocks } from '../css-scan.mjs';
+import { attr, stripTags, EMOJI_RE, BUZZWORDS } from './context.mjs';
 
 export const RULES = [
 
@@ -119,10 +120,10 @@ export const RULES = [
     category: 'Layout',
     severity: 'warning',
     check(ctx) {
-      const blocks = [...ctx.css.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
+      const blocks = splitBlocks(ctx.css);
       const hits = blocks
-        .filter((b) => /overflow\s*:\s*hidden/.test(b[2]) && /(?:max-)?height\s*:\s*\d+px/.test(b[2]))
-        .map((b) => `"${b[1].trim().slice(0, 40)}"`);
+        .filter((b) => /overflow\s*:\s*hidden/.test(b[1]) && /(?:max-)?height\s*:\s*\d+px/.test(b[1]))
+        .map((b) => `"${b[0].trim().slice(0, 40)}"`);
       return hits.length ? [{ evidence: `fixed height + overflow hidden can crop text: ${hits.slice(0, 3).join(', ')}` }] : [];
     },
   },
@@ -132,10 +133,10 @@ export const RULES = [
     category: 'Layout',
     severity: 'warning',
     check(ctx) {
-      const blocks = [...ctx.css.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
+      const blocks = splitBlocks(ctx.css);
       const hits = blocks
-        .filter((b) => /position\s*:\s*(?:absolute|fixed)/.test(b[2]) && !/(?:^|;)\s*(?:top|left|right|bottom|inset)\s*:/.test(b[2]))
-        .map((b) => `"${b[1].trim().slice(0, 40)}"`);
+        .filter((b) => /position\s*:\s*(?:absolute|fixed)/.test(b[1]) && !/(?:^|;)\s*(?:top|left|right|bottom|inset)\s*:/.test(b[1]))
+        .map((b) => `"${b[0].trim().slice(0, 40)}"`);
       return hits.length ? [{ evidence: `absolute/fixed without an inset - position undefined: ${hits.slice(0, 3).join(', ')}` }] : [];
     },
   },

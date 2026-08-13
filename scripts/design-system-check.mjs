@@ -10,51 +10,17 @@
  *   node design-system-check.mjs <DESIGN.md> <target> [--json]
  *
  * Exit codes: 0 = no drift, 1 = drift found, 2 = usage error.
- * Deterministic; no LLM. The 42-rule detector registry is untouched - this is
- * a separate, DESIGN.md-aware pass.
+ * Deterministic; no LLM. The detector rule registry (scripts/rules/*) is
+ * untouched - this is a separate, DESIGN.md-aware pass.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseDesignMd } from './design-parser.mjs';
+import { collectColors, collectFontFamilies, collectRadii } from './css-scan.mjs';
 
-const HEX_RE = /#[0-9a-fA-F]{3,8}\b/g;
-const OKLCH_RE = /oklch\([^)]+\)/gi;
-const RGBA_RE = /rgba?\([^)]+\)/gi;
 const PX_RE = /(\d+(?:\.\d+)?)px/g;
-
-function collectColors(text) {
-  return [...new Set([...text.matchAll(HEX_RE), ...text.matchAll(OKLCH_RE), ...text.matchAll(RGBA_RE)].map((m) => m[0].toLowerCase()))];
-}
-
-function collectFontFamilies(css) {
-  const out = new Set();
-  const re = /font-family\s*:\s*([^;}{]+)/gi;
-  let m;
-  while ((m = re.exec(css)) !== null) {
-    for (const fam of m[1].split(',')) {
-      const clean = fam.trim().replace(/^['"]|['"]$/g, '');
-      if (clean && !/^(serif|sans-serif|monospace|system-ui|cursive|fantasy)$/i.test(clean)) {
-        out.add(clean.toLowerCase());
-      }
-    }
-  }
-  return out;
-}
-
-function collectRadii(css) {
-  const out = new Set();
-  const re = /border-radius\s*:\s*([^;}{]+)/gi;
-  let m;
-  while ((m = re.exec(css)) !== null) {
-    for (const v of m[1].split(/\s+/)) {
-      const mm = v.match(/^(\d+(?:\.\d+)?)px$/);
-      if (mm) out.add(mm[1]);
-    }
-  }
-  return out;
-}
 
 function documentedColors(model, raw) {
   const set = new Set();
