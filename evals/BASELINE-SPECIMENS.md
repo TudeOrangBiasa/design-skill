@@ -110,3 +110,15 @@ Best aggregate yet (with_skill 90.0%, previous best 88.9% in iteration-11). Key 
 **goal-motion 1/5 this run (was 5/5)** - honest regression, not judge noise: the model shipped a decorative 26s infinite `spin` on a stamp, the same `fadeUp` entrance on every hero element, `ease`/`linear` default easings next to a custom `--ease-out` token, and `stroke-dashoffset`/color transitions (assertion allows only transform/opacity/grid-template-rows). Reduced-motion preference passed. The Emil doctrine was violated by this particular output; prior runs were 5/5, so motion is met-with-variance, now flipped low.
 
 Variance note holds: individual evals swing run to run (motion 5/5 -> 1/5, narrative 4/5 -> 5/5, checklist 6/6 <-> 5/6); the aggregate is the stable signal and it improved.
+
+## OPENCODE GO backend verification (iterations 24-26, 66-eval run)
+
+Backend switched to opencode go (`deepseek-v4-flash`, `https://opencode.ai/zen/go/v1`, same account key as zen). Full run (iteration-24) + two retry batches (iterations 25-26) to cover the 16 API-failed calls.
+
+| | with_skill | without_skill | Lift |
+|---|---|---|---|
+| **Total (merged)** | **219/239 (91.6%)** | **64/239 (26.8%)** | **+64.8pp** |
+
+Best aggregate yet, and cross-backend stable: DeepSeek iteration-20 was 215/239 (90.0%) vs 61/239 (25.5%), +64.4pp. Key evals on go: goal-character 5/5, goal-motion 5/5 (passed on go after failing 3/3 in isolated mini-runs - the go cap is load/time dependent, not a hard token cap), audit-checklist 5/6 vs 0/6 without, deslop-icons 5/5, invented-stat-row 3/3, layout-box 5/5 both, goal-narrative 3/5 (was 5/5 best on DeepSeek - variance), springy-hover 2/3.
+
+Backend caveat: go is flaky under sustained load - 16/132 calls in the full run ended in fetch-failed / 500 (mostly the longest with_skill generations and scattered short without_skill calls); all recovered on retry. No 429s (unlike zen free). The go tier is metered (~$0.07/M input, $0.14/M output), not free.
