@@ -1,6 +1,6 @@
-# BASELINE-SPECIMENS — 61-eval scorecard on real slop corpus
+# BASELINE-SPECIMENS — 66-eval scorecard on real slop corpus
 
-The v2 skill measured against the expanded suite: 12 original evals + 11 real slop specimens from impeccable's antipattern-examples + 35 tell fragments from killaislop.com + 3 priority evals (imagery, icon sourcing, layout laws).
+The v2 skill measured against the expanded suite: 12 original evals + 11 real slop specimens from impeccable's antipattern-examples + 35 tell fragments from killaislop.com + 3 priority evals (imagery, icon sourcing, layout laws) + 3 goal evals (character, animation, narrative) + the audit checklist and layout-box evals.
 
 - Runs: 2026-08-11, `agent-design-skill` 2.0.0
 - Backend: DeepSeek API (`https://api.deepseek.com`, `deepseek-v4-flash`, concurrency 4) - the default
@@ -94,3 +94,17 @@ The box-planning + locked-viewport doctrine (modes.md, restored earlier) is now 
 | goal-character-1 (sanity) | 5/5 | 4/5 |
 
 The model produces box-disciplined layouts when the constraints are stated. Not a with/without discriminator (the prompt enumerates the constraints), so it verifies the doctrine is followed, not that the skill uniquely produces it. The new geometric detector rules (fixed-width-overflow, crop-risk-container, absolute-no-inset, negative-margin-overlap) cover the same ground mechanically.
+
+## REGISTRY SPLIT verification (iteration-20, 66-eval run)
+
+Post-architecture run: detector registry split into `scripts/rules/*` (52 rules, +6 warning rules), css-scan seam, validate-evals guard, CONTEXT.md. First run with **0/132 API failures** (all 66 evals, both modes, grading complete; the harness exit code 1 is its any-fail gate, not a reliability problem).
+
+| | with_skill | without_skill | Lift |
+|---|---|---|---|
+| **Total** | **215/239 (90.0%)** | **61/239 (25.5%)** | **+64.4pp** |
+
+Best aggregate yet (with_skill 90.0%, previous best 88.9% in iteration-11). Key evals this run: goal-character **5/5**, goal-narrative **5/5** (best, no variance this run), audit-checklist **6/6** vs **0/6** without (strongest discriminator, back to best), deslop-icons **5/5**, invented-stat-row **3/3** (stably fixed), layout-box 5/5 both (known non-discriminator), gradient-hero 4/5 (buzzword miss), copy-voice 3/4 (stable).
+
+**goal-motion 1/5 this run (was 5/5)** - honest regression, not judge noise: the model shipped a decorative 26s infinite `spin` on a stamp, the same `fadeUp` entrance on every hero element, `ease`/`linear` default easings next to a custom `--ease-out` token, and `stroke-dashoffset`/color transitions (assertion allows only transform/opacity/grid-template-rows). Reduced-motion preference passed. The Emil doctrine was violated by this particular output; prior runs were 5/5, so motion is met-with-variance, now flipped low.
+
+Variance note holds: individual evals swing run to run (motion 5/5 -> 1/5, narrative 4/5 -> 5/5, checklist 6/6 <-> 5/6); the aggregate is the stable signal and it improved.
