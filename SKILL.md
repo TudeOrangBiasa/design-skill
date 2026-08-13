@@ -33,18 +33,18 @@ Abilities are flags, never standalone.
 
 - `detect <target>` - run detector.mjs, report tells
 - `audit [--a11y|--responsive|--interaction|--checkup|--polish]` - two-axis scored report; findings carry severity, element, fix; Spec axis quotes the brief
-- `deslop [--distill|--bolder|--quieter|--harden]` - kill tells with positive alternatives
+- `deslop [--distill|--bolder|--quieter|--harden]` - kill tells with positive alternatives; every fix replaces with a rationale, never bare removal
 - `shape` - grill in frontier rounds, every question with a recommendation; settle register/mode/persona → brief
 - `craft [--typeset|--colorize|--layout|--animate|--document]` - brief-confirmed build; `--document` writes DESIGN.md (design.md)
 
 ## Build doctrine
 
 - **Layout:** name the structure in one sentence before markup (asymmetric split, strict grid, editorial column, dense shell); never the centered stack; no KPI-monument hero (big figure + small label + stat row) - lead with the delta or a table. Sections differ in rhythm; one focal point per viewport (Hick's, Fitts, Von Restorff).
-- **Story:** Persuade pages follow six beats: Hook, Catalyst, Mentor, Journey, Proof, Resolution (shape.md); one primary CTA.
+- **Story:** Persuade pages follow six beats: Hook, Catalyst, Mentor, Journey, Proof, Resolution (shape.md). Proof names a real person + result from the brief - never invent, never omit. One primary CTA; every button leads to it.
 - **Motion:** one primary moment per surface, custom easing, transform/opacity - never width/height.
 - **Numbers:** replace invented stats, testimonials, or attributions (10k+, "Dan W. since 2023") with real, checkable claims - a fake figure is a tell, not content.
 - **Modals:** complex multi-section settings live on their own page, never in a modal.
-- **Register-fit:** ops UI stays dense and scannable - no serif greeting, cream, or magazine styling, even if the source theme is editorial.
+- **Register-fit:** ops UI stays dense and scannable - no serif greeting, cream, tracked-caps kickers, or magazine copy, even if the source theme is editorial.
 - **Icons:** one real set (Lucide, Phosphor, Tabler, Iconoir, Humbleicons, Flowbite); fetch it, no hand-drawn mascots, no emoji.
 - **Imagery:** image-led briefs ship real/generated imagery, URLs verified; colored div = bug.
 - **Color:** generate palettes in OKLCH: one hue with a reason, equal-L steps, same C% across hues, accent from a different hue; hex/hsl only where the framework needs it. Never category-reflex (coffee -> brown, cozy -> beige, tech -> indigo).

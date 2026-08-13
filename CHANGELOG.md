@@ -21,6 +21,7 @@ Architecture cleanup + measured doctrine closure. Scorecard grows 219/239 -> 228
 - Layout doctrine gains the anti-KPI-monument line (big figure + small label + stat row -> lead with the delta or a table); detector grows 52 -> 53 rules with `kpi-monument` (catches the $2.4M/12.8K/$187 cluster invented-stat-row missed). Adapted from Jakub Krehel's skills (MIT) - attribution in NOTICE.md. Mini-runs close layout-templates (4/4) and warm-cozy (3/3).
 - Color doctrine upgraded to explicit OKLCH palette generation (one hue with a reason, equal-L steps, same C% across hues, accent from a different hue - per better-colors, MIT, see NOTICE.md), closing build-from-brief-dashboard 4/5 -> 5/5. Cap 4100 -> 4200B.
 - Version 2.1.0; final scorecard 228/239 (95.4%) vs 64/239 (26.8%), lift +68.6pp (evals/BASELINE-SPECIMENS.md).
+- Narrative/register/deslop doctrine sharpened (attributable proof - never invent nor omit; no tracked-caps kickers or greeting copy; deslop replaces with a rationale, never bare removal). SKILL.md cap 4200 -> 4400B.
 
 ## [2.0.0] - 2026-08-11
 
