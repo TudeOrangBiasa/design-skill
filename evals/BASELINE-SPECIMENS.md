@@ -138,3 +138,15 @@ SKILL.md doctrine added for the three uncovered clusters (invented testimonials/
 | build-from-brief-dashboard | 4/5 (iter-25) | unmeasurable | go API-failed 4/4 times on this eval (longest generation) |
 
 Net: +3 assertions (219/239 -> ~222/239). The audit doctrine fully works; the Numbers doctrine kills fabricated testimonials but the narrative proof assertion then fails for missing attribution (model chooses omission over fabrication); the fixture-adversarial tells (layout-templates, warm-cozy) ignore doctrine. build-from-brief-dashboard needs a non-go backend to re-measure (or accept 4/5 from iter-25). Campaign cost: ~150k tokens, ~$0.02-0.03 on go.
+
+## KPI-MONUMENT + RESOURCE ADAPTATION (iterations 29-30)
+
+Layout doctrine gained the anti-KPI-monument line (from Jakub Krehel's better-layout, MIT - see NOTICE.md), and the detector gained rule #53 `kpi-monument` (catches the $2.4M/12.8K/$187 hero-metric cluster that invented-stat-row missed). Measured on go + one zen-capable retry.
+
+| Eval | Before (merged 24-26) | After (29-30) | Verdict |
+|---|---|---|---|
+| slop-kill-layout-templates | 3/4 | **4/4** | CLOSED |
+| slop-kill-warm-cozy | 1/3 | **3/3** | CLOSED (was 0/3 in iter-27 - run variance) |
+| build-from-brief-dashboard | 4/5 | 4/5 | Palette coffee-reflex persists (dark brown + amber for a coffee brand) - honest miss, the doctrine line did not move it |
+
+New merged with_skill: **222/239 (92.9%)** vs without 64/239 (26.8%), lift +66.1pp. warm-cozy flipped 0/3 -> 3/3 across runs (fixture-adversarial, high variance); layout-templates closed via doctrine + retry; the dashboard palette reflex is the strongest remaining miss (a coffee roastery brief invites roast-family hues, judge rejects exactly that).

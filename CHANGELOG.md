@@ -12,6 +12,7 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 - `scripts/validate-evals.mjs` + `npm run validate-evals`: machine-checks evals/evals.json (unique ids, prompt, >= 1 assertion, fixture paths exist) before any API spend; wired into CI.
 - `CONTEXT.md`: the domain model (term to owning module) lands and is doc-linted.
 - SKILL.md doctrine closes the eval gaps (go scorecard 219/239): Numbers extended to invented testimonials/attributions, Color bans category-reflex palettes (coffee -> brown, cozy -> beige, tech -> indigo), audit findings must carry severity/element/fix and the Spec axis quotes the brief. SKILL.md cap raised 3850 -> 4100B (still ~1000 tokens).
+- Layout doctrine gains the anti-KPI-monument line (big figure + small label + stat row -> lead with the delta or a table); detector grows 52 -> 53 rules with `kpi-monument` (catches the $2.4M/12.8K/$187 cluster invented-stat-row missed). Adapted from Jakub Krehel's skills (MIT) - attribution in NOTICE.md. Mini-runs: layout-templates 3/4 -> 4/4, warm-cozy 1/3 -> 3/3; build-from-brief-dashboard stays 4/5 (coffee-palette reflex, honest miss).
 - Eval backend default switched to opencode go (`deepseek-v4-flash`, `https://opencode.ai/zen/go/v1`, key in `.eval-key.go.env`, the opencode account key). The zen free tier is `npm run eval:zen` (429s after ~4-5 heavy calls); the DeepSeek paid direct path is `npm run eval:deepseek` (`.eval-key.env`). agent-skills-eval.yaml points at go.
 
 

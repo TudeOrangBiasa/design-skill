@@ -80,9 +80,10 @@ test('rule registry size is locked', () => {
   // absolute-no-inset, negative-margin-overlap) added 2026-08-12 as part of
   // the geometry-detection work + 6 rules (justified-text, tight-line-height,
   // tiny-body-text, wide-body-tracking, repeating-gradient-stripes,
-  // skipped-heading-level) landed with the registry split 2026-08-13.
+  // skipped-heading-level) landed with the registry split 2026-08-13 +
+  // kpi-monument (2026-08-13, closes the hero-metric gap).
   // Bump deliberately, with a test for each.
-  assert.equal(RULES.length, 52);
+  assert.equal(RULES.length, 53);
 });
 
 test('geometric rules fire on fixed-width, crop, floating, and overlap patterns', () => {
@@ -109,6 +110,18 @@ test('geometric rules do not fire on safe layout', () => {
   for (const forbidden of ['fixed-width-overflow', 'crop-risk-container', 'absolute-no-inset', 'negative-margin-overlap']) {
     assert.ok(!found.includes(forbidden), `rule ${forbidden} fired on safe layout: ${found.join(', ')}`);
   }
+});
+
+test('kpi-monument fires on hero-metric figures, not on single prices', () => {
+  const html = `<!DOCTYPE html><html><head><style>
+    .kpi { font-size: 2.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  </style></head><body><h1>Title</h1>
+  <div class="grid"><div class="kpi">$2.4M</div><div class="kpi">12.8K</div><div class="kpi">$187</div></div>
+  </body></html>`;
+  assert.ok(ids(html).includes('kpi-monument'), `expected kpi-monument, got: ${ids(html).join(', ')}`);
+  const safe = `<html><head><style>.price { font-size: 1.25rem; }</style></head><body><p class="price">$24/month</p></body></html>`;
+  assert.ok(!ids(safe).includes('kpi-monument'), 'kpi-monument fired on a single price');
 });
 
 test('new typography/color/quality rules fire on their patterns', () => {

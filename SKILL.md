@@ -39,7 +39,7 @@ Abilities are flags, never standalone.
 
 ## Build doctrine
 
-- **Layout:** name the structure in one sentence before markup (asymmetric split, strict grid, editorial column, dense shell); never the centered stack. Sections differ in rhythm; one focal point per viewport (Hick's, Fitts, Von Restorff).
+- **Layout:** name the structure in one sentence before markup (asymmetric split, strict grid, editorial column, dense shell); never the centered stack; no KPI-monument hero (big figure + small label + stat row) - lead with the delta or a table. Sections differ in rhythm; one focal point per viewport (Hick's, Fitts, Von Restorff).
 - **Story:** Persuade pages follow six beats: Hook, Catalyst, Mentor, Journey, Proof, Resolution (shape.md); one primary CTA.
 - **Motion:** one primary moment per surface, custom easing, transform/opacity - never width/height.
 - **Numbers:** replace invented stats, testimonials, or attributions (10k+, "Dan W. since 2023") with real, checkable claims - a fake figure is a tell, not content.

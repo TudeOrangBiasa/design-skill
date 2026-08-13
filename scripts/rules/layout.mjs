@@ -150,4 +150,16 @@ export const RULES = [
       return m ? [{ evidence: `negative margin (${m[1]}) forces element overlap - use the grid frame instead` }] : [];
     },
   },
+  {
+    id: 'kpi-monument',
+    name: 'KPI monument: big figure, small label, supporting stats',
+    category: 'Layout',
+    severity: 'warning',
+    check(ctx) {
+      const big = /font-size\s*:\s*(?:[2-9]|\d{2,})(?:\.\d+)?\s*(?:rem|px)/i.test(ctx.css);
+      const figs = (ctx.text.match(/\$\d+(?:\.\d+)?[kKmM]?\b|\b\d+(?:\.\d+)?[kKmM]\b/g) || []).length;
+      return big && figs >= 2
+        ? [{ evidence: `${figs} KPI figures with a big display size - hero-metric cluster (big number + label + stat row); lead with the delta, a table, or a decision instead` }] : [];
+    },
+  },
 ];
