@@ -6,9 +6,12 @@ Thanks for contributing to the design skill. This file covers how to run the che
 
 - `SKILL.md`: the entry point. 10 tells, invocation modes, the five commands.
 - `reference/`: doctrine. One file per command (audit, deslop, shape, craft) plus shared playbooks (register, modes, craft floor).
+- `CONTEXT.md`: the domain model (term to owning module).
 - `scripts/`: deterministic Node CLIs, no npm dependencies.
+- `scripts/rules/`: the detector rule registry, one module per category; `scripts/css-scan.mjs` is the shared CSS scanning seam.
 - `scripts/command-metadata.json`: command catalog (single source of truth), machine-validated by `validate-catalog.mjs`.
 - `scripts/validate-catalog.mjs`: asserts command metadata, the dispatcher, and the reference index agree.
+- `scripts/validate-evals.mjs`: asserts the eval suite contract before any API spend.
 - `plugins/install.sh`: per-agent installer.
 - `evals/`: the agent-skills-eval suite and baseline scorecards.
 - `datasets/`: scraped reference material (git clones only, never shipped).
@@ -18,9 +21,10 @@ Thanks for contributing to the design skill. This file covers how to run the che
 Run before submitting anything:
 
 ```bash
-npm test                          # 21 tests, node --test
+npm test                          # 34 tests, node --test
 npm run lint:docs                 # em dashes, banned AI-prose phrases, broken links
 npm run validate-catalog          # command catalog vs dispatcher vs reference index
+npm run validate-evals            # eval suite contract (ids, prompts, fixture paths)
 node scripts/design.mjs --help    # dispatcher works
 ```
 
@@ -66,7 +70,7 @@ A command touches five places. Do all five in one change:
 
 ## Evals
 
-The skill is measured with `npm run eval` (agent-skills-eval, 12 evals, with_skill vs without_skill). Evals run on demand, never in CI. When you change doctrine that affects what the model outputs, re-run the suite and record the delta in `evals/BASELINE-v2.md`. See [evals/BASELINE-v1.md](evals/BASELINE-v1.md) for the backend contract (opencode zen free API by default, env-overridable).
+The skill is measured with `npm run eval` (agent-skills-eval, 66 evals, with_skill vs without_skill). Evals run on demand, never in CI. When you change doctrine that affects what the model outputs, re-run the affected evals and record the delta in `evals/BASELINE-SPECIMENS.md`. Backends: `npm run eval` uses opencode go by default (key in `.eval-key.go.env`); `npm run eval:zen` is the free tier (429-prone, spot runs only); `npm run eval:deepseek` is the DeepSeek API direct (key in `.eval-key.env`).
 
 ## Security
 

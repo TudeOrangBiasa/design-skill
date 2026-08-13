@@ -60,6 +60,8 @@ npm run eval
 
 Other backends: `npm run eval:zen` runs the same suite on the opencode zen free tier (`deepseek-v4-flash-free`, same key) - caveat: it rate-limits (HTTP 429 FreeUsageLimitError) after ~4-5 heavy calls, so it is for spot runs only; `npm run eval:deepseek` runs it on the DeepSeek API directly (`deepseek-v4-flash`, key in `.eval-key.env`).
 
+Latest scorecard (2.1.0, merged across iterations 20-36): **with_skill 232/239 (97.1%)** vs without_skill 64/239 (26.8%), lift **+68.4pp**, on 66 evals with 53 deterministic detector rules backing the mechanical checks.
+
 ## Install
 
 ### With skills.sh (recommended)
@@ -121,6 +123,7 @@ The skill ships zero servers, no MCP, and no browser automation. Every automatio
 | [motionsites.ai](https://motionsites.ai/) | Free-tier gallery as motion reference for `craft --animate` |
 | [google-labs-code/design.md](https://github.com/google-labs-code/design.md) | DESIGN.md format + validation |
 | [Anthropic's frontend-design skill](https://github.com/anthropics/skills) | Craft and shape flows, production quality bar |
+| [Jakub Krehel's skills](https://github.com/jakubkrehel/skills) | Layout doctrine (order by importance, anti-KPI-monument) and OKLCH palette generation (equal-L steps, consistent C%, accent from a different hue) |
 
 ## Contributing
 

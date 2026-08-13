@@ -3,7 +3,7 @@
 > **SUPERSEDED (2026-08-13).** This is the 12-eval v2 gate from 2026-08-11.
 > The current scorecard is 66 evals, kept in
 > [evals/BASELINE-SPECIMENS.md](BASELINE-SPECIMENS.md): with_skill
-> **223/239 (93.3%)** vs without_skill 64/239 (26.8%), lift **+66.5pp**
+> **232/239 (97.1%)** vs without_skill 64/239 (26.8%), lift **+68.4pp**
 > (`agent-design-skill` 2.1.0, backend opencode go). The gate below was
 > PASSED at +62.5pp and is kept as the historical v1->v2 record.
 

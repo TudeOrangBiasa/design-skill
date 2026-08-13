@@ -99,7 +99,7 @@ The model produces box-disciplined layouts when the constraints are stated. Not 
 
 ## REGISTRY SPLIT verification (iteration-20, 66-eval run)
 
-Post-architecture run: detector registry split into `scripts/rules/*` (52 rules, +6 warning rules), css-scan seam, validate-evals guard, CONTEXT.md. First run with **0/132 API failures** (all 66 evals, both modes, grading complete; the harness exit code 1 is its any-fail gate, not a reliability problem).
+Post-architecture run: detector registry split into `scripts/rules/*` (53 rules, +7 warning rules), css-scan seam, validate-evals guard, CONTEXT.md. First run with **0/132 API failures** (all 66 evals, both modes, grading complete; the harness exit code 1 is its any-fail gate, not a reliability problem).
 
 | | with_skill | without_skill | Lift |
 |---|---|---|---|

@@ -27,7 +27,7 @@ future change should land in the owning module, not a lookalike elsewhere.
 
 - User input -> `scripts/design.mjs` dispatcher -> one of detect, audit,
   deslop, shape, craft (abilities as flags).
-- detect -> `scripts/detector.mjs` -> `scripts/rules/*` (52 rules) ->
+- detect -> `scripts/detector.mjs` -> `scripts/rules/*` (53 rules) ->
   `scripts/rules/context.mjs` + `scripts/css-scan.mjs`.
 - audit -> detector pass + `scripts/design-system-check.mjs` (check-design)
   + grilling shape + checklist core floor.

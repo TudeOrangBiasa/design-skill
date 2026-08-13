@@ -1,6 +1,6 @@
 # impeccable.style/slop catalog
 
-Status: research notes, 2026-08-11. Source: https://impeccable.style/slop/ (fetched live; the 64-pattern catalog page from pbakaus/impeccable, the direct ancestor of this skill). Purpose: capture the full pattern catalog verbatim (it is the lineage's authoritative tell list), then audit which patterns the skill's detector already catches (46 rules since 2026-08-12; the 4 geometric additions are not in this catalog), which live only in prose doctrine, and which are gaps. Outside the linted corpus.
+Status: research notes, 2026-08-11. Source: https://impeccable.style/slop/ (fetched live; the 64-pattern catalog page from pbakaus/impeccable, the direct ancestor of this skill). Purpose: capture the full pattern catalog verbatim (it is the lineage's authoritative tell list), then audit which patterns the skill's detector already catches (53 rules since 2026-08-13; the geometric + typography/color/quality additions are not in this catalog), which live only in prose doctrine, and which are gaps. Outside the linted corpus.
 
 The page states: 64 patterns total, "including all 59 deterministic detector rules"; 11 synthetic specimen pages; 5 broader judgments stay in `/impeccable critique` (LLM-only).
 

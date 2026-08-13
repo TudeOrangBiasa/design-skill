@@ -25,7 +25,7 @@ Command definitions live in `scripts/command-metadata.json` (single source of tr
 
 ## Scripts
 
-- `scripts/detector.mjs` - mechanical tell detection (52 rules in `scripts/rules/*`; deterministic, exit 0/1)
+- `scripts/detector.mjs` - mechanical tell detection (53 rules in `scripts/rules/*`; deterministic, exit 0/1)
 - `scripts/load-context.mjs` - reads PRODUCT.md / DESIGN.md / brief.md (read-only)
 - `scripts/design-parser.mjs` - parses + validates DESIGN.md (google-labs-code/design.md spec)
 - `scripts/concept-seed.mjs` - seeded direction dice for shape
