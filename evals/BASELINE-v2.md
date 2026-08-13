@@ -1,5 +1,12 @@
 # BASELINE-v2 — agent-skills-eval scorecard (after refactor)
 
+> **SUPERSEDED (2026-08-13).** This is the 12-eval v2 gate from 2026-08-11.
+> The current scorecard is 66 evals, kept in
+> [evals/BASELINE-SPECIMENS.md](BASELINE-SPECIMENS.md): with_skill
+> **223/239 (93.3%)** vs without_skill 64/239 (26.8%), lift **+66.5pp**
+> (`agent-design-skill` 2.1.0, backend opencode go). The gate below was
+> PASSED at +62.5pp and is kept as the historical v1->v2 record.
+
 Run against the **v2 skill** (`agent-design-skill` 2.0.0, commit `4a23e73`).
 
 - Date: 2026-08-11
@@ -51,7 +58,9 @@ Gate: >= +15pp. Result: **+62.5pp. PASS.**
 ## How to re-run
 
 ```bash
-npm run eval   # same command as the v1 baseline; writes the next iteration-N
+npm run eval            # default: opencode go (agent-skills-eval.yaml); key in .eval-key.go.env
+npm run eval:zen        # free tier: opencode zen (429s after a few heavy calls - spot runs only)
+npm run eval:deepseek   # paid direct: DeepSeek API; key in .eval-key.env
 ```
 
 Env overrides: `OPENAI_COMPATIBLE_BASE_URL` / `OPENAI_COMPATIBLE_MODEL` / `OPENAI_COMPATIBLE_API_KEY` (or export `EVAL_API_KEY` directly).

@@ -2,20 +2,25 @@
 
 Entries start at 1.0.19; earlier history lives in the git log. Format follows Keep a Changelog: Added, Changed, Removed per release.
 
-## [Unreleased]
+## [2.1.0] - 2026-08-13
+
+Architecture cleanup + measured doctrine closure. Scorecard grows 219/239 -> 223/239 with_skill (93.3%), lift +66.5pp; eval backend moved to opencode go.
+
+### Added
+
+- `scripts/validate-evals.mjs` + `npm run validate-evals`: machine-checks evals/evals.json (unique ids, prompt, >= 1 assertion, fixture paths exist) before any API spend; wired into CI.
+- `CONTEXT.md`: the domain model (term to owning module) lands and is doc-linted.
 
 ### Changed
 
-- Detector rule registry split out of `scripts/detector.mjs` into per-category modules (`scripts/rules/`): context.mjs (shared extraction + helpers), layout/typography/color/copy/motion/quality/components/imagery.mjs, and index.mjs aggregation. detector.mjs keeps the runner, CLI, and public exports; findings content is unchanged, now grouped by category (same exit codes).
+- Detector rule registry split out of `scripts/detector.mjs` into per-category modules (`scripts/rules/`): context.mjs (shared extraction + helpers), layout/typography/color/copy/motion/quality/components/imagery.mjs, and index.mjs aggregation. detector.mjs keeps the runner, CLI, and public exports; findings content unchanged, now grouped by category.
 - Detector grows 46 -> 52 rules: justified-text, tight-line-height, tiny-body-text, wide-body-tracking (Typography), repeating-gradient-stripes (Color), skipped-heading-level (Quality); all warning severity.
 - Shared CSS scanning seam (`scripts/css-scan.mjs`): prop, countProp, splitBlocks, collectColors, collectFontFamilies, collectRadii. The detector rules and design-system-check.mjs now import the same scanners; the color-literal regexes and hand-rolled font/radius extractors in design-system-check.mjs are gone. New `css-scan.test.mjs` (6 tests).
-- `scripts/validate-evals.mjs` + `npm run validate-evals`: machine-checks evals/evals.json (unique ids, prompt, >= 1 assertion, fixture paths exist) before any API spend; wired into CI.
-- `CONTEXT.md`: the domain model (term to owning module) lands and is doc-linted.
-- SKILL.md doctrine closes the eval gaps (go scorecard 219/239): Numbers extended to invented testimonials/attributions, Color bans category-reflex palettes (coffee -> brown, cozy -> beige, tech -> indigo), audit findings must carry severity/element/fix and the Spec axis quotes the brief. SKILL.md cap raised 3850 -> 4100B (still ~1000 tokens).
-- Layout doctrine gains the anti-KPI-monument line (big figure + small label + stat row -> lead with the delta or a table); detector grows 52 -> 53 rules with `kpi-monument` (catches the $2.4M/12.8K/$187 cluster invented-stat-row missed). Adapted from Jakub Krehel's skills (MIT) - attribution in NOTICE.md. Mini-runs: layout-templates 3/4 -> 4/4, warm-cozy 1/3 -> 3/3; build-from-brief-dashboard stays 4/5 (coffee-palette reflex, honest miss).
-- Color doctrine upgraded to explicit OKLCH palette generation (one hue with a reason, equal-L steps, same C% across hues, accent from a different hue - per better-colors, MIT, see NOTICE.md) to break the category-reflex pick. SKILL.md cap 4100 -> 4200B.
 - Eval backend default switched to opencode go (`deepseek-v4-flash`, `https://opencode.ai/zen/go/v1`, key in `.eval-key.go.env`, the opencode account key). The zen free tier is `npm run eval:zen` (429s after ~4-5 heavy calls); the DeepSeek paid direct path is `npm run eval:deepseek` (`.eval-key.env`). agent-skills-eval.yaml points at go.
-
+- SKILL.md doctrine closes the eval gaps (go scorecard 219/239): Numbers extended to invented testimonials/attributions, Color bans category-reflex palettes (coffee -> brown, cozy -> beige, tech -> indigo), audit findings must carry severity/element/fix and the Spec axis quotes the brief. Cap raised 3850 -> 4100B.
+- Layout doctrine gains the anti-KPI-monument line (big figure + small label + stat row -> lead with the delta or a table); detector grows 52 -> 53 rules with `kpi-monument` (catches the $2.4M/12.8K/$187 cluster invented-stat-row missed). Adapted from Jakub Krehel's skills (MIT) - attribution in NOTICE.md. Mini-runs close layout-templates (4/4) and warm-cozy (3/3).
+- Color doctrine upgraded to explicit OKLCH palette generation (one hue with a reason, equal-L steps, same C% across hues, accent from a different hue - per better-colors, MIT, see NOTICE.md), closing build-from-brief-dashboard 4/5 -> 5/5. Cap 4100 -> 4200B.
+- Version 2.1.0; final scorecard 223/239 (93.3%) vs 64/239 (26.8%), lift +66.5pp (evals/BASELINE-SPECIMENS.md).
 
 ## [2.0.0] - 2026-08-11
 

@@ -1,6 +1,6 @@
 {
   "name": "agent-design-skill",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Design partner skill for frontend agents. Kills AI-slop: 10 tells with positive direction, five commands (detect, audit, deslop, shape, craft), grilling-first planning, measured with agent-skills-eval.",
   "license": "Apache-2.0",
   "keywords": [
