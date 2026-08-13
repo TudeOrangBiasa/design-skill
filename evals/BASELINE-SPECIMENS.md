@@ -122,3 +122,19 @@ Backend switched to opencode go (`deepseek-v4-flash`, `https://opencode.ai/zen/g
 Best aggregate yet, and cross-backend stable: DeepSeek iteration-20 was 215/239 (90.0%) vs 61/239 (25.5%), +64.4pp. Key evals on go: goal-character 5/5, goal-motion 5/5 (passed on go after failing 3/3 in isolated mini-runs - the go cap is load/time dependent, not a hard token cap), audit-checklist 5/6 vs 0/6 without, deslop-icons 5/5, invented-stat-row 3/3, layout-box 5/5 both, goal-narrative 3/5 (was 5/5 best on DeepSeek - variance), springy-hover 2/3.
 
 Backend caveat: go is flaky under sustained load - 16/132 calls in the full run ended in fetch-failed / 500 (mostly the longest with_skill generations and scattered short without_skill calls); all recovered on retry. No 429s (unlike zen free). The go tier is metered (~$0.07/M input, $0.14/M output), not free.
+
+## DOCTRINE CLOSURE mini-runs (iterations 27-28)
+
+SKILL.md doctrine added for the three uncovered clusters (invented testimonials/attributions in Numbers, category-reflex palette ban in Color, audit severity/element/fix + Spec-quotes-brief in the audit command). Measured on go, 7 affected evals + 1 retry.
+
+| Eval | Before (merged 24-26) | After (27-28) | Verdict |
+|---|---|---|---|
+| audit-report-two-axes | 3/5 | **5/5** | FIXED (severity + brief quotes + no unsupported claims) |
+| audit-core-checklist | 5/6 | **6/6** | FIXED (element + fix) |
+| build-from-brief-landing | 4/5 | **5/5** | FIXED (invented testimonial gone) |
+| goal-narrative | 3/5 | 3/5 | No fabrication now, but no named attribution at all + multi-CTA; net same |
+| slop-kill-layout-templates | 3/4 | 3/4 | Unfazed: hero-metric $2.4M persists |
+| slop-kill-warm-cozy | 1/3 | 0/3 | Unfazed: fixture names the pattern, model reproduces it |
+| build-from-brief-dashboard | 4/5 (iter-25) | unmeasurable | go API-failed 4/4 times on this eval (longest generation) |
+
+Net: +3 assertions (219/239 -> ~222/239). The audit doctrine fully works; the Numbers doctrine kills fabricated testimonials but the narrative proof assertion then fails for missing attribution (model chooses omission over fabrication); the fixture-adversarial tells (layout-templates, warm-cozy) ignore doctrine. build-from-brief-dashboard needs a non-go backend to re-measure (or accept 4/5 from iter-25). Campaign cost: ~150k tokens, ~$0.02-0.03 on go.
