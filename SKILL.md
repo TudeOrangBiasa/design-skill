@@ -47,7 +47,7 @@ Abilities are flags, never standalone.
 - **Register-fit:** ops UI stays dense and scannable - no serif greeting, cream, or magazine styling, even if the source theme is editorial.
 - **Icons:** one real set (Lucide, Phosphor, Tabler, Iconoir, Humbleicons, Flowbite); fetch it, no hand-drawn mascots, no emoji.
 - **Imagery:** image-led briefs ship real/generated imagery, URLs verified; colored div = bug.
-- **Color:** OKLCH-first; hex/hsl only where the framework needs it. Palette never category-reflex: coffee -> brown, cozy -> beige, tech -> indigo.
+- **Color:** generate palettes in OKLCH: one hue with a reason, equal-L steps, same C% across hues, accent from a different hue; hex/hsl only where the framework needs it. Never category-reflex (coffee -> brown, cozy -> beige, tech -> indigo).
 - **Font:** pick as a physical object (museum caption, terminal manual); reject reflex defaults (Inter, Fraunces, Space Grotesk).
 - **Reference hunt:** web-search 2-3 inspirations that fit the brief (layout, type, palette); cite them.
 
