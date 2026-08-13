@@ -83,3 +83,14 @@ All changes in (core checklist mandatory, 3 goal evals, geometry detector rules,
 | **Total** | **194/234 (82.9%)** | **51/234 (21.8%)** | **+61.1pp** |
 
 Key evals this run: goal-character **5/5**, goal-motion **5/5**, goal-narrative 4/5 (one-CTA, variance), audit-checklist 5/6 (was 6/6), deslop-icons 3/5 (was 5/5), invented-stat-row 1/3 (was 3/3). The aggregate is stable across runs (with 82.9-88.9%, lift +61 to +76pp); individual evals swing +-1-2 assertions run to run (model + judge variance). The strongest stable signals: character and motion 5/5, checklist 6/6-best vs 0/6 without, without-skill stuck at 15-22%.
+
+## BOX / GEOMETRY doctrine verification (iteration-19, mini run)
+
+The box-planning + locked-viewport doctrine (modes.md, restored earlier) is now measured: `layout-box-1` asserts a named layout structure, no fixed width overflowing at 375px, no fixed-height+overflow-hidden crop risk, no absolute-without-inset, and Operate-register density.
+
+| Eval | with_skill | without_skill |
+|---|---|---|
+| layout-box-1 | **5/5** | 5/5 |
+| goal-character-1 (sanity) | 5/5 | 4/5 |
+
+The model produces box-disciplined layouts when the constraints are stated. Not a with/without discriminator (the prompt enumerates the constraints), so it verifies the doctrine is followed, not that the skill uniquely produces it. The new geometric detector rules (fixed-width-overflow, crop-risk-container, absolute-no-inset, negative-margin-overlap) cover the same ground mechanically.

@@ -925,6 +925,19 @@
         "The report covers responsive: no horizontal scroll and no text clipping",
         "Findings are element-level: each names the element and the fix"
       ]
+    },
+    {
+      "id": "layout-box-1",
+      "name": "layout: box-planning and viewport discipline",
+      "prompt": "Build a single-page HTML/CSS dashboard for 'Roastline', a coffee roastery's production tool for ops managers tracking batch yields and roast profiles. Mode: Operate. Before the code, name your layout structure in one sentence. Use the locked viewport breakpoints (375/640/768/1024/1280/1536): no fixed pixel width that overflows at 375px, no fixed height with overflow:hidden that could crop text, no absolutely-positioned element without an inset. Follow the skill document if one is attached.",
+      "expected_output": "A dense, scannable dashboard with a named layout structure and no viewport-overflow, crop, or floating-placement defects.",
+      "assertions": [
+        "The response names the layout structure in one sentence before the code (e.g. dense app shell, strict grid, asymmetric split)",
+        "No fixed pixel width that would overflow at the 375px breakpoint (no fixed width >= 1000px; fluid or max-width instead)",
+        "No container with a fixed height plus overflow:hidden that could crop text",
+        "No absolutely-positioned element without an inset (top/left/right/bottom/inset)",
+        "The layout fits the Operate register: dense and scannable, not a narrow centered article column"
+      ]
     }
   ]
 }
