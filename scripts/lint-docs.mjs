@@ -24,6 +24,7 @@ const DOC_GLOBS = [
   'README.md',
   'CONTRIBUTION.md',
   'CHANGELOG.md',
+  'CONTEXT.md',
   'reference/*.md',
   'agents/*.md',
   'NOTICE.md',

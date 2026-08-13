@@ -8,6 +8,9 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 - Detector rule registry split out of `scripts/detector.mjs` into per-category modules (`scripts/rules/`): context.mjs (shared extraction + helpers), layout/typography/color/copy/motion/quality/components/imagery.mjs, and index.mjs aggregation. detector.mjs keeps the runner, CLI, and public exports; findings content is unchanged, now grouped by category (same exit codes).
 - Detector grows 46 -> 52 rules: justified-text, tight-line-height, tiny-body-text, wide-body-tracking (Typography), repeating-gradient-stripes (Color), skipped-heading-level (Quality); all warning severity.
+- Shared CSS scanning seam (`scripts/css-scan.mjs`): prop, countProp, splitBlocks, collectColors, collectFontFamilies, collectRadii. The detector rules and design-system-check.mjs now import the same scanners; the color-literal regexes and hand-rolled font/radius extractors in design-system-check.mjs are gone. New `css-scan.test.mjs` (6 tests).
+- `scripts/validate-evals.mjs` + `npm run validate-evals`: machine-checks evals/evals.json (unique ids, prompt, >= 1 assertion, fixture paths exist) before any API spend; wired into CI.
+- `CONTEXT.md`: the domain model (term to owning module) lands and is doc-linted.
 
 
 ## [2.0.0] - 2026-08-11
