@@ -1,8 +1,0 @@
-name: probe-g
-on: [push]
-jobs:
-  t:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: npm test
