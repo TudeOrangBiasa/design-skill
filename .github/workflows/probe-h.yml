@@ -1,0 +1,8 @@
+name: probe-h
+on: [push]
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node scripts/design.mjs --help | grep -q "Usage: design"
