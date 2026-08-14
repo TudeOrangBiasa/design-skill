@@ -1,0 +1,17 @@
+name: probe-c
+on: [push]
+jobs:
+  test:
+    name: Tests and doc lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm test
+      - run: npm run lint:docs
+      - run: npm run validate-catalog
+      - run: npm run validate-evals
+      - name: Dispatcher smoke
+        run: node scripts/design.mjs --help | grep -q "Usage: design"
