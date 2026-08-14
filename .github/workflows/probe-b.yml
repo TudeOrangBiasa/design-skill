@@ -1,0 +1,10 @@
+name: probe-b
+on: [push]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 0
