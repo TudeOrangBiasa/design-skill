@@ -938,6 +938,32 @@
         "No absolutely-positioned element without an inset (top/left/right/bottom/inset)",
         "The layout fits the Operate register: dense and scannable, not a narrow centered article column"
       ]
+    },
+    {
+      "id": "benchmark-landing-1",
+      "name": "benchmark: landing reaches Awwwards-level craft",
+      "prompt": "Build a single-page HTML/CSS landing page for 'Solstice', a ceramics atelier selling hand-thrown tableware to interior designers who care about provenance. Mode: Persuade. Match or exceed this bar: the hero breaks the centered stack (horizontal or asymmetric composition with one strong edge); typography IS the identity (distinctive display type with editorial contrast and >= 1.25x scale, never a default stack); the palette is small and deliberate (2-3 hues chosen with a reason, not guessable from the product category); one authored motion moment with custom easing, purpose-gated. Output the complete HTML.",
+      "expected_output": "A landing page that would not look out of place in an Awwwards Site-of-the-Day shortlist.",
+      "assertions": [
+        "The hero breaks the centered stack: horizontal or asymmetric composition with one strong edge",
+        "Typography carries the identity: distinctive display type with >= 1.25x editorial contrast, not a default stack",
+        "The palette is small and deliberate (2-3 hues with a reason), not guessable from the product category",
+        "One authored motion moment with custom easing, purpose-gated, not decorative everywhere",
+        "The overall result approaches or exceeds the benchmark bar: a cohesive composition at Awwwards-SOTD craft level"
+      ]
+    },
+    {
+      "id": "benchmark-dashboard-1",
+      "name": "benchmark: dashboard reaches Stripe/Linear-level craft",
+      "prompt": "Build a single-page HTML/CSS dashboard for 'Nordwind', a maritime logistics ops team tracking vessel schedules, cargo loads, and port delays. Mode: Operate. Match or exceed this bar: fixed left sidebar with a card-based content area on a dense 12-column grid; 4-6 KPI cards above the fold, each a number + trend indicator (+x% vs last period) + sparkline, tabular numbers, no extraneous labels; every interactive element has complete microstates (hover/focus/active/disabled/loading) with skeletons matching the layout; restrained semantic color (one accent, error/success/warning vocabulary, no decoration); data-first density with decision-driven metrics and progressive disclosure for details. Output the complete HTML.",
+      "expected_output": "A dashboard that would not look out of place next to Linear or Stripe.",
+      "assertions": [
+        "Fixed left sidebar with a card-based content area on a dense grid; 4-6 KPI cards above the fold",
+        "KPI cards show a number + trend indicator (+x%) + sparkline with tabular numbers, no extraneous labels",
+        "Complete microstates: hover/focus/active/disabled/loading with skeletons matching the layout",
+        "Restrained semantic color: one accent + state vocabulary, no decoration for decoration's sake",
+        "The overall result approaches or exceeds the benchmark bar: data-first density at Stripe/Linear craft level"
+      ]
     }
   ]
 }

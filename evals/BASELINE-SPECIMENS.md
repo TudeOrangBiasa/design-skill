@@ -176,3 +176,9 @@ Final merged with_skill: **232/239 (97.1%)** vs 64/239 (26.8%), lift +68.4pp. Re
 ## CTA VERIFICATION (iteration-36)
 
 The in-page-anchor CTA doctrine was verified: the multi-CTA assertion PASSED this run (hero has one primary CTA, no diverging buttons). The eval scored 3/5 overall due to run variance on two other assertions: proof (model chose explicit "no fake testimonials" + omission over naming a person - the never-invent/never-omit tension: the brief supplies no named customer, so attribution is unsatisfiable without inventing) and problem-in-user's-words (brand voice, no user quote). goal-narrative best remains 4/5 (iteration-33); the CTA fix is confirmed working.
+
+## BENCHMARK EVAL FAMILY (added 2026-08-14, iterations 37+)
+
+New pattern: benchmark-corpus -> build-with-skill -> judge against the bar -> reward. research/benchmarks.md distills Awwwards SOTD 2025 (Palmer 7.46, MetaMask 7.39, TRIPLETTA 7.34, Heidelberg 7.65) and Stripe/Linear/Vercel dashboards into concrete attributes. Two evals: benchmark-landing-1 (landing reaches Awwwards-level craft) and benchmark-dashboard-1 (dashboard reaches Stripe/Linear-level craft). The reward signal = the judge scoring the with_skill output against the bar (matching or exceeding = pass).
+
+Measurement PENDING: iteration-37 attempt hit the go API cap on both (fetch failed - long generations; 43min run, with_skill 0/5 API-excluded). zen free still 429; DeepSeek balance out. Retry when go cooperates, zen clears, or DeepSeek is topped up. The eval family and corpus are validated (68 evals, validate-evals green).
