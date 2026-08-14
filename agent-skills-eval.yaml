@@ -1,0 +1,13 @@
+root: .
+workspace: ./eval-workspace
+baseline: true
+target: deepseek-v4-flash
+judge: deepseek-v4-flash
+baseUrl: https://opencode.ai/zen/go/v1
+apiKeyEnv: EVAL_API_KEY
+concurrency: 4
+layout: iteration
+strict: true
+report:
+  enabled: true
+  title: design-skill eval report

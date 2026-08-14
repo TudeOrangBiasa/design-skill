@@ -76,7 +76,63 @@ test('emo dash saturation rule fires on dense dashes', () => {
 });
 
 test('rule registry size is locked', () => {
-  assert.equal(RULES.length, 42);
+  // 42 + 4 geometric rules (fixed-width-overflow, crop-risk-container,
+  // absolute-no-inset, negative-margin-overlap) added 2026-08-12 as part of
+  // the geometry-detection work + 6 rules (justified-text, tight-line-height,
+  // tiny-body-text, wide-body-tracking, repeating-gradient-stripes,
+  // skipped-heading-level) landed with the registry split 2026-08-13 +
+  // kpi-monument (2026-08-13, closes the hero-metric gap).
+  // Bump deliberately, with a test for each.
+  assert.equal(RULES.length, 53);
+});
+
+test('geometric rules fire on fixed-width, crop, floating, and overlap patterns', () => {
+  const html = `<!DOCTYPE html><html><head><style>
+    .wide { width: 1440px; }
+    .crop { overflow: hidden; height: 200px; }
+    .float { position: absolute; }
+    .overlap { margin-top: -20px; }
+  </style></head><body><h1>Title</h1></body></html>`;
+  const found = ids(html);
+  for (const expected of ['fixed-width-overflow', 'crop-risk-container', 'absolute-no-inset', 'negative-margin-overlap']) {
+    assert.ok(found.includes(expected), `expected rule ${expected} to fire, got: ${found.join(', ')}`);
+  }
+});
+
+test('geometric rules do not fire on safe layout', () => {
+  const html = `<!DOCTYPE html><html><head><style>
+    .wrap { width: min(100% - 2rem, 72rem); margin-inline: auto; }
+    .panel { overflow: hidden; border-radius: 12px; }
+    .popover { position: absolute; top: 100%; left: 0; }
+    .grid { display: grid; gap: 1rem; }
+  </style></head><body><h1>Title</h1></body></html>`;
+  const found = ids(html);
+  for (const forbidden of ['fixed-width-overflow', 'crop-risk-container', 'absolute-no-inset', 'negative-margin-overlap']) {
+    assert.ok(!found.includes(forbidden), `rule ${forbidden} fired on safe layout: ${found.join(', ')}`);
+  }
+});
+
+test('kpi-monument fires on hero-metric figures, not on single prices', () => {
+  const html = `<!DOCTYPE html><html><head><style>
+    .kpi { font-size: 2.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  </style></head><body><h1>Title</h1>
+  <div class="grid"><div class="kpi">$2.4M</div><div class="kpi">12.8K</div><div class="kpi">$187</div></div>
+  </body></html>`;
+  assert.ok(ids(html).includes('kpi-monument'), `expected kpi-monument, got: ${ids(html).join(', ')}`);
+  const safe = `<html><head><style>.price { font-size: 1.25rem; }</style></head><body><p class="price">$24/month</p></body></html>`;
+  assert.ok(!ids(safe).includes('kpi-monument'), 'kpi-monument fired on a single price');
+});
+
+test('new typography/color/quality rules fire on their patterns', () => {
+  const html = `<!DOCTYPE html><html><head><style>
+    .body { text-align: justify; line-height: 1.2; font-size: 10px; letter-spacing: 0.07em; }
+    .bg { background: repeating-linear-gradient(45deg, #eee, #fff 10px); }
+  </style></head><body><h1>Title</h1><h3>Skip</h3><p class="body">Text</p><div class="bg"></div></body></html>`;
+  const found = ids(html);
+  for (const expected of ['justified-text', 'tight-line-height', 'tiny-body-text', 'wide-body-tracking', 'repeating-gradient-stripes', 'skipped-heading-level']) {
+    assert.ok(found.includes(expected), `expected ${expected}, got: ${found.join(', ')}`);
+  }
 });
 
 test('detects the 2025-2026 tells in the new-slop fixture', () => {

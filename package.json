@@ -1,7 +1,7 @@
 {
   "name": "agent-design-skill",
-  "version": "1.0.26",
-  "description": "Design partner skill for frontend agents. Procedure and ability commands for audit, refine, build, fix and design systems, with user-invoked planning and model-invoked slop detection.",
+  "version": "2.1.0",
+  "description": "Design partner skill for frontend agents. Kills AI-slop: 10 tells with positive direction, five commands (detect, audit, deslop, shape, craft), grilling-first planning, measured with agent-skills-eval.",
   "license": "Apache-2.0",
   "keywords": [
     "design",
@@ -22,8 +22,8 @@
     "REFERENCE.md",
     "GUIDE.md",
     "reference/",
-    "agents/",
     "scripts/",
+    "evals/",
     "plugins/",
     "NOTICE.md",
     "LICENSE"
@@ -37,9 +37,14 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node --test scripts/design-parser.test.mjs scripts/detector.test.mjs scripts/concept-seed.test.mjs",
+    "test": "node --test scripts/design-parser.test.mjs scripts/detector.test.mjs scripts/concept-seed.test.mjs scripts/design-system-check.test.mjs scripts/css-scan.test.mjs",
     "lint:docs": "node scripts/lint-docs.mjs",
-    "detect": "node scripts/detector.mjs"
+    "detect": "node scripts/detector.mjs",
+    "eval": "set -a; { [ -f ./.eval-key.go.env ] && . ./.eval-key.go.env; } || { [ -f ./.eval-key.zen.env ] && . ./.eval-key.zen.env; }; set +a; EVAL_API_KEY=${EVAL_API_KEY:?EVAL_API_KEY is not set: create .eval-key.go.env with the opencode account key (free tier: npm run eval:zen; paid direct: npm run eval:deepseek)} npx -y agent-skills-eval --config agent-skills-eval.yaml ${OPENAI_COMPATIBLE_BASE_URL:+--base-url $OPENAI_COMPATIBLE_BASE_URL} ${OPENAI_COMPATIBLE_MODEL:+--target $OPENAI_COMPATIBLE_MODEL --judge $OPENAI_COMPATIBLE_MODEL}",
+    "validate-catalog": "node scripts/validate-catalog.mjs",
+    "validate-evals": "node scripts/validate-evals.mjs",
+    "eval:deepseek": "set -a; [ -f ./.eval-key.env ] && . ./.eval-key.env; set +a; EVAL_API_KEY=${EVAL_API_KEY:?EVAL_API_KEY is not set: create .eval-key.env with the DeepSeek key} npx -y agent-skills-eval --config agent-skills-eval.yaml --base-url https://api.deepseek.com --target deepseek-v4-flash --judge deepseek-v4-flash",
+    "eval:zen": "set -a; [ -f ./.eval-key.zen.env ] && . ./.eval-key.zen.env; set +a; EVAL_API_KEY=${EVAL_API_KEY:?EVAL_API_KEY is not set: create .eval-key.zen.env with the opencode zen key} npx -y agent-skills-eval --config agent-skills-eval.yaml --base-url https://opencode.ai/zen/v1 --target deepseek-v4-flash-free --judge deepseek-v4-flash-free"
   },
   "bin": {
     "design-skill": "scripts/design.mjs"

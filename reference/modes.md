@@ -17,10 +17,18 @@ The mode names what success looks like on this surface. Choose it from the reque
 
 ## Register still exists
 
-The register (brand or product, recorded in PRODUCT.md) is the durable lane of the product. The mode is the per-surface lens. Both are read together: a brand product with a settings page operates that page; a product company with a landing page persuades it. Load `reference/brand.md` or `reference/product.md` for the lane, then apply the mode.
+The register (brand or product, recorded in PRODUCT.md) is the durable lane of the product. The mode is the per-surface lens. Both are read together: a brand product with a settings page operates that page; a product company with a landing page persuades it. Load `reference/register.md` for the lane, then apply the mode.
+
+## Layout planning: boxes, no browser needed
+
+Plan the surface as boxes before markup. Name the grid frame in one sentence (12-col, asymmetric split), then each major block: role, column span, viewport relationship (full-bleed/contained/offset). Example: "hero: full-bleed, content 72% left; features: 5/7 split; footer: contained, centered."
+
+Viewport discipline (locked breakpoints): **375/640/768/1024/1280/1536**; mobile-first, verify each. No fixed width > viewport, no horizontal scroll, no text crop (fixed height + overflow hidden), no element off the edge.
+
+Unnatural placement: absolute elements must state an inset + containing block; no negative-margin overlap; spacing from the grid frame, not eyeballing. If a box's role/position cannot be stated in one line, the layout is undecided.
 
 ## Where modes apply
 
-- `shape` and `new-work` select the mode during discovery and carry it through the brief.
+- `shape` selects the mode during discovery and carries it through the brief.
 - `craft` inherits the mode from the surface being built.
 - The mode lives in the surface brief or task scope, never in PRODUCT.md. Different surfaces of the same product can have different modes.

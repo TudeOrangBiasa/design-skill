@@ -1,0 +1,943 @@
+{
+  "skill_name": "design-skill",
+  "evals": [
+    {
+      "id": "slop-kill-1",
+      "name": "slop kill: gradient hero page",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/slop.html"
+      ],
+      "expected_output": "A landing page with a deliberate, non-template design: no purple-blue gradient hero, no three identical feature cards, no invented stats.",
+      "assertions": [
+        "The output contains no purple-blue or violet gradient hero or gradient text",
+        "The output does not use three or more identical equal-width feature cards",
+        "The output contains no invented statistic rows (10k+, 99.9%, 24/7)",
+        "The page has a clear visual hierarchy with one primary action",
+        "The copy avoids marketing buzzwords (streamline, empower, supercharge, seamless)"
+      ]
+    },
+    {
+      "id": "slop-kill-2",
+      "name": "slop kill: new-slop tells",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/new-slop.html"
+      ],
+      "expected_output": "A page whose design is not guessable from AI anti-reference lists.",
+      "assertions": [
+        "The output does not use glassmorphism (backdrop-blur) as a default surface treatment",
+        "The output does not use the identical-icon-tile-above-heading pattern",
+        "The output does not use an accent stripe as decoration",
+        "Typography shows editorial contrast: not one font at one weight for everything",
+        "The output does not use a template hero (centered headline, 2-line subtitle, primary+ghost buttons, 100vh)"
+      ]
+    },
+    {
+      "id": "slop-kill-3",
+      "name": "slop kill: copy voice",
+      "prompt": "Rewrite only the copy of this page so it reads like a human wrote it, not an LLM. Output the revised copy with the section headings.",
+      "files": [
+        "scripts/fixtures/slop.html"
+      ],
+      "expected_output": "Copy with a specific voice and concrete claims.",
+      "assertions": [
+        "The copy contains no em-dash saturation (no more than 1 per 500 characters)",
+        "The copy contains no aphoristic manufactured-contrast lines (Not a X. A Y.)",
+        "The copy avoids three-word marketing triads and 'say goodbye to X' constructions",
+        "Every claim is specific enough to be fact-checked"
+      ]
+    },
+    {
+      "id": "build-from-brief-1",
+      "name": "build from brief: dashboard",
+      "prompt": "Build a single-page HTML/CSS dashboard for 'Roastline', a coffee roastery's production tool, used by ops managers to track batch yields and roast profiles. Mode: Operate. Follow the skill document if one is attached.",
+      "expected_output": "A functional-feeling dashboard that fits the brief.",
+      "assertions": [
+        "The output is recognizably a coffee-roastery production dashboard (batch, roast, yield vocabulary)",
+        "The layout supports task completion: primary actions and data are scannable, not decorative",
+        "The output does not use the generic tech hue (#6366F1 indigo) or a blue-violet gradient",
+        "The design does not use three identical equal-weight cards for the main content",
+        "The color palette is not guessable from the product category alone"
+      ]
+    },
+    {
+      "id": "build-from-brief-2",
+      "name": "build from brief: landing",
+      "prompt": "Build a landing page for 'Roastline', a coffee roastery selling subscription beans. Audience: home brewers who care about origin and freshness. Mode: Persuade. Follow the skill document if one is attached.",
+      "expected_output": "A persuasive landing page with a point of view.",
+      "assertions": [
+        "The page has a clear persuasion structure: one hook, one primary action, proof that supports the claim",
+        "The design has a distinctive character beyond Tailwind defaults (not Inter-everything, not a template hero)",
+        "No invented stats or unverifiable claims",
+        "The output does not use an emoji as an icon",
+        "Typography has hierarchy: display, subhead, and body are visually distinct"
+      ]
+    },
+    {
+      "id": "redesign-character-1",
+      "name": "redesign: make it bolder",
+      "prompt": "Redesign this page to be bolder and more confident. Keep the content. Output the complete HTML.",
+      "files": [
+        "scripts/fixtures/slop.html"
+      ],
+      "expected_output": "The same content with a stronger, more assertive design character.",
+      "assertions": [
+        "The redesign has a clearly stronger visual character than the input (bigger type, stronger contrast, more deliberate color)",
+        "Accessibility is not broken: text/background contrast remains sufficient",
+        "The redesign does not merely add gradient text or a purple-blue palette",
+        "The redesign does not increase the number of equally-weighted elements"
+      ]
+    },
+    {
+      "id": "audit-report-1",
+      "name": "audit report: two axes",
+      "prompt": "The brief for this page: a persuasive landing page for 'Roastline', a coffee subscription for home brewers who care about origin and freshness. Audit the page against that brief AND against design standards. Produce a structured report. Follow the skill document if one is attached.",
+      "files": [
+        "scripts/fixtures/slop.html"
+      ],
+      "expected_output": "A two-axis audit report: a Standards axis and a Spec axis, reported separately.",
+      "assertions": [
+        "The report has two separate axes: a Standards axis (conformance: layout, a11y, hierarchy, tells) and a Spec axis (fidelity to the coffee-subscription brief)",
+        "The two axes are reported separately and are not merged or reranked into one score",
+        "The Spec axis quotes the brief and identifies missing, partial, or scope-creep requirements",
+        "The Standards axis uses severity levels consistently and names the element and fix for each finding",
+        "No finding is invented or unsupported by the input HTML"
+      ]
+    },
+    {
+      "id": "audit-report-2",
+      "name": "audit report: honesty",
+      "prompt": "No brief exists for this page. Audit it for design problems. The page has no images and no forms. Produce a structured report. Follow the skill document if one is attached.",
+      "files": [
+        "scripts/fixtures/new-slop.html"
+      ],
+      "expected_output": "An audit that stays truthful about what is and is not in the page.",
+      "assertions": [
+        "The report states 'no spec available' for the Spec axis instead of inventing a brief",
+        "The report does not claim missing alt text or missing form labels exist when there are no images or forms",
+        "The report flags real issues present in the HTML (layout, hierarchy, color)",
+        "Every fix suggestion is verifiable against the input"
+      ]
+    },
+    {
+      "id": "a11y-fix-1",
+      "name": "a11y fix: contrast and targets",
+      "prompt": "Fix the accessibility problems in this HTML: contrast, touch targets, and text sizing. Output the complete corrected HTML.",
+      "files": [
+        "scripts/fixtures/slop.html"
+      ],
+      "expected_output": "The page with WCAG-conformant contrast and touch targets, visually unchanged in intent.",
+      "assertions": [
+        "Text on colored backgrounds meets WCAG AA contrast (4.5:1 body, 3:1 large)",
+        "Interactive elements have at least 44x44px touch targets",
+        "The fix did not change the page's content or design intent",
+        "No new layout breakage was introduced"
+      ]
+    },
+    {
+      "id": "a11y-fix-2",
+      "name": "a11y fix: semantics",
+      "prompt": "Fix the semantic accessibility problems in this HTML: landmarks, heading order, focus. Output the complete corrected HTML.",
+      "files": [
+        "scripts/fixtures/new-slop.html"
+      ],
+      "expected_output": "The page with correct landmarks, a single h1, ordered headings, and visible focus states.",
+      "assertions": [
+        "The page has proper landmark elements (header, main, footer or equivalent)",
+        "There is exactly one h1 and heading levels do not skip",
+        "Interactive elements have visible focus states",
+        "The fix did not change the visual design"
+      ]
+    },
+    {
+      "id": "deslop-1",
+      "name": "deslop: targeted fix",
+      "prompt": "This page has AI-slop tells. Identify each tell you find and fix it with a positive alternative. Output the complete rewritten HTML plus a one-line note per fix.",
+      "files": [
+        "scripts/fixtures/new-slop.html"
+      ],
+      "expected_output": "A page with each tell replaced by a deliberate alternative, documented.",
+      "assertions": [
+        "Each identified tell was replaced, not just removed: the replacement has an intentional rationale",
+        "The fixes do not introduce a different recognizable AI tell",
+        "The page keeps its content and purpose",
+        "The notes are specific enough that a reviewer can verify each fix"
+      ]
+    },
+    {
+      "id": "shape-interview-1",
+      "name": "shape: grill before building",
+      "prompt": "The user says: 'build me a landing page for my new product'. You may ask up to 3 questions before building. Follow the skill document if one is attached.",
+      "expected_output": "Frontier-round grilling: the questions whose answers are needed now, each with a recommended answer, and no code written.",
+      "assertions": [
+        "Every question carries a recommended answer (not an open menu)",
+        "Questions are asked in rounds on the frontier: no question depends on an answer the same round didn't settle, and none asks for a fact the agent could look up itself",
+        "Questions target register, mode, audience, and success criteria, not trivia",
+        "The response does not assume answers: it does not silently pick a register, palette, or layout for the user",
+        "No code was written before the brief is confirmed"
+      ]
+    },
+    {
+      "id": "slop-kill-4",
+      "name": "slop kill: purple gradients specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/purple-gradients.html"
+      ],
+      "expected_output": "A page with a deliberate palette that is not the purple-blue AI gradient default.",
+      "assertions": [
+        "The output has no purple/violet-to-blue gradient on backgrounds, buttons, or orbs",
+        "The output has no gradient text",
+        "The palette is not guessable as the AI purple default; it has a deliberate color story",
+        "The page keeps its content and purpose",
+        "The output has a clear visual hierarchy with one primary action"
+      ]
+    },
+    {
+      "id": "slop-kill-5",
+      "name": "slop kill: lazy-cool specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/lazy-cool.html"
+      ],
+      "expected_output": "A page that looks like a product, not a hackathon project.",
+      "assertions": [
+        "The output does not use glassmorphism (backdrop-blur) as decoration",
+        "The output has no neon glow shadows or blurred orbs on a dark background",
+        "The output does not use monospace everywhere as a 'technical' costume",
+        "The page keeps its content and purpose"
+      ]
+    },
+    {
+      "id": "slop-kill-6",
+      "name": "slop kill: lazy-impact specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/lazy-impact.html"
+      ],
+      "expected_output": "A page where motion has purpose and is not everywhere.",
+      "assertions": [
+        "The output has no bounce or springy entrance animations on interface elements",
+        "The output has no gradient text",
+        "The output has no floating or bouncing decorative badges",
+        "The output does not use emoji as icons",
+        "Any remaining motion serves a single purpose, not decoration"
+      ]
+    },
+    {
+      "id": "slop-kill-7",
+      "name": "slop kill: thick-border cards specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/thick-border-cards.html"
+      ],
+      "expected_output": "Cards with a subtle or absent accent, not a thick colored side border.",
+      "assertions": [
+        "The output has no thick colored border on one side of a rounded card",
+        "Cards use a defined edge or elevation, not a colored stripe",
+        "The page keeps its content and purpose"
+      ]
+    },
+    {
+      "id": "slop-kill-8",
+      "name": "slop kill: cardocalypse specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/cardocalypse.html"
+      ],
+      "expected_output": "A flattened hierarchy: no cards inside cards inside cards.",
+      "assertions": [
+        "The output has no cards nested inside other cards",
+        "Hierarchy is conveyed with spacing, typography, and dividers instead of nesting",
+        "The page keeps its content and purpose"
+      ]
+    },
+    {
+      "id": "slop-kill-9",
+      "name": "slop kill: layout-templates specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/layout-templates.html"
+      ],
+      "expected_output": "Sections that differ from each other; no repeated hero-metric-features template.",
+      "assertions": [
+        "The output does not repeat the same hero-metric-features template in every section",
+        "The output has no invented hero-metric layout (big number, small label, supporting stats)",
+        "Sections have distinct structures or the repetition is deliberate and purposeful",
+        "The page keeps its content and purpose"
+      ]
+    },
+    {
+      "id": "slop-kill-10",
+      "name": "slop kill: inter-everywhere specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/inter-everywhere.html"
+      ],
+      "expected_output": "Typography with real hierarchy and personality.",
+      "assertions": [
+        "The output does not use one font at one weight for everything",
+        "Display, subhead, and body are visually distinct (size or weight contrast)",
+        "The page keeps its content and purpose"
+      ]
+    },
+    {
+      "id": "slop-kill-11",
+      "name": "slop kill: massive-icons specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/massive-icons.html"
+      ],
+      "expected_output": "Icons that support content instead of overwhelming it.",
+      "assertions": [
+        "The output has no icon containers larger than the content they introduce",
+        "No oversized rounded icon tiles dominate the layout",
+        "The page keeps its content and purpose"
+      ]
+    },
+    {
+      "id": "slop-kill-12",
+      "name": "slop kill: bad-contrast specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/bad-contrast.html"
+      ],
+      "expected_output": "Readable text on every background.",
+      "assertions": [
+        "No gray text sits on colored backgrounds; text uses a darker shade of the background or near-white",
+        "Text on colored backgrounds meets WCAG AA contrast (4.5:1 body, 3:1 large)",
+        "The page keeps its content and purpose"
+      ]
+    },
+    {
+      "id": "slop-kill-13",
+      "name": "slop kill: redundant-ux-writing specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/redundant-ux-writing.html"
+      ],
+      "expected_output": "Each message says its thing once, well.",
+      "assertions": [
+        "The output does not repeat the same meaning in label, sublabel, helper, and hint",
+        "Redundant helper text is removed or merged into one clear message",
+        "The page keeps its content and purpose"
+      ]
+    },
+    {
+      "id": "slop-kill-14",
+      "name": "slop kill: modal-abuse specimen",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/specimens/modal-abuse.html"
+      ],
+      "expected_output": "Complex settings live on their own page, not in an overflowing modal.",
+      "assertions": [
+        "The output does not cram complex multi-section settings into a modal",
+        "Content that needs a scrollbar and several columns lives on its own page or section",
+        "The page keeps its content and purpose"
+      ]
+    },
+    {
+      "id": "slop-kill-15",
+      "name": "slop kill: The indigo\u2192violet gradient",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/indigo-violet-gradient.html"
+      ],
+      "expected_output": "A page where the 'The indigo\u2192violet gradient' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no indigo-to-violet gradient on buttons, heroes, or glows",
+        "The output has no gradient text",
+        "The palette is deliberate and not the AI purple-blue default"
+      ]
+    },
+    {
+      "id": "slop-kill-16",
+      "name": "slop kill: Gradient headline text",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/gradient-text.html"
+      ],
+      "expected_output": "A page where the 'Gradient headline text' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no background-clip:text gradient on headings",
+        "Emphasis comes from weight or size, not gradient paint",
+        "The output has no gradient text anywhere"
+      ]
+    },
+    {
+      "id": "slop-kill-17",
+      "name": "slop kill: The warm cozy palette",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/warm-cozy-palette.html"
+      ],
+      "expected_output": "A page where the 'The warm cozy palette' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no amber/stone/orange 'cozy' wash on a soft beige background",
+        "The background and accents come from a deliberate palette, not the warm-off-white reflex",
+        "The palette is not guessable from the product category alone"
+      ]
+    },
+    {
+      "id": "slop-kill-18",
+      "name": "slop kill: The default semantic palette",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/default-semantic-palette.html"
+      ],
+      "expected_output": "A page where the 'The default semantic palette' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output does not use the framework default semantic set (info blue / tip amber / success green / error red with -50 backgrounds and -600 text) everywhere",
+        "States are distinguishable without the default framework palette",
+        "Colors are intentional, not framework defaults"
+      ]
+    },
+    {
+      "id": "slop-kill-19",
+      "name": "slop kill: The one-hue status box",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/mono-hue-alert.html"
+      ],
+      "expected_output": "A page where the 'The one-hue status box' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no status box where border, text, and background are all the same hue",
+        "Error and warning states are not a see-through tint of the same hue",
+        "Status colors are distinguishable by more than one visual property"
+      ]
+    },
+    {
+      "id": "slop-kill-20",
+      "name": "slop kill: Gradients as atmosphere",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/atmosphere-gradient.html"
+      ],
+      "expected_output": "A page where the 'Gradients as atmosphere' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no near-black navy page with a top spotlight glow",
+        "Card surfaces are not washed in their own accent gradient",
+        "The output has no colored box-shadow glows or repeating-gradient stripes"
+      ]
+    },
+    {
+      "id": "slop-kill-21",
+      "name": "slop kill: Serif-italic on one word",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/serif-emphasis.html"
+      ],
+      "expected_output": "A page where the 'Serif-italic on one word' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no serif-italic word swapped into a sans headline",
+        "Emphasis is carried by weight, size, or placement, not a font-swap",
+        "The headline stays in one coherent type voice"
+      ]
+    },
+    {
+      "id": "slop-kill-22",
+      "name": "slop kill: Serif where sans belongs",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/serif-body-misuse.html"
+      ],
+      "expected_output": "A page where the 'Serif where sans belongs' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output does not use Playfair, Lora, or Cormorant as display serif on a tool or SaaS UI",
+        "Serif faces appear only where the register warrants them",
+        "The type choice fits the product, not a reflex"
+      ]
+    },
+    {
+      "id": "slop-kill-23",
+      "name": "slop kill: Decorative strikes and highlights",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/decorative-text-lines.html"
+      ],
+      "expected_output": "A page where the 'Decorative strikes and highlights' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no line-through on text that is not deleted",
+        "The output has no underline or highlight used as fake emphasis",
+        "Text decoration is reserved for its real job"
+      ]
+    },
+    {
+      "id": "slop-kill-24",
+      "name": "slop kill: The kicker above every heading",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/section-kicker.html"
+      ],
+      "expected_output": "A page where the 'The kicker above every heading' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no tracked-uppercase kicker above every section heading",
+        "Labels do not restate their heading",
+        "Hierarchy is carried by the headings themselves"
+      ]
+    },
+    {
+      "id": "slop-kill-25",
+      "name": "slop kill: The full-sentence display headline",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/oversized-hero-headline.html"
+      ],
+      "expected_output": "A page where the 'The full-sentence display headline' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no full-sentence headline at display size eating the viewport",
+        "Long headlines are set smaller or the copy is tightened",
+        "The hero leaves room for real content above the fold"
+      ]
+    },
+    {
+      "id": "slop-kill-26",
+      "name": "slop kill: The flat type hierarchy",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/flat-type-hierarchy.html"
+      ],
+      "expected_output": "A page where the 'The flat type hierarchy' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output does not cram everything into a 14-18px band",
+        "Scale steps are at least 1.25x between levels",
+        "Hierarchy comes from size, not gray shades alone"
+      ]
+    },
+    {
+      "id": "slop-kill-27",
+      "name": "slop kill: Highlighted keywords in copy",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/highlighted-keywords.html"
+      ],
+      "expected_output": "A page where the 'Highlighted keywords in copy' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no scattered semibold or colored spans mid-sentence",
+        "Emphasis is used sparingly and for a reason",
+        "Prose reads evenly without keyword highlighting"
+      ]
+    },
+    {
+      "id": "slop-kill-28",
+      "name": "slop kill: The AI copywriting voice",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/ai-copy-tics.html"
+      ],
+      "expected_output": "A page where the 'The AI copywriting voice' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no 'not just X, it's Y' manufactured-contrast lines",
+        "The output has no 'say goodbye to X' constructions",
+        "The copy avoids three-word marketing triads and em-dash habits"
+      ]
+    },
+    {
+      "id": "slop-kill-29",
+      "name": "slop kill: Emoji everywhere",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/emoji-everywhere.html"
+      ],
+      "expected_output": "A page where the 'Emoji everywhere' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no emoji on every heading, button, or bullet",
+        "Emoji are not used as icons",
+        "Icons, where present, come from a real icon set"
+      ]
+    },
+    {
+      "id": "slop-kill-30",
+      "name": "slop kill: The glowing status dot",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/status-dot-glow.html"
+      ],
+      "expected_output": "A page where the 'The glowing status dot' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no pulsing saturated-green dot with a pale halo",
+        "Status indicators animate only when the data is actually changing",
+        "No glowing status pill without real state behind it"
+      ]
+    },
+    {
+      "id": "slop-kill-31",
+      "name": "slop kill: Rounded card, colored left border",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/left-border-callout.html"
+      ],
+      "expected_output": "A page where the 'Rounded card, colored left border' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no rounded card with a thick colored left border on plain list items",
+        "Admonition styling is used only for actual admonitions",
+        "Lists are structured with spacing and typography, not paint"
+      ]
+    },
+    {
+      "id": "slop-kill-32",
+      "name": "slop kill: Rounded-square icon tiles",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/pastel-icon-tiles.html"
+      ],
+      "expected_output": "A page where the 'Rounded-square icon tiles' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no grid of rounded-square pastel icon chips above headings",
+        "Icons relate to the content they introduce",
+        "No icon tile repeats the identical-icon-above-heading pattern"
+      ]
+    },
+    {
+      "id": "slop-kill-33",
+      "name": "slop kill: Max radius and glassmorphism",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/over-rounded-glass.html"
+      ],
+      "expected_output": "A page where the 'Max radius and glassmorphism' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no rounded-full cards",
+        "The output has no backdrop-blur glass surfaces as a default",
+        "Radii are deliberate and consistent"
+      ]
+    },
+    {
+      "id": "slop-kill-34",
+      "name": "slop kill: The oversized drop shadow",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/oversized-shadow.html"
+      ],
+      "expected_output": "A page where the 'The oversized drop shadow' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no box-shadow with blur of 40px or more on a small element",
+        "Elevation is proportional to the element",
+        "Shadows carry an offset and a controlled blur"
+      ]
+    },
+    {
+      "id": "slop-kill-35",
+      "name": "slop kill: Corners that don't nest",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/nested-radius.html"
+      ],
+      "expected_output": "A page where the 'Corners that don't nest' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "Nested corners nest: inner radius equals outer radius minus the gap",
+        "The output does not stamp one radius token on every container",
+        "Radii follow the geometry of the nesting"
+      ]
+    },
+    {
+      "id": "slop-kill-36",
+      "name": "slop kill: The border that dies at the corner",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/broken-corner-border.html"
+      ],
+      "expected_output": "A page where the 'The border that dies at the corner' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no square border clipped by a rounded overflow-hidden wrapper",
+        "Borders and radii live on the same element",
+        "No border is visibly cut off at the corners"
+      ]
+    },
+    {
+      "id": "slop-kill-37",
+      "name": "slop kill: Badge and pill spam",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/badge-spam.html"
+      ],
+      "expected_output": "A page where the 'Badge and pill spam' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no decorative 'New', 'Beta', or 'Hot' pills",
+        "Badges carry real state or are removed",
+        "No emoji-plus-label pill clusters"
+      ]
+    },
+    {
+      "id": "slop-kill-38",
+      "name": "slop kill: AI-drawn SVG icons",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/ai-svg-icon.html"
+      ],
+      "expected_output": "A page where the 'AI-drawn SVG icons' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no blob mascots, primitive shapes with dot eyes, or cartoon creatures",
+        "Logos and icons are real assets or deliberate geometry",
+        "No placeholder art that reads as amateur"
+      ]
+    },
+    {
+      "id": "slop-kill-39",
+      "name": "slop kill: Icon in a tint of itself",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/tinted-icon-tile.html"
+      ],
+      "expected_output": "A page where the 'Icon in a tint of itself' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no icon in a rounded square tinted with the icon's own hue at low opacity",
+        "No soft colored square wraps every glyph",
+        "Icons sit in flow without a tinted container"
+      ]
+    },
+    {
+      "id": "slop-kill-40",
+      "name": "slop kill: The springy hover",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/springy-hover.html"
+      ],
+      "expected_output": "A page where the 'The springy hover' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no hover scale or bounce on every card, button, and image",
+        "Hover feedback is subtle and purposeful",
+        "No transition-all spring on interface chrome"
+      ]
+    },
+    {
+      "id": "slop-kill-41",
+      "name": "slop kill: The wobbling spinner",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/wobbly-spinner.html"
+      ],
+      "expected_output": "A page where the 'The wobbling spinner' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no spinner rotating around an off-centre origin",
+        "No transform-origin trick that makes the spinner wobble",
+        "Spinners rotate cleanly around their own centre"
+      ]
+    },
+    {
+      "id": "slop-kill-42",
+      "name": "slop kill: The all-caps card grid",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/feature-grid.html"
+      ],
+      "expected_output": "A page where the 'The all-caps card grid' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no rows of identical cards with an UPPERCASE label and number",
+        "Unrelated items are not stuffed into identical boxes",
+        "Structure is real, not faked by repeated cards"
+      ]
+    },
+    {
+      "id": "slop-kill-43",
+      "name": "slop kill: The invented stat row",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose, but invented stats (10k+, 99.9%, 24/7) are tells, not content - replace them with real numbers or specific claims. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/fake-stat-trio.html"
+      ],
+      "expected_output": "A page where the 'The invented stat row' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no invented stat row (10k+, 99.9%, 24/7)",
+        "Numbers are real and specific enough to be fact-checked",
+        "No credibility-looking figures that are made up"
+      ]
+    },
+    {
+      "id": "slop-kill-44",
+      "name": "slop kill: The 01/02/03 section markers",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/numbered-sections.html"
+      ],
+      "expected_output": "A page where the 'The 01/02/03 section markers' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no giant faint numbered ordinals beside unordered sections",
+        "Numbering appears only when the sequence itself carries information",
+        "Sections are sequenced by hierarchy, not numbering"
+      ]
+    },
+    {
+      "id": "slop-kill-45",
+      "name": "slop kill: Cards inside cards",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/nested-cards.html"
+      ],
+      "expected_output": "A page where the 'Cards inside cards' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no three or more levels of nested rounded boxes",
+        "Hierarchy is conveyed with spacing, typography, and dividers",
+        "No card inside a card inside a card"
+      ]
+    },
+    {
+      "id": "slop-kill-46",
+      "name": "slop kill: One gap everywhere",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/monotone-spacing.html"
+      ],
+      "expected_output": "A page where the 'One gap everywhere' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output does not stamp one gap value across the whole page",
+        "Heading-to-body distance differs from section-to-section distance",
+        "Spacing has rhythm: tight groups, generous separations"
+      ]
+    },
+    {
+      "id": "slop-kill-47",
+      "name": "slop kill: Inter everywhere",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/overused-font.html"
+      ],
+      "expected_output": "A page where the 'Inter everywhere' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output does not use Space Grotesk + Inter, Geist, Manrope, or Plus Jakarta Sans by reflex",
+        "The typeface gives the interface personality",
+        "The font choice is not guessable from the category"
+      ]
+    },
+    {
+      "id": "slop-kill-48",
+      "name": "slop kill: The tasteful terminal",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/tasteful-terminal.html"
+      ],
+      "expected_output": "A page where the 'The tasteful terminal' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output does not use monospace everywhere as UI chrome on a near-black background with one warm accent",
+        "No ASCII-art hero",
+        "The design is not dressed as a terminal for its own sake"
+      ]
+    },
+    {
+      "id": "slop-kill-49",
+      "name": "slop kill: The editorial dashboard",
+      "prompt": "Rewrite this HTML so it no longer looks AI-generated. Keep the same content and purpose. Output the complete rewritten HTML.",
+      "files": [
+        "scripts/fixtures/killaislop/editorial-dashboard.html"
+      ],
+      "expected_output": "A page where the 'The editorial dashboard' tell is gone, replaced by a positive alternative.",
+      "assertions": [
+        "The output has no serif 'Good evening' greeting on an operational dashboard",
+        "No oldstyle serif numerals in stat cards, no cream paper, no tracked-caps kickers on a console",
+        "Operational UI stays scannable, not magazine-styled"
+      ]
+    },
+    {
+      "id": "build-imagery-1",
+      "name": "build: image-led brief ships real imagery",
+      "prompt": "Build a landing page for 'Casa Verde', a small restaurant known for wood-fired pasta and a rooftop herb garden. Audience: neighbourhood diners. Mode: Persuade. This is an image-led brief: the food and the garden are the story. Follow the skill document if one is attached.",
+      "expected_output": "A restaurant landing page whose imagery carries the design - real or credible generated imagery, no colored-placeholder rectangles.",
+      "assertions": [
+        "The page ships imagery (photographic, generated raster, or a credible canvas/SVG scene) for the food and the garden - not colored divs or empty placeholders",
+        "Image sources are real or explicitly generated; no broken or empty src",
+        "Alt text describes the subject like a human wrote it, not 'image'",
+        "The layout gives the imagery room instead of burying it in cards",
+        "The copy avoids marketing buzzwords"
+      ]
+    },
+    {
+      "id": "deslop-icons-1",
+      "name": "deslop: icons from a real set, no mascots",
+      "prompt": "This page uses AI-drawn icons and emoji as its icon system. Replace them with icons from a real icon set or consistent authored geometry. Output the complete rewritten HTML plus a one-line note per fix.",
+      "files": [
+        "scripts/fixtures/killaislop/ai-svg-icon.html"
+      ],
+      "expected_output": "An icon system that is not hand-drawn mascots and not emoji.",
+      "assertions": [
+        "The output does not use emoji as icons",
+        "No blob mascots or primitive shapes with dot eyes remain",
+        "Icons come from one real set (Lucide, Phosphor, Tabler, Iconoir, Humbleicons, Flowbite) or one consistent stroke-weight geometry",
+        "The icons relate to the content they introduce",
+        "The page keeps its content and purpose"
+      ]
+    },
+    {
+      "id": "layout-laws-1",
+      "name": "layout: laws of UX applied to a dashboard",
+      "prompt": "Build a single-page HTML/CSS dashboard for 'Roastline', a coffee roastery's production tool for ops managers tracking batch yields and roast profiles. Mode: Operate. Apply the laws of UX: Hick's law (limit choices), Fitts's law (primary action where the scan ends), Von Restorff (one focal point), spacing rhythm. Name the layout structure you chose in one sentence before the code. Follow the skill document if one is attached.",
+      "expected_output": "A dense, scannable dashboard whose layout structure is named and fits the Operate register.",
+      "assertions": [
+        "The response names the layout structure in one sentence (e.g. dense app shell, split panel, strict grid) before the code",
+        "The layout is dense and scannable, not a narrow centered article column",
+        "Primary actions sit where the scan ends and choices are limited (Hick's, Fitts)",
+        "There is one clear focal point per viewport (Von Restorff)",
+        "The dashboard does not use the generic tech hue (#6366F1) or three identical equal-weight cards"
+      ]
+    },
+    {
+      "id": "goal-character-1",
+      "name": "GOAL: landing has genuine character (jiwa)",
+      "prompt": "Build a landing page for 'Roastline', a coffee roastery selling subscription beans to home brewers who care about origin and freshness. Mode: Persuade. The page must have genuine character and a point of view - a reviewer should be able to describe its personality in one sentence. Follow the skill document if one is attached.",
+      "expected_output": "A landing page with a named, distinctive character - not a neutral generic template.",
+      "assertions": [
+        "The design has a distinctive character and point of view, not a neutral generic template",
+        "The color palette is used with intent and is not guessable from the product category alone",
+        "Typography shows deliberate editorial contrast, not a reflex default stack",
+        "The hero is not a template hero (no centered stack, no invented stats, no generic AI layout)",
+        "The copy has a specific voice with concrete, fact-checkable claims"
+      ]
+    },
+    {
+      "id": "goal-animation-1",
+      "name": "GOAL: motion has purpose and custom easing (Emil)",
+      "prompt": "Build a single-page HTML/CSS landing page for 'Roastline', a coffee roastery selling subscription beans. Add purposeful animation: one primary motion per surface, custom easing, and never animate everything. Follow the skill document if one is attached.",
+      "expected_output": "Motion that follows a decision framework: purposeful, one primary moment per surface, custom easing.",
+      "assertions": [
+        "Motion is purposeful (reveal, state, or feedback), not decorative or everywhere",
+        "There is one primary motion per surface, not scattered identical entrances",
+        "Easing is custom (cubic-bezier beyond the browser default), not bounce or default everywhere",
+        "No layout-property animation (width/height); only transform/opacity or grid-template-rows",
+        "Motion does not block content and respects reduced-motion preference"
+      ]
+    },
+    {
+      "id": "goal-narrative-1",
+      "name": "GOAL: landing follows a six-beat narrative arc",
+      "prompt": "Build a landing page for 'Roastline', a coffee roastery selling subscription beans to home brewers who care about origin and freshness. Mode: Persuade. Structure it as a story with a clear narrative arc. Follow the skill document if one is attached.",
+      "expected_output": "A landing page structured as a narrative: hook, problem, solution, how it works, proof, resolution.",
+      "assertions": [
+        "The page follows a narrative arc: hook, then the problem, the solution, how it works, proof, and a resolution CTA",
+        "There is one primary CTA and all buttons lead to the same goal",
+        "The problem is named in the user's words, not a generic pain point",
+        "Proof is attributable (who said it, what result), not invented stats",
+        "Every section advances the story; there is no filler component"
+      ]
+    },
+    {
+      "id": "audit-checklist-1",
+      "name": "audit: core checklist coverage",
+      "prompt": "Audit this HTML page against the core design checklist: content (real copy, labeled links, alt text), structure & semantics (one h1, landmarks, no skipped headings, form labels), states (hover/focus/disabled/loading/error/empty, visible focus), accessibility (contrast 4.5:1/3:1, touch targets 44x44), responsive (no horizontal scroll, no text clipping), quality (no console errors, no broken links/images). Produce a structured report with element-level findings. Follow the skill document if one is attached.",
+      "files": [
+        "scripts/fixtures/slop.html"
+      ],
+      "expected_output": "A structured audit report covering the six core-checklist dimensions with element-level findings.",
+      "assertions": [
+        "The report covers content: real copy, labeled links, and alt text",
+        "The report covers structure & semantics: one h1, landmarks, no skipped headings, form labels",
+        "The report covers states: hover/focus/disabled/loading/error/empty and visible focus",
+        "The report covers accessibility: contrast (4.5:1 body, 3:1 large) and touch targets (44x44)",
+        "The report covers responsive: no horizontal scroll and no text clipping",
+        "Findings are element-level: each names the element and the fix"
+      ]
+    },
+    {
+      "id": "layout-box-1",
+      "name": "layout: box-planning and viewport discipline",
+      "prompt": "Build a single-page HTML/CSS dashboard for 'Roastline', a coffee roastery's production tool for ops managers tracking batch yields and roast profiles. Mode: Operate. Before the code, name your layout structure in one sentence. Use the locked viewport breakpoints (375/640/768/1024/1280/1536): no fixed pixel width that overflows at 375px, no fixed height with overflow:hidden that could crop text, no absolutely-positioned element without an inset. Follow the skill document if one is attached.",
+      "expected_output": "A dense, scannable dashboard with a named layout structure and no viewport-overflow, crop, or floating-placement defects.",
+      "assertions": [
+        "The response names the layout structure in one sentence before the code (e.g. dense app shell, strict grid, asymmetric split)",
+        "No fixed pixel width that would overflow at the 375px breakpoint (no fixed width >= 1000px; fluid or max-width instead)",
+        "No container with a fixed height plus overflow:hidden that could crop text",
+        "No absolutely-positioned element without an inset (top/left/right/bottom/inset)",
+        "The layout fits the Operate register: dense and scannable, not a narrow centered article column"
+      ]
+    }
+  ]
+}

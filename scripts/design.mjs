@@ -22,17 +22,10 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const TOOLS = {
   detect: { script: 'detector.mjs', help: 'Detect design slop and anti-patterns in an HTML file, directory, or URL' },
-  'load-context': { script: 'load-context.mjs', help: 'Load existing design context (PRODUCT.md, DESIGN.md, legacy brief.md)' },
-  pin: { script: 'pin.mjs', help: 'Pin or unpin a command' },
+  'load-context': { script: 'load-context.mjs', help: 'Load existing design context (PRODUCT.md, DESIGN.md, brief.md) — read-only' },
+  validate: { script: 'design-parser.mjs', help: 'Validate a DESIGN.md against the google-labs-code/design.md spec (sections, order, frontmatter)' },
   seed: { script: 'concept-seed.mjs', help: 'Seed concept directions' },
-  live: { script: 'live.mjs', help: 'Prepare the live variant session' },
-  'live-status': { script: 'live-status.mjs', help: 'Show live session status' },
-  'live-complete': { script: 'live-complete.mjs', help: 'Append the final durable live session acknowledgement' },
-  'live-resume': { script: 'live-resume.mjs', help: 'Print the active live session checkpoint and next safe agent action' },
-  'live-poll': { script: 'live-poll.mjs', help: 'Block until a browser event, print JSON' },
-  'live-wrap': { script: 'live-wrap.mjs', help: 'Search project files for the element matching a live query' },
-  'critique-storage': { script: 'critique-storage.mjs', help: 'Manage critique storage' },
-  'detect-csp': { script: 'detect-csp.mjs', help: 'Detect Content-Security-Policy headers' },
+  'check-design': { script: 'design-system-check.mjs', help: 'Check target tokens (colors, fonts, radii) against a DESIGN.md - drift detection' },
 };
 
 function version() {

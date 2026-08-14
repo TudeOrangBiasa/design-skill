@@ -6,15 +6,19 @@
  *
  * Output (JSON to stdout):
  *   {
- *     hasProduct: boolean,        // PRODUCT.md found (or auto-migrated)
+ *     hasProduct: boolean,        // PRODUCT.md found
  *     product: string | null,     // PRODUCT.md contents
  *     productPath: string | null, // relative path
  *     hasDesign: boolean,         // DESIGN.md found
  *     design: string | null,      // DESIGN.md contents
  *     designPath: string | null,
- *     migrated: boolean,          // true if we auto-renamed .design.md -> PRODUCT.md
+ *     hasBrief: boolean,          // legacy brief.md found
+ *     brief: string | null,       // brief.md contents
+ *     briefPath: string | null,
  *     contextDir: string,         // absolute path of the directory the files were found in
  *   }
+ *
+ * READ-ONLY. This command never creates, renames, or writes files.
  *
  * Filename matching is case-insensitive for PRODUCT.md and DESIGN.md. The
  * Google DESIGN.md convention is uppercase at repo root; Kiro-style and
@@ -22,12 +26,9 @@
  *
  * Lookup directory resolution (first match wins):
  *   1. process.env.IMPECCABLE_CONTEXT_DIR (absolute or relative to cwd)
- *   2. cwd, if PRODUCT.md / DESIGN.md / .design.md is there (back-compat)
+ *   2. cwd, if PRODUCT.md / DESIGN.md is there (back-compat)
  *   3. Auto-fallback subdirectories of cwd: .agents/context/, then docs/
  *   4. cwd as a default "no context found" location
- *
- * Legacy `.design.md` -> PRODUCT.md migration only fires at cwd root;
- * fallback directories are read-only as far as auto-rename is concerned.
  */
 
 import fs from 'node:fs';
@@ -35,7 +36,7 @@ import path from 'node:path';
 
 const PRODUCT_NAMES = ['PRODUCT.md', 'Product.md', 'product.md'];
 const DESIGN_NAMES = ['DESIGN.md', 'Design.md', 'design.md'];
-const LEGACY_NAMES = ['.design.md'];
+const BRIEF_NAMES = ['brief.md'];
 const FALLBACK_DIRS = ['.agents/context', 'docs'];
 
 /**
@@ -51,9 +52,8 @@ export function resolveContextDir(cwd = process.cwd()) {
     return path.isAbsolute(trimmed) ? trimmed : path.resolve(cwd, trimmed);
   }
 
-  // 2. cwd wins if any canonical or legacy file is there. We check legacy too
-  //    so the auto-migration path in loadContext stays predictable.
-  if (firstExisting(cwd, [...PRODUCT_NAMES, ...DESIGN_NAMES, ...LEGACY_NAMES])) {
+  // 2. cwd wins if any canonical file is there.
+  if (firstExisting(cwd, [...PRODUCT_NAMES, ...DESIGN_NAMES])) {
     return cwd;
   }
 
@@ -72,35 +72,20 @@ export function resolveContextDir(cwd = process.cwd()) {
 }
 
 export function loadContext(cwd = process.cwd()) {
-  let migrated = false;
   const contextDir = resolveContextDir(cwd);
 
   // 1. Look for PRODUCT.md (case-insensitive) in the resolved dir
-  let productPath = firstExisting(contextDir, PRODUCT_NAMES);
+  const productPath = firstExisting(contextDir, PRODUCT_NAMES);
 
-  // 2. Legacy: if no PRODUCT.md but .design.md exists at cwd root, rename
-  //    it in place. We only migrate at the root — fallback dirs are read-only
-  //    so we don't surprise users by mutating files under docs/ or .agents/.
-  if (!productPath && contextDir === cwd) {
-    const legacyPath = firstExisting(cwd, LEGACY_NAMES);
-    if (legacyPath) {
-      const newPath = path.join(cwd, 'PRODUCT.md');
-      try {
-        fs.renameSync(legacyPath, newPath);
-        productPath = newPath;
-        migrated = true;
-      } catch {
-        // Rename failed (permissions, etc.) — fall back to reading legacy in place
-        productPath = legacyPath;
-      }
-    }
-  }
-
-  // 3. DESIGN.md (case-insensitive)
+  // 2. DESIGN.md (case-insensitive)
   const designPath = firstExisting(contextDir, DESIGN_NAMES);
+
+  // 3. Legacy brief.md (case-insensitive)
+  const briefPath = firstExisting(contextDir, BRIEF_NAMES);
 
   const product = productPath ? safeRead(productPath) : null;
   const design = designPath ? safeRead(designPath) : null;
+  const brief = briefPath ? safeRead(briefPath) : null;
 
   return {
     hasProduct: !!product,
@@ -109,7 +94,9 @@ export function loadContext(cwd = process.cwd()) {
     hasDesign: !!design,
     design,
     designPath: designPath ? path.relative(cwd, designPath) : null,
-    migrated,
+    hasBrief: !!brief,
+    brief,
+    briefPath: briefPath ? path.relative(cwd, briefPath) : null,
     contextDir,
   };
 }

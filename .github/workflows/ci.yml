@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -16,11 +21,17 @@ jobs:
           node-version: 20
       - run: npm test
       - run: npm run lint:docs
+      - run: npm run validate-catalog
+      - run: npm run validate-evals
       - name: Dispatcher smoke
         run: node scripts/design.mjs --help | grep -q "Usage: design"
 
   skillspector:
     name: SkillSpector security scan
+    # Expensive job (~6 min + uv install + git clone): run on main pushes and
+    # manual dispatch only, not on every PR commit. PR authors can run it via
+    # workflow_dispatch on their branch.
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

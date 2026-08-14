@@ -2,9 +2,53 @@
 
 Entries start at 1.0.19; earlier history lives in the git log. Format follows Keep a Changelog: Added, Changed, Removed per release.
 
-## [Unreleased]
+## [2.1.0] - 2026-08-13
 
-- Nothing yet.
+Architecture cleanup + measured doctrine closure. Scorecard grows 219/239 -> 232/239 with_skill (97.1%), lift +68.4pp; eval backend moved to opencode go.
+
+### Added
+
+- `scripts/validate-evals.mjs` + `npm run validate-evals`: machine-checks evals/evals.json (unique ids, prompt, >= 1 assertion, fixture paths exist) before any API spend; wired into CI.
+- `CONTEXT.md`: the domain model (term to owning module) lands and is doc-linted.
+
+### Changed
+
+- Detector rule registry split out of `scripts/detector.mjs` into per-category modules (`scripts/rules/`): context.mjs (shared extraction + helpers), layout/typography/color/copy/motion/quality/components/imagery.mjs, and index.mjs aggregation. detector.mjs keeps the runner, CLI, and public exports; findings content unchanged, now grouped by category.
+- Detector grows 46 -> 52 rules: justified-text, tight-line-height, tiny-body-text, wide-body-tracking (Typography), repeating-gradient-stripes (Color), skipped-heading-level (Quality); all warning severity.
+- Shared CSS scanning seam (`scripts/css-scan.mjs`): prop, countProp, splitBlocks, collectColors, collectFontFamilies, collectRadii. The detector rules and design-system-check.mjs now import the same scanners; the color-literal regexes and hand-rolled font/radius extractors in design-system-check.mjs are gone. New `css-scan.test.mjs` (6 tests).
+- Eval backend default switched to opencode go (`deepseek-v4-flash`, `https://opencode.ai/zen/go/v1`, key in `.eval-key.go.env`, the opencode account key). The zen free tier is `npm run eval:zen` (429s after ~4-5 heavy calls); the DeepSeek paid direct path is `npm run eval:deepseek` (`.eval-key.env`). agent-skills-eval.yaml points at go.
+- SKILL.md doctrine closes the eval gaps (go scorecard 219/239): Numbers extended to invented testimonials/attributions, Color bans category-reflex palettes (coffee -> brown, cozy -> beige, tech -> indigo), audit findings must carry severity/element/fix and the Spec axis quotes the brief. Cap raised 3850 -> 4100B.
+- Layout doctrine gains the anti-KPI-monument line (big figure + small label + stat row -> lead with the delta or a table); detector grows 52 -> 53 rules with `kpi-monument` (catches the $2.4M/12.8K/$187 cluster invented-stat-row missed). Adapted from Jakub Krehel's skills (MIT) - attribution in NOTICE.md. Mini-runs close layout-templates (4/4) and warm-cozy (3/3).
+- Color doctrine upgraded to explicit OKLCH palette generation (one hue with a reason, equal-L steps, same C% across hues, accent from a different hue - per better-colors, MIT, see NOTICE.md), closing build-from-brief-dashboard 4/5 -> 5/5. Cap 4100 -> 4200B.
+- Version 2.1.0; final scorecard 232/239 (97.1%) vs 64/239 (26.8%), lift +68.4pp (evals/BASELINE-SPECIMENS.md).
+- Narrative/register/deslop doctrine sharpened (attributable proof - never invent nor omit; no tracked-caps kickers or greeting copy; deslop replaces with a rationale, never bare removal). SKILL.md cap 4200 -> 4400B.
+
+## [2.0.0] - 2026-08-11
+
+From-scratch rebuild measured with agent-skills-eval (see evals/BASELINE-v1.md, evals/BASELINE-v2.md). Baseline: with_skill 17/54 (31.5%) -> v2 39/54 (72.2%); slop-kill + build-from-brief with_skill +62.5pp.
+
+### Added
+
+- SKILL.md rewritten (3052B): the 10 tells with positive direction (Tech gradient, Generic tech hue, Feature-tile grid, Accent rail, Unearned blur, Stat monument, Icon topper, Template hero, Default type stack, Anti-reference echo), an explicit Invocation section (model-invoked flag-and-detect, user-invoked grill-first), five commands with ability flags, and a five-line Never appendix.
+- `evals/`: agentskills.io evals.json (12 evals across slop-kill, build-from-brief, redesign, two-axis audit, a11y, deslop, shape-grill) + `agent-skills-eval.yaml` (opencode zen free API default, env-overridable) + `npm run eval`.
+- Two-axis audit (reference/audit.md): Standards x Spec run as parallel passes, reported side by side, never reranked. Modeled on Matt Pocock's code-review skill; detector.mjs is the smell baseline; laws-of-UX GAPs (Cognitive Bias, Doherty Threshold, Flow, Goal-Gradient) folded in; /24 score with a fixed denominator.
+- Grilling protocol (reference/shape.md): design tree, frontier rounds, every question with a recommendation, never assume. Copied from Matt Pocock's grilling skill.
+- `scripts/validate-catalog.mjs`: machine-validates command-metadata.json vs the dispatcher vs REFERENCE.md; wired into CI.
+- `node scripts/design.mjs validate DESIGN.md`: spec-conformance validation (frontmatter + 8 canonical sections in order) via design-parser.mjs.
+- `datasets/`: checklist-catalog.md and scraped galleries (git clones only, never shipped).
+
+### Changed
+
+- Command surface: 55 reference files + 30 routed commands collapsed to 5 commands (detect, audit, deslop, shape, craft) with abilities as flags; command-metadata.json regenerated from 23 stale entries to exactly 5.
+- reference/ merged to 7 files totalling 23401B (register, modes, craft-floor, audit, deslop, shape, craft), each <= 4096B; SKILL.md <= 3072B.
+- load-context.mjs is read-only (the `.design.md` -> PRODUCT.md auto-rename is gone) and now reads legacy brief.md. is-generated.mjs uses spawnSync array argv instead of a shell string.
+- craft.md: gates (do not compress), ability-flag doctrine, motionsites.ai free-gallery motion reference for --animate, DESIGN.md generation + validation for --document, drift upkeep (doctor.md merged).
+- Version 2.0.0; files[] = SKILL.md, REFERENCE.md, GUIDE.md, reference/, scripts/, agents/, evals/, plugins/, NOTICE.md, LICENSE.
+
+### Removed
+
+- Live browser subsystem (18 scripts incl. vendored modern-screenshot.umd.js, tagged `v1-live-mode`), reference/live.md, and the browser-use MCP requirement: the skill ships zero servers, no MCP, no browser automation.
+- The v1 routing tables, 30-item bans list, and per-surface interview scripts (hero, landing-pages, dashboards, redesign, new-work): replaced by the tells table and the merged playbooks.
 
 ## [1.0.26] - 2026-08-06
 
