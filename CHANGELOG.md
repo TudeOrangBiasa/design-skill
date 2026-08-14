@@ -2,6 +2,12 @@
 
 Entries start at 1.0.19; earlier history lives in the git log. Format follows Keep a Changelog: Added, Changed, Removed per release.
 
+## [2.1.1] - 2026-08-14
+
+### Changed
+
+- `CONTEXT.md` now ships in the npm package (the domain model is available to agents at runtime, not just in the dev checkout).
+
 ## [2.1.0] - 2026-08-13
 
 Architecture cleanup + measured doctrine closure. Scorecard grows 219/239 -> 232/239 with_skill (97.1%), lift +68.4pp; eval backend moved to opencode go.
