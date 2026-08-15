@@ -18,7 +18,7 @@ Command definitions live in `scripts/command-metadata.json` (single source of tr
 - `reference/modes.md` - Persuade / Operate / Read / Experience + scan patterns
 - `reference/craft-floor.md` - quality floor before editing UI (contrast, depth, type, motion, states)
 - `reference/audit.md` - two-axis audit: Standards × Spec, parallel passes, no reranking
-- `reference/checklist.md` - the core pre-ship checklist (always run by audit; datasets/ catalog = optional deep pass)
+- `reference/checklist.md` - the core pre-ship checklist (always run by audit; the optional 703-check deep pass needs the dev repo's `datasets/checklist-catalog.md`)
 - `reference/deslop.md` - tell-replacement playbook (positive direction, per-flag plays)
 - `reference/shape.md` - grilling protocol: design tree, frontier rounds, never assume
 - `reference/craft.md` - build flow, gates, ability flags, DESIGN.md generation
@@ -31,4 +31,4 @@ Command definitions live in `scripts/command-metadata.json` (single source of tr
 - `scripts/concept-seed.mjs` - seeded direction dice for shape
 - `scripts/design-system-check.mjs` - DESIGN.md drift detection (colors, fonts, radii)
 
-Datasets (git clones only, never shipped): `datasets/checklist-catalog.md` (checklist.design catalog, optional deep audit pass).
+The 703-check catalog (checklist.design, git clones only) is dev content in the repo's `datasets/` on [main](https://github.com/TudeOrangBiasa/design-skill); this package ships the built-in core floor only.

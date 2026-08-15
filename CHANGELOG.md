@@ -2,7 +2,9 @@
 
 Entries start at 1.0.19; earlier history lives in the git log. Format follows Keep a Changelog: Added, Changed, Removed per release.
 
-## [Unreleased]
+## [2.1.2] - 2026-08-15
+
+Clean-release branch (`release-clean`): the npm package ships exactly the runtime set. Dev content (evals/, research/, datasets/, assets/, tests, validators) stays on main only. package.json scripts keep only `detect`; README/CONTEXT/REFERENCE drop dead references and point at the main branch for the dev tooling and scorecards.
 
 ### Changed
 

@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/banner.png" alt="design-skill" width="100%">
-</p>
-
 # Design Skill
 
 [![npm version](https://img.shields.io/npm/v/agent-design-skill.svg)](https://www.npmjs.com/package/agent-design-skill)
@@ -14,7 +10,7 @@ New here? Start with [Using the Design Skill](GUIDE.md), a walkthrough of the sk
 
 v1 was a fork of [pbakaus/impeccable](https://github.com/pbakaus/impeccable): 55 reference files, 30 routed commands, a live browser subsystem, and zero measurement. The baseline proved it did not kill slop: with the skill loaded, models still produced gradient heroes and identical card grids, and build-from-brief got *worse*.
 
-v2 is a rebuild measured by [agent-skills-eval](https://github.com/darkrishabh/agent-skills-eval): SKILL.md teaches 10 tells with positive direction, five commands, grilling-first planning, and an on-demand eval scorecard. See [evals/BASELINE-v1.md](evals/BASELINE-v1.md) and [evals/BASELINE-v2.md](evals/BASELINE-v2.md).
+v2 is a rebuild measured by [agent-skills-eval](https://github.com/darkrishabh/agent-skills-eval): SKILL.md teaches 10 tells with positive direction, five commands, grilling-first planning, and an on-demand eval scorecard. Scorecards live with the dev repo: [BASELINE-v1.md](https://github.com/TudeOrangBiasa/design-skill/blob/main/evals/BASELINE-v1.md) and [BASELINE-v2.md](https://github.com/TudeOrangBiasa/design-skill/blob/main/evals/BASELINE-v2.md).
 
 ## Five commands
 
@@ -50,17 +46,9 @@ Tech gradient, generic tech hue, feature-tile grid, accent rail, unearned blur, 
 
 ## Evals
 
-The skill is measured, not assumed. Run the scorecard on demand (not in CI):
+The skill is measured, not assumed. Latest scorecard (2.1.0, merged across iterations 20-36): **with_skill 232/239 (97.1%)** vs without_skill 64/239 (26.8%), lift **+68.4pp**, on 66 evals with 53 deterministic detector rules backing the mechanical checks.
 
-```bash
-npm run eval
-```
-
-66 evals across slop-kill (including 11 real specimens from impeccable's antipattern-examples and 35 tell fragments from killaislop.com), build-from-brief, redesign, two-axis audit, a11y, deslop, shape-grill, goal, and checklist families, run with_skill vs without_skill against the [agent-skills-eval](https://github.com/darkrishabh/agent-skills-eval) harness. Default backend: opencode go (`deepseek-v4-flash`, `https://opencode.ai/zen/go/v1`), key in `.eval-key.go.env` (gitignored; the opencode account key, same one the free tier uses) or `EVAL_API_KEY`. Override with `OPENAI_COMPATIBLE_BASE_URL` / `OPENAI_COMPATIBLE_MODEL` / `OPENAI_COMPATIBLE_API_KEY`. Scorecards: [evals/BASELINE-v1.md](evals/BASELINE-v1.md), [evals/BASELINE-v2.md](evals/BASELINE-v2.md), [evals/BASELINE-SPECIMENS.md](evals/BASELINE-SPECIMENS.md).
-
-The eval backend is opencode go only. The key in `.eval-key.go.env` is personal and gitignored - never commit or share an eval key.
-
-Latest scorecard (2.1.0, merged across iterations 20-36): **with_skill 232/239 (97.1%)** vs without_skill 64/239 (26.8%), lift **+68.4pp**, on 66 evals with 53 deterministic detector rules backing the mechanical checks.
+The eval suite (evals/, fixtures, harness config, `.eval-key.*` handling) is dev content and lives on the [main branch](https://github.com/TudeOrangBiasa/design-skill) only — this package ships the runtime skill, not the measurement rig. Run the scorecard from a clone of the repo, never from node_modules. Eval keys are personal and never committed.
 
 ## Install
 
@@ -127,7 +115,7 @@ The skill ships zero servers, no MCP, and no browser automation. Every automatio
 
 ## Contributing
 
-See [CONTRIBUTION.md](CONTRIBUTION.md) for the contribution rules, the check commands, and the repo conventions.
+Contribution rules, check commands, and repo conventions live in [CONTRIBUTION.md on main](https://github.com/TudeOrangBiasa/design-skill/blob/main/CONTRIBUTION.md). This branch is the packaged release; development happens on main.
 
 ## License
 
