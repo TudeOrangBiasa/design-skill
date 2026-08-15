@@ -4,6 +4,10 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 ## [Unreleased]
 
+### Changed
+
+- `plugins/install.sh` installs from the GitHub repo (`TudeOrangBiasa/design-skill`) instead of the local checkout path: skills.sh has no include-list for local paths, so a local-path source copied gitignored secrets (`.eval-key.go.env`) and dev dirs into every install. The npx invocation adds `--prefer-online` (stale-cache ETARGET) and `npm_config_min_release_age=0` (project `.npmrc` files that gate packages by release age, e.g. Hermes' `min-release-age=14`, would otherwise reject the freshly published skills CLI).
+
 ### Added
 
 - `plugins/prune-install.sh`: removes the tracked dev artifacts that skills.sh copies into every project-scoped install — repo dev files (research/, datasets/, assets/ incl. the 3.9MB banner, .github/, changelog/contribution, eval config, package.json) and the dev-only tooling (evals/ suite, `scripts/*.test.mjs`, `scripts/fixtures/`, `scripts/lint-docs.mjs`, `scripts/validate-{catalog,evals}.mjs`). Run it on each installed copy after `skills add`; never on the omp symlink (its target is the repo itself). The surviving install is exactly the runtime set: SKILL.md + docs, reference/, scripts/ dispatcher (design/detector/css-scan/parser/concept-seed/check-design/load-context, rules/, command-metadata.json), plugins/, LICENSE/NOTICE/README.
