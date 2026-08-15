@@ -2,6 +2,12 @@
 
 Entries start at 1.0.19; earlier history lives in the git log. Format follows Keep a Changelog: Added, Changed, Removed per release.
 
+## [Unreleased]
+
+### Added
+
+- `plugins/prune-install.sh`: removes the tracked dev artifacts (research/, datasets/, assets/, .github/, changelog/contribution, eval config) that skills.sh copies into every project-scoped install. Run it on each installed copy after `skills add`; never on the omp symlink (its target is the repo itself).
+
 ## [2.1.1] - 2026-08-14
 
 ### Changed
