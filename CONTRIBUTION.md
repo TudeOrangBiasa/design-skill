@@ -70,7 +70,9 @@ A command touches five places. Do all five in one change:
 
 ## Evals
 
-The skill is measured with `npm run eval` (agent-skills-eval, 66 evals, with_skill vs without_skill). Evals run on demand, never in CI. When you change doctrine that affects what the model outputs, re-run the affected evals and record the delta in `evals/BASELINE-SPECIMENS.md`. Backends: `npm run eval` uses opencode go by default (key in `.eval-key.go.env`); `npm run eval:zen` is the free tier (429-prone, spot runs only); `npm run eval:deepseek` is the DeepSeek API direct (key in `.eval-key.env`).
+The skill is measured with `npm run eval` (agent-skills-eval, 68 evals, with_skill vs without_skill). Evals run on demand, never in CI. The backend is opencode go (key in `.eval-key.go.env`); the key is personal - never commit or share it. When you change doctrine that affects what the model outputs, re-run the affected evals and record the delta in `evals/BASELINE-SPECIMENS.md`.
+
+Contributors: follow the skill-writing rules (writing-for-agents) for anything an agent consumes - SKILL.md, reference/, and eval prompts. The levers: context pointers front-load the trigger and list the branches; the information hierarchy inlines what every branch needs and discloses the rest; doctrine is stated positively (target behaviour, not bans); keep a single source of truth; prune no-ops sentence by sentence.
 
 ## Security
 

@@ -58,9 +58,7 @@ Gate: >= +15pp. Result: **+62.5pp. PASS.**
 ## How to re-run
 
 ```bash
-npm run eval            # default: opencode go (agent-skills-eval.yaml); key in .eval-key.go.env
-npm run eval:zen        # free tier: opencode zen (429s after a few heavy calls - spot runs only)
-npm run eval:deepseek   # paid direct: DeepSeek API; key in .eval-key.env
+npm run eval   # opencode go (agent-skills-eval.yaml); key in .eval-key.go.env (personal, gitignored)
 ```
 
 Env overrides: `OPENAI_COMPATIBLE_BASE_URL` / `OPENAI_COMPATIBLE_MODEL` / `OPENAI_COMPATIBLE_API_KEY` (or export `EVAL_API_KEY` directly).

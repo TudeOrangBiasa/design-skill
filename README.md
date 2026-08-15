@@ -58,7 +58,7 @@ npm run eval
 
 66 evals across slop-kill (including 11 real specimens from impeccable's antipattern-examples and 35 tell fragments from killaislop.com), build-from-brief, redesign, two-axis audit, a11y, deslop, shape-grill, goal, and checklist families, run with_skill vs without_skill against the [agent-skills-eval](https://github.com/darkrishabh/agent-skills-eval) harness. Default backend: opencode go (`deepseek-v4-flash`, `https://opencode.ai/zen/go/v1`), key in `.eval-key.go.env` (gitignored; the opencode account key, same one the free tier uses) or `EVAL_API_KEY`. Override with `OPENAI_COMPATIBLE_BASE_URL` / `OPENAI_COMPATIBLE_MODEL` / `OPENAI_COMPATIBLE_API_KEY`. Scorecards: [evals/BASELINE-v1.md](evals/BASELINE-v1.md), [evals/BASELINE-v2.md](evals/BASELINE-v2.md), [evals/BASELINE-SPECIMENS.md](evals/BASELINE-SPECIMENS.md).
 
-Other backends: `npm run eval:zen` runs the same suite on the opencode zen free tier (`deepseek-v4-flash-free`, same key) - caveat: it rate-limits (HTTP 429 FreeUsageLimitError) after ~4-5 heavy calls, so it is for spot runs only; `npm run eval:deepseek` runs it on the DeepSeek API directly (`deepseek-v4-flash`, key in `.eval-key.env`).
+The eval backend is opencode go only. The key in `.eval-key.go.env` is personal and gitignored - never commit or share an eval key.
 
 Latest scorecard (2.1.0, merged across iterations 20-36): **with_skill 232/239 (97.1%)** vs without_skill 64/239 (26.8%), lift **+68.4pp**, on 66 evals with 53 deterministic detector rules backing the mechanical checks.
 
