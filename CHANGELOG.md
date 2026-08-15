@@ -6,7 +6,7 @@ Entries start at 1.0.19; earlier history lives in the git log. Format follows Ke
 
 ### Added
 
-- `plugins/prune-install.sh`: removes the tracked dev artifacts (research/, datasets/, assets/, .github/, changelog/contribution, eval config) that skills.sh copies into every project-scoped install. Run it on each installed copy after `skills add`; never on the omp symlink (its target is the repo itself).
+- `plugins/prune-install.sh`: removes the tracked dev artifacts that skills.sh copies into every project-scoped install — repo dev files (research/, datasets/, assets/ incl. the 3.9MB banner, .github/, changelog/contribution, eval config, package.json) and the dev-only tooling (evals/ suite, `scripts/*.test.mjs`, `scripts/fixtures/`, `scripts/lint-docs.mjs`, `scripts/validate-{catalog,evals}.mjs`). Run it on each installed copy after `skills add`; never on the omp symlink (its target is the repo itself). The surviving install is exactly the runtime set: SKILL.md + docs, reference/, scripts/ dispatcher (design/detector/css-scan/parser/concept-seed/check-design/load-context, rules/, command-metadata.json), plugins/, LICENSE/NOTICE/README.
 
 ## [2.1.1] - 2026-08-14
 
