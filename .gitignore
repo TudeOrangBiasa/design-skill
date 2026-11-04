@@ -17,3 +17,4 @@ skills-lock.json
 # Eval harness artifacts + local API key (personal, never commit).
 eval-workspace/
 .eval-key.go.env
+.scratch/

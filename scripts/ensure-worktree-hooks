@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+WORKTREE="."
+CHECK=0
+while (($#)); do case "$1" in
+  --worktree) WORKTREE="$2"; shift 2 ;;
+  --check) CHECK=1; shift ;;
+  -h|--help) echo "usage: scripts/ensure-worktree-hooks [--worktree <path>] [--check]"; exit 0 ;;
+  *) echo "ensure-worktree-hooks: unknown flag $1" >&2; exit 2 ;;
+esac; done
+
+cd "$WORKTREE"
+git rev-parse --is-inside-work-tree >/dev/null 2>&1 || { echo "ensure-worktree-hooks: not a git worktree: $WORKTREE" >&2; exit 2; }
+TOP="$(git rev-parse --show-toplevel)"
+
+SRC=""
+for f in "$TOP/.husky/pre-push" "$TOP/.githooks/pre-push"; do
+  [ -f "$f" ] && { SRC="$f"; break; }
+done
+[ -n "$SRC" ] || { echo "ensure-worktree-hooks: no .husky/pre-push or .githooks/pre-push in $TOP" >&2; exit 1; }
+
+HOOKS_PATH="$(git config --get core.hooksPath || true)"
+case "$HOOKS_PATH" in
+  .husky*|*/.husky*)
+    TARGET="$TOP/$HOOKS_PATH/pre-push"
+    [ -f "$TARGET" ] || TARGET="$SRC"
+    ;;
+  *)
+    TARGET="$(git rev-parse --path-format=absolute --git-path hooks)/pre-push"
+    ;;
+esac
+
+ok() { [ -f "$1" ] && [ -x "$1" ]; }
+
+if ((CHECK)); then
+  if ok "$TARGET" && ok "$SRC"; then echo "ensure-worktree-hooks: ok: $TARGET"; exit 0; fi
+  echo "ensure-worktree-hooks: missing pre-push hook: $TARGET (worktree incomplete)" >&2
+  exit 1
+fi
+
+chmod +x "$SRC"
+if [ "$TARGET" != "$SRC" ] && [ "${TARGET#"$TOP"/.husky}" = "$TARGET" ]; then
+  mkdir -p "$(dirname "$TARGET")"
+  cp "$SRC" "$TARGET"
+  chmod +x "$TARGET"
+fi
+ok "$TARGET" || { echo "ensure-worktree-hooks: hook still missing: $TARGET" >&2; exit 1; }
+echo "ensure-worktree-hooks: installed $TARGET (from ${SRC#"$TOP"/})"

@@ -28,7 +28,7 @@ npm run validate-evals            # eval suite contract (ids, prompts, fixture p
 node scripts/design.mjs --help    # dispatcher works
 ```
 
-CI runs the same checks plus a SkillSpector security scan. There is nothing to install: the skill has zero npm dependencies and needs only Node >= 18.
+`bash scripts/verify.sh` runs the same checks plus a SkillSpector security scan and a CLI smoke; the pre-push hook runs it (install with `scripts/ensure-worktree-hooks`). There is no GitHub Actions CI. There is nothing to install: the skill has zero npm dependencies and needs only Node >= 18.
 
 ## Prose conventions
 
@@ -76,10 +76,10 @@ Contributors: follow the skill-writing rules (writing-for-agents) for anything a
 
 ## Security
 
-CI runs SkillSpector (`skillspector scan . --no-llm --baseline .skillspector-baseline.yaml`), which flags prompt injection, exfiltration, and supply-chain patterns. When a scan surfaces a finding:
+The local verifier runs SkillSpector (`skillspector scan . --no-llm --baseline .skillspector-baseline.yaml`), which flags prompt injection, exfiltration, and supply-chain patterns. When a scan surfaces a finding:
 
 - Fix it when it is real (pin unpinned install commands, declare capabilities).
-- Suppress false positives via the baseline file. Regenerate it with `skillspector baseline . --no-llm -o .skillspector-baseline.yaml`, then edit the reason fields so each suppression is self-documenting. Keep the baseline in sync with the pinned SkillSpector version in CI.
+- Suppress false positives via the baseline file. Regenerate it with `skillspector baseline . --no-llm -o .skillspector-baseline.yaml`, then edit the reason fields so each suppression is self-documenting. Keep the baseline in sync with the pinned SkillSpector version (v2.5.3) the verifier expects.
 
 ## Pull requests
 
