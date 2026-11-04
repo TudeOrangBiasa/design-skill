@@ -50,7 +50,7 @@ Tech gradient, generic tech hue, feature-tile grid, accent rail, unearned blur, 
 
 ## Evals
 
-The skill is measured, not assumed. Run the scorecard on demand (not in CI):
+The skill is measured, not assumed. Run the scorecard on demand (not in the verifier):
 
 ```bash
 npm run eval
